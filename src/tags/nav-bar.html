@@ -1,0 +1,16 @@
+<nav-bar>
+  <nav>
+    <h1 class="offscreen"> Site Navigation </h1>
+    <ul class="nav">
+      <li each={ opts.config.items } class="navitem">
+        <nav-item></nav-item>
+      </li>
+    </ul>
+  </nav>
+
+  <script type="text/javascript">
+  console.log("this.opts ::", this.opts);
+  console.log("this.opts.items ::", this.opts.items);
+  </script>
+
+</nav-bar>

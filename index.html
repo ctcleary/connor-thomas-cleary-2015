@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> CTC Local Dev </title>
+
+  <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="style/styles.css" />
+
+  <script src="../node_modules/riot/riot+compiler.js"></script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+  <script src="src/tags/app.html" type="riot/tag"></script>
+
+  <script src="src/tags/nav-bar.html" type="riot/tag"></script>
+  <script src="src/tags/nav-item.html" type="riot/tag"></script>
+  <script src="src/tags/content.html" type="riot/tag"></script>
+  <script src="src/tags/content-item.html" type="riot/tag"></script>
+</head>
+<body>
+<h1 class="offscreen"> Connor Thomas Cleary - Official Website </h1>
+
+<app></app>
+ 
+<script type="text/javascript">
+  riot.compile(function() {
+    var app = riot.mount('app', {
+      nav: {
+        other: 'other',
+        items: [
+          { navLabel: 'navitem1' },
+          {
+            navLabel: 'navitem2',
+            subnavItems: [
+              { navLabel: 'subnav1'}
+            ]
+          }
+        ]
+      },
+      content: {
+        items: [
+          {
+            itemTitle: 'stunningContent',
+            itemText: 'lorem ipsum dolor sit'
+          },
+          {
+            itemTitle: 'amazingContent',
+            itemText: 'lorem ipsum dolor sit'
+          }
+        ]
+      }
+    });
+
+    console.log("app[0] ::", app[0]);
+
+  });
+
+
+</script>
+</body>
+</html>
