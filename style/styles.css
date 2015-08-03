@@ -11,9 +11,14 @@ html {
   margin: 0 auto;
 }
 
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 nav-bar {
   display: table;
-  height: 38px;
+  /*height: 38px;*/
   width: 100%;
   vertical-align: middle;
 
@@ -32,9 +37,11 @@ nav-bar {
 
 nav-bar ul {
   list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
 }
 nav-bar ul li {
-  float: left;
+  display: inline-block;
 }
 
 nav-item {
@@ -62,4 +69,17 @@ content-item {
   height: 1px;
   width: 1px;
   overflow: hidden;
+}
+
+content {
+  width: 100%;
+}
+
+content-item {
+  max-width: 1024px;
+}
+
+content-item p {
+  text-align: left;
+  text-indent: 2em;
 }

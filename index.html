@@ -3,6 +3,8 @@
 <head>
   <title> CTC Local Dev </title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="style/styles.css" />
 
@@ -18,38 +20,14 @@
   <script src="src/tags/content-item.html" type="riot/tag"></script>
 </head>
 <body>
-<h1 class="offscreen"> Connor Thomas Cleary - Official Website </h1>
+<h1 class="title"> Connor Thomas Cleary </h1>
 
 <app></app>
- 
+
+<script type="text/javascript" src="siteConfig.js"></script>
 <script type="text/javascript">
   riot.compile(function() {
-    var app = riot.mount('app', {
-      nav: {
-        other: 'other',
-        items: [
-          { navLabel: 'navitem1' },
-          {
-            navLabel: 'navitem2',
-            subnavItems: [
-              { navLabel: 'subnav1'}
-            ]
-          }
-        ]
-      },
-      content: {
-        items: [
-          {
-            itemTitle: 'stunningContent',
-            itemText: 'lorem ipsum dolor sit'
-          },
-          {
-            itemTitle: 'amazingContent',
-            itemText: 'lorem ipsum dolor sit'
-          }
-        ]
-      }
-    });
+    var app = riot.mount('app', siteConfigJson);
 
     console.log("app[0] ::", app[0]);
 

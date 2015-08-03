@@ -1,11 +1,18 @@
-<nav-item onclick={ onClick }>
+<nav-item>
   <h1 class="offscreen"> { navLabel } </h1>
-  { navLabel }
+  <a onclick={ onClick } class="routeLink"> { navLabel } </a>
 
   <script>
-    onClick(e) {
-      console.log("onclick");
+    // var a = this.root.getElementsByClassName('routeLink')[0];
+    // a.href = '#writer/'+opts.navLabel.toLowerCase();
+    this.onClick = function(e) {
+      console.log("onClick");
     };
+
+    this.hasNavItemParent = function() {
+      var parentTag = this.parent.tagName.toLowerCase();
+      return parentTag === 'nav-bar';
+    }
   </script>
 
 </nav-item>

@@ -5,10 +5,13 @@
   <span if={ !itemImgUrl }>{ itemTitle }</span>
   </h3>
 
-  <p> { itemText } </p>
+  <p each={ p, i in paragraphs }>
+    { p }
+  </p>
 
   </section>
   <script>
+  console.log("this ::", this);
 
   </script>
 
