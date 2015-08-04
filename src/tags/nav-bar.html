@@ -1,11 +1,8 @@
 <nav-bar>
   <nav>
-    <h1 class="offscreen"> Site Navigation </h1>
-    <ul class="nav">
-      <li each={ opts.config.items } class="navitem">
-        <nav-item data={ this }></nav-item>
-      </li>
-    </ul>
+    <!-- <h1 class="offscreen">{ opts.nav-label }</h1> -->
+    <h1 class="offscreen">{ opts.label }</h1>
+    <nav-item each={ opts.items } />
   </nav>
 
   <script type="text/javascript">

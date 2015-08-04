@@ -1,8 +1,14 @@
 <nav-item>
-  <h1 class="offscreen"> { navLabel } </h1>
-  <a onclick={ onClick } class="routeLink"> { navLabel } </a>
+  <h1 class="offscreen"> { label } </h1>
+  <a onclick={ onClick } class="routeLink"> { label } </a>
+  <nav-bar
+    if={ subNavItems.length }
+    class="subnav"
+    label={ label + ' Nav' }
+    items={ subNavItems } />
 
   <script>
+    // console.log("this ::", this);
     // var a = this.root.getElementsByClassName('routeLink')[0];
     // a.href = '#writer/'+opts.navLabel.toLowerCase();
     this.onClick = function(e) {
