@@ -1,8 +1,8 @@
 <content-item>
   <section>
   <h3>
-  <img if={ itemImgUrl } src="{ itemImgUrl }" alt="{ itemTitle }" />
-  <span if={ !itemImgUrl }>{ itemTitle }</span>
+  <img if={ itemImgUrl } src="{ itemImgUrl }" alt="{ label }" />
+  <span if={ !itemImgUrl }>{ label }</span>
   </h3>
 
   <p each={ p, i in paragraphs }>
@@ -11,7 +11,6 @@
 
   </section>
   <script>
-  console.log("this ::", this);
 
   </script>
 

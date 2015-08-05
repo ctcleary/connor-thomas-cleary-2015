@@ -15,7 +15,7 @@ var siteConfigJson = {
         subNavItems: [
           { label: 'Front-End', subNavItems: [] },
           { label: 'Scripting', subNavItems: [] },
-          { label: 'OOP', subNavItems: [] }
+          { label: 'Back-End', subNavItems: [] }
         ]
       },
       {

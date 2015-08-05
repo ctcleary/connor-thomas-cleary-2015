@@ -1,18 +1,19 @@
 <nav-item>
   <h1 class="offscreen"> { label } </h1>
   <a onclick={ onClick } class="routeLink"> { label } </a>
+  <sub-nav-doodad
+    if={ subNavItems.length } />
   <nav-bar
     if={ subNavItems.length }
-    class="subnav"
+    class="sub-nav"
     label={ label + ' Nav' }
     items={ subNavItems } />
 
   <script>
-    // console.log("this ::", this);
-    // var a = this.root.getElementsByClassName('routeLink')[0];
-    // a.href = '#writer/'+opts.navLabel.toLowerCase();
+    this.root.className = this.parent.root.className + '-item';
+
     this.onClick = function(e) {
-      console.log("onClick");
+      console.log("onClick :: " + this.label );
     };
 
     this.hasNavItemParent = function() {
