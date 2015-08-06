@@ -80,9 +80,19 @@ nav-item {
   display: block;
   height: 12px;
   margin: 3px auto;
-  max-width: 100%;
+  width: 100%;
 }
 
+.sub-nav-doodad line {
+  stroke: black;
+  fill: none;
+}
+
+.sub-nav-doodad .right-l {
+  position: absolute;
+  right: 0;
+  /*transform: translateX(300%);*/
+}
 
 content-item {
   /*outline: thin solid blue;*/
