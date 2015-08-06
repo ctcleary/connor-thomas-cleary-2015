@@ -13,6 +13,7 @@
     this.root.className = this.parent.root.className + '-item';
 
     this.onClick = function(e) {
+      this.root.classList.add('active');
       console.log("onClick :: " + this.label );
     };
 
