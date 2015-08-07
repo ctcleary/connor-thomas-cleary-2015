@@ -1,0 +1,46 @@
+@media screen and (max-width:720px) {
+  .title {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 24px 0 12px;
+    white-space: nowrap;
+  }
+
+  .main-nav {
+    padding-bottom: 6px;
+
+    &>nav-item {
+      display: block;
+      margin-bottom: 6px;
+      width: 100%;
+    }
+  }
+  .sub-nav-container {
+    .sub-nav {
+      display: block;
+      max-width: 400px;
+      margin: 0 auto;
+
+      padding-bottom: 0;
+    }
+
+    .sub-nav-doodad {
+      max-width: 420px;
+    }
+  }
+}
+
+@media screen and (max-width:320px) {
+  .title {
+    font-size: 18px;
+  }
+  .main-nav {
+    padding-bottom: 6px;
+
+    &>nav-item {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+nav-bar {
+  display: block;
+
+  ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+  nav-bar ul li {
+    display: inline-block;
+  }
+}
+
+nav-item {
+  display: inline-block;
+  margin: 0 1%;
+  width: 30%;
+
+  background: transparent;
+  // overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.main-nav {
+  width: 100%;
+
+  margin: 0 auto;
+  padding-bottom: 6px;
+  text-overflow: ellipsis;
+
+  box-shadow: $nav-box-shadow;
+}
+
+.main-nav>nav-item {
+  position: relative;
+  height: 100%;
+  font-size: 20px;
+  line-height: 24px;
+  overflow: hidden;
+  vertical-align: top;
+  
+  a {
+    height: inherit;
+    user-select: none;
+  }
+}
+
+
+.sub-nav {
+  display: block;
+
+  width: 100%;
+  cursor: default;
+}
+.sub-nav nav-item {
+  border-bottom: thin solid black;
+  font-size: 14px;
+  line-height: 18px;
+  overflow: hidden;
+  margin: 0 1%;
+}
+
+// Animation times
+$t-mid: 0.15;
+$t1: 0.10;
+$t2: 1.05;
+$t2delay: $t1 + 0.10;
+$t3: 0.10;
+$t3delay: $t1 + $t2 - 0.55;
+// ---------------
+
+$sub-nav: 24;
+$sub-nav-doodad-height: 12;
+
+.sub-nav-doodad {
+  display: block;
+  height: 12px;
+  margin: 3px auto;
+  max-width: 640px;
+  width: 100%;
+  // transition: height 0.1s linear;
+
+  line {
+    fill: none;
+    stroke: #000000;
+  }
+
+
+  .mid,
+  .z line:nth-child(1),
+  .z line:nth-child(3) {
+    stroke-dasharray: 12;
+    stroke-dashoffset: 12;
+  }
+
+  .mid {
+    transition: stroke-dashoffset #{$t3delay}s linear;
+    // transition: stroke-dashoffset #{$t-mid}s linear;
+  }
+
+  .z {
+    line:nth-child(1) {
+      transition: stroke-dashoffset #{$t1}s linear;
+    }
+    line:nth-child(2) {
+      stroke-dasharray: 110%;
+      stroke-dashoffset: 110%;
+      transition: stroke-dashoffset #{$t2}s #{$t2delay}s linear;
+    }
+    line:nth-child(3) {
+      transition: stroke-dashoffset #{$t3}s #{$t3delay}s linear;
+    }
+  }
+}
+
+/*Activate anim*/
+$transition-length: 0.25;
+.sub-nav-container {
+  height: 0;
+  opacity: 0;
+  transition: height 0.15s #{$transition-length}s linear,
+    opacity #{$transition-length * 1.5}s 0s linear;
+}
+.active {
+  .sub-nav-container {
+    opacity: 1;
+    height: #{ $sub-nav-doodad-height + $sub-nav }px;
+    transition: height #{$transition-length}s linear,
+      opacity 0.75s 0s linear;
+  }
+
+  .sub-nav,
+  .sub-nav-doodad {
+    opacity: 1;
+  }
+  .sub-nav {
+    height: #{$sub-nav}px;
+  }
+
+  .sub-nav-doodad {
+    height: #{$sub-nav-doodad-height}px;
+
+    line,
+    .z line {
+      stroke-dashoffset: 0;
+    }
+  }
+}

@@ -1,26 +1,53 @@
 <nav-item>
   <h1 class="offscreen"> { label } </h1>
-  <a onclick={ onClick } class="routeLink"> { label } </a>
-  <sub-nav-doodad
-    if={ subNavItems.length } />
-  <nav-bar
-    if={ subNavItems.length }
-    class="sub-nav"
-    label={ label + ' Nav' }
-    items={ subNavItems } />
+  <a href="#{ getRoute() }"
+    onclick={ onClick } class="routeLink"> { label } </a>
+  <div class="sub-nav-container" if={ subNavItems.length }>
+    <nav>
+      <sub-nav-doodad />
+      <nav-bar
+        class="nav sub-nav"
+        label={ label + ' Sub Navigation' }
+        items={ subNavItems }
+      />
+    </nav>
+  </div>
 
   <script>
-    this.root.className = this.parent.root.className + '-item';
+    riot.observable(this); 
 
     this.onClick = function(e) {
-      this.root.classList.add('active');
-      console.log("onClick :: " + this.label );
+      var wasActive = this.root.classList.contains('active');
+      this.trigger('setActive');
+      if (!wasActive) {
+        this.root.classList.add('active');
+        riot.route( this.getRoute() );
+      }
+      return false;
     };
 
-    this.hasNavItemParent = function() {
-      var parentTag = this.parent.tagName.toLowerCase();
-      return parentTag === 'nav-bar';
-    }
-  </script>
+    this.isSub = function() {
+      return this.parent.root.className === 'sub-nav';
+    };
 
+    this.parentLabel = function() {
+      if (this.parent.label) {
+        return this.parent.label
+        .toLowerCase()
+        .replace(/-\s/g, '_');
+      } else {
+        return '';
+      }
+    };
+
+    this.getRoute = function() {
+      var route = '';
+      if (this.isSub()) {
+        route += this.parentLabel();
+        route += '/';
+      }
+      route += this.label.toLowerCase();
+      return route;
+    };
+  </script>
 </nav-item>
