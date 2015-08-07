@@ -58,7 +58,7 @@ nav-item {
   cursor: default;
 }
 .sub-nav nav-item {
-  border-bottom: thin solid black;
+  // border-bottom: thin solid black;
   font-size: 14px;
   line-height: 18px;
   overflow: hidden;
@@ -78,7 +78,7 @@ $tL: 0.2; // transitionLength
 
   line {
     fill: none;
-    stroke: #000000;
+    stroke: #222222;
   }
 
   .mid,
