@@ -103,13 +103,24 @@ nav-item {
 }
 
 /*Activate anim*/
+.sub-nav-doodad {
+  height: 0;
+  transition: height 0.1s linear;
+}
+.active .sub-nav-doodad {
+  height: 12px;
+}
+
 .sub-nav {
   cursor: default;
   opacity: 0;
-  transition: opacity 0.4s 0.8s linear;
+  height: 0;
+  transition: opacity 0.25s 0.5s linear,
+    height 0.2s 0.5s linear;
 }
 .active .sub-nav {
   cursor: pointer;
+  height: 24px;
   opacity: 1;
 }
 .active .sub-nav-doodad line,
@@ -120,10 +131,10 @@ nav-item {
   transition: stroke-dashoffset 800ms linear;
  }
 .sub-nav-doodad .z line:nth-child(1) {
-  transition: stroke-dashoffset 0.15s linear;
+  transition: stroke-dashoffset 0.05s linear;
 }
 .sub-nav-doodad .z line:nth-child(2) {
-  transition: stroke-dashoffset 1.75s 0.15s linear;
+  transition: stroke-dashoffset 1.05s 0.15s linear;
 }
 .sub-nav-doodad .z line:nth-child(3) {
   /*transition-delay: ;*/
