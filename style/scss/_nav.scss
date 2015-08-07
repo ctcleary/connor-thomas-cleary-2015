@@ -65,31 +65,21 @@ nav-item {
   margin: 0 1%;
 }
 
-// Animation times
-$t-mid: 0.15;
-$t1: 0.10;
-$t2: 1.05;
-$t2delay: $t1 + 0.10;
-$t3: 0.10;
-$t3delay: $t1 + $t2 - 0.55;
-// ---------------
-
 $sub-nav: 24;
 $sub-nav-doodad-height: 12;
 
+$tL: 0.2; // transitionLength
 .sub-nav-doodad {
   display: block;
   height: 12px;
   margin: 3px auto;
   max-width: 640px;
   width: 100%;
-  // transition: height 0.1s linear;
 
   line {
     fill: none;
     stroke: #000000;
   }
-
 
   .mid,
   .z line:nth-child(1),
@@ -97,29 +87,34 @@ $sub-nav-doodad-height: 12;
     stroke-dasharray: 12;
     stroke-dashoffset: 12;
   }
-
-  .mid {
-    transition: stroke-dashoffset #{$t3delay}s linear;
-    // transition: stroke-dashoffset #{$t-mid}s linear;
-  }
-
   .z {
-    line:nth-child(1) {
-      transition: stroke-dashoffset #{$t1}s linear;
-    }
     line:nth-child(2) {
       stroke-dasharray: 110%;
       stroke-dashoffset: 110%;
-      transition: stroke-dashoffset #{$t2}s #{$t2delay}s linear;
+    }
+  }
+
+  .mid {
+    transition: stroke-dashoffset #{$tL}s linear;
+  }
+  .z {
+    line:nth-child(1) {
+      transition: stroke-dashoffset #{$tL*0.1}s #{$tL*0.9}s linear;
+    }
+    line:nth-child(2) {
+      transition: stroke-dashoffset #{$tL*0.8}s #{$tL*0.1}s linear;
     }
     line:nth-child(3) {
-      transition: stroke-dashoffset #{$t3}s #{$t3delay}s linear;
+      transition: stroke-dashoffset #{$tL*0.1}s linear;
     }
   }
 }
 
 /*Activate anim*/
-$transition-length: 0.25;
+$transition-length: 0.27;
+.sub-nav {
+  opacity: 0;
+}
 .sub-nav-container {
   height: 0;
   opacity: 0;
@@ -129,17 +124,15 @@ $transition-length: 0.25;
 .active {
   .sub-nav-container {
     opacity: 1;
-    height: #{ $sub-nav-doodad-height + $sub-nav }px;
+    height: #{$sub-nav-doodad-height + $sub-nav}px;
     transition: height #{$transition-length}s linear,
       opacity 0.75s 0s linear;
   }
 
-  .sub-nav,
-  .sub-nav-doodad {
-    opacity: 1;
-  }
   .sub-nav {
+    opacity: 1;
     height: #{$sub-nav}px;
+    transition: opacity 0.75s #{$transition-length/3}s linear;
   }
 
   .sub-nav-doodad {
@@ -148,6 +141,18 @@ $transition-length: 0.25;
     line,
     .z line {
       stroke-dashoffset: 0;
+    }
+
+    .z {
+      line:nth-child(1) {
+        transition: stroke-dashoffset #{$tL*0.1}s linear;
+      }
+      line:nth-child(2) {
+        transition: stroke-dashoffset #{$tL*0.8}s #{$tL*0.1}s linear;
+      }
+      line:nth-child(3) {
+        transition: stroke-dashoffset #{$tL*0.1}s #{$tL*0.9}s linear;
+      }
     }
   }
 }
