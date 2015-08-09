@@ -5,6 +5,11 @@ html {
 
 body {
   margin: 0;
+
+  background: url('../bg.jpg') repeat black;
+  // background: url('../bg.png') repeat black;
+  // color: white;
+  color: $base-font-color;
 }
 
 .title {

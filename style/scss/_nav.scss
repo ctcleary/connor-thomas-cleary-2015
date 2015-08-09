@@ -34,6 +34,7 @@ nav-item {
   text-overflow: ellipsis;
 
   box-shadow: $nav-box-shadow;
+  border-bottom: thin solid $nav-box-divider-color-border;
 }
 
 .main-nav>nav-item {
@@ -78,7 +79,8 @@ $tL: 0.2; // transitionLength
 
   line {
     fill: none;
-    stroke: #222222;
+    // stroke: #222222;
+    stroke: $base-font-color;
   }
 
   .mid,

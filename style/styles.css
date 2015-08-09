@@ -62,7 +62,8 @@ nav-item {
   margin: 0 auto;
   padding-bottom: 6px;
   text-overflow: ellipsis;
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25); }
+  box-shadow: 0px 6px 12px 0px rgba(143, 191, 239, 0.15);
+  border-bottom: thin solid rgba(143, 191, 239, 0.25); }
 
 .main-nav > nav-item {
   position: relative;
@@ -97,7 +98,7 @@ nav-item {
   width: 100%; }
   .sub-nav-doodad line {
     fill: none;
-    stroke: #222222; }
+    stroke: #F6FCFF; }
   .sub-nav-doodad .mid,
   .sub-nav-doodad .z line:nth-child(1),
   .sub-nav-doodad .z line:nth-child(3) {
@@ -175,7 +176,9 @@ html {
   margin: 0 auto; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  background: url("../bg.jpg") repeat black;
+  color: #F6FCFF; }
 
 .title {
   text-transform: uppercase;
