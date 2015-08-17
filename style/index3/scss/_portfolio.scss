@@ -1,8 +1,17 @@
 .portfolio {
   background: url('../../img/bg.jpg') repeat black;
+  color: #fff;
 
   h1 {
     text-align: left;
+  }
+
+  p {
+    margin-bottom: 12px;
+  }
+
+  button {
+    color: black;
   }
 
   .slates-wrapper {
@@ -13,7 +22,7 @@
     .slates-holder {
       display: inline-block;
       margin: 0 auto;
-      max-width: 960px;
+      max-width: 1240px;
       width: 100%;
     }
   }
@@ -40,3 +49,24 @@
     }
   }
 }
+
+
+.skill-tags,
+.skill-tags-active {
+  margin-bottom: 12px;
+}
+
+.skill-tags {
+  button:after {
+    content: '+';
+    color: blue;
+  }
+}
+
+.skill-tags-active {
+  button:after {
+    content: 'x';
+    color: red;
+  }
+}
+

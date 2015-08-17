@@ -48,15 +48,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* MARGIN LEFTS */
+
 h1 {
   color: white;
   font-size: 24px;
-  margin: 0 3% 0 0;
-  padding: 2% 0;
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 12px 0 0 0;
 }
+
+/* MARGIN LEFTS */
 h1,
-p {
+p,
+.skill-tags,
+.skill-tags-active {
   margin-left: 10%;
 }
 .main-nav-wrapper {
@@ -66,11 +71,13 @@ p {
 @media screen and (max-width:720px) {
   h1 {
     font-size: 22px;
-    padding: 3% 0;
+    padding: 12px 0 0 0;
   }
 
   h1,
-  p {
+  p,
+  .skill-tags,
+  .skill-tags-active {
     margin-left: 6%;
   }
   .main-nav-wrapper {
@@ -80,10 +87,12 @@ p {
 @media screen and (max-width:320px) {
   h1 {
     font-size: 18px;
-    padding: 5% 0;
+    padding: 12px 0 0 0;
   }
   h1,
-  p {
+  p,
+  .skill-tags,
+  .skill-tags-active {
     margin-left: 4%;
   }
   .main-nav-wrapper {

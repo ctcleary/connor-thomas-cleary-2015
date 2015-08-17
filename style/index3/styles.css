@@ -36,15 +36,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px;
   text-align: right; }
 
-/* MARGIN LEFTS */
 h1 {
   color: white;
   font-size: 24px;
-  margin: 0 3% 0 0;
-  padding: 2% 0; }
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 12px 0 0 0; }
 
+/* MARGIN LEFTS */
 h1,
-p {
+p,
+.skill-tags,
+.skill-tags-active {
   margin-left: 10%; }
 
 .main-nav-wrapper {
@@ -53,10 +56,12 @@ p {
 @media screen and (max-width: 720px) {
   h1 {
     font-size: 22px;
-    padding: 3% 0; }
+    padding: 12px 0 0 0; }
 
   h1,
-  p {
+  p,
+  .skill-tags,
+  .skill-tags-active {
     margin-left: 6%; }
 
   .main-nav-wrapper {
@@ -64,10 +69,12 @@ p {
 @media screen and (max-width: 320px) {
   h1 {
     font-size: 18px;
-    padding: 5% 0; }
+    padding: 12px 0 0 0; }
 
   h1,
-  p {
+  p,
+  .skill-tags,
+  .skill-tags-active {
     margin-left: 4%; }
 
   .main-nav-wrapper {
@@ -105,9 +112,14 @@ p {
   border-bottom: thin solid rgba(105, 212, 253, 0.45); }
 
 .portfolio {
-  background: url("../../img/bg.jpg") repeat black; }
+  background: url("../../img/bg.jpg") repeat black;
+  color: #fff; }
   .portfolio h1 {
     text-align: left; }
+  .portfolio p {
+    margin-bottom: 12px; }
+  .portfolio button {
+    color: black; }
   .portfolio .slates-wrapper {
     width: 100%;
     padding: 0 24px 4% 24px;
@@ -115,7 +127,7 @@ p {
     .portfolio .slates-wrapper .slates-holder {
       display: inline-block;
       margin: 0 auto;
-      max-width: 960px;
+      max-width: 1240px;
       width: 100%; }
   .portfolio .slate-item {
     display: inline-block;
@@ -131,6 +143,18 @@ p {
     display: block;
     margin: 4% 0;
     width: 100%; } }
+.skill-tags,
+.skill-tags-active {
+  margin-bottom: 12px; }
+
+.skill-tags button:after {
+  content: '+';
+  color: blue; }
+
+.skill-tags-active button:after {
+  content: 'x';
+  color: red; }
+
 .about-me {
   background: #eeeeee;
   min-height: 400px; }

@@ -11,20 +11,27 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      options: {
-        livereload: true
+      gruntfile: {
+        files: ['Gruntfile.js'],
+        options: {
+          livereload: true
+        },
       },
-      gruntfile: ['Gruntfile.js'],
-      all: [
-        '*.html',
-        '**/*.*',
-        '**/*.css',
-        '**/*.js',
-        '**/*.html',
-        '**/*.jpg',
-        '**/*.png',
-        '**/*.svg'
-      ],
+      all: {
+        files: [
+          '/*.html',
+          '**/*.*',
+          '**/*.css',
+          '**/*.js',
+          '**/*.html',
+          '**/*.jpg',
+          '**/*.png',
+          '**/*.svg'
+        ],
+        options: {
+          livereload: true
+        },
+      },
       sass: {
         files: 'style/**/*.scss',
         tasks: ['buildcss']
