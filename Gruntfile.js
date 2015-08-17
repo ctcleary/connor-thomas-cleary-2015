@@ -11,23 +11,35 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      all: {
-        files: '**/*.*',
-        tasks: [],
-        options: {
-          livereload: true
-        }
+      options: {
+        livereload: true
       },
+      gruntfile: ['Gruntfile.js'],
+      all: [
+        '*.html',
+        '**/*.*',
+        '**/*.css',
+        '**/*.js',
+        '**/*.html',
+        '**/*.jpg',
+        '**/*.png',
+        '**/*.svg'
+      ],
       sass: {
-        files: 'style/scss/*.scss',
+        files: 'style/**/*.scss',
         tasks: ['buildcss']
       }
     },
 
     sass: {
-      dev: {
+      1: {
         files: {
-          'style/styles.css': 'style/scss/master.scss'
+          'style/index/styles.css': 'style/index/scss/master.scss'
+        }
+      },
+      3: {
+        files: {
+          'style/index3/styles.css': 'style/index3/scss/master.scss'
         }
       }
     },
@@ -37,7 +49,8 @@ module.exports = function(grunt) {
           browsers: ['last 4 versions']
         },
         files: {
-          'style/styles.css': 'style/styles.css'
+          'style/index/styles.css': 'style/index/styles.css',
+          'style/index3/styles.css': 'style/index3/styles.css'
         }
       }
     }

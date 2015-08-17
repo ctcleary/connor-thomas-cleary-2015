@@ -1,0 +1,65 @@
+
+.plus {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  
+  transform-origin: center center;
+
+  .rect {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 2px;
+
+    background: white;
+    transform: rotate(0deg);
+    transform-origin: center center;
+
+    &:nth-child(2) {
+      transform:  rotate(90deg);
+    }
+  }
+}
+
+$tL: 0.25;
+// Back to V
+input[type="checkbox"]:not(:checked) + .trigger-label {
+  .plus {
+    transform: rotate(0deg) scale(0.65) translateY(10px);
+    transition: transform #{$tL}s linear;
+
+    .rect {
+      // width: 12px;
+      &:nth-child(1) {
+
+        // transform: scale(0.5);
+        // transform: rotate(-45deg);
+        // transform: rotate(-45deg) scale(0.75) translate(6px, 0); //24px);
+        // transform: ;
+      }
+      &:nth-child(2) {
+        // transform:  rotate(90deg);
+        // transform: rotate(45deg);
+        // transform: rotate(45deg) scale(0.75) translate(-6px, 0); //24px);
+        // transform-origin: top left;
+      }
+      // &:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+      // &:nth-child(2) { transform: rotate(-45deg) translate(-8px, 8px); }
+    }
+  }
+}
+
+// Go to X
+input[type="checkbox"]:checked + .trigger-label {
+  .plus {
+    transform: rotate(45deg) scale(1) translate(0, 10px);
+    transition: transform #{$tL}s linear;
+
+    .rect {
+      // &:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+      // &:nth-child(2) { transform: rotate(-45deg) translate(-8px, 8px); }
+    }
+  }
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> CTC Local Dev </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" /> -->
+
+  <!-- <link rel="stylesheet" type="text/css" href="style/styles.css" /> -->
+
+  <script src="../node_modules/riot/riot+compiler.js"></script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+  <script src="src/tags/portfolio.html" type="riot/tag"></script>
+
+  <script src="src/tags/nav-bar.html" type="riot/tag"></script>
+  <script src="src/tags/nav-item.html" type="riot/tag"></script>
+  <script src="src/tags/sub-nav-doodad.html" type="riot/tag"></script>
+  <!-- <script src="src/tags/sub-nav.html" type="riot/tag"></script> -->
+  <script src="src/tags/content.html" type="riot/tag"></script>
+  <script src="src/tags/content-item.html" type="riot/tag"></script>
+
+  <style type="text/css">
+    body {
+      background: url('../img/bg.jpg') repeat black;
+    }
+    .crosshair {
+      width: 100px;
+      height: 100px;
+
+    }
+
+    .crosshair g {
+      transform-origin: center center;
+      transform: rotate(0);
+    }
+    .crosshair g.outer {
+      animation: spin 4.9s 1 1.32s ease-out;
+    }
+    .crosshair g.mid {
+      animation: spin 3.35s 1 0.205s ease-out;
+    }
+    .crosshair g.inner {
+      animation: spin 3s 1 ease-out;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(359deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg class="crosshair" version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+   x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36">
+
+  <g class="outer">
+    <circle fill="none" stroke="#ff8d29" stroke-width="4" stroke-miterlimit="10" cx="18" cy="18" r="15"/>
+    <path fill="none" stroke="#6ad2fc" stroke-width="4.1" stroke-miterlimit="10" d="M28.6,7.4C31.32,10.11,33,13.86,33,18
+      c0,4.14-1.68,7.89-4.4,10.6"/>
+  </g>
+  <g class="mid">
+    <circle fill="none" stroke="#ff8d29" stroke-width="4" stroke-miterlimit="10" cx="18" cy="18" r="9.7" />
+    <path fill="none" stroke="#6ad2fc" stroke-width="4.1" stroke-miterlimit="10" d="M11.15,24.85C9.4,23.1,8.32,20.68,8.32,18c0-2.68,1.08-5.1,2.83-6.85"/>
+  </g>
+  <g class="inner">
+    <path class="botright" fill="transparent" d="M18.005,24.476v-6.48h6.47C24.475,21.565,21.575,24.476,18.005,24.476z"/>
+    <path class="topsemi" fill="#ff8d29" d="M24.48,18H11.52c0-3.58,2.91-6.48,6.48-6.48C21.58,11.52,24.48,14.42,24.48,18z"/>
+    <path class="botleft" fill="#6ad2fc" d="M11.52,18H18v6.47C14.43,24.47,11.52,21.57,11.52,18z"/>
+</g>
+</svg>
+
+
+00fefc
+
+F0F1F1
+A6A8AB
+000000
+</body>
+
+</html>

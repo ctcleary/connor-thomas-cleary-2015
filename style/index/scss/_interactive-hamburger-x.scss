@@ -1,0 +1,60 @@
+
+.hamburger {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  
+  transform-origin: center center;
+
+  .rect {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 2px;
+
+    background: white;
+    transform: rotate(0deg);
+    transform-origin: center center;
+
+    &:nth-child(1) { transform: translateY(2px); }
+    &:nth-child(2) { transform: translateY(10px); }
+    &:nth-child(3) { transform: translateY(18px); }
+  }
+}
+
+
+$tL: 0.25;
+// Go to X
+input[type="checkbox"]:checked + .trigger-label {
+  .hamburger {
+    transform: rotate(45deg);
+    transition: transform #{$tL}s linear;
+
+    .rect {
+      $XshapeTranslateY: translateY(12px);
+      transition: transform #{$tL}s linear;
+
+      &:nth-child(1) {
+        transform: $XshapeTranslateY rotate(180deg);
+      }
+      &:nth-child(2) {
+        transform: $XshapeTranslateY;
+      }
+      &:nth-child(3) {
+        transform: $XshapeTranslateY rotate(90deg);
+      }
+    }
+  }
+}
+
+// Back to Hamburger
+input[type="checkbox"]:not(:checked) + .hamburger-trigger-label {
+  .hamburger {
+    transform: rotate(0deg);
+    transition: transform #{$tL}s linear;
+    
+    .rect {
+      transition: transform #{$tL}s linear;
+    }
+  }
+}

@@ -25,14 +25,26 @@ var siteConfigJson = {
           { label: 'Visual', subNavItems: [] },
           { label: 'Motion', subNavItems: [] }
         ]
-      }
+      },
+      // {
+      //   label: 'About',
+      //   subNavItems: [
+      //     { label: 'Resume', subNavItems: [] },
+      //     { label: 'Skills', subNavItems: [] },
+      //     { label: 'Contact', subNavItems: [] }
+      //   ]
+      // }
     ]
+  },
+  home: {
+    
   },
   content: {
     items: [
       {
         itemRel: 'writer:interactive',
         label: 'stunningContent',
+        heroImg: '',
         paragraphs: [
           'Maecenas eu placerat ante. Fusce ut neque justo, et aliquet enim. In hac habitasse platea dictumst. Nullam commodo neque erat, vitae facilisis erat. Cras at mauris ut tortor vestibulum fringilla vel sed metus. Donec interdum purus a justo feugiat rutrum. Sed ac neque ut neque dictum accumsan. Cras lacinia rutrum risus, id viverra metus dictum sit amet. Fusce venenatis, urna eget cursus placerat, dui nisl fringilla purus, nec tincidunt sapien justo ut nisl. Curabitur lobortis semper neque et varius. Etiam eget lectus risus, a varius orci. Nam placerat mauris at dolor imperdiet at aliquet lectus ultricies. Duis tincidunt mi at quam condimentum lobortis.',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis ligula ut ipsum mattis viverra. Nulla a libero metus. Integer gravida tempor metus eget condimentum. Integer eget iaculis tortor. Nunc sed ligula sed augue rutrum ultrices eget nec odio. Morbi rhoncus, sem laoreet tempus pulvinar, leo diam varius nisi, sed accumsan ligula urna sed felis. Mauris molestie augue sed nunc adipiscing et pharetra ligula suscipit. In euismod lectus ac sapien fringilla ut eleifend lacus venenatis.',

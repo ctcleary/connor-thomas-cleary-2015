@@ -27,7 +27,7 @@
     };
 
     this.isSub = function() {
-      return this.parent.root.className === 'sub-nav';
+      return this.parent.root.classList.contains('sub-nav');
     };
 
     this.parentLabel = function() {
@@ -42,6 +42,7 @@
 
     this.getRoute = function() {
       var route = '';
+      console.log("this.isSub() ::", this.isSub());
       if (this.isSub()) {
         route += this.parentLabel();
         route += '/';

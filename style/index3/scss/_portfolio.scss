@@ -1,0 +1,42 @@
+.portfolio {
+  background: url('../../img/bg.jpg') repeat black;
+
+  h1 {
+    text-align: left;
+  }
+
+  .slates-wrapper {
+    width: 100%;
+    padding: 0 24px 4% 24px;
+    text-align: center;
+
+    .slates-holder {
+      display: inline-block;
+      margin: 0 auto;
+      max-width: 960px;
+      width: 100%;
+    }
+  }
+      
+  .slate-item {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 1%;
+
+    background: #d0d0d0;
+    border: thin solid white;
+    border-radius: 1px;
+  }
+}
+
+
+@media screen and (max-width:490px) {
+  .portfolio {
+    .slate-item {
+      display: block;
+      margin: 4% 0;
+      width: 100%;
+    }
+  }
+}
