@@ -44,11 +44,6 @@ module.exports = function(grunt) {
           'style/index/styles.css': 'style/index/scss/master.scss'
         }
       },
-      3: {
-        files: {
-          'style/index3/styles.css': 'style/index3/scss/master.scss'
-        }
-      }
     },
     autoprefixer: {
       dev: {
@@ -57,7 +52,6 @@ module.exports = function(grunt) {
         },
         files: {
           'style/index/styles.css': 'style/index/styles.css',
-          'style/index3/styles.css': 'style/index3/styles.css'
         }
       }
     }

@@ -4,52 +4,202 @@
   <title> CTC Local Dev </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//localhost:35729/livereload.js"></script>
 
-  <!-- <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" />
 
   <link rel="stylesheet" type="text/css" href="style/index/styles.css" />
 
-  <script src="../node_modules/riot/riot+compiler.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-  <script src="//localhost:35729/livereload.js"></script>
+<!--   <script src="../node_modules/riot/riot+compiler.js"></script>
+
 
   <script src="src/tags/portfolio.html" type="riot/tag"></script>
 
   <script src="src/tags/nav-bar.html" type="riot/tag"></script>
   <script src="src/tags/nav-item.html" type="riot/tag"></script>
   <script src="src/tags/sub-nav-doodad.html" type="riot/tag"></script>
-  <!-- <script src="src/tags/sub-nav.html" type="riot/tag"></script> -->
   <script src="src/tags/content.html" type="riot/tag"></script>
   <script src="src/tags/content-item.html" type="riot/tag"></script>
+ -->
+  <style type="text/css">
+
+  </style>
 </head>
 <body>
+  <div id="top" class="wrapper">
+    <nav>
+      <div class="main-nav-wrapper">
+        <div class="main-nav">
+          <a href="#top" class="nav-item"> Top </a>
+          <a href="#portfolio" class="nav-item"> Portfolio </a>
+          <a href="#publications" class="nav-item"> Publications </a>
+          <a href="#skills" class="nav-item"> Skills </a>
+          <a href="#about" class="nav-item"> About </a>
+          <a href="#contact" class="nav-item"> Contact </a>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="hero">
+      <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg" autoplay>
+        <source src="local-design/vid/Typing-numbers.mp4" />
+        <source src="local-design/vid/Typing-numbers.webm" />
+      </video>
 
+      <div class="hero-labels">
+        <h1 class="title"> Connor Thomas Cleary </h1>
+        <div class="tagline">
+          Writer. Developer. Designer.
+        </div>
+      </div>
 
-
-  <input id="site-nav-trigger" class="hidden" type="checkbox"/>
-  <label class="site-nav-trigger-label trigger-label"
-         for="site-nav-trigger">
-    <div class="hamburger">
-      <div class="rect"></div>
-      <div class="rect"></div>
-      <div class="rect"></div>
+      <!-- add a spinner thing?
+        I _write_ because I love _entertaining_.
+          _code_                 _building_.
+          _design_               _creating experiences_/
+      -->
     </div>
-  </label>
+    <section>
+      <div id="portfolio" class="portfolio">
+        <h1> Portfolio </h1>
+        <div class="portfolio-wrapper section-wrapper">
+          <p> Search portfolio by skills used: </p>
+          <div class="skill-tags tags">
+            <button> interactive </button>
+            <button> javascript </button>
+            <button> 3d </button>
+            <button> etc. </button>
+          </div>
+          <p> Remove search tags: </p>
+          <div class="skill-tags tags tags-active">
+            <button> writing </button>
+            <button> game </button>
+          </div>
 
-  <div class="layout">
-    <div class="site-nav-wrapper">
+          <div class="slates-wrapper">
+            <div class="slates-holder">
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+              <div class="slate-item"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    </div>
-    <div class="portfolio-wrapper">
-      <portfolio></portfolio>
-    </div>
+    <section>
+      <div id="publications" class="publications">
+        <h1> Publications </h1>
+        <div class="publications-wrapper section-wrapper">
+          <p> Search publications by type: </p>
+          <div class="skill-tags tags">
+            <button> interactive </button>
+            <button> short fiction </button>
+            <button> journalism </button>
+            <button> scriptwriting </button>
+          </div>
+          <p> Remove search tags: </p>
+          <div class="skill-tags tags tags-active">
+          </div>
+        </div>
+    </section>
+
+    <section>
+      <div id="skills" class="skills">
+      <h1> Skills </h1>
+        <div class="skills-wrapper section-wrapper">
+          <p> Nunchuck skills. Computer hacking skills. </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="about" class="about">
+      <h1> About </h1>
+        <div class="about-wrapper section-wrapper">
+          <p> Or: Who does this guy think I am? </p>
+          <p> I do things. </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        contact: connorthomascleary@gmail.com
+      </div>
+    </footer>
   </div>
 
-  <script type="text/javascript" src="siteConfig.js"></script>
   <script type="text/javascript">
-    riot.compile(function() {
-      var portfolio = riot.mount('portfolio', siteConfigJson);
+    (function() {
+      var heroVid = $('.hero-vid')[0];
+      var maxLoops = 5;
+      var heroVidPlayed = 0;
+      function onEnded() {
+        heroVidPlayed++;
+        if (heroVidPlayed <= maxLoops) {
+          heroVid.play();
+        } else {
+          heroVid.removeEventListener('ended', onEnded);
+        }
+      }
+
+      heroVid.addEventListener('ended', onEnded);
+    })();
+
+    (function() {
+      var  mn = $('.main-nav-wrapper');
+      var mns = 'main-nav-sticky';
+      // hdr = $(mn).height() + $('.hero').height();
+      var stickyThreshold = $(mn).height()*2;
+      // hdr = $('.hero').height() - $(mn).height() - 48;
+
+      var heroHeight =  $('.hero').height();
+      var heroVid = $('.hero-vid')[0];
+
+      $(window).scroll(function() {
+        // if ( $(this).scrollTop() > (heroHeight/3)*2 ) {
+        //   $(heroVid).stop();
+        // }
+        if( $(this).scrollTop() > stickyThreshold ) {
+          // mn.addClass('transparent');
+          mn.addClass(mns);
+          // mn.removeClass('transparent');
+        } else {
+          // mn.addClass('transparent');
+          mn.removeClass(mns);
+          // mn.removeClass('transparent');
+        }
+      });
+    })();
+
+
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top - 48
+            }, 1000);
+            return false;
+          }
+        }
+      });
     });
   </script>
 </body>
+
 </html>

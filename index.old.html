@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> CTC Local Dev </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css" /> -->
+
+  <link rel="stylesheet" type="text/css" href="style/index/styles.css" />
+
+  <script src="../node_modules/riot/riot+compiler.js"></script>
+
+  <script src="//localhost:35729/livereload.js"></script>
+
+  <script src="src/tags/portfolio.html" type="riot/tag"></script>
+
+  <script src="src/tags/nav-bar.html" type="riot/tag"></script>
+  <script src="src/tags/nav-item.html" type="riot/tag"></script>
+  <script src="src/tags/sub-nav-doodad.html" type="riot/tag"></script>
+  <!-- <script src="src/tags/sub-nav.html" type="riot/tag"></script> -->
+  <script src="src/tags/content.html" type="riot/tag"></script>
+  <script src="src/tags/content-item.html" type="riot/tag"></script>
+</head>
+<body>
+
+
+
+  <input id="site-nav-trigger" class="hidden" type="checkbox"/>
+  <label class="site-nav-trigger-label trigger-label"
+         for="site-nav-trigger">
+    <div class="hamburger">
+      <div class="rect"></div>
+      <div class="rect"></div>
+      <div class="rect"></div>
+    </div>
+  </label>
+
+  <div class="layout">
+    <div class="site-nav-wrapper">
+
+    </div>
+    <div class="portfolio-wrapper">
+      <portfolio></portfolio>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="siteConfig.js"></script>
+  <script type="text/javascript">
+    riot.compile(function() {
+      var portfolio = riot.mount('portfolio', siteConfigJson);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+.tags,
+.tags-active {
+  margin-bottom: 12px;
+}
+
+.tags {
+  button {
+    margin-right: 0.5%;
+
+    color: black;
+    border: none;
+    border-radius: 16px;
+    padding: 3px 10px;
+
+    box-shadow: none;
+    transition: background-color 0.7s ease;
+
+    &:after {
+      content: '+';
+      color: blue;
+    }
+
+    &:hover {
+      background: #69d4fd;
+
+      animation: neon4 1s ease-in-out infinite alternate;
+    }
+  }
+}
+
+.tags-active {
+  button {
+    &:after {
+      content: 'x';
+      color: red;
+    }
+  }
+}
+
+@keyframes neon4 {
+  0% {
+    box-shadow:0 0 0px  0px  #B9EAFE,
+               0 0 0px  0px  #B9EAFE,
+               0 0 1px  0px  #69d4fd,
+               0 0 1px  0px  #69d4fd;
+  }
+  // 40% {
+  //   box-shadow:0 0 1px  0px  #B9EAFE,
+  //              0 0 2px  0px  #B9EAFE,
+  //              0 0 1px  1px  #69d4fd,
+  //              0 0 1px  1px  #69d4fd;
+  // }
+  100% {
+    box-shadow:0 0 5px 0px   #B9EAFE,
+               0 0 3px 0px   #B9EAFE,
+               0 0 3px  1px  #69d4fd,
+               0 0 3px  1px  #69d4fd;
+  }
+}
+
+// @keyframes neon4 {
+//   from {
+//     box-shadow:0 0 2px #fff,
+//                0 0 7px  #69d4fd,
+//                0 0 10px  #fff,
+//                0 0 12px  #69d4fd;
+//   }
+//   to {
+//     box-shadow:0 0 10px #fff,
+//                0 0 12px #69d4fd,
+//                0 0 5px #fff,
+//                0 0 7px #69d4fd;
+//   }
+// }

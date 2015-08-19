@@ -1,100 +1,97 @@
 html {
-  // text-align: center;
-  // margin: 0 auto;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/*   temp temp temp temp    */
+section>div {
+  outline: thin solid red;
 }
 
 body {
   margin: 0;
+  min-height: 100%;
 
-  background: url('../../img/bg.jpg') repeat black;
-  color: $base-font-color;
+  background: black;
+  font-family: sans-serif;
 }
 
-.hidden {
-  display: none;
+section,
+nav {
+  margin: 0;
 }
 
-portfolio {
-  display: block;
+p {
+  margin: 0 0 24px 0;
 }
 
-.portfolio-wrapper {
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 30px;
-
-  .title {
-    text-transform: uppercase;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0 0 24px 0;
-    white-space: nowrap;
-  }
-
-  .offscreen {
-    display: none;
-    margin: 0;
-  }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 400;
 }
 
-/* Site nav */
-.layout {
+.wrapper {
   position: relative;
-  top: 0;
-  padding-left: 0;
+  min-height: 100%;
 }
 
-.site-nav-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  display: block;
-  width: 0;
-  height: 100vh;
-  // margin-left: -20%;
-
-  background: #ddd;
+.transparent {
+  opacity: 0;
 }
 
 
-
-$siteNavWidthInt: 150;
-$siteNavWidth: #{$siteNavWidthInt}px;
-$siteNavHamburgerOffset: #{$siteNavWidthInt - 24}px;
-#site-nav-trigger {
-  display: none;
+h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 12px 0 0 0;
 }
-#site-nav-trigger:checked {
-  & ~ .layout {
-    padding-left: $siteNavWidth;
 
-    .site-nav-wrapper {
-      width: $siteNavWidth;    }
+/* MARGIN LEFTS */
+h1,
+p,
+.skill-tags,
+.skill-tags-active {
+  margin-left: 10%;
+}
+.main-nav-wrapper {
+  padding-left: 10%;
+}
+
+@media screen and (max-width:720px) {
+  h1 {
+    font-size: 22px;
+    padding: 12px 0 0 0;
+  }
+
+  h1,
+  p,
+  .skill-tags,
+  .skill-tags-active {
+    margin-left: 6%;
+  }
+  .main-nav-wrapper {
+    padding-left: 6%;
   }
 }
-
-#site-nav-trigger ~ .site-nav-trigger-label {
-  position: fixed;
-  top: 30px;
-  left: 24px;
-
-  z-index: 125125;
-  transform: translateX(0);
-  transition: transform 0.25s linear;
-
-  .hamburger {
-    .rect {
-      background: white;
-    }
+@media screen and (max-width:320px) {
+  h1 {
+    font-size: 18px;
+    padding: 12px 0 0 0;
   }
-}
-#site-nav-trigger:checked ~ .site-nav-trigger-label {
-  // transform: translateX($siteNavHamburgerOffset);
-
-  .hamburger {
-    .rect {
-      background: black;
-    }
+  h1,
+  p,
+  .skill-tags,
+  .skill-tags-active {
+    margin-left: 4%;
+  }
+  .main-nav-wrapper {
+    padding-left: 4%;
   }
 }

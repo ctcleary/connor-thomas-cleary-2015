@@ -1,0 +1,15 @@
+<content-item>
+  <section>
+    <h3>
+      <img if={ itemImgUrl } src="{ itemImgUrl }" alt="{ label }" />
+      <span if={ !itemImgUrl }>{ label }</span>
+    </h3>
+
+    <p each={ p, i in paragraphs }>
+      { p }
+    </p>
+  </section>
+
+  <script>
+  </script>
+</content-item>

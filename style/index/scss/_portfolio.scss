@@ -1,4 +1,6 @@
 .portfolio {
+  padding-top: 12px;
+
   background: url('../../img/bg.jpg') repeat black;
   color: #fff;
 
@@ -49,24 +51,3 @@
     }
   }
 }
-
-
-.skill-tags,
-.skill-tags-active {
-  margin-bottom: 12px;
-}
-
-.skill-tags {
-  button:after {
-    content: '+';
-    color: blue;
-  }
-}
-
-.skill-tags-active {
-  button:after {
-    content: 'x';
-    color: red;
-  }
-}
-

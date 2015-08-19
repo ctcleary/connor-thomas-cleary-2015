@@ -1,0 +1,9 @@
+<content>
+  <content-item each={ opts.config.items }></content-item>
+    
+  <script>
+    riot.route(function(section, topic) {
+      console.log("content :: section, topic ::", section, topic);
+    });
+  </script>
+</content>
