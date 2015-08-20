@@ -1,17 +1,20 @@
 
-// TODO fix dis buggy shit.
-// weird margin at the bottom of the page.
 .footer {
   position: absolute;
   bottom: 0;
 
   display: block;
   width: 100%;
-  margin-top: 48px;
 
   background: #0B0B0C;
   border-top: 1px solid #19191a;
   color: #eeeefe;
   padding: 12px;
   text-align: right;
+}
+
+// Hacky spacing fix for footer.
+footer {
+  background: transparent;
+  padding-top: 48px;
 }

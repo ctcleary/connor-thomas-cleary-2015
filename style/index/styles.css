@@ -6,9 +6,6 @@ html {
   box-sizing: inherit; }
 
 /*   temp temp temp temp    */
-section > div {
-  outline: thin solid red; }
-
 body {
   margin: 0;
   min-height: 100%;
@@ -84,7 +81,7 @@ p,
   padding-top: 12px;
   width: 100%;
   background-color: #f0f0ff;
-  border-bottom: thin solid rgba(0, 0, 0, 0.75);
+  border-bottom: thin solid rgba(0, 0, 0, 0.5);
   color: #0f0f11; }
   .main-nav-wrapper .main-nav {
     display: inline-block;
@@ -130,9 +127,71 @@ p,
     opacity: 0; }
   to {
     opacity: 1; } }
+.section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .section:last-of-type {
+    border-bottom: none; }
+
+.section > h1 {
+  padding-top: 18px; }
+
 .section-wrapper {
   padding-bottom: 24px; }
 
+.tags,
+.tags-active {
+  margin-bottom: 12px; }
+
+.tags button {
+  margin-right: 0.5%;
+  color: #000000;
+  border: none;
+  border-radius: 16px;
+  padding: 3px 10px;
+  box-shadow: none;
+  -webkit-transition: background-color 0.7s ease;
+          transition: background-color 0.7s ease; }
+  .tags button:after {
+    content: '+';
+    color: black;
+    -webkit-transition: color 0.5s ease;
+            transition: color 0.5s ease; }
+  .tags button:hover {
+    background: #27ae0c;
+    -webkit-animation: neon-glow-in 0.25s ease, neon-glow 1.5s 0.25s ease-in-out infinite alternate;
+            animation: neon-glow-in 0.25s ease, neon-glow 1.5s 0.25s ease-in-out infinite alternate; }
+    .tags button:hover:after {
+      color: white; }
+
+.tags-active button:after {
+  position: relative;
+  top: -1px;
+  font-size: 10px;
+  font-weight: bold;
+  content: '\2715';
+  color: black; }
+
+@-webkit-keyframes neon-glow-in {
+  0% {
+    box-shadow: 0 0 0 0 #32e010, 0 0 0 0 #27ae0c; }
+  100% {
+    box-shadow: 0 0 2px 0.5px #32e010, 0 0 1px 0px #27ae0c; } }
+
+@keyframes neon-glow-in {
+  0% {
+    box-shadow: 0 0 0 0 #32e010, 0 0 0 0 #27ae0c; }
+  100% {
+    box-shadow: 0 0 2px 0.5px #32e010, 0 0 1px 0px #27ae0c; } }
+@-webkit-keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 2px 0.5px #32e010, 0 0 1px 0px #27ae0c; }
+  100% {
+    box-shadow: 0 0 1px 0.5px #32e010, 0 0 3px 2px #27ae0c; } }
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 2px 0.5px #32e010, 0 0 1px 0px #27ae0c; }
+  100% {
+    box-shadow: 0 0 1px 0.5px #32e010, 0 0 3px 2px #27ae0c; } }
 .hero {
   position: relative;
   display: block;
@@ -169,12 +228,18 @@ p,
   left: 0;
   display: inline-block;
   margin: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 1px;
   font-weight: 200;
   white-space: nowrap;
   -webkit-animation: tagline-intro 1.5s 1 linear;
           animation: tagline-intro 1.5s 1 linear; }
+
+.highlight-boxed {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px; }
+
+.title,
+.tagline {
+  padding: 1% 1.2%; }
 
 @-webkit-keyframes tagline-intro {
   0% {
@@ -210,7 +275,6 @@ p,
 
 .title,
 .tagline {
-  padding: 1% 1.2%;
   -webkit-transition: -webkit-transform 0.1s ease;
           transition: transform 0.1s ease; }
 
@@ -248,16 +312,91 @@ p,
 
   .tagline {
     font-size: 20px; } }
+.spinner-container {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  padding-right: 12px;
+  font-size: 36px;
+  line-height: 48px;
+  -webkit-transform: translate(42%, 162%);
+      -ms-transform: translate(42%, 162%);
+          transform: translate(42%, 162%); }
+  .spinner-container .spinner {
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    display: inline-block;
+    height: 60px;
+    width: 152px;
+    padding: 0 0 0 12px;
+    overflow: hidden; }
+    .spinner-container .spinner .verbs {
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      -webkit-animation: spinner-spin 4s 0.5s ease;
+              animation: spinner-spin 4s 0.5s ease; }
+      .spinner-container .spinner .verbs .verb {
+        top: -60px;
+        display: block;
+        padding: 6px 0; }
+  .spinner-container .experiences {
+    position: relative;
+    top: 6px;
+    margin-left: 160px; }
+
+@-webkit-keyframes spinner-spin {
+  0% {
+    top: 0; }
+  20% {
+    top: -60px; }
+  25% {
+    top: -60px; }
+  45% {
+    top: -120px; }
+  50% {
+    top: -120px; }
+  70% {
+    top: -180px; }
+  75% {
+    top: -180px; }
+  95% {
+    top: -240px; }
+  95.001% {
+    top: 0px; } }
+
+@keyframes spinner-spin {
+  0% {
+    top: 0; }
+  20% {
+    top: -60px; }
+  25% {
+    top: -60px; }
+  45% {
+    top: -120px; }
+  50% {
+    top: -120px; }
+  70% {
+    top: -180px; }
+  75% {
+    top: -180px; }
+  95% {
+    top: -240px; }
+  95.001% {
+    top: 0px; } }
 .portfolio {
-  padding-top: 12px;
   background: url("../../img/bg.jpg") repeat black;
-  color: #fff; }
+  border-top: 1px solid rgba(39, 174, 12, 0.15);
+  border-bottom: 1px solid rgba(39, 174, 12, 0.15); }
   .portfolio h1 {
+    color: #efe;
     text-align: left; }
   .portfolio p {
+    color: #efe;
     margin-bottom: 12px; }
-  .portfolio button {
-    color: black; }
+  .portfolio .tags button:not(:hover) {
+    background: #efe; }
   .portfolio .slates-wrapper {
     width: 100%;
     padding: 0 24px 4% 24px;
@@ -296,46 +435,12 @@ p,
   bottom: 0;
   display: block;
   width: 100%;
-  margin-top: 48px;
   background: #0B0B0C;
   border-top: 1px solid #19191a;
   color: #eeeefe;
   padding: 12px;
   text-align: right; }
 
-.tags,
-.tags-active {
-  margin-bottom: 12px; }
-
-.tags button {
-  margin-right: 0.5%;
-  color: black;
-  border: none;
-  border-radius: 16px;
-  padding: 3px 10px;
-  box-shadow: none;
-  -webkit-transition: background-color 0.7s ease;
-          transition: background-color 0.7s ease; }
-  .tags button:after {
-    content: '+';
-    color: blue; }
-  .tags button:hover {
-    background: #69d4fd;
-    -webkit-animation: neon4 1s ease-in-out infinite alternate;
-            animation: neon4 1s ease-in-out infinite alternate; }
-
-.tags-active button:after {
-  content: 'x';
-  color: red; }
-
-@-webkit-keyframes neon4 {
-  0% {
-    box-shadow: 0 0 0px  0px  #B9EAFE, 0 0 0px  0px  #B9EAFE, 0 0 1px  0px  #69d4fd, 0 0 1px  0px  #69d4fd; }
-  100% {
-    box-shadow: 0 0 5px 0px   #B9EAFE, 0 0 3px 0px   #B9EAFE, 0 0 3px  1px  #69d4fd, 0 0 3px  1px  #69d4fd; } }
-
-@keyframes neon4 {
-  0% {
-    box-shadow: 0 0 0px  0px  #B9EAFE, 0 0 0px  0px  #B9EAFE, 0 0 1px  0px  #69d4fd, 0 0 1px  0px  #69d4fd; }
-  100% {
-    box-shadow: 0 0 5px 0px   #B9EAFE, 0 0 3px 0px   #B9EAFE, 0 0 3px  1px  #69d4fd, 0 0 3px  1px  #69d4fd; } }
+footer {
+  background: transparent;
+  padding-top: 48px; }

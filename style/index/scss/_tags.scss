@@ -3,11 +3,18 @@
   margin-bottom: 12px;
 }
 
+// cyan
+// $inactiveBGColor: #69d4fd;
+// $inactiveBGColor-light: #B9EAFE;
+
+// green
+$inactiveBGColor: #27ae0c;
+$inactiveBGColor-light: #32e010;
 .tags {
   button {
     margin-right: 0.5%;
 
-    color: black;
+    color: #000000;
     border: none;
     border-radius: 16px;
     padding: 3px 10px;
@@ -17,13 +24,21 @@
 
     &:after {
       content: '+';
-      color: blue;
+      color: black;
+      transition: color 0.5s ease;
     }
 
     &:hover {
-      background: #69d4fd;
+      background: $inactiveBGColor;
+      // background: $inactiveBGColor-light;
 
-      animation: neon4 1s ease-in-out infinite alternate;
+      animation: neon-glow-in 0.25s ease,
+                 neon-glow 1.5s 0.25s ease-in-out infinite alternate;
+
+
+      &:after {
+        color: white;
+      }
     }
   }
 }
@@ -31,44 +46,50 @@
 .tags-active {
   button {
     &:after {
-      content: 'x';
-      color: red;
+      position: relative;
+      top: -1px;
+
+      font-size: 10px;
+      font-weight: bold;
+
+      content: '\2715';
+      color: black;
     }
   }
 }
 
-@keyframes neon4 {
+@keyframes neon-glow-in {
   0% {
-    box-shadow:0 0 0px  0px  #B9EAFE,
-               0 0 0px  0px  #B9EAFE,
-               0 0 1px  0px  #69d4fd,
-               0 0 1px  0px  #69d4fd;
+    box-shadow:0 0 0 0 $inactiveBGColor-light,
+               0 0 0 0 $inactiveBGColor;
   }
-  // 40% {
-  //   box-shadow:0 0 1px  0px  #B9EAFE,
-  //              0 0 2px  0px  #B9EAFE,
-  //              0 0 1px  1px  #69d4fd,
-  //              0 0 1px  1px  #69d4fd;
-  // }
   100% {
-    box-shadow:0 0 5px 0px   #B9EAFE,
-               0 0 3px 0px   #B9EAFE,
-               0 0 3px  1px  #69d4fd,
-               0 0 3px  1px  #69d4fd;
+    box-shadow:0 0 2px  0.5px  $inactiveBGColor-light,
+               0 0 1px  0px  $inactiveBGColor;
+  }
+}
+@keyframes neon-glow {
+  0% {
+    box-shadow:0 0 2px  0.5px  $inactiveBGColor-light,
+               0 0 1px  0px  $inactiveBGColor;
+  }
+  100% {
+    box-shadow:0 0 1px 0.5px $inactiveBGColor-light,
+               0 0 3px 2px  $inactiveBGColor;
   }
 }
 
 // @keyframes neon4 {
 //   from {
 //     box-shadow:0 0 2px #fff,
-//                0 0 7px  #69d4fd,
+//                0 0 7px  $inactiveBGColor,
 //                0 0 10px  #fff,
-//                0 0 12px  #69d4fd;
+//                0 0 12px  $inactiveBGColor;
 //   }
 //   to {
 //     box-shadow:0 0 10px #fff,
-//                0 0 12px #69d4fd,
+//                0 0 12px $inactiveBGColor,
 //                0 0 5px #fff,
-//                0 0 7px #69d4fd;
+//                0 0 7px $inactiveBGColor;
 //   }
 // }

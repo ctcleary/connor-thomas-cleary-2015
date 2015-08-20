@@ -40,12 +40,19 @@
   display: inline-block;
   margin: 0;
 
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 1px;
   font-weight: 200;
   white-space: nowrap;
 
   animation: tagline-intro 1.5s 1 linear;
+}
+
+.highlight-boxed {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+}
+.title,
+.tagline {
+  padding: 1% 1.2%;
 }
 
 @keyframes tagline-intro {
@@ -70,7 +77,6 @@
 
 .title,
 .tagline {
-  padding: 1% 1.2%;
   transition: transform 0.1s ease;
 }
 .title {
@@ -111,4 +117,65 @@
   .tagline {
     font-size: 20px;
   }
+}
+
+
+
+.spinner-container {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  padding-right: 12px;
+
+  font-size: 36px;
+  line-height: 48px;
+  // transform: translate(0%, 200px);
+  transform: translate(42%, 162%);
+
+  .spinner {
+    background: rgba(255, 255, 255, 0.1);
+    position: absolute;
+
+    display: inline-block;
+    height: 60px;
+    width: 152px;
+    padding: 0 0 0 12px;
+    
+    overflow: hidden;
+
+    .verbs {
+      position: absolute;
+
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      animation: spinner-spin 4s 0.5s ease;
+
+      .verb {
+        top: -60px;
+        display: block;
+        padding: 6px 0;
+      }
+    }
+  }
+
+  .experiences {
+    position: relative;
+    top: 6px;
+    margin-left: 160px;
+  }
+}
+
+$verbHeight: 60;
+@keyframes spinner-spin {
+  0% { top: 0; }
+  20% { top: -#{ $verbHeight * 1 }px; }
+  25% { top: -#{ $verbHeight * 1 }px; }
+  45% { top: -#{ $verbHeight * 2 }px; }
+  50% { top: -#{ $verbHeight * 2 }px; }
+  70% { top: -#{ $verbHeight * 3 }px; }
+  75% { top: -#{ $verbHeight * 3 }px; }
+  95% { top: -#{ $verbHeight * 4 }px; }
+  95.001% { top: 0px; }
 }

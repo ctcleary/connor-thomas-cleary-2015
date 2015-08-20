@@ -1,19 +1,20 @@
 .portfolio {
-  padding-top: 12px;
-
   background: url('../../img/bg.jpg') repeat black;
-  color: #fff;
+  border-top: 1px solid rgba(39, 174, 12, 0.15);
+  border-bottom: 1px solid rgba(39, 174, 12, 0.15);
 
   h1 {
+    color: #efe;
     text-align: left;
   }
 
   p {
+    color: #efe;
     margin-bottom: 12px;
   }
 
-  button {
-    color: black;
+  .tags button:not(:hover) {
+    background: #efe;
   }
 
   .slates-wrapper {

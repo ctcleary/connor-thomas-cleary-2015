@@ -1,3 +1,13 @@
+.section {
+  border-bottom: 1px solid rgba(255,255,255, 0.1);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+.section>h1 {
+  padding-top: 18px;
+}
 .section-wrapper {
   padding-bottom: 24px;
 }
