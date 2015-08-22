@@ -1,6 +1,6 @@
 .portfolio {
   background: url('../../img/bg.jpg') repeat black;
-  border-top: 1px solid rgba(39, 174, 12, 0.15);
+  border-top: 1px solid rgba(39, 174, 12, 0.05);
   border-bottom: 1px solid rgba(39, 174, 12, 0.15);
 
   h1 {
@@ -42,8 +42,7 @@
   }
 }
 
-
-@media screen and (max-width:490px) {
+@include respond-to(small) {
   .portfolio {
     .slate-item {
       display: block;

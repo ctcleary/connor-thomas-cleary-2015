@@ -64,7 +64,7 @@ p,
   padding-left: 10%;
 }
 
-@media screen and (max-width:720px) {
+@include respond-to(medium) {
   h1 {
     font-size: 22px;
     padding: 12px 0 0 0;
@@ -76,11 +76,8 @@ p,
   .skill-tags-active {
     margin-left: 6%;
   }
-  .main-nav-wrapper {
-    padding-left: 6%;
-  }
 }
-@media screen and (max-width:320px) {
+@include respond-to(x-small) {
   h1 {
     font-size: 18px;
     padding: 12px 0 0 0;
@@ -90,8 +87,5 @@ p,
   .skill-tags,
   .skill-tags-active {
     margin-left: 4%;
-  }
-  .main-nav-wrapper {
-    padding-left: 4%;
   }
 }

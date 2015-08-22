@@ -22,6 +22,7 @@
     margin: 0 auto;
     max-width: 960px;
     width: 100%;
+    white-space: nowrap;
 
     a {
       color: #0f0f11;
@@ -40,8 +41,8 @@
       padding: 12px 2.5% 12px 0;
       text-transform: uppercase;
 
-      transition: color 0.3s ease;
-
+      transition: color 0.3s ease,
+        transform 0.3s ease;
     }
   }
 }
@@ -80,3 +81,35 @@
   }
 }
 
+@include respond-to(small) {
+  .main-nav-wrapper {
+    padding-left: 0;
+    text-align: center;
+
+    .main-nav {
+      .nav-item {
+        font-size: 12px;
+        padding: 12px 1.5% 12px 0;
+      }
+    }
+  }
+}
+@include respond-to(x-small) {
+  .main-nav-wrapper {
+    // padding-left: 2%;
+
+    .main-nav {
+      .nav-item {
+        // display: inline-block;
+        // width: 16%;
+        font-size: 11px;
+        padding: 12px 1% 12px 0;
+        // transform: rotate(35deg) translateY(-38%);
+
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+  }
+}
