@@ -1,0 +1,1 @@
+Ignoring image files in the repo.
