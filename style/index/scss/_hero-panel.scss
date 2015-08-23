@@ -9,22 +9,31 @@
   background: rgba(255,255,255, 0.4);
   background: black;
   overflow: hidden;
-}
-
-.hero-vid {
-  position: absolute;
-  bottom: 0;
-
-  display: inline-block;
-  margin: 0 auto;
-  width: 100%;
-  
   vertical-align: middle;
 }
 
-.hero-labels {
+.hero-vid {
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  
+}
+
+.hero-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+
   display: block;
+
+  // margin: 0 auto 0 0;
+  max-width: 800px;
 
   // transform-origin: 20% center;
   // transition: left 0.2s linear;
@@ -70,34 +79,18 @@
   }
 }
 
-// @keyframes tagline-labels-intro {
-//   0%   { transform: scale(1.15); }
-//   100% { transform: scale(1); }
-// }
-@keyframes hero-labels-intro {
-  0%   { transform: translate(15%, 72%) scale(1.05); }
-  100% {}
-}
 
-/* TRANSLATES */
-
-.hero-labels {
-  transform: translate(10%, 72%);
-  transform-origin: 20% center;
-  animation: hero-labels-intro 1.2s ease;
-}
 .title {
-  transform: translate(0%, 0%);
+  position: relative;
+  top: 0px;
+  display: inline-block;
+  width: auto;
 }
 .spinner-container {
-  top: 72px;
-  transform: translate(42%, 0%);
-}
-
-.hero-labels,
-.title,
-.spinner-container {
-  transition: transform 0.1s ease;
+  position: relative;
+  top: 2px;
+  margin-left: 18%;
+  display: block;
 }
 
 .spinner-container {
@@ -112,8 +105,7 @@
 
     display: inline-block;
     height: 60px;
-    width: 142px;
-    padding: 0 0 0 12px;
+    width: 148px;
     
     overflow: hidden;
 
@@ -123,8 +115,9 @@
       display: block;
       height: 100%;
       width: 100%;
+      text-align: center;
 
-      animation: spinner-spin 4s 1.75s ease;
+      animation: spinner-spin 3.5s 1.75s ease;
 
       .verb {
         top: -60px;
@@ -162,54 +155,47 @@ $verbHeight: 60;
   font-size: 38px;
   line-height: 48px;
 }
-@include respond-to(medium) {
-  .hero-labels {
-    transform: translate(2%, 72%);
-  }
-  .title {
-    transform: translate(0%, 0%);
-  }
-  .spinner-container {
-    transform: translate(37%, 0%);
-  }
 
-  .title {
-    font-size: 36px;
+
+/* TRANSLATES */
+.hero-labels { 
+  transition: transform 0.25s ease;
+  transform-origin: 20% center;
+  transform: translate(25%, 72%) scale(1);
+  animation: hero-labels-intro 1.2s ease;
+}
+
+@keyframes hero-labels-intro {
+  0%   { transform: translate(30%, 72%) scale(1.05); }
+  100% {}
+}
+
+@include respond-to(large) {
+  @keyframes hero-labels-intro {
+    0%   { transform: translate(25%, 72%) scale(1.05); }
+    100% {}
   }
-  // .spinner-container {
-  //   font-size: 24px;
-  //   line-height: 24px;
-    
-  //   .spinner {
-  //     height: 24px;
-  //   }
-  // }
+  .hero-labels {
+    transform: translate(12%, 60%) scale(0.9);
+  }
+}
+@include respond-to(medium) {
+  @keyframes hero-labels-intro {
+    0%   { transform: translate(15%, 72%) scale(1); }
+    100% {}
+  }
+  .hero-labels {
+    transform: translate(8%, 40%) scale(0.7);
+  }
 }
 
 @include respond-to(x-small) {
-  .title {
-    padding: 2%
+  @keyframes hero-labels-intro {
+    0%   { transform: translate(10%, 72%) scale(0.9); }
+    100% {}
   }
   .hero-labels {
-    transform: translate(1%, 72%);
+    transform: translate(-3%, 20%) scale(0.55);
   }
-  .title {
-    transform: translate(0%, 0%);
-  }
-  .spinner-container {
-    transform: translate(37%, 0%);
-  }
-
-  .title {
-    font-size: 24px;
-  }
-  // .spinner-container {
-  //   font-size: 20px;
-  //   line-height: 24px;
-
-  //   .spinner {
-  //     height: 24px;
-  //   }
-  // }
 }
 

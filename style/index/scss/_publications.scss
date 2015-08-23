@@ -6,3 +6,24 @@
 
   min-height: 800px;
 }
+
+
+.pubs-wrapper {
+  vertical-align: center;
+
+  .pub-item {
+    display: block;
+    width: 80%;
+    max-width: 1480px;
+    height: 36px;
+    margin: 0 auto 6px auto;
+
+    background: rgba(0,0,0, 0.65);
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 6px 0 0 1%;
+    // padding: 15% 0;
+    // background: rgba(255,255,255, 0.1);
+  }
+}
