@@ -1,6 +1,5 @@
 html {
-  box-sizing: border-box;
-  font-family: sans-serif; }
+  box-sizing: border-box; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -10,7 +9,7 @@ body {
   margin: 0;
   min-height: 100%;
   background: black;
-  font-family: sans-serif; }
+  font-family: 'Open Sans', sans-serif; }
 
 section,
 nav {
@@ -200,6 +199,23 @@ p,
     box-shadow: 0 0 2px 0.5px #32e010, 0 0 1px 0px #27ae0c; }
   100% {
     box-shadow: 0 0 1px 0.5px #32e010, 0 0 3px 2px #27ae0c; } }
+tagged-item .cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-position: center bottom;
+  background-size: cover;
+  overflow: hidden; }
+tagged-item .item {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0 0 1% 3%;
+  font-size: 16px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 .hero {
   position: relative;
   display: block;
@@ -420,12 +436,11 @@ p,
 .portfolio {
   background: url("../../img/bg.jpg") repeat black;
   border-top: 1px solid rgba(39, 174, 12, 0.05);
-  border-bottom: 1px solid rgba(39, 174, 12, 0.15); }
+  border-bottom: 1px solid rgba(39, 174, 12, 0.15);
+  color: #efe; }
   .portfolio h1 {
-    color: #efe;
     text-align: left; }
   .portfolio p {
-    color: #efe;
     margin-bottom: 12px; }
   .portfolio .tags button:not(:hover) {
     background: #efe; }
