@@ -18,7 +18,7 @@
 
   <div class="{ this.opts.itemsWrapClass }">
     <div class="{ this.opts.itemsHoldClass }">
-      <tagged-item each={ this.allTags }
+      <tagged-item each={ this.opts.tagsItems }
           class="{ parent.opts.itemsClass }">
       </tagged-item>
     </div>

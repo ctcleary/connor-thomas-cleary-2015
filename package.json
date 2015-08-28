@@ -7,7 +7,8 @@
     "grunt-contrib-connect": "^0.11.1",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^3.0.3",
+    "underscore": "^1.8.3"
   },
   "dependencies": {
     "riot": "^2.2.2"
