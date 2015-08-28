@@ -20,13 +20,18 @@ module.exports = function(grunt) {
       all: {
         files: [
           '/*.html',
-          '**/*.*',
-          '**/*.css',
-          '**/*.js',
+          // '**/*.*',
+          'style/*.css',
+          'src/**/*.tag',
+          'src/**/*.js',
+          'src-config/*.js',
           '**/*.html',
-          '**/*.jpg',
-          '**/*.png',
-          '**/*.svg'
+          'local-design/**/*.jpg',
+          'img/**/*.jpg',
+          'local-design/**/*.png',
+          'img/**/*.png',
+          'src/**/*.svg',
+          'img/**/*.svg'
         ],
         options: {
           livereload: true
