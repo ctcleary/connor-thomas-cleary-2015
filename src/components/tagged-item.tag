@@ -4,9 +4,8 @@
   </div>
 
   <script>
-    console.log("this.opts ::", this.opts);
-
     this.getCoverStyle = function() {
+      console.log("this.opts ::", this.opts);
       var styles = '';
       if (this.slateUrl) {
         styles += 'background-image: url('+ this.slateUrl + '); ';

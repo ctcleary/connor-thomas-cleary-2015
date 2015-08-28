@@ -149,6 +149,9 @@ p,
 .tags-active {
   margin-bottom: 12px; }
 
+.tag-button {
+  margin: 0 3px 12px 3px; }
+
 .tags button {
   margin-right: 0.5%;
   color: #000000;
@@ -165,11 +168,13 @@ p,
             transition: color 0.5s ease; }
   .tags button:hover {
     background: #27ae0c;
-    -webkit-animation: neon-glow-in 0.25s ease, neon-glow 1.5s 0.25s ease-in-out infinite alternate;
-            animation: neon-glow-in 0.25s ease, neon-glow 1.5s 0.25s ease-in-out infinite alternate; }
+    -webkit-animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate;
+            animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate; }
     .tags button:hover:after {
       color: white; }
 
+.tags-active button:hover:after {
+  color: #fcc; }
 .tags-active button:after {
   position: relative;
   top: -1px;

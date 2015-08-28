@@ -3,6 +3,10 @@
   margin-bottom: 12px;
 }
 
+.tag-button {
+  margin: 0 3px 12px 3px;
+}
+
 // cyan
 // $inactiveBGColor: #69d4fd;
 // $inactiveBGColor-light: #B9EAFE;
@@ -32,8 +36,8 @@ $inactiveBGColor-light: #32e010;
       background: $inactiveBGColor;
       // background: $inactiveBGColor-light;
 
-      animation: neon-glow-in 0.25s ease,
-                 neon-glow 1.5s 0.25s ease-in-out infinite alternate;
+      animation: neon-glow-in 0.15s ease,
+                 neon-glow 0.75s 0.15s ease-in-out infinite alternate;
 
 
       &:after {
@@ -45,6 +49,11 @@ $inactiveBGColor-light: #32e010;
 
 .tags-active {
   button {
+    &:hover {
+      &:after {
+        color: #fcc;
+      }
+    }
     &:after {
       position: relative;
       top: -1px;

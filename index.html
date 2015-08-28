@@ -266,7 +266,7 @@
 
     riot.compile(function() {
       try {
-        var a = riot.mount(
+        var app = riot.mount(
           '#portfolio-app',
           'tags-app',
           {
@@ -278,10 +278,9 @@
             ct: [{n:1},{n:2},{n:3}]
           }
         );
-        console.log("a ::", a);
 
       } catch (e) {
-        console.log("e ::", e);
+        console.log("error mounting app, e ::", e);
       }
     });
   </script>
