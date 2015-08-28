@@ -2,6 +2,7 @@ node_modules/
 .sass-cache/
 style/**.map
 local-design/
+bower_components/
 
 **/*.jpg
 **/*.png

@@ -1,0 +1,23 @@
+{
+  "name": "ctc-2015",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ctcleary/connor-thomas-cleary-2015",
+  "authors": [
+    "Connor Cleary <connorcleary@gmail.com>"
+  ],
+  "description": "Portfolio site.",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "riot": "~2.2.4",
+    "shaven": "~0.7.3",
+    "underscore": "~1.8.3"
+  }
+}
