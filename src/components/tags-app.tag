@@ -18,13 +18,14 @@
 
   <div class="{ this.opts.itemsWrapClass }">
     <div class="{ this.opts.itemsHoldClass }">
-      <tagged-item each={ this.opts.tagsItems }
+      <tagged-item each={ this.getActiveItems() }
           class="{ parent.opts.itemsClass }">
       </tagged-item>
     </div>
   </div>
 
-  <script>
+  <script> 
+    // Init
     var _this = this;
 
     this.allTags = (function() {
@@ -43,6 +44,8 @@
       return allTags;
     })();
     
+
+    // Tags
     this.getAllTags = function() {
       return this.allTags;
     };    
@@ -53,21 +56,45 @@
     this.getInactiveTags = function() {
       var active = _.where(this.allTags, { active: false });
       return active;
-    }
+    };
+    this.toggleTag = function(e) {
+      var tag = e.item;
+      tag.active = !tag.active;
+    };
 
+
+    // Items
     this.getItems = function() {
       return this.opts.tagsItems;
     };
 
-    this.getItemsClass = function() {
-      return this.opts.itemsClass;
+    this.getActiveItems = function() {
+      var activeTags = this.getActiveTags();
+      var taggedItems = this.getItems();
+      if (activeTags.length === 0) {
+        return taggedItems;
+      }
+
+      var scopedHasAnyActiveTags = this.hasAnyActiveTag;
+      return _.filter(taggedItems, function(item) {
+        return scopedHasAnyActiveTags(item, activeTags);
+      });
+    };
+    this.hasTag = function(item, testTag) {
+      return (_.indexOf(testTag, item.tags) !== -1);
+    };
+    this.hasAnyActiveTag = function(item, activeTags) {
+      var itemsTags = item.tags;
+      for (var i = 0; i < activeTags.length; i++) {
+        if (_.indexOf(itemsTags, activeTags[i].name) !== -1) {
+          return true;
+        }
+      }
+      return false;
     };
 
-    var _this = this;
-    this.toggleTag = function(e) {
-      var tag = e.item;
-      tag.active = !tag.active;
-      // console.log("this.getInactiveTags() ::", this.getInactiveTags());
+    this.getItemsClass = function() {
+      return this.opts.itemsClass;
     };
   </script>
 </tags-app>

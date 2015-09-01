@@ -496,7 +496,8 @@ tagged-item .item {
     margin: 1%;
     background: #d0d0d0;
     border: thin solid white;
-    border-radius: 1px; }
+    border-radius: 1px;
+    text-shadow: 0px  2px 0 black, 1px  1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black; }
 
 @media (max-width: 490px) {
   .portfolio .slate-item {

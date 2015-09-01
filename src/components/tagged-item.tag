@@ -1,11 +1,11 @@
 <tagged-item>
-  <div class="cover" style={ this.getCoverStyle() }>
+  <div class="cover" style="{ this.getCoverStyle() }">
     <div class="item" > { title } 
-    <p each={ t, i in tags }
+<!--     <p each={ t, i in tags }
         class="temp"
-        style="color:red;">
+        style="color:white;">
       { t }
-    </p>
+    </p> -->
     </div>
   </div>
 
@@ -14,8 +14,10 @@
       var styles = '';
       if (this.slateUrl) {
         styles += 'background-image: url('+ this.slateUrl + '); ';
+      } else {
+        styles = 'background-image: none;';
       }
       return styles;
-    }
+    };
   </script>
 </tagged-item>

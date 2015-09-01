@@ -3,6 +3,7 @@ node_modules/
 style/**.map
 local-design/
 bower_components/
+docs/
 
 **/*.jpg
 **/*.png
