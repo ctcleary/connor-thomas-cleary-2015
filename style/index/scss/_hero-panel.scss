@@ -55,7 +55,11 @@
 .title,
 .tagline,
 .spinner-container {
+
+  // -webkit-filter: blur(4px);
+  // filter: blur(4px);
   animation: tagline-intro 1.5s 1 linear;
+  // animation-delay: 0.2s;
 }
 
 
@@ -70,6 +74,10 @@
 
 @keyframes tagline-intro {
   0% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  30% {
     -webkit-filter: blur(4px);
     filter: blur(4px);
   }
