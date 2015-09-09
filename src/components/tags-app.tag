@@ -1,5 +1,5 @@
 <tags-app>
-  <p> Search portfolio by skills used: </p>
+  <p> Search portfolio by skill: </p>
   <div class="{ this.opts.tagsClass } tags">
     <tag-button each={ this.getInactiveTags() }
         config={ this }>

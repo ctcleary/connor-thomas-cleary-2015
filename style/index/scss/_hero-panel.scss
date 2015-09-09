@@ -58,6 +58,7 @@
 
   // -webkit-filter: blur(4px);
   // filter: blur(4px);
+  // opacity: 0;
   animation: tagline-intro 1.5s 1 linear;
   // animation-delay: 0.2s;
 }
@@ -74,12 +75,14 @@
 
 @keyframes tagline-intro {
   0% {
+    opacity: 0;
     -webkit-filter: blur(4px);
     filter: blur(4px);
   }
   30% {
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
+    opacity: 1;
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
   }
   100% {
     -webkit-filter: blur(0);

@@ -14,28 +14,34 @@
 // green
 $inactiveBGColor: #27ae0c;
 $inactiveBGColor-light: #32e010;
+
+// red
+$activeBGColor: #ae270c;
+$activeBGColor-light: #e03210;
+
 .tags {
   button {
     margin-right: 0.5%;
 
     color: #000000;
     border: none;
-    border-radius: 16px;
+    border-radius: 2px;
     padding: 3px 10px;
 
     box-shadow: none;
-    transition: background-color 0.7s ease;
+    transition: background-color 0.7s ease,
+      transform 0.4s ease;
 
     &:after {
       content: '+';
-      color: black;
+      color: #27ae0c;
       transition: color 0.5s ease;
     }
 
     &:hover {
       background: $inactiveBGColor;
       // background: $inactiveBGColor-light;
-
+      transform: scale(1.03);
       animation: neon-glow-in 0.15s ease,
                  neon-glow 0.75s 0.15s ease-in-out infinite alternate;
 
@@ -50,6 +56,12 @@ $inactiveBGColor-light: #32e010;
 .tags-active {
   button {
     &:hover {
+      background: $activeBGColor;
+      animation: remove-glow-in 0.15s ease,
+                 remove-glow 0.75s 0.15s ease-in-out infinite alternate;
+
+
+
       &:after {
         color: #fcc;
       }
@@ -62,7 +74,7 @@ $inactiveBGColor-light: #32e010;
       font-weight: bold;
 
       content: '\2715';
-      color: black;
+      color: red;
     }
   }
 }
@@ -85,6 +97,27 @@ $inactiveBGColor-light: #32e010;
   100% {
     box-shadow:0 0 1px 0.5px $inactiveBGColor-light,
                0 0 3px 2px  $inactiveBGColor;
+  }
+}
+
+@keyframes remove-glow-in {
+  0% {
+    box-shadow:0 0 0 0 $activeBGColor-light,
+               0 0 0 0 $activeBGColor;
+  }
+  100% {
+    box-shadow:0 0 2px  0.5px $activeBGColor-light,
+               0 0 1px  0px   $activeBGColor;
+  }
+}
+@keyframes remove-glow {
+  0% {
+    box-shadow:0 0 2px  0.5px $activeBGColor-light,
+               0 0 1px  0px   $activeBGColor;
+  }
+  100% {
+    box-shadow:0 0 1px 0.5px $activeBGColor-light,
+               0 0 3px 2px   $activeBGColor;
   }
 }
 
