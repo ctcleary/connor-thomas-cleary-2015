@@ -1,6 +1,13 @@
 <tagged-item>
   <div class="cover" style="{ this.getCoverStyle() }">
-    <div class="item" > { title } 
+    <!-- article? -->
+    <div class="item">
+      <div class="item-title">
+        { title }
+      </div>
+      <div class="item-venue">
+        { venue }
+      </div>
 <!--     <p each={ t, i in tags }
         class="temp"
         style="color:white;">

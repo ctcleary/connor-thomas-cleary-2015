@@ -1,6 +1,7 @@
 var portfolioItems = [
   {
     'title': 'Segfault[0]: Mad Hatter',
+    'venue': 'Personal',
     'slateUrl': '../local-design/slates/slate_segfault1.gif',
     'tags': [
       'writing',
@@ -21,6 +22,7 @@ var portfolioItems = [
   {
     'title': 'Mad Max: Fury Road PTP (Flash)',
     'slateUrl': '../local-design/slates/slate_madmax1.jpg',
+    'venue': 'IMDb',
     'tags': [
       'web',
       'flash',
@@ -32,6 +34,7 @@ var portfolioItems = [
   {
     'title': 'Mad Max: Fury Road PTP (Non-Flash)',
     'slateUrl': '../local-design/slates/slate_madmax1.jpg',
+    'venue': 'IMDb',
     'tags': [
       'web',
       'javascript',
@@ -42,6 +45,7 @@ var portfolioItems = [
   },
   {
     'title': 'Roggy and the Beast',
+    'venue': 'Personal',
     'slateUrl': '',
     'tags': [
       'writing',
@@ -51,6 +55,7 @@ var portfolioItems = [
   },
   {
     'title': 'Summoner: The Bescarfed (Prototype)',
+    'venue': 'Personal',
     'slateUrl': '',
     'tags': [
       'actionscript',

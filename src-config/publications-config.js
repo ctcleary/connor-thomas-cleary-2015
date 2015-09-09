@@ -1,6 +1,7 @@
-var fictionPublicationsItems = [
+var fictionPublicationItems = [
   {
     'title': 'Revolvers',
+    'venue': 'Robot Cowgirl',
     'tags': [
       'short fiction',
       'dark fantasy',
@@ -9,6 +10,7 @@ var fictionPublicationsItems = [
   },
   {
     'title': 'Henchman: Origin',
+    'venue': 'Boxfire Press Heroics Anthology',
     'tags': [
       'short fiction',
       'humor',
@@ -20,16 +22,16 @@ var fictionPublicationsItems = [
 var journoPublicationItems = [
   {
     'title': 'Soul Calibur V',
+    'venue': 'Game Shark',
     'tags': [
-      'game review',
-      'sevencut.com'
+      'game review'
     ]
   },
   {
     'title': 'Natural Selection 2',
+    'venue': 'Game Shark',
     'tags': [
-      'game review',
-      'gameshark.com'
+      'game review'
     ]
   },
 ];

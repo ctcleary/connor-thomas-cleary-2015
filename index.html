@@ -78,6 +78,8 @@
       <div id="publications" class="publications section">
         <h1> Publications &amp; Writing Credits</h1>
         <div class="publications-wrapper section-wrapper">
+          <tags-app id="publications-app"></tags-app>
+          <!--
           <p> Search publications by type: </p>
           <div class="skill-tags tags">
             <button> interactive </button>
@@ -100,12 +102,16 @@
             <div class="pub-item"> StoryName - Publication Name - Tags </div>
             <div class="pub-item"> StoryName - Publication Name - Tags </div>
           </div>
+          -->
         </div>
     </section>
 
     <section>
       <div id="journalism" class="journalism section">
         <h1> Journalism Credits</h1>
+        <div class="journalism-wrapper section-wrapper">
+          <tags-app id="journalism-app"></tags-app>
+        </div>
       </div>
     </section>
 
@@ -132,7 +138,7 @@
       <h1> About </h1>
         <div class="about-wrapper section-wrapper">
           <p><em> Or: Who does this guy think I am? </em></p>
-          <p> I do things. </p>
+          <p> I do things. Begin Samuel L. Ipsum:</p>
           <!-- start slipsum code -->
           <p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
 
@@ -237,7 +243,9 @@
   <script src="../src/components/item-modal.tag" type="riot/tag"></script>
 
   <item-modal></item-modal>
+
   <script type="text/javascript" src="../src-config/portfolio-config.js"></script>
+  <script type="text/javascript" src="../src-config/publications-config.js"></script>
   <script type="text/javascript">
 
     riot.compile(function() {
@@ -245,16 +253,42 @@
     // console.log("mod ::", mod);
 
       try {
-        var app = riot.mount(
+        var portfolio = riot.mount(
           '#portfolio-app',
           'tags-app',
           {
+            searchPhrase: 'Search portfolio by skill:',
             tagsClass: 'skill-tags',
             itemsWrapClass: 'slates-wrapper',
             itemsHoldClass: 'slates-holder',
             itemsClass: 'slate-item',
-            tagsItems: portfolioItems,
-            ct: [{n:1},{n:2},{n:3}]
+            tagsItems: portfolioItems
+          }
+        );
+
+        var publications = riot.mount(
+          '#publications-app',
+          'tags-app',
+          {
+            searchPhrase: 'Search publications by skill:',
+            tagsClass: 'skill-tags',
+            itemsWrapClass: 'pubs-wrapper',
+            itemsHoldClass: 'pub-item-holder',
+            itemsClass: 'pub-item',
+            tagsItems: fictionPublicationItems
+          }
+        );
+
+        var journalism = riot.mount(
+          '#journalism-app',
+          'tags-app',
+          {
+            searchPhrase: 'Search articles by skill:',
+            tagsClass: 'skill-tags',
+            itemsWrapClass: 'pubs-wrapper',
+            itemsHoldClass: 'pub-item-holder',
+            itemsClass: 'pub-item',
+            tagsItems: journoPublicationItems
           }
         );
 

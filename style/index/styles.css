@@ -555,6 +555,11 @@ tagged-item .item {
     font-size: 16px;
     line-height: 24px;
     padding: 6px 0 0 1%; }
+    .pubs-wrapper .pub-item .item-title,
+    .pubs-wrapper .pub-item .item-venue {
+      display: inline-block; }
+    .pubs-wrapper .pub-item .item-venue:before {
+      content: "-"; }
 
 .skills {
   color: white; }

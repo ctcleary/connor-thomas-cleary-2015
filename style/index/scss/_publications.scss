@@ -25,5 +25,13 @@
     padding: 6px 0 0 1%;
     // padding: 15% 0;
     // background: rgba(255,255,255, 0.1);
+
+    .item-title,
+    .item-venue {
+      display: inline-block;
+    }
+    .item-venue:before {
+      content: '-'
+    }
   }
 }
