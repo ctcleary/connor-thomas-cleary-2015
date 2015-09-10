@@ -46,7 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  color: white;
+  // color: white;
+  color: inherit;
   font-size: 24px;
   margin: 0;
   margin-bottom: 24px;
@@ -54,27 +55,33 @@ h1 {
 }
 
 /* MARGIN LEFTS */
-h1,
-p,
-.skill-tags,
-.skill-tags-active {
-  margin-left: 10%;
-}
+.section,
 .main-nav-wrapper {
   padding-left: 10%;
+  padding-right: 5%;
 }
 
+// .section {
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+
+@include respond-to(large) {
+  .section {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
 @include respond-to(medium) {
   h1 {
     font-size: 22px;
     padding: 12px 0 0 0;
   }
 
-  h1,
-  p,
-  .skill-tags,
-  .skill-tags-active {
-    margin-left: 6%;
+  .section {
+    padding-left: 6%;
+    padding-right: 6%;
   }
 }
 @include respond-to(x-small) {
@@ -82,10 +89,9 @@ p,
     font-size: 18px;
     padding: 12px 0 0 0;
   }
-  h1,
-  p,
-  .skill-tags,
-  .skill-tags-active {
-    margin-left: 4%;
+
+  .section {
+    padding-left: 4%;
+    padding-right: 2%;
   }
 }

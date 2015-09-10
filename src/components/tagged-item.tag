@@ -1,20 +1,16 @@
 <tagged-item>
-  <div class="cover" style="{ this.getCoverStyle() }">
-    <!-- article? -->
-    <div class="item">
-      <div class="item-title">
-        { title }
+  <!-- <div class="tagged-item"> -->
+    <div class="cover" style="{ this.getCoverStyle() }">
+      <!-- article? -->
+      <div class="item">
+        <div class="item-title">{ title }</div>
+        <div class="item-venue">{ venue }</div>
+        <div class="item-tags">
+          <span class="item-tag" each={ t, i in tags }>{ t }</span>
+        </div>
       </div>
-      <div class="item-venue">
-        { venue }
-      </div>
-<!--     <p each={ t, i in tags }
-        class="temp"
-        style="color:white;">
-      { t }
-    </p> -->
     </div>
-  </div>
+  <!-- </div> -->
 
   <script>
     this.getCoverStyle = function() {

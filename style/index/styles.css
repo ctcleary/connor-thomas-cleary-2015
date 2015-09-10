@@ -31,42 +31,38 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0; }
 
 h1 {
-  color: white;
+  color: inherit;
   font-size: 24px;
   margin: 0;
   margin-bottom: 24px;
   padding: 12px 0 0 0; }
 
 /* MARGIN LEFTS */
-h1,
-p,
-.skill-tags,
-.skill-tags-active {
-  margin-left: 10%; }
-
+.section,
 .main-nav-wrapper {
-  padding-left: 10%; }
+  padding-left: 10%;
+  padding-right: 5%; }
 
+@media (max-width: 1200px) {
+  .section {
+    padding-left: 10%;
+    padding-right: 10%; } }
 @media (max-width: 720px) {
   h1 {
     font-size: 22px;
     padding: 12px 0 0 0; }
 
-  h1,
-  p,
-  .skill-tags,
-  .skill-tags-active {
-    margin-left: 6%; } }
+  .section {
+    padding-left: 6%;
+    padding-right: 6%; } }
 @media (max-width: 330px) {
   h1 {
     font-size: 18px;
     padding: 12px 0 0 0; }
 
-  h1,
-  p,
-  .skill-tags,
-  .skill-tags-active {
-    margin-left: 4%; } }
+  .section {
+    padding-left: 4%;
+    padding-right: 2%; } }
 .main-nav-wrapper {
   position: relative;
   z-index: 314159;
@@ -147,6 +143,10 @@ p,
 .section-wrapper {
   padding-bottom: 24px; }
 
+.tags-app .search-by,
+.tags-app .remove-search-tags {
+  margin-bottom: 12px; }
+
 .tags,
 .tags-active {
   margin-bottom: 12px; }
@@ -161,8 +161,8 @@ p,
   border-radius: 2px;
   padding: 3px 10px;
   box-shadow: none;
-  -webkit-transition: background-color 0.7s ease, -webkit-transform 0.4s ease;
-          transition: background-color 0.7s ease, transform 0.4s ease; }
+  -webkit-transition: background-color 0.7s ease;
+          transition: background-color 0.7s ease; }
   .tags button:after {
     content: '+';
     color: #27ae0c;
@@ -170,9 +170,6 @@ p,
             transition: color 0.5s ease; }
   .tags button:hover {
     background: #27ae0c;
-    -webkit-transform: scale(1.03);
-        -ms-transform: scale(1.03);
-            transform: scale(1.03);
     -webkit-animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate;
             animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate; }
     .tags button:hover:after {
@@ -244,7 +241,6 @@ tagged-item .item {
   position: absolute;
   left: 0;
   bottom: 0;
-  padding: 0 0 1% 3%;
   font-size: 16px;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -513,8 +509,8 @@ tagged-item .item {
     background: #efe; }
   .portfolio .slates-wrapper {
     width: 100%;
-    padding: 0 24px 4% 24px;
-    text-align: center; }
+    padding: 0;
+    padding-bottom: 4%; }
     .portfolio .slates-wrapper .slates-holder {
       display: inline-block;
       margin: 0 auto;
@@ -529,6 +525,12 @@ tagged-item .item {
     border: thin solid white;
     border-radius: 1px;
     text-shadow: 0px  2px 0 black, 1px  1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black; }
+    .portfolio .slate-item .item {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0 0 3px 3px;
+      width: 100%; }
+  .portfolio .item-tags {
+    display: none; }
 
 @media (max-width: 490px) {
   .portfolio .slate-item {
@@ -540,26 +542,45 @@ tagged-item .item {
   background-size: cover;
   background-attachment: fixed;
   color: white;
-  min-height: 800px; }
+  padding-bottom: 48px; }
 
 .pubs-wrapper {
   vertical-align: center; }
   .pubs-wrapper .pub-item {
     display: block;
-    width: 80%;
-    max-width: 1480px;
     height: 36px;
-    margin: 0 auto 6px auto;
-    background: rgba(0, 0, 0, 0.65);
+    margin-bottom: 6px;
+    background: rgba(0, 0, 0, 0.85);
     color: white;
     font-size: 16px;
     line-height: 24px;
-    padding: 6px 0 0 1%; }
+    padding: 6px 0 6px 1%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
     .pubs-wrapper .pub-item .item-title,
-    .pubs-wrapper .pub-item .item-venue {
+    .pubs-wrapper .pub-item .item-venue,
+    .pubs-wrapper .pub-item .item-tags {
       display: inline-block; }
-    .pubs-wrapper .pub-item .item-venue:before {
-      content: "-"; }
+    .pubs-wrapper .pub-item .item-venue:before,
+    .pubs-wrapper .pub-item .item-tags:before {
+      content: '- '; }
+    .pubs-wrapper .pub-item .item-tags .item-tag {
+      font-size: 14px; }
+      .pubs-wrapper .pub-item .item-tags .item-tag:after {
+        content: ', '; }
+      .pubs-wrapper .pub-item .item-tags .item-tag:last-of-type:after {
+        content: ''; }
+
+.journalism {
+  background: white;
+  color: black;
+  padding-bottom: 48px; }
+  .journalism .pubs-wrapper {
+    vertical-align: center; }
+    .journalism .pubs-wrapper .pub-item {
+      background: rgba(0, 0, 0, 0.15);
+      color: black; }
 
 .skills {
   color: white; }

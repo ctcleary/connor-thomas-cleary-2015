@@ -1,11 +1,11 @@
 var fictionPublicationItems = [
   {
-    'title': 'Revolvers',
-    'venue': 'Robot Cowgirl',
+    'title': 'Asgard Run',
+    'venue': 'Amused Sloth',
     'tags': [
-      'short fiction',
-      'dark fantasy',
-      'western'
+      'scriptwriting',
+      'contract',
+      'game'
     ]
   },
   {
@@ -15,6 +15,32 @@ var fictionPublicationItems = [
       'short fiction',
       'humor',
       'superhero'
+    ]
+  },
+  {
+    'title': 'Noise',
+    'venue': 'Flatirons Literary Review',
+    'tags': [
+      'short fiction',
+      'literary'
+    ]
+  },
+  {
+    'title': 'Let\'s Pretend It Never Happened',
+    'venue': 'Suddenly Lost in Words',
+    'tags': [
+      'short fiction',
+      'humor',
+      'superhero'
+    ]
+  },
+  {
+    'title': 'Heimlich at The Sizzler',
+    'venue': 'Feathertale',
+    'tags': [
+      'flash fiction',
+      'humor',
+      'absurdist'
     ]
   }
 ];

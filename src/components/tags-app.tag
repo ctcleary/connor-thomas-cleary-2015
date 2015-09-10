@@ -1,36 +1,38 @@
 <tags-app>
-  <p> { this.opts.searchPhrase } </p>
-  <div class="{ this.opts.tagsClass } tags">
-    <tag-button each={ this.getInactiveTags() }
-        config={ this }>
-    </tag-button>
-  </div>
+  <div class="tags-app">
+    <p class="search-by" if={ this.getInactiveTags().length > 0 }>
+      { this.opts.searchPhrase }
+    </p>
+    <div class="{ this.opts.tagsClass } tags">
+      <tag-button each={ this.getInactiveTags(); }
+          config={ this }>
+      </tag-button>
+    </div>
 
-  <p if={ this.getActiveTags().length > 0 }>
-    Remove active search tags:
-  </p>
-  <div class="{ this.opts.tagsClass } tags tags-active">
-    <tag-button each={ this.getActiveTags() }
-        config={ this }>
-    </tag-button>
-  </div>
-  <!-- <span> Active tags </span> -->
+    <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
+      Remove active search tags:
+    </p>
+    <div class="{ this.opts.tagsClass } tags tags-active">
+      <tag-button each={ this.getActiveTags() }
+          config={ this }>
+      </tag-button>
+    </div>
+    <!-- <span> Active tags </span> -->
 
-  <div class="{ this.opts.itemsWrapClass }">
-    <div class="{ this.opts.itemsHoldClass }">
-      <tagged-item each={ this.getActiveItems() }
-          class="{ parent.opts.itemsClass }">
-      </tagged-item>
+    <div class="{ this.opts.itemsWrapClass }">
+      <div class="{ this.opts.itemsHoldClass }">
+        <tagged-item each={ this.getActiveItems() }
+            class="{ parent.opts.itemsClass }">
+        </tagged-item>
+      </div>
     </div>
   </div>
 
   <script> 
     // Init
-    var _this = this;
-
-    this.allTags = (function() {
+    this.getAllTags = function(taggedItems) {
       var allTagNames = [];
-      _.each(_this.opts.tagsItems, function(tagsItem) {
+      _.each(taggedItems, function(tagsItem) {
         allTagNames = _.union(allTagNames, tagsItem.tags);
       });
       
@@ -42,24 +44,28 @@
       });
 
       return allTags;
-    })();
-    
+    };
 
-    // Tags
-    this.getAllTags = function() {
-      return this.allTags;
-    };    
+    this.allTags = this.getAllTags(this.opts.tagsItems);
+
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });
       return active;
+    };
+    this.getActiveTagNames = function() {
+      return _.pluck(this.getActiveTags(), 'name');
     };
     this.getInactiveTags = function() {
       var active = _.where(this.allTags, { active: false });
       return active;
     };
     this.toggleTag = function(e) {
-      var tag = e.item;
+      var tagName = e.item.name;
+      var tag = _.findWhere(this.allTags, {name: tagName});
+      console.log("tag ::", tag);
+      console.log("this.allTags ::", this.allTags);
       tag.active = !tag.active;
+      this.update();
     };
 
 
@@ -75,18 +81,22 @@
         return taggedItems;
       }
 
-      var scopedHasAnyActiveTags = this.hasAnyActiveTag;
       return _.filter(taggedItems, function(item) {
-        return scopedHasAnyActiveTags(item, activeTags);
-      });
+        return this.hasAllActiveTags(item, activeTags);
+      }, this);
     };
     this.hasTag = function(item, testTag) {
       return (_.indexOf(testTag, item.tags) !== -1);
     };
+    this.hasAllActiveTags = function(item, activeTags) {
+      var thisItemTags = item.tags;
+      var activeTagNames = this.getActiveTagNames();
+      return _.intersection(item.tags, activeTagNames).length === activeTags.length;
+    };
     this.hasAnyActiveTag = function(item, activeTags) {
-      var itemsTags = item.tags;
+      var thisItemTags = item.tags;
       for (var i = 0; i < activeTags.length; i++) {
-        if (_.indexOf(itemsTags, activeTags[i].name) !== -1) {
+        if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
           return true;
         }
       }
