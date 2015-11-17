@@ -280,6 +280,7 @@ tagged-item .item {
   color: white;
   background: rgba(255, 255, 255, 0.4);
   background: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   vertical-align: middle; }
 
@@ -549,32 +550,43 @@ tagged-item .item {
 
 .pubs-wrapper {
   vertical-align: center; }
-  .pubs-wrapper .pub-item {
+  .pubs-wrapper tagged-item.pub-item {
     display: block;
     height: 36px;
     margin-bottom: 6px;
     background: rgba(0, 0, 0, 0.85);
     color: white;
-    font-size: 16px;
-    line-height: 24px;
     padding: 6px 0 6px 1%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-    .pubs-wrapper .pub-item .item-title,
-    .pubs-wrapper .pub-item .item-venue,
-    .pubs-wrapper .pub-item .item-tags {
+    .pubs-wrapper tagged-item.pub-item .item {
+      font-size: 16px;
+      line-height: 24px; }
+    .pubs-wrapper tagged-item.pub-item .item-title,
+    .pubs-wrapper tagged-item.pub-item .item-venue,
+    .pubs-wrapper tagged-item.pub-item .item-tags {
       display: inline-block; }
-    .pubs-wrapper .pub-item .item-venue:before,
-    .pubs-wrapper .pub-item .item-tags:before {
+    .pubs-wrapper tagged-item.pub-item .item-venue:before,
+    .pubs-wrapper tagged-item.pub-item .item-tags:before {
       content: '- '; }
-    .pubs-wrapper .pub-item .item-tags .item-tag {
+    .pubs-wrapper tagged-item.pub-item .item-tags .item-tag {
       font-size: 14px; }
-      .pubs-wrapper .pub-item .item-tags .item-tag:after {
+      .pubs-wrapper tagged-item.pub-item .item-tags .item-tag:after {
         content: ', '; }
-      .pubs-wrapper .pub-item .item-tags .item-tag:last-of-type:after {
+      .pubs-wrapper tagged-item.pub-item .item-tags .item-tag:last-of-type:after {
         content: ''; }
 
+@media (max-width: 490px) {
+  .pubs-wrapper tagged-item.pub-item .item {
+    font-size: 14px; }
+    .pubs-wrapper tagged-item.pub-item .item .item-tags .item-tag {
+      font-size: 12px; } }
+@media (max-width: 330px) {
+  .pubs-wrapper tagged-item.pub-item .item {
+    font-size: 12px; }
+    .pubs-wrapper tagged-item.pub-item .item .item-tags .item-tag {
+      font-size: 10px; } }
 .journalism {
   background: white;
   color: black;

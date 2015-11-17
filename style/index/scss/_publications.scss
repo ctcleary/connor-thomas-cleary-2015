@@ -11,20 +11,23 @@
 .pubs-wrapper {
   vertical-align: center;
 
-  .pub-item {
+  tagged-item.pub-item {
     display: block;
     height: 36px;
     margin-bottom: 6px;
 
     background: rgba(0,0,0, 0.85);
     color: white;
-    font-size: 16px;
-    line-height: 24px;
     padding: 6px 0 6px 1%;
 
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    .item {
+      font-size: 16px;
+      line-height: 24px;
+    }
 
     .item-title,
     .item-venue,
@@ -48,6 +51,34 @@
           &:after {
             content: '';
           }
+        }
+      }
+    }
+  }
+}
+
+
+@include respond-to(small) {
+  .pubs-wrapper {
+    tagged-item.pub-item .item {
+      font-size: 14px;
+
+      .item-tags {
+        .item-tag {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+@include respond-to(x-small) {
+  .pubs-wrapper {
+    tagged-item.pub-item  .item{
+      font-size: 12px;
+
+      .item-tags {
+        .item-tag {
+          font-size: 10px;
         }
       }
     }
