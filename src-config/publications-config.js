@@ -30,8 +30,7 @@ var fictionPublicationItems = [
     'venue': 'Suddenly Lost in Words',
     'tags': [
       'short fiction',
-      'humor',
-      'superhero'
+      'literary'
     ]
   },
   {
