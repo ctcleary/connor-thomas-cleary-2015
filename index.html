@@ -17,17 +17,34 @@
   <script src="../bower_components/shaven/shaven.js"></script>
 
 
-
   <style type="text/css">
 
   </style>
 </head>
 <body>
+  <svg viewBox="0 0 50 50" style="display:none; background: white; height:50px; width:50px;">
+    <defs>
+      <g id="ctc-logo">
+        <polygon points="73.3,77.2 49.7,100.7 49.7,100.7 49.7,100.7 -0.5,50.5 -0.5,50.5 -0.5,50.5 49.7,0.3 49.7,0.3 49.7,0.3 100,50.5 
+          100,50.5 100,50.5 76.4,74.1 70,67.7 93.6,44.1 93.6,56.9 43.4,6.7 56.1,6.7 5.9,56.9 5.9,44.1 56.1,94.3 43.4,94.3 66.9,70.8   "/>
+        <polygon points="38.9,42.7 24.7,56.8 24.7,44.2 56,75.6 43.5,75.6 74.8,44.2 74.8,56.8 43.4,25.5 56,25.4 41.9,39.6 35.6,33.3 
+          49.7,19.2 49.7,19.2 49.7,19.2 81.1,50.5 81.1,50.5 81.1,50.5 49.8,81.9 49.8,81.9 49.8,81.9 18.4,50.5 18.4,50.5 18.4,50.5 
+          32.6,36.4   "/>
+      </g>
+    </defs>
+  </svg>
+
+
   <div id="top" class="wrapper">
     <nav>
       <div class="main-nav-wrapper">
         <div class="main-nav">
-          <a href="#top" class="nav-item"> Top </a>
+          <a href="#top" class="nav-item nav-logo">
+            <svg id="logo-svg" viewBox="0 0 110 110">
+              <use xlink:href="#ctc-logo" x="0" y="0"  />
+            </svg>
+          </a>
+          <!-- <a href="#top" class="nav-item"> Top </a> -->
           <a href="#portfolio" class="nav-item"> Portfolio </a>
           <a href="#publications" class="nav-item"> Publications </a>
           <a href="#skills" class="nav-item"> Skills </a>
@@ -94,23 +111,27 @@
     <section>
       <div id="skills" class="skills section">
       <h1> Skills </h1>
+        <h3> Storyteller. Game Designer. Engineer. </h3>
+        <br/>
         <div class="skills-wrapper section-wrapper">
           <ul>
             <li class="container">
-              Web
+              Writing
               <ul>
-                <li class="container"> 
-                  Javascript <small> [Advanced+] </small>
+                <li class="container">
+                  Fiction
                   <ul>
-                    <li> <small> <em> Native, Backbone, Underscore </em> </small> </li>
-                    <li> <small> <em> HTML5, Canvas, WebGL </em> </small> </li>
-                    <li> <small> <em> Riot, D3, jQuery, Grunt </em> </small> </li>
+                    <li> <small> Fiction </small> </li>
+                    <li> <small> Interactive </small> </li>
+                    <li> <small> Scriptwriting </small> </li>
                   </ul>
                 </li>
-                <li class="container"> 
-                  HTML, CSS/Sass   <small> [Advanced] </small> 
+                <li class="container">
+                  Non-Fiction
                   <ul>
-                    <li> <small> <em> Cross-browser, Backwards Compatible</em> </small> </li>
+                    <li> <small> Journalism </small> </li>
+                    <li> <small> Technical </small> </li>
+                    <li> <small> Copy </small> </li>
                   </ul>
                 </li>
               </ul>
@@ -119,16 +140,44 @@
               Game Design
               <ul>
                 <li> Unity 2D/3D (C#) <small> [Basic/Intermediate] </small></li>
+                <li> Flixel (AS3) <small> [Advanced] </small></li>
                 <li> Twine <small> [Advanced] </small></li>
               </ul>
             </li>
             <li class="container">
               Languages
               <ul>
+                <li> Javascript <small> [Advanced+] </small> 
+                  <ul>
+                    <li> <small> <em> Native, Backbone, Underscore </em> </small> </li>
+                    <li> <small> <em> HTML5, Canvas, WebGL </em> </small> </li>
+                    <li> <small> <em> Riot, D3, jQuery, Grunt </em> </small> </li>
+                  </ul>
+                </li>
                 <li> ActionScript 3.0 <small> [Advanced] </small> </li>
                 <li> C# <small> [Basic/Intermediate] </small> </li>
                 <li> Java <small> [Intermediate] </small> </li>
                 <li> php <small> Wordpress &middot; [Intermediate] </small> </li>
+              </ul>
+            </li>
+            <li class="container">
+              Web
+              <ul>
+                <li class="container"> 
+                  HTML &amp; HTML5 <small> [Advanced] </small>
+                  <ul>
+                    <li> <small> <em> WebGL, Web Video</em> </small> </li>
+                    <li> <small> <em> Advanced Canvas techniques </em> </small> </li>
+                    <li> <small> <em> Cross-browser, backwards compatible</em> </small> </li>
+                  </ul>
+                </li>
+                <li class="container"> 
+                  CSS &amp; CSS3 <small> [Advanced] </small>
+                  <ul>
+                    <li> <small> <em> Sass Techniques </em> </small> </li>
+                    <li> <small> <em> Transitions, Motion, Animation </em> </small> </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="container"> 
