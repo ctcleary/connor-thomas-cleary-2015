@@ -625,6 +625,7 @@ tagged-item .item {
       color: black; }
 
 .skills {
+  background: url("../../img/bg.jpg") repeat black;
   color: white; }
 
 .skills small {
