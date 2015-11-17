@@ -170,10 +170,10 @@ $verbHeight: 60;
 
 /* TRANSLATES */
 .hero-labels { 
-  transition: transform 0.25s ease;
+  transition: transform 0.25s $easeInOutSine;
   transform-origin: 20% center;
   transform: translate(25%, 72%) scale(1);
-  animation: hero-labels-intro 1.2s ease;
+  animation: hero-labels-intro 1.2s $easeInOutSine;
 }
 
 @keyframes hero-labels-intro {

@@ -38,6 +38,9 @@ h1 {
   padding: 12px 0 0 0; }
 
 /* MARGIN LEFTS */
+.main-nav-wrapper {
+  text-align: center; }
+
 .section,
 .main-nav-wrapper {
   padding-left: 10%;
@@ -70,7 +73,7 @@ h1 {
   height: 48px;
   padding-top: 12px;
   width: 100%;
-  background-color: #f0f0ff;
+  background-color: #fdfdff;
   border-bottom: thin solid rgba(0, 0, 0, 0.5);
   color: #0f0f11; }
   .main-nav-wrapper .main-nav {
@@ -437,16 +440,16 @@ tagged-item .item {
 
 /* TRANSLATES */
 .hero-labels {
-  -webkit-transition: -webkit-transform 0.25s ease;
-          transition: transform 0.25s ease;
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          transition: transform 0.25s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -webkit-transform-origin: 20% center;
       -ms-transform-origin: 20% center;
           transform-origin: 20% center;
   -webkit-transform: translate(25%, 72%) scale(1);
       -ms-transform: translate(25%, 72%) scale(1);
           transform: translate(25%, 72%) scale(1);
-  -webkit-animation: hero-labels-intro 1.2s ease;
-          animation: hero-labels-intro 1.2s ease; }
+  -webkit-animation: hero-labels-intro 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          animation: hero-labels-intro 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
 
 @-webkit-keyframes hero-labels-intro {
   0% {
@@ -584,6 +587,9 @@ tagged-item .item {
 
 .skills {
   color: white; }
+
+.skills small {
+  color: #bfbfbf; }
 
 .about {
   background: #ffffff;
