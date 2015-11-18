@@ -320,16 +320,38 @@ tagged-item .item {
         padding-top: 0; }
     .item-modal-wrapper .item-modal .item-modal-close {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 0px;
+      right: 0px;
       display: inline-block;
-      width: 30px;
-      height: 30px;
+      width: 21px;
+      height: 21px;
       cursor: pointer;
-      background: rgba(255, 0, 0, 0.2);
+      background: black;
+      border: 2px solid white;
+      border-radius: 50%;
       text-align: center;
       padding-top: 2px;
       vertical-align: middle; }
+      .item-modal-wrapper .item-modal .item-modal-close:before, .item-modal-wrapper .item-modal .item-modal-close:after {
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        content: '';
+        display: block;
+        width: 50%;
+        height: 10%;
+        -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+                transform-origin: center center;
+        background: white; }
+      .item-modal-wrapper .item-modal .item-modal-close:after {
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg); }
+      .item-modal-wrapper .item-modal .item-modal-close:before {
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg); }
 
 .hero {
   position: relative;

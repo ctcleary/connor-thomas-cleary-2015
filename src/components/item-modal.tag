@@ -2,10 +2,8 @@
   <article>
     <div class="item-modal-wrapper" style={ this.getTransitionStyle() } onclick={ this.dismissModal }>
       <div class="item-modal" riot-style={ this.getStyle() } onclick={ this.stopEvent }>
+        <div class="item-modal-close" onclick={ this.dismissModal }> </div>
         <div class="item-modal-contents">
-          
-          <div class="item-modal-close" onclick={ this.dismissModal }> X </div>
-
           <h1 class="item-modal-headline"> { this.opts.title; } </h1>
           <div class="item-modal-description">
 
