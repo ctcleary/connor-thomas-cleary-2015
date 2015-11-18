@@ -6,7 +6,15 @@ var fictionPublicationItems = [
       'scriptwriting',
       'contract',
       'game'
-    ]
+    ],
+    modal: {
+      title: 'Asgard Run',
+      description: ['.item-desc',
+        [
+          ['p', 'Contract writer for opening cinematic.']
+        ]
+      ]
+    }
   },
   {
     'title': 'Henchman: Origin',

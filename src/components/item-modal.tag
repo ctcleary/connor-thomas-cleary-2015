@@ -17,8 +17,7 @@
   </article>
 
   <script>
-    var modalConfig = this.opts;
-    // console.log("this ::", this);
+    var modalConfig = this.opts.modal;
 
     this.getDescription = function() {
       return modalConfig.title;

@@ -21,7 +21,14 @@
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="{ this.opts.itemsHoldClass }">
-        <tagged-item each={ this.getActiveItems() }></tagged-item>
+        <virtual each={ this.getActiveItems() }> 
+          <tagged-item 
+            title={ title }
+            slate-url={ slateUrl } 
+            modal={ modal }
+            >
+          </tagged-item>
+        </virtual>
         </div>
       </div>
     </div>
@@ -68,15 +75,12 @@
 
     // Items
     this.getItems = function() {
-      // console.log("this ::", this);
-      // console.log("this.opts.tagsItems ::", this.opts.tagsItems[0]);
       return this.opts.tagsItems;
     };
 
     this.getActiveItems = function() {
       var activeTags = this.getActiveTags();
       var taggedItems = this.getItems();
-      // console.log("taggedItems ::", taggedItems[0]);
       if (activeTags.length === 0) {
         return taggedItems;
       }

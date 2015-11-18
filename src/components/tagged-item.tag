@@ -3,8 +3,8 @@
     <div class={ this.hasModal ? "cover w-modal" : "cover" } style="{ this.getCoverStyle() }" onclick={ this.hasModal ? this.initModal : null; }>
       <!-- article? -->
       <div class="item">
-        <div class="item-title">{ title }</div>
-        <div class="item-venue">{ venue }</div>
+        <div class="item-title">{ this.opts.title }</div>
+        <div class="item-venue">{ this.opts.venue }</div>
         <div class="item-tags">
           <span class="item-tag" each={ t, i in tags }>{ t }</span>
         </div>
@@ -13,7 +13,7 @@
   <!-- </div> -->
 
   <script>
-    this.hasModal = !!this.modal;
+    this.hasModal = !!this.opts.modal;
 
     this.getCoverStyle = function() {
       var styles = '';
@@ -30,7 +30,7 @@
 
 
     this.initModal = function() {
-      window.ctc.initModal(this.modal);
+      window.ctc.initModal(this);
     };
   </script>
 </tagged-item>

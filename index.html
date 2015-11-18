@@ -200,7 +200,7 @@
       <div id="about" class="about section">
       <h1> About </h1>
         <div class="about-wrapper section-wrapper">
-          <p><em> Or: Who does this guy think I am? </em></p>
+          <p><em> Who does this guy think he is anyway? </em></p>
           <p>I am a creator and a craftsman, and a man of unquenchable curiosity. I strive for excellence in every task.</p>
 
           <p>As a published writer with years of web software engineering experience and a background in art and design, I navigate and bridge the divide between creative and technical while speaking the language of both.</p>
@@ -319,7 +319,10 @@
         this.currentModal = riot.mount(
           this.currentModalEl, 
           'item-modal',
-          opts
+          {
+            title: opts.title,
+            modal: opts.modal
+          }
         )[0];
         this.currentModal.show();
       },
