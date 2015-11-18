@@ -60,7 +60,7 @@
   // -webkit-filter: blur(4px);
   // filter: blur(4px);
   // opacity: 0;
-  animation: tagline-intro 1.5s 1 linear;
+  animation: tagline-intro 1.5s 1 $easeInOutSine;
   // animation-delay: 0.2s;
 }
 
@@ -129,7 +129,7 @@
       width: 100%;
       text-align: center;
 
-      animation: spinner-spin 3.5s 1.75s ease;
+      animation: spinner-spin 3.5s 1.75s $easeInOutSine;
 
       .verb {
         top: -60px;

@@ -112,8 +112,8 @@ h1 {
       font-size: 14px;
       padding: 0 2.5% 0 0;
       text-transform: uppercase;
-      -webkit-transition: color 0.3s ease, -webkit-transform 0.3s ease;
-              transition: color 0.3s ease, transform 0.3s ease; }
+      -webkit-transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), -webkit-transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+              transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
     .main-nav-wrapper .main-nav .nav-item.nav-logo {
       overflow: visible; }
       .main-nav-wrapper .main-nav .nav-item.nav-logo #logo-svg {
@@ -122,8 +122,8 @@ h1 {
         left: 0;
         height: 36px;
         fill: #0f110f;
-        -webkit-transition: fill 0.3s ease, -webkit-transform 0.3s ease;
-                transition: fill 0.3s ease, transform 0.3s ease; }
+        -webkit-transition: fill 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), -webkit-transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+                transition: fill 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
         .main-nav-wrapper .main-nav .nav-item.nav-logo #logo-svg:hover {
           fill: #5AD46F; }
 
@@ -135,8 +135,8 @@ h1 {
   background-color: #000000;
   border-top: thin solid rgba(105, 212, 253, 0.1);
   border-bottom: thin solid rgba(105, 212, 253, 0.35);
-  -webkit-animation: fade-in 1.2s ease;
-          animation: fade-in 1.2s ease; }
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          animation: fade-in 1.2s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
   .main-nav-sticky .main-nav .nav-item {
     color: #eff3ef;
     text-decoration: none; }
@@ -202,8 +202,8 @@ h1 {
   border-radius: 2px;
   padding: 3px 10px;
   box-shadow: none;
-  -webkit-transition: background-color 0.7s ease;
-          transition: background-color 0.7s ease; }
+  -webkit-transition: background-color 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          transition: background-color 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
   .tags button:after {
     content: '+';
     color: #27ae0c;
@@ -211,15 +211,15 @@ h1 {
             transition: color 0.5s ease; }
   .tags button:hover {
     background: #27ae0c;
-    -webkit-animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate;
-            animation: neon-glow-in 0.15s ease, neon-glow 0.75s 0.15s ease-in-out infinite alternate; }
+    -webkit-animation: neon-glow-in 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95), neon-glow 0.75s 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+            animation: neon-glow-in 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95), neon-glow 0.75s 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
     .tags button:hover:after {
       color: white; }
 
 .tags-active button:hover {
   background: #ae270c;
-  -webkit-animation: remove-glow-in 0.15s ease, remove-glow 0.75s 0.15s ease-in-out infinite alternate;
-          animation: remove-glow-in 0.15s ease, remove-glow 0.75s 0.15s ease-in-out infinite alternate; }
+  -webkit-animation: remove-glow-in 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95), remove-glow 0.75s 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+          animation: remove-glow-in 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95), remove-glow 0.75s 0.15s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
   .tags-active button:hover:after {
     color: #fcc; }
 .tags-active button:after {
@@ -375,8 +375,8 @@ tagged-item .item {
 .title,
 .tagline,
 .spinner-container {
-  -webkit-animation: tagline-intro 1.5s 1 linear;
-          animation: tagline-intro 1.5s 1 linear; }
+  -webkit-animation: tagline-intro 1.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          animation: tagline-intro 1.5s 1 cubic-bezier(0.445, 0.05, 0.55, 0.95); }
 
 .highlight-boxed {
   background: rgba(255, 255, 255, 0.3);
@@ -441,8 +441,8 @@ tagged-item .item {
       height: 100%;
       width: 100%;
       text-align: center;
-      -webkit-animation: spinner-spin 3.5s 1.75s ease;
-              animation: spinner-spin 3.5s 1.75s ease; }
+      -webkit-animation: spinner-spin 3.5s 1.75s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+              animation: spinner-spin 3.5s 1.75s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
       .spinner-container .spinner .verbs .verb {
         top: -60px;
         display: block;

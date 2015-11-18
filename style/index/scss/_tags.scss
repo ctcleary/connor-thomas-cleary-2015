@@ -30,7 +30,7 @@ $activeBGColor-light: #e03210;
     padding: 3px 10px;
 
     box-shadow: none;
-    transition: background-color 0.7s ease;
+    transition: background-color 0.7s $easeInOutSine;
 
     &:after {
       content: '+';
@@ -40,8 +40,8 @@ $activeBGColor-light: #e03210;
 
     &:hover {
       background: $inactiveBGColor;
-      animation: neon-glow-in 0.15s ease,
-                 neon-glow 0.75s 0.15s ease-in-out infinite alternate;
+      animation: neon-glow-in 0.15s $easeInOutSine,
+                 neon-glow 0.75s 0.15s $easeInOutSine infinite alternate;
 
 
       &:after {
@@ -55,8 +55,8 @@ $activeBGColor-light: #e03210;
   button {
     &:hover {
       background: $activeBGColor;
-      animation: remove-glow-in 0.15s ease,
-                 remove-glow 0.75s 0.15s ease-in-out infinite alternate;
+      animation: remove-glow-in 0.15s $easeInOutSine,
+                 remove-glow 0.75s 0.15s $easeInOutSine infinite alternate;
 
 
 

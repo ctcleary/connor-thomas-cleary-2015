@@ -1,6 +1,6 @@
 <item-modal>
   <article>
-    <div class="item-modal-wrapper" onclick={ this.dismissModal }>
+    <div class="item-modal-wrapper" style={ this.getTransitionStyle() } onclick={ this.dismissModal }>
       <div class="item-modal" riot-style={ this.getStyle() } onclick={ this.stopEvent }>
         <div class="item-modal-contents">
           
@@ -17,6 +17,7 @@
   </article>
 
   <script>
+    this.transitionLengthS = 0.25;
     var modalConfig = this.opts.modal;
 
     this.getDescription = function() {
@@ -24,7 +25,7 @@
     }
 
     this.getStyle = function() {
-      return "background: white;";
+      return 'background: white;';
     };
 
     this.stopEvent = function(e) {
@@ -38,7 +39,9 @@
 
     this.dismiss = function() {
       this.hide();
-      this.unmount();
+      clearTimeout(this.unmountTimeout)
+      this.unmountTimeout = setTimeout(this.unmount, 
+          this.transitionLengthS+1000);
     };
 
     this.dismissOnEsc = function(e) {
@@ -47,7 +50,11 @@
       }
     }
 
+    this.getTransitionStyle = function() {
+      return 'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950)';
+    }
     this.show = function() {
+      // TODO, figure out why show opacity transition isn't happening.
       if (!this.wrapper) {
         console.log("danger will robinson");
       }
@@ -79,6 +86,7 @@
       _this.boundKeyHandler = _this.dismissOnEsc.bind(_this);
       document.addEventListener('keydown', _this.boundKeyHandler);
 
+      console.log("this.wrapper.style.opacity ::", this.wrapper.style.opacity);
       this.show();
     });
 

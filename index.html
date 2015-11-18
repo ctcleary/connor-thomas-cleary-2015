@@ -324,11 +324,10 @@
             modal: opts.modal
           }
         )[0];
-        this.currentModal.show();
+        // this.currentModal.show();
       },
       dismissModal: function() {
         if (this.currentModal) {
-          this.currentModalEl.parentNode.removeChild(this.currentModalEl);
           this.currentModal.dismiss();
         }
       }
