@@ -17,8 +17,8 @@
 
     this.getCoverStyle = function() {
       var styles = '';
-      if (this.slateUrl) {
-        styles += 'background-image: url('+ this.slateUrl + '); ';
+      if (this.opts.slateUrl) {
+        styles += 'background-image: url('+ this.opts.slateUrl + '); ';
       } else {
         styles += 'background-image: none; ';
       }
@@ -27,7 +27,6 @@
       }
       return styles;
     };
-
 
     this.initModal = function() {
       window.ctc.initModal(this);
