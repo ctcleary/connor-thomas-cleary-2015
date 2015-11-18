@@ -182,6 +182,7 @@ h1 {
   margin-bottom: 12px; }
 
 .tag-button {
+  cursor: pointer;
   margin: 0 3px 12px 3px; }
 
 .tags button {

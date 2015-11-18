@@ -18,7 +18,10 @@
       if (this.slateUrl) {
         styles += 'background-image: url('+ this.slateUrl + '); ';
       } else {
-        styles = 'background-image: none;';
+        styles += 'background-image: none; ';
+      }
+      if (this.description) {
+        styles += 'cursor:pointer; ';
       }
       return styles;
     };
