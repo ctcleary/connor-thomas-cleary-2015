@@ -21,7 +21,7 @@
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="{ this.opts.itemsHoldClass }">
-        <tagged-item each={ this.getActiveItems() } data={ this }></tagged-item>
+        <tagged-item each={ this.getActiveItems() }></tagged-item>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ var portfolioItems = [
       'game'
     ],
     modal: {
+      title: 'Segfault[0]: Mad Hatter',
       description: ['.item-desc',
         ['p', 'This is a test paragraph.'],
         ['ul', [

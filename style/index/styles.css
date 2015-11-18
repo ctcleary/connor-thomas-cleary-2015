@@ -66,7 +66,8 @@ h1 {
     font-size: 22px;
     padding: 12px 0 0 0; }
 
-  .section {
+  .section,
+  .main-nav-wrapper {
     padding-left: 6%;
     padding-right: 6%; } }
 @media (max-width: 330px) {
@@ -74,7 +75,8 @@ h1 {
     font-size: 18px;
     padding: 12px 0 0 0; }
 
-  .section {
+  .section,
+  .main-nav-wrapper {
     padding-left: 4%;
     padding-right: 2%; } }
 .main-nav-wrapper {
@@ -84,21 +86,22 @@ h1 {
   width: 100%;
   background-color: #fdfdff;
   border-bottom: thin solid rgba(0, 0, 0, 0.5);
-  color: #0f0f11; }
+  color: #0f110f; }
   .main-nav-wrapper .main-nav {
     position: relative;
     display: inline-block;
     vertical-align: middle;
     margin: 0;
     max-width: 960px;
+    padding-right: 3em;
     width: 100%;
     height: 100%;
     white-space: nowrap; }
-    .main-nav-wrapper .main-nav a {
-      color: #0f0f11;
+    .main-nav-wrapper .main-nav .nav-item {
+      color: #0f110f;
       text-decoration: none; }
-      .main-nav-wrapper .main-nav a:hover {
-        color: #69d4fd;
+      .main-nav-wrapper .main-nav .nav-item:hover {
+        color: #2BBF44;
         text-decoration: none; }
     .main-nav-wrapper .main-nav .nav-item {
       display: inline-block;
@@ -116,7 +119,12 @@ h1 {
         position: relative;
         top: 3px;
         left: 0;
-        height: 36px; }
+        height: 36px;
+        fill: #0f110f;
+        -webkit-transition: fill 0.3s ease, -webkit-transform 0.3s ease;
+                transition: fill 0.3s ease, transform 0.3s ease; }
+        .main-nav-wrapper .main-nav .nav-item.nav-logo #logo-svg:hover {
+          fill: #5AD46F; }
 
 .main-nav-sticky {
   position: fixed;
@@ -128,11 +136,11 @@ h1 {
   border-bottom: thin solid rgba(105, 212, 253, 0.35);
   -webkit-animation: fade-in 1.2s ease;
           animation: fade-in 1.2s ease; }
-  .main-nav-sticky .main-nav a {
-    color: #efefef;
+  .main-nav-sticky .main-nav .nav-item {
+    color: #eff3ef;
     text-decoration: none; }
-  .main-nav-sticky #logo-svg {
-    fill: #efefef; }
+    .main-nav-sticky .main-nav .nav-item.nav-logo #logo-svg {
+      fill: #eff3ef; }
 
 @-webkit-keyframes fade-in {
   from {
@@ -158,9 +166,11 @@ h1 {
       .main-nav-wrapper .main-nav .nav-item.nav-logo #logo-svg {
         height: 24px; } }
 @media (max-width: 330px) {
-  .main-nav-wrapper .main-nav .nav-item {
-    font-size: 11px;
-    padding: 0 1% 0 0; } }
+  .main-nav-wrapper .main-nav {
+    padding-right: 0; }
+    .main-nav-wrapper .main-nav .nav-item {
+      font-size: 11px;
+      padding: 0 1% 0 0; } }
 .section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
   .section:last-of-type {
@@ -574,13 +584,16 @@ tagged-item .item {
     height: 200px;
     margin: 1%;
     background: #d0d0d0;
-    border: thin solid white;
+    border: thin solid #fdfdff;
     border-radius: 1px;
     text-shadow: 0px  2px 0 black, 1px  1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black; }
     .portfolio .slate-item .item {
       background: rgba(0, 0, 0, 0.25);
       padding: 0 0 3px 3px;
       width: 100%; }
+    .portfolio .slate-item .cover.w-modal {
+      cursor: pointer;
+      border: 4px solid red; }
   .portfolio .item-tags {
     display: none; }
 

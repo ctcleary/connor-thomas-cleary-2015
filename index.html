@@ -317,27 +317,23 @@
 
       initModal: function(opts) {
         this.currentModalEl = document.createElement('item-modal');
-        // console.log("opts ::", opts);
         document.body.appendChild(this.currentModalEl);
         this.currentModal = riot.mount(
           this.currentModalEl, 
           'item-modal',
           opts
-          // JSON.parse(JSON.stringify(opts))
         )[0];
+        this.currentModal.show();
       },
       dismissModal: function() {
         if (this.currentModal) {
-          // this.currentModalEl.parentNode.removeChild(this.currentModalEl);
+          this.currentModalEl.parentNode.removeChild(this.currentModalEl);
           this.currentModal.dismiss();
         }
       }
     };
 
     riot.compile(function() {
-
-
-
       try {
         var portfolio = riot.mount(
           '#portfolio-app',

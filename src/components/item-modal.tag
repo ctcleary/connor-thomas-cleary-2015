@@ -1,8 +1,9 @@
 <item-modal>
   <article>
     <div class="item-modal-wrapper" onclick={ this.dismissModal }>
-      <div class="item-modal" riot-style={ this.getStyle() }>
+      <div class="item-modal" riot-style={ this.getStyle() } onclick={ this.stopEvent }>
         <div class="item-modal-contents">
+          
           <div class="item-modal-close" onclick={ this.dismissModal }> X </div>
 
           <h1 class="item-modal-headline"> { this.opts.title; } </h1>
@@ -16,7 +17,7 @@
   </article>
 
   <script>
-    var modalConfig = this.opts.modal;
+    var modalConfig = this.opts;
     // console.log("this ::", this);
 
     this.getDescription = function() {
@@ -27,6 +28,11 @@
       return "background: white;";
     };
 
+    this.stopEvent = function(e) {
+      e.stopPropagation();
+    }
+
+
     this.dismissModal = function() {
       window.ctc.dismissModal();
     };
@@ -34,6 +40,12 @@
     this.dismiss = function() {
       this.hide();
       this.unmount();
+    };
+
+    this.dismissOnEsc = function(e) {
+      if (e.keyCode === 27) {
+        this.dismissModal();
+      }
     }
 
     this.show = function() {
@@ -53,32 +65,22 @@
       var _this = this;
       _this.wrapper = this.root.getElementsByClassName('item-modal-wrapper')[0];
 
-      var closeEl = this.root.getElementsByClassName('item-modal-close')[0];
-      closeEl.addEventListener('click', function() {
-        _this.dismissModal.call(_this);
-      });
-
       var descEl = this.root.getElementsByClassName('item-modal-description')[0];
 
-      if (modalConfig && modalConfig.description) {
-        // console.log("descEl.children.length ::", descEl.children.length);
-        // console.log("modalConfig ::", modalConfig);
-        // console.log("shaven ::", shaven);
-        // console.log("description ::", description);
-        var description = shaven(modalConfig.description);
-        // console.log("description ::", description);
-        descEl.appendChild(description[0]);
-      } else {
-        var tempDesc = document.createElement('div');
-        tempDesc.innerHTML = 'this is a temporary description div';
-        descEl.appendChild(tempDesc);
-      }
+      console.log("modalConfig ::", modalConfig);
+      var descClone = JSON.parse(JSON.stringify(modalConfig));
+      var description = shaven(descClone);
+      descEl.appendChild(description[0]);
+
+      _this.boundKeyHandler = _this.dismissOnEsc.bind(_this);
+      document.addEventListener('keydown', _this.boundKeyHandler);
 
       this.show();
     });
 
     this.on('before-unmount', function() {
       var _this = this;
+      document.removeEventListener('keydown', _this.boundKeyHandler);
 
       if (!this.wrapper){
         console.log("danger will robinson");
