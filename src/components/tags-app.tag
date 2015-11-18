@@ -21,9 +21,8 @@
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="{ this.opts.itemsHoldClass }">
-        <tagged-item each={ this.getActiveItems() }
-            class="{ parent.opts.itemsClass }">
-        </tagged-item>
+        <tagged-item each={ this.getActiveItems() } data={ this }></tagged-item>
+        </div>
       </div>
     </div>
   </div>
@@ -62,8 +61,6 @@
     this.toggleTag = function(e) {
       var tagName = e.item.name;
       var tag = _.findWhere(this.allTags, {name: tagName});
-      console.log("tag ::", tag);
-      console.log("this.allTags ::", this.allTags);
       tag.active = !tag.active;
       this.update();
     };
@@ -71,20 +68,26 @@
 
     // Items
     this.getItems = function() {
+      // console.log("this ::", this);
+      // console.log("this.opts.tagsItems ::", this.opts.tagsItems[0]);
       return this.opts.tagsItems;
     };
 
     this.getActiveItems = function() {
       var activeTags = this.getActiveTags();
       var taggedItems = this.getItems();
+      // console.log("taggedItems ::", taggedItems[0]);
       if (activeTags.length === 0) {
         return taggedItems;
       }
 
-      return _.filter(taggedItems, function(item) {
+      var result = _.filter(taggedItems, function(item) {
         return this.hasAllActiveTags(item, activeTags);
       }, this);
+
+      return result;
     };
+
     this.hasTag = function(item, testTag) {
       return (_.indexOf(testTag, item.tags) !== -1);
     };

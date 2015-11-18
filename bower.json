@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "riot": "~2.2.4",
+    "riot": "~2.3.x",
     "shaven": "~0.7.3",
     "underscore": "~1.8.3",
     "normalize.css": "~3.0.3"

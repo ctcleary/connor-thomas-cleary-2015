@@ -9,15 +9,18 @@ var portfolioItems = [
       'javascript',
       'game'
     ],
-    description: ['.item-desc',
-      ['p', 'This is a test paragraph.'],
-      ['ul',
-        ['li', 'And a list'],
-        ['li', 'List item 2'],
-        ['li', 'List item 3'],
-        ['li', 'List item 4'],
+    modal: {
+      description: ['.item-desc',
+        ['p', 'This is a test paragraph.'],
+        ['ul', [
+            ['li', 'And a list'],
+            ['li', 'List item 2'],
+            ['li', 'List item 3'],
+            ['li', 'List item 4'],
+          ]
+        ]
       ]
-    ]
+    }
   },
   {
     'title': 'Mad Max: Fury Road PTP (Flash)',

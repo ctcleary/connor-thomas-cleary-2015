@@ -1,6 +1,6 @@
-<tagged-item>
+<tagged-item class="{ parent.opts.itemsClass }">
   <!-- <div class="tagged-item"> -->
-    <div class="cover" style="{ this.getCoverStyle() }">
+    <div class="cover" style="{ this.getCoverStyle() }" onclick={ this.initModal }>
       <!-- article? -->
       <div class="item">
         <div class="item-title">{ title }</div>
@@ -13,6 +13,10 @@
   <!-- </div> -->
 
   <script>
+    // console.log("this.opts ::", this.opts);
+    // console.log("this ::", this);
+    console.log("this ::", this);
+    console.log("this.opts.data ::", this.opts.data);
     this.getCoverStyle = function() {
       var styles = '';
       if (this.slateUrl) {
@@ -24,6 +28,10 @@
         styles += 'cursor:pointer; ';
       }
       return styles;
+    };
+
+    this.initModal = function() {
+      window.ctc.initModal(this);
     };
   </script>
 </tagged-item>
