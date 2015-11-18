@@ -61,16 +61,21 @@
       this.wrapper.style.opacity = 0;
     }
 
+    this.appendModalContents = function(descEl) {
+      // Must be cloned to stop Shaven from modifying
+      // the original data (passed by reference);
+      var descClone = JSON.parse(
+        JSON.stringify(modalConfig.description));
+      var description = shaven(descClone);
+      descEl.appendChild(description[0]);
+    }
+
     this.on('mount', function() {
       var _this = this;
       _this.wrapper = this.root.getElementsByClassName('item-modal-wrapper')[0];
 
       var descEl = this.root.getElementsByClassName('item-modal-description')[0];
-
-      console.log("modalConfig ::", modalConfig);
-      var descClone = JSON.parse(JSON.stringify(modalConfig));
-      var description = shaven(descClone);
-      descEl.appendChild(description[0]);
+      this.appendModalContents(descEl);
 
       _this.boundKeyHandler = _this.dismissOnEsc.bind(_this);
       document.addEventListener('keydown', _this.boundKeyHandler);

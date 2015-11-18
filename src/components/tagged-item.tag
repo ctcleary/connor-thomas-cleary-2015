@@ -1,6 +1,6 @@
 <tagged-item class="{ parent.opts.itemsClass }">
   <!-- <div class="tagged-item"> -->
-    <div class={ this.hasModal ? "cover w-model" : "cover" } style="{ this.getCoverStyle() }" onclick={ this.hasModal ? this.initModal : null; }>
+    <div class={ this.hasModal ? "cover w-modal" : "cover" } style="{ this.getCoverStyle() }" onclick={ this.hasModal ? this.initModal : null; }>
       <!-- article? -->
       <div class="item">
         <div class="item-title">{ title }</div>
@@ -22,7 +22,7 @@
       } else {
         styles += 'background-image: none; ';
       }
-      if (this.modalContents) {
+      if (this.hasModal) {
         styles += 'cursor: pointer; ';
       }
       return styles;

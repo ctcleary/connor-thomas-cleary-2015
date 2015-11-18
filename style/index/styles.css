@@ -591,9 +591,8 @@ tagged-item .item {
       background: rgba(0, 0, 0, 0.25);
       padding: 0 0 3px 3px;
       width: 100%; }
-    .portfolio .slate-item .cover.w-modal {
-      cursor: pointer;
-      border: 4px solid red; }
+    .portfolio .slate-item .cover.w-modal:hover {
+      border: 3px solid #2BBF44; }
   .portfolio .item-tags {
     display: none; }
 
