@@ -23,6 +23,7 @@
 
     "predef"        : [  // Custom globals.
         "riot",
+        "shaven",
         "_"
     ],
 

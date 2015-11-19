@@ -95,6 +95,7 @@
     this.hasTag = function(item, testTag) {
       return (_.indexOf(testTag, item.tags) !== -1);
     };
+    // TODO this seems to be broken in some strange way
     this.hasAllActiveTags = function(item, activeTags) {
       var thisItemTags = item.tags;
       var activeTagNames = this.getActiveTagNames();

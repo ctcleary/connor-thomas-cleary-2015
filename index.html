@@ -206,21 +206,13 @@
           <p>As a published writer with years of web software engineering experience and a background in art and design, I navigate and bridge the divide between creative and technical while speaking the language of both.</p>
 
           <p>I have many publication credits, including short stories, scripts, op-eds, reviews, interviews, copywriting, technical writing and documentation. This year, on a team of three developers, helped save over $48 million in at-risk revenue by developing and delivering a Flash replacement JS/HTML5 framework for IMDb under a tight deadline. Also significantly improved designer efficiency with a number of usability improvements to internal tools.</p>
-
-          <!-- please do not remove this line -->
-
-          <div style="display:none;">
-          <a href="http://slipsum.com">lorem ipsum</a></div>
-
-          <!-- end slipsum code -->
-
         </div>
       </div>
     </section>
 
     <footer>
       <div class="footer">
-        contact: connorthomascleary@gmail.com
+        <small>contact:</small> ConnorThomasCleary@gmail.com
       </div>
     </footer>
   </div>
@@ -303,7 +295,7 @@
   <script src="../src/components/tags-app.tag" type="riot/tag"></script>
   <script src="../src/components/item-modal.tag" type="riot/tag"></script>
 
-  <item-modal id="test-modal"></item-modal>
+  <!-- <item-modal id="test-modal"></item-modal> -->
 
 
   <script type="text/javascript" src="../src-config/portfolio-config.js"></script>
@@ -314,24 +306,31 @@
       currentModalEl: null,
 
       initModal: function(opts) {
+        if (document.getElementsByTagName('item-modal').length > 0) {
+          console.log("WARNING modal not dismissed properly");
+        }
         this.currentModalEl = document.createElement('item-modal');
         document.body.appendChild(this.currentModalEl);
         this.currentModal = riot.mount(
           this.currentModalEl, 
           'item-modal',
-          {
-            title: opts.title,
-            modal: opts.modal
-          }
+          opts
         )[0];
         // this.currentModal.show();
       },
       dismissModal: function() {
+        console.log("window.ctc.dismissModal");
         if (this.currentModal) {
-          this.currentModal.dismiss();
+          this.currentModal = null;
         }
       }
     };
+
+    // TEMPORARY
+    // ctc.initModal({
+    //   title: portfolioItems[0].title,
+    //   modal: portfolioItems[0].modal
+    // });
 
     riot.compile(function() {
       try {

@@ -1,99 +1,176 @@
 <item-modal>
   <article>
-    <div class="item-modal-wrapper" style={ this.getTransitionStyle() } onclick={ this.dismissModal }>
-      <div class="item-modal" riot-style={ this.getStyle() } onclick={ this.stopEvent }>
+    <div class="item-modal-lightbox" style={ this.getTransitionStyle() } onclick={ this.dismissModal }>
+      <div class="item-modal-wrapper">
         <div class="item-modal-close" onclick={ this.dismissModal }> </div>
-        <div class="item-modal-contents">
-          <h1 class="item-modal-headline"> { this.opts.title; } </h1>
-          <div class="item-modal-description">
 
-          </div>
+        <div class="item-modal" style={ this.getModalStyle() } onclick={ this.stopEvent }>
+          <div class="item-modal-header">
 
-        </div>
+            <h1 class="item-modal-headline"> { this.opts.title; } </h1>
+            <div class="item-modal-hero" style={ this.getHeroStyle() }></div>
+
+          </div> <!-- end item-modal-header -->
+
+          <div class="item-modal-contents">
+            <div class="item-modal-description">
+              <h2> Description </h2>
+            </div>
+
+            <div class="item-modal-sidebar">
+
+              <div if={ this.hasInfo }
+                  class="item-modal-info item-modal-sidebar-section">
+                <h2> Info </h2>
+              </div>
+
+              <div if={ this.hasSkills }
+                  class="item-modal-skills item-modal-sidebar-section">
+                <h2> Skills </h2>
+              </div>
+
+              <div if={ this.hasTags }
+                  class="item-modal-tags item-modal-sidebar-sections">
+                <h2> Tagged </h2>
+              </div>
+
+            </div>
+
+          </div> <!-- end item-modal-contents -->
+
+        </div> <!-- end .item-modal -->
+
       </div>
     </div>
   </article>
 
   <script>
-    this.transitionLengthS = 0.25;
     var modalConfig = this.opts.modal;
+    this.transitionLengthS = 0.25;
 
-    this.getDescription = function() {
-      return modalConfig.title;
+    this.isCustom  = !!modalConfig.custom;
+    this.hasInfo   = !!modalConfig.info;
+    this.hasSkills = !!this.opts.skills;
+    this.hasTags   = !!this.opts.tags;
+
+    // STYLES
+    this.getTransitionStyle = function() {
+      return 'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950);';
     }
-
-    this.getStyle = function() {
+    this.getModalStyle = function() {
       return 'background: white;';
     };
-
-    this.stopEvent = function(e) {
-      e.stopPropagation();
+    this.getHeroStyle = function() {
+      return ['background: url(' + modalConfig.hero.url + ');',
+        'background-size: cover;',
+        'background-position: ' + (modalConfig.hero.position || 'center center') + ';',
+        ''].join(' ');
     }
 
 
-    this.dismissModal = function() {
-      window.ctc.dismissModal();
-    };
 
+
+    // UTILITIES
+    this.stopEvent = function(e) {
+      e.stopPropagation();
+    };
     this.dismiss = function() {
       this.hide();
-      clearTimeout(this.unmountTimeout)
-      this.unmountTimeout = setTimeout(this.unmount, 
-          this.transitionLengthS+1000);
+      this.root.parentNode.removeChild(this.root);
+      // clearTimeout(this.unmountTimeout)
+      // this.unmountTimeout = setTimeout(this.unmount, 
+      //     this.transitionLengthS+1000);
     };
-
+    this.dismissModal = function(e) {
+      e.stopPropagation();
+      this.dismiss();
+      window.ctc.dismissModal();
+    };
     this.dismissOnEsc = function(e) {
+      console.log("e.keyCode ::", e.keyCode);
       if (e.keyCode === 27) {
         this.dismissModal();
       }
-    }
+    };
 
-    this.getTransitionStyle = function() {
-      return 'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950)';
-    }
     this.show = function() {
       // TODO, figure out why show opacity transition isn't happening.
       if (!this.wrapper) {
-        console.log("danger will robinson");
+        console.log("modal show :: danger, will robinson");
       }
       this.wrapper.style.opacity = 1;
     }
     this.hide = function() {
       if (!this.wrapper) {
-        console.log("danger will robinson");
+        console.log("modal hide :: danger, will robinson");
       }
       this.wrapper.style.opacity = 0;
     }
 
-    this.appendModalContents = function(descEl) {
-      // Must be cloned to stop Shaven from modifying
-      // the original data (passed by reference);
-      var descClone = JSON.parse(
-        JSON.stringify(modalConfig.description));
-      var description = shaven(descClone);
-      descEl.appendChild(description[0]);
+
+    this.getDeepClone = function (obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    this.appendShaven = function(shavenConfig, elClass) {
+      // shaven alters the object passed to it, so we must clone.
+      var clone = this.getDeepClone(shavenConfig);
+      var shavenObj = shaven(clone);
+
+      var el = this.root.getElementsByClassName(elClass)[0];
+      el.appendChild(shavenObj[0]);
+    }
+
+    this.appendDescription = function() {
+      this.appendShaven(modalConfig.description, 'item-modal-description');
+    }
+    this.appendInfo = function() {
+      if (this.hasInfo) {
+        this.appendShaven(modalConfig.info, 'item-modal-info');
+      }
+    }
+    this.appendSkills = function() {
+      if (this.hasSkills) {
+        this.appendShaven(modalConfig.skills, 'item-modal-skills');
+      }
+    }
+    this.appendTags = function() {
+      if (this.hasTags) {
+        var tags = this.opts.tags;
+        var tagsShaven = ['ul', []];
+        for (var i = 0; i < tags.length; i++) {
+          tagsShaven[1].push(['li', tags[i]]);
+        }
+        this.appendShaven(tagsShaven, 'item-modal-tags');
+      }
+    }
+
+    this.appendModalContents = function() {
+      try {
+        this.appendDescription();
+        this.appendInfo();
+        this.appendSkills();
+        this.appendTags();
+      } catch(e) {
+        console.log("e ::", e);
+      }
     }
 
     this.on('mount', function() {
-      var _this = this;
-      _this.wrapper = this.root.getElementsByClassName('item-modal-wrapper')[0];
+      this.wrapper = this.root.getElementsByClassName('item-modal-lightbox')[0];
+      this.appendModalContents.call(this);
 
-      var descEl = this.root.getElementsByClassName('item-modal-description')[0];
-      this.appendModalContents(descEl);
+      this.boundKeyHandler = this.dismissOnEsc.bind(this);
+      document.addEventListener('keydown', this.boundKeyHandler);
 
-      _this.boundKeyHandler = _this.dismissOnEsc.bind(_this);
-      document.addEventListener('keydown', _this.boundKeyHandler);
-
-      console.log("this.wrapper.style.opacity ::", this.wrapper.style.opacity);
       this.show();
     });
 
     this.on('before-unmount', function() {
-      var _this = this;
-      document.removeEventListener('keydown', _this.boundKeyHandler);
+      document.removeEventListener('keydown', this.boundKeyHandler);
 
-      if (!this.wrapper){
-        console.log("danger will robinson");
+      if (!this.wrapper) {
+        console.log("no wrapper ref at unmount danger will robinson");
       }
 
       var descEl = this.root.getElementsByClassName('item-modal-description')[0];
