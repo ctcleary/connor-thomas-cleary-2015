@@ -616,6 +616,32 @@ tagged-item .item {
       width: 100%; }
     .portfolio .slate-item .cover.w-modal:hover {
       border: 3px solid #2BBF44; }
+      .portfolio .slate-item .cover.w-modal:hover:before, .portfolio .slate-item .cover.w-modal:hover:after {
+        position: absolute; }
+      .portfolio .slate-item .cover.w-modal:hover:before {
+        top: 5px;
+        right: 12px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        content: '';
+        background: transparent;
+        border: 4px solid #2BBF44;
+        border-radius: 50%; }
+      .portfolio .slate-item .cover.w-modal:hover:after {
+        top: 21px;
+        right: 14px;
+        display: block;
+        height: 12px;
+        width: 4px;
+        content: '';
+        background: #2BBF44;
+        -webkit-transform-origin: top center;
+            -ms-transform-origin: top center;
+                transform-origin: top center;
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg); }
   .portfolio .item-tags {
     display: none; }
 
