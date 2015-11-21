@@ -36,9 +36,10 @@
       
   .slate-item {
     display: inline-block;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
+    width: 40%;
     min-width: 210px;
-    max-width: 420px;
+    max-width: 320px;
     height: 210px;
     margin: 0 2% 12px;
     
