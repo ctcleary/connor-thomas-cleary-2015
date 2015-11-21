@@ -17,8 +17,11 @@
 
     this.getCoverStyle = function() {
       var styles = '';
-      if (this.opts.slateUrl) {
-        styles += 'background-image: url('+ this.opts.slateUrl + '); ';
+      console.log("this.opts ::", this.opts);
+      // console.log("this.opts.slate ::", this.opts.slate);
+      if (this.opts.slate) {
+        styles += 'background-image: url('+ this.opts.slate.url + '); ';
+        styles += 'background-position: ' + (this.opts.slate.position || 'center center') + '; ';
       } else {
         styles += 'background-image: none; ';
       }

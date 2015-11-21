@@ -14,22 +14,28 @@
 
   tagged-item.pub-item {
     display: block;
-    height: 36px;
+    // min-height: 36px;
     margin-bottom: 6px;
 
     background: rgba(0,0,0, 0.85);
     color: white;
     padding: 6px 0 6px 1%;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
 
     .item {
+      position: relative;
       font-size: 16px;
       line-height: 24px;
     }
 
+    .item-venue,
+    .item-tags {
+      font-size: 14px;
+      font-weight: 300;
+    }
     .item-title,
     .item-venue,
     .item-tags {
@@ -62,7 +68,22 @@
 @include respond-to(small) {
   .pubs-wrapper {
     tagged-item.pub-item .item {
-      font-size: 14px;
+      padding-left: 2%;
+
+      .item-venue,
+      .item-tags {
+        font-size: 14px;
+      }
+
+      .item-title,
+      .item-venue,
+      .item-tags {
+        display: block;
+      }
+      .item-venue:before,
+      .item-tags:before {
+        display: none;
+      }
 
       .item-tags {
         .item-tag {
@@ -74,7 +95,7 @@
 }
 @include respond-to(x-small) {
   .pubs-wrapper {
-    tagged-item.pub-item  .item{
+    tagged-item.pub-item .item {
       font-size: 12px;
 
       .item-tags {

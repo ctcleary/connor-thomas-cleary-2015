@@ -41,7 +41,7 @@ $activeBGColor-light: #e03210;
 
     &:hover {
       background: $inactiveBGColor;
-      animation: neon-glow-in 0.15s $easeInOutSine,
+      animation: neon-glow-in 0.05s $easeInOutSine,
                  neon-glow 0.75s 0.15s $easeInOutSine infinite alternate;
 
 

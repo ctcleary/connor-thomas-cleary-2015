@@ -24,7 +24,8 @@
         <virtual each={ this.getActiveItems() }> 
           <tagged-item 
             title={ title }
-            slate-url={ slateUrl } 
+            slate={ slate }
+            venue={ venue }
             modal={ modal }
             >
           </tagged-item>

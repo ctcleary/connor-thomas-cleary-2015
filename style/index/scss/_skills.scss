@@ -1,3 +1,16 @@
+
+.skills-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  max-width: 980px;
+
+  .skills-list-container {
+    flex: 0 0 auto;
+    width: 230px;
+  }
+}
+
 .skills {
   background: url('../../img/bg.jpg') repeat black;
   color: white;
@@ -7,4 +20,14 @@
   color: #bfbfbf;
 }
 
-  
+
+// @include respond-to(x-large) {
+//   .skills-wrapper {
+//     margin: 0;
+//   }
+// }
+// @include respond-to(large) {
+//   .skills-wrapper {
+//     margin: 0 auto;
+//   }
+// }

@@ -15,6 +15,7 @@
 }
 
 .item-modal-viewport {
+  // transform: translate3d(0,0,0);
   z-index: 2; // Above menu.
 
   .item-modal-wrapper {
@@ -65,6 +66,7 @@
   }
 }
 
+// FLEX layout
 .item-modal {
   display: flex;
   flex-direction: column;
@@ -72,6 +74,40 @@
   width:  100%;
   height: 100%;
 
+  .item-modal-header {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 238px;
+  }
+
+  .item-modal-contents {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+    width: 100%;
+    // max-width: 100%;
+    height: 100%;
+
+    .item-modal-description {
+      flex-grow: 4;
+      flex-shrink: 4;
+      flex-basis: 730px;
+    }
+    .item-modal-sidebar {
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 250px;
+    }
+  }
+}
+
+// Style
+.item-modal {
   background: white;
   border-radius: 0.35%;
   cursor: default;
@@ -79,46 +115,24 @@
   overflow-y: auto;
 
   .item-modal-header {
-    // flex: 0 240px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: 238px;
     margin-top: 16px;
 
     .item-modal-headline {
       padding-top: 0;
       margin: 0 12px 16px 12px;
-
       line-height: 1em;
     }
 
     .item-modal-hero {
       display: block;
       width: 100%;
-      min-height: 200px;
-      max-height: 320px;
+      height: 200px;
 
       background: rgba(0,0,0,0.04);
     }
   }
 
-  .item-modal-contents-flex {
-    position: relative;
-    flex-shrink: 1;
-    flex-grow: 1;
-    flex-basis: 100%;
-
-    overflow-y: auto;
-  }
   .item-modal-contents {
-    display: flex;
-    flex-direction: row;
-
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-
     border-top: thin solid rgba(0,0,0,0.2);
     font-size: 16px;
     line-height: 18px;
@@ -142,19 +156,6 @@
       padding-top: 20px;
       padding-bottom: 20px;
     }
-    .item-modal-description {
-      flex-grow: 4;
-      flex-shrink: 0;
-      flex-basis: 66%;
-      height: 730px;
-    }
-    .item-modal-sidebar {
-      flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: 250px;
-      height: 100%;
-    }
-
     .item-modal-sidebar {
       background: rgba(0,0,0,0.04);
       font-size: 12px;
