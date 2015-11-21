@@ -23,7 +23,10 @@ var portfolioItems = [
         ['p', 'Written in a month for the 2015 Write-A-Game Challenge (#WagChallenge) supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']
       ],
       info: ['a', 
-        { href: 'http://connorcleary.itch.io/segfault-0-mad-hatter' },
+        {
+          href: 'http://connorcleary.itch.io/segfault-0-mad-hatter',
+          target: '_blank'
+        },
         'Play Segfault[0]'
       ]
     }
@@ -43,15 +46,18 @@ var portfolioItems = [
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page',
       hero: {
-        url: '../some_img.jpg',
-        position: 'center center'
+        url: '../local-design/slates/slate_madmax1.jpg',
+        position: 'center 30%'
       },
       description: ['.item-desc',
         ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb. As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using Tarnhelm.']
       ],
       info: ['a', 
-        { href: 'http://www.imdb.com/title/tt1392190/' },
-        'See it in action.'
+        { 
+          href: 'http://www.imdb.com/title/tt1392190/',
+          target: '_blank'
+        },
+        'See it live'
       ]
     }
   },

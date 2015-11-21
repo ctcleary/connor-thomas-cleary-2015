@@ -1,17 +1,19 @@
 <item-modal>
   <article>
-    <div class="item-modal-lightbox" style={ this.getTransitionStyle() } onclick={ this.dismissModal }>
+    <div class="item-modal-viewport" style={ this.getTransitionStyle() }>
+      <div class="item-modal-lightbox" onclick={ this.dismissModal }></div>
       <div class="item-modal-wrapper">
         <div class="item-modal-close" onclick={ this.dismissModal }> </div>
 
-        <div class="item-modal" style={ this.getModalStyle() } onclick={ this.stopEvent }>
+        <div class="item-modal" style={ this.getModalStyle() }>
+
           <div class="item-modal-header">
 
             <h1 class="item-modal-headline"> { this.modalTitle } </h1>
             <div class="item-modal-hero" style={ this.getHeroStyle() }></div>
 
           </div> <!-- end item-modal-header -->
-
+          
           <div class="item-modal-contents">
             <div class="item-modal-description">
               <h2> Description </h2>
@@ -37,7 +39,6 @@
             </div>
 
           </div> <!-- end item-modal-contents -->
-
         </div> <!-- end .item-modal -->
 
       </div>
@@ -68,23 +69,14 @@
         ''].join(' ');
     }
 
-
-
-
     // UTILITIES
-    this.stopEvent = function(e) {
-      e.stopPropagation();
-    };
-    this.dismiss = function() {
+    this._dismiss = function() {
       this.hide();
       this.root.parentNode.removeChild(this.root);
-      // clearTimeout(this.unmountTimeout)
-      // this.unmountTimeout = setTimeout(this.unmount, 
-      //     this.transitionLengthS+1000);
     };
     this.dismissModal = function(e) {
       e.stopPropagation();
-      this.dismiss();
+      this._dismiss();
       window.ctc.dismissModal();
     };
     this.dismissOnEsc = function(e) {
@@ -96,16 +88,16 @@
 
     this.show = function() {
       // TODO, figure out why show opacity transition isn't happening.
-      if (!this.wrapper) {
+      if (!this.viewport) {
         console.log("modal show :: danger, will robinson");
       }
-      this.wrapper.style.opacity = 1;
+      this.viewport.style.opacity = 1;
     }
     this.hide = function() {
-      if (!this.wrapper) {
+      if (!this.viewport) {
         console.log("modal hide :: danger, will robinson");
       }
-      this.wrapper.style.opacity = 0;
+      this.viewport.style.opacity = 0;
     }
 
 
@@ -158,7 +150,7 @@
     }
 
     this.on('mount', function() {
-      this.wrapper = this.root.getElementsByClassName('item-modal-lightbox')[0];
+      this.viewport = this.root.getElementsByClassName('item-modal-viewport')[0];
       this.appendModalContents.call(this);
 
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
@@ -170,12 +162,9 @@
     this.on('before-unmount', function() {
       document.removeEventListener('keydown', this.boundKeyHandler);
 
-      if (!this.wrapper) {
+      if (!this.viewport) {
         console.log("no wrapper ref at unmount danger will robinson");
       }
-
-      var descEl = this.root.getElementsByClassName('item-modal-description')[0];
-      descEl.innerHTML = '';
     });
 
   </script>
