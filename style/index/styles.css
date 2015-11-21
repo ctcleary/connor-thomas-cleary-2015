@@ -745,17 +745,17 @@ tagged-item .item {
       height: 20px;
       content: '';
       background: transparent;
-      border: 4px solid #2BBF44;
+      border: 4px solid #fdfdff;
       border-radius: 50%;
       box-shadow: 1px 4px 2px 0px black; }
     .portfolio .slate-item .cover.w-modal:hover:after {
-      top: 21px;
-      right: 14px;
+      top: 20px;
+      right: 15px;
       display: block;
       height: 10px;
       width: 4px;
       content: '';
-      background: #2BBF44;
+      background: #fdfdff;
       -webkit-transform-origin: top center;
           -ms-transform-origin: top center;
               transform-origin: top center;
