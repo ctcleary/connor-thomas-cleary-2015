@@ -25,7 +25,10 @@
     // text-align: center;
 
     .slates-holder {
-      display: inline-block;
+      display: flex;
+      flex-flow: row wrap;
+      // justify-content: space-around;
+      justify-content: center;
       margin: 0 auto;
       max-width: 1480px;
       width: 100%;
@@ -33,9 +36,16 @@
   }
       
   .slate-item {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
+    flex: 1 1 auto;
+    // flex-grow: 0;
+    // flex-shrink: 1;
+    // flex-basis: 210px;
+
+    // display: inline-block;
+    // flex-basis: 210px;
+    min-width: 210px;
+    max-width: 420px;
+    height: 210px;
     margin: 1%;
 
     background: #d0d0d0;
@@ -104,8 +114,8 @@
 @include respond-to(small) {
   .portfolio {
     .slate-item {
-      display: block;
-      margin: 4% 0;
+      // display: block;
+      // margin: 4% 0;
       width: 100%;
     }
   }

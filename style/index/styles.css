@@ -706,14 +706,28 @@ tagged-item .item {
     padding: 0;
     padding-bottom: 4%; }
     .portfolio .slates-wrapper .slates-holder {
-      display: inline-block;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       margin: 0 auto;
       max-width: 1480px;
       width: 100%; }
   .portfolio .slate-item {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    min-width: 210px;
+    max-width: 420px;
+    height: 210px;
     margin: 1%;
     background: #d0d0d0;
     border: thin solid #fdfdff;
@@ -759,8 +773,6 @@ tagged-item .item {
 
 @media (max-width: 490px) {
   .portfolio .slate-item {
-    display: block;
-    margin: 4% 0;
     width: 100%; } }
 .publications {
   background: url("../../img/typewriter-mid.jpg") center 48px no-repeat;
