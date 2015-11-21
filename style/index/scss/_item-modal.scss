@@ -27,22 +27,22 @@
     display: block;
     width: 90%;
     height: 80%;
-    max-width: 1280px;
+    max-width: 980px;
 
     .item-modal-close {
       position: absolute;
-      top: -15px;
-      right: -15px;
+      top: -11px;
+      right: -11px;
 
       display: inline-block;
-      width: 24px;
-      height: 24px;
+      width: 23px;
+      height: 23px;
 
       cursor: pointer;
       background: black;
       
       border: 2px solid white;
-      border-color: red;
+      border-color: white;
 
       border-radius: 50%;
       text-align: center;
@@ -52,8 +52,8 @@
       &:after {
         position: absolute;
         content: '+';
-        top: -12%;
-        left: 16%;
+        top: -3px;
+        left: 3px;
 
         color: white;
         font-size: 24px;
@@ -66,7 +66,9 @@
 }
 
 .item-modal {
-  display: block;
+  display: flex;
+  flex-direction: column;
+
   width:  100%;
   height: 100%;
 
@@ -77,6 +79,10 @@
   overflow-y: auto;
 
   .item-modal-header {
+    // flex: 0 240px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 238px;
     margin-top: 16px;
 
     .item-modal-headline {
@@ -96,15 +102,31 @@
     }
   }
 
-  .item-modal-contents {
+  .item-modal-contents-flex {
     position: relative;
-    display: table;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 100%;
+
+    overflow-y: auto;
+  }
+  .item-modal-contents {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
     width: 100%;
+    max-width: 100%;
+    height: 100%;
 
     border-top: thin solid rgba(0,0,0,0.2);
     font-size: 16px;
     line-height: 18px;
 
+    h2, p {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     h2 {
       font-size: 18px;
       font-weight: bold;
@@ -115,19 +137,25 @@
       margin: 0 0 18px 0; 
     }
 
+    .item-modal-sidebar,
     .item-modal-description {
-      display: table-cell;
-      width: auto;
-      height: 100%;
-      padding: 20px;
-
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .item-modal-description {
+      flex-grow: 4;
+      flex-shrink: 0;
+      flex-basis: 66%;
+      height: 730px;
     }
     .item-modal-sidebar {
-      display: table-cell;
-      width: 20%;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 250px;
       height: 100%;
-      padding: 20px;
+    }
 
+    .item-modal-sidebar {
       background: rgba(0,0,0,0.04);
       font-size: 12px;
       text-align: center;

@@ -13,7 +13,8 @@
             <div class="item-modal-hero" style={ this.getHeroStyle() }></div>
 
           </div> <!-- end item-modal-header -->
-          
+
+          <div class="item-modal-contents-flex">
           <div class="item-modal-contents">
             <div class="item-modal-description">
               <h2> Description </h2>
@@ -39,6 +40,7 @@
             </div>
 
           </div> <!-- end item-modal-contents -->
+          </div> <!-- end item-modal-contents-flex -->
         </div> <!-- end .item-modal -->
 
       </div>
