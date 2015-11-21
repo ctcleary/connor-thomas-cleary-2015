@@ -7,7 +7,7 @@
         <div class="item-modal" style={ this.getModalStyle() } onclick={ this.stopEvent }>
           <div class="item-modal-header">
 
-            <h1 class="item-modal-headline"> { this.opts.title; } </h1>
+            <h1 class="item-modal-headline"> { this.modalTitle } </h1>
             <div class="item-modal-hero" style={ this.getHeroStyle() }></div>
 
           </div> <!-- end item-modal-header -->
@@ -47,6 +47,7 @@
   <script>
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
+    this.modalTitle = modalConfig.title || this.opts.title;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasInfo   = !!modalConfig.info;
