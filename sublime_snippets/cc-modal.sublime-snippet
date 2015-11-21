@@ -1,0 +1,22 @@
+<snippet>
+  <content><![CDATA[
+modal: {
+  ${1:title: 'Item Modal Title',}
+  hero: {
+    url: '../some_img.jpg',
+    position: 'center center'
+  },
+  description: ['.item-desc',
+    ['p', '${2:Description goes here.}']
+  ],
+  info: ['a', 
+    { href: 'http://google.com' },
+    '${3:Play See Whatever}'
+  ]
+}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>cc-modal</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

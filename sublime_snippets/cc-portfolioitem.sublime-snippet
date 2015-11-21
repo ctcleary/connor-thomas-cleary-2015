@@ -1,0 +1,30 @@
+<snippet>
+  <content><![CDATA[
+{
+  'title': '${1:Item Title}',
+  'venue': '${2:Solo}',
+  'slateUrl': '../some_img.jpg',
+  'tags': [
+    ${3:'writing',}
+  ],
+  modal: {
+    ${4:title: 'Item Modal Title',}
+    hero: {
+      url: '../some_img.jpg',
+      position: 'center center'
+    },
+    description: ['.item-desc',
+      ['p', '${5:Description goes here.}']
+    ],
+    info: ['a', 
+      { href: 'http://google.com' },
+      '${6:Play See Whatever}'
+    ]
+  }
+}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>cc-portfolioitem</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
