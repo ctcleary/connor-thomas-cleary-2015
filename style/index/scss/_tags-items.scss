@@ -1,5 +1,48 @@
 tagged-item {
   // cursor: pointer;
+  border: 1px solid transparent;
+
+  &.w-modal:hover {
+    border-color: $interactive-hover;
+    transition: border-color 0.25s ease;
+
+    .cover {
+      &:before, &:after {
+        position: absolute;
+        opacity: 1;
+      }
+      &:before {
+        top: 10px;
+        right: 12px;
+        display: block;
+        width: 20px;
+        height: 20px;
+
+        content: '';
+        background: transparent;
+        border: 4px solid $almost-white;
+        border-radius: 50%;
+
+        box-shadow: 1px 4px 2px 0px black;
+      }
+      &:after {
+        top: 25px;
+        right: 15px;
+        display: block;
+        height: 10px;
+        width: 4px;
+
+        content: '';
+        background: $almost-white;
+        transform-origin: top center;
+        border-bottom-right-radius: 15%;
+        border-bottom-left-radius: 15%;
+        transform: rotate(-45deg);
+
+        box-shadow: -3px 3px 2px 0px black;
+      }
+    }
+  }
 
   .cover {
     position: relative;

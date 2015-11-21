@@ -14,7 +14,7 @@
 
   tagged-item.pub-item {
     display: block;
-    // min-height: 36px;
+    min-height: 36px;
     margin-bottom: 6px;
 
     background: rgba(0,0,0, 0.85);
@@ -24,6 +24,17 @@
     // overflow: hidden;
     // text-overflow: ellipsis;
     // white-space: nowrap;
+
+    &.w-modal {
+      .cover {
+        &:before {
+          top: 0px;
+        }
+        &:after {
+          top: 15px;
+        }
+      }
+    }
 
     .item {
       position: relative;

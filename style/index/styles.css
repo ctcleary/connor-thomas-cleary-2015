@@ -273,19 +273,56 @@ h1 {
     box-shadow: 0 0 2px 0.5px #e03210, 0 0 1px 0px #ae270c; }
   100% {
     box-shadow: 0 0 1px 0.5px #e03210, 0 0 3px 2px #ae270c; } }
-tagged-item .cover {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-position: center bottom;
-  background-size: cover;
-  overflow: hidden; }
-tagged-item .item {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  font-size: 16px;
-  font-weight: 600; }
+tagged-item {
+  border: 1px solid transparent; }
+  tagged-item.w-modal:hover {
+    border-color: #2BBF44;
+    -webkit-transition: border-color 0.25s ease;
+            transition: border-color 0.25s ease; }
+    tagged-item.w-modal:hover .cover:before, tagged-item.w-modal:hover .cover:after {
+      position: absolute;
+      opacity: 1; }
+    tagged-item.w-modal:hover .cover:before {
+      top: 10px;
+      right: 12px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      content: '';
+      background: transparent;
+      border: 4px solid #fdfdff;
+      border-radius: 50%;
+      box-shadow: 1px 4px 2px 0px black; }
+    tagged-item.w-modal:hover .cover:after {
+      top: 25px;
+      right: 15px;
+      display: block;
+      height: 10px;
+      width: 4px;
+      content: '';
+      background: #fdfdff;
+      -webkit-transform-origin: top center;
+          -ms-transform-origin: top center;
+              transform-origin: top center;
+      border-bottom-right-radius: 15%;
+      border-bottom-left-radius: 15%;
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      box-shadow: -3px 3px 2px 0px black; }
+  tagged-item .cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-position: center bottom;
+    background-size: cover;
+    overflow: hidden; }
+  tagged-item .item {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: 16px;
+    font-weight: 600; }
 
 .item-modal-viewport,
 .item-modal-lightbox {
@@ -332,17 +369,19 @@ tagged-item .item {
       .item-modal-viewport .item-modal-wrapper .item-modal-close:after {
         position: absolute;
         content: '+';
-        top: -3px;
-        left: 3px;
+        width: 14px;
+        height: 14px;
+        top: 50%;
+        left: 50%;
         color: white;
         font-size: 24px;
         line-height: 24px;
         -webkit-transform-origin: center center;
             -ms-transform-origin: center center;
                 transform-origin: center center;
-        -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-                transform: rotate(45deg); }
+        -webkit-transform: rotate(45deg) translate(-72%, -39%);
+            -ms-transform: rotate(45deg) translate(-72%, -39%);
+                transform: rotate(45deg) translate(-72%, -39%); }
 
 .item-modal {
   display: -webkit-box;
@@ -734,37 +773,6 @@ tagged-item .item {
       background: rgba(0, 0, 0, 0.25);
       padding: 0 0 3px 3px;
       width: 100%; }
-    .portfolio .slate-item .cover.w-modal:hover:before, .portfolio .slate-item .cover.w-modal:hover:after {
-      position: absolute;
-      opacity: 1; }
-    .portfolio .slate-item .cover.w-modal:hover:before {
-      top: 5px;
-      right: 12px;
-      display: block;
-      width: 20px;
-      height: 20px;
-      content: '';
-      background: transparent;
-      border: 4px solid #fdfdff;
-      border-radius: 50%;
-      box-shadow: 1px 4px 2px 0px black; }
-    .portfolio .slate-item .cover.w-modal:hover:after {
-      top: 20px;
-      right: 15px;
-      display: block;
-      height: 10px;
-      width: 4px;
-      content: '';
-      background: #fdfdff;
-      -webkit-transform-origin: top center;
-          -ms-transform-origin: top center;
-              transform-origin: top center;
-      border-bottom-right-radius: 15%;
-      border-bottom-left-radius: 15%;
-      -webkit-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      box-shadow: -3px 3px 2px 0px black; }
   .portfolio .item-tags {
     display: none; }
 
@@ -782,10 +790,15 @@ tagged-item .item {
   vertical-align: center; }
   .pubs-wrapper tagged-item.pub-item {
     display: block;
+    min-height: 36px;
     margin-bottom: 6px;
     background: rgba(0, 0, 0, 0.85);
     color: white;
     padding: 6px 0 6px 1%; }
+    .pubs-wrapper tagged-item.pub-item.w-modal .cover:before {
+      top: 0px; }
+    .pubs-wrapper tagged-item.pub-item.w-modal .cover:after {
+      top: 15px; }
     .pubs-wrapper tagged-item.pub-item .item {
       position: relative;
       font-size: 16px;

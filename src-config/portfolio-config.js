@@ -86,5 +86,18 @@ var portfolioItems = [
       'flixel',
       'game'
     ]
+  },
+  {
+    title: 'Skeleton Key',
+    venue: 'Solo',
+    tags: [
+      'actionscript',
+      'interactive',
+      'flixel',
+      'game'
+    ],
+    modal: {
+      title: 'Skeleton Key - Shadowrun: Returns Quest'
+    }
   }
 ];
