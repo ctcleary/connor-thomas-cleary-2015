@@ -20,6 +20,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 section,
 nav {
   margin: 0;

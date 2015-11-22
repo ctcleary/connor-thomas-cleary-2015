@@ -14,7 +14,6 @@
 
           </div> <!-- end item-modal-header -->
 
-          <!-- <div class="item-modal-contents-flex"> -->
           <div class="item-modal-contents">
             <div class="item-modal-description">
               <h2> Description </h2>
@@ -40,7 +39,6 @@
             </div>
 
           </div> <!-- end item-modal-contents -->
-          <!-- </div> end item-modal-contents-flex -->
         </div> <!-- end .item-modal -->
 
       </div>
@@ -65,42 +63,47 @@
       return 'background: white;';
     };
     this.getHeroStyle = function() {
-      return ['background: url(' + modalConfig.hero.url + ');',
+      var heroStyles = ['background: url(' + modalConfig.hero.url + ');',
         'background-size: cover;',
         'background-position: ' + (modalConfig.hero.position || 'center center') + ';',
-        ''].join(' ');
+        ''];
+
+      if (modalConfig.hero.height != null) {
+        heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
+      }
+
+      return heroStyles.join(' ');
     }
 
     // UTILITIES
     this._dismiss = function() {
-      this.hide();
+      // this.hide();
       this.root.parentNode.removeChild(this.root);
     };
     this.dismissModal = function(e) {
-      e.stopPropagation();
+      // e.stopPropagation();
       this._dismiss();
       window.ctc.dismissModal();
     };
     this.dismissOnEsc = function(e) {
-      console.log("e.keyCode ::", e.keyCode);
       if (e.keyCode === 27) {
         this.dismissModal();
       }
     };
 
-    this.show = function() {
-      // TODO, figure out why show opacity transition isn't happening.
-      if (!this.viewport) {
-        console.log("modal show :: danger, will robinson");
-      }
-      this.viewport.style.opacity = 1;
-    }
-    this.hide = function() {
-      if (!this.viewport) {
-        console.log("modal hide :: danger, will robinson");
-      }
-      this.viewport.style.opacity = 0;
-    }
+    // this.show = function() {
+    //   // TODO, figure out why show opacity transition isn't happening.
+    //   if (!this.viewport) {
+    //     console.log("modal show :: danger, will robinson");
+    //   }
+    //   this.viewport.style.opacity = 1;
+    // }
+    // this.hide = function() {
+    //   if (!this.viewport) {
+    //     console.log("modal hide :: danger, will robinson");
+    //   }
+    //   this.viewport.style.opacity = 0;
+    // }
 
 
     this.getDeepClone = function (obj) {
@@ -158,7 +161,13 @@
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
-      this.show();
+      this.viewport.addEventListener('scroll', function(e) {
+        console.log("viewport scroll e ::", e);
+        e.stopPropagation();
+        e.preventDefault();
+      })
+
+      // this.show();
     });
 
     this.on('before-unmount', function() {

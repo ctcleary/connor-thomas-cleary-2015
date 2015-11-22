@@ -79,7 +79,8 @@
   .item-modal-header {
     flex-shrink: 0;
     flex-grow: 0;
-    flex-basis: 238px;
+    // flex-basis: 238px;
+    flex-basis: auto; // Allow differently sized heros.
   }
 
   .item-modal-contents {
@@ -96,14 +97,17 @@
     height: 100%;
 
     .item-modal-description {
-      flex-grow: 4;
-      flex-shrink: 4;
+      flex-grow: 1;
+      flex-shrink: 1;
       flex-basis: 730px;
     }
     .item-modal-sidebar {
       flex-grow: 1;
       flex-shrink: 1;
       flex-basis: 250px;
+
+      width: 100%;
+      min-width: 125px;
     }
   }
 }
@@ -112,7 +116,7 @@
 .item-modal {
   background: white;
   border-radius: 0.35%;
-  cursor: default;
+  // cursor: default;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -127,22 +131,17 @@
 
     .item-modal-hero {
       display: block;
-      width: 100%;
       height: 200px;
-
-      background: rgba(0,0,0,0.04);
+      max-height: 45vw;
+      background: #fafafa;
     }
   }
 
   .item-modal-contents {
-    border-top: thin solid rgba(0,0,0,0.2);
-    font-size: 16px;
+    border-top: thin solid #fafafa;
+    font-size: 15px;
     line-height: 18px;
 
-    h2, p {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
     h2 {
       font-size: 18px;
       font-weight: bold;
@@ -150,8 +149,24 @@
       margin-bottom: 6px;
     }
     p {
-      margin: 0 0 18px 0; 
+      margin: 0 0 18px 0;
+      line-height: 18px;
     }
+
+
+    h2, p {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    li {
+      padding-right: 20px;
+    }
+    .item-modal-sidebar {
+      li {
+        padding-right: 0;
+      }
+    }
+
 
     .item-modal-sidebar,
     .item-modal-description {
@@ -159,7 +174,7 @@
       padding-bottom: 20px;
     }
     .item-modal-sidebar {
-      background: rgba(0,0,0,0.04);
+      background: #fafafa;
       font-size: 12px;
       text-align: center;
 
@@ -177,4 +192,36 @@
       }
     }
   }
+}
+
+
+.item-modal-description {
+  p.list-header {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  hr {
+    height: 0;
+    border-top-color: #fafafa;
+    margin: 0 0 18px 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-left: 40px;
+    margin-bottom: 18px;
+  }
+  ul li {
+    margin-bottom: 6px;
+  }
+  ul li ul {
+    margin-left: 24px;
+    margin-bottom: 6px;
+  }
+  ul li ul li {
+    list-style-type: circle;
+    margin-bottom: 0;
+  }
+
 }

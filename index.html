@@ -16,10 +16,6 @@
   <script src="../bower_components/riot/riot+compiler.js"></script>
   <script src="../bower_components/shaven/shaven.js"></script>
 
-
-  <style type="text/css">
-
-  </style>
 </head>
 <body>
   <svg viewBox="0 0 100 100" style="display:none; background: white; height:50px; width:50px;">
@@ -77,11 +73,6 @@
         </div>
       </div>
 
-      <!-- add a spinner thing?
-        I _write_ because I love _entertaining_.
-          _code_                 _building_.
-          _design_               _creating experiences_/
-      -->
     </div>
     <section>
       <div id="portfolio" class="portfolio section">
@@ -276,6 +267,7 @@
         }
       });
     });
+
   </script>
 
 
@@ -296,9 +288,6 @@
   <script src="../src/components/tags-app.tag" type="riot/tag"></script>
   <script src="../src/components/item-modal.tag" type="riot/tag"></script>
 
-  <!-- <item-modal id="test-modal"></item-modal> -->
-
-
   <script type="text/javascript" src="../src-config/portfolio-config.js"></script>
   <script type="text/javascript" src="../src-config/publications-config.js"></script>
   <script type="text/javascript">
@@ -307,8 +296,9 @@
       currentModalEl: null,
 
       initModal: function(opts) {
+        document.body.classList.add('modal-open');
         if (document.getElementsByTagName('item-modal').length > 0) {
-          console.log("WARNING modal not dismissed properly");
+          console.log("WARNING modal not dismissed properly.");
         }
         this.currentModalEl = document.createElement('item-modal');
         document.body.appendChild(this.currentModalEl);
@@ -320,17 +310,12 @@
         // this.currentModal.show();
       },
       dismissModal: function() {
+        document.body.classList.remove('modal-open');
         if (this.currentModal) {
           this.currentModal = null;
         }
       }
     };
-
-    // TEMPORARY
-    // ctc.initModal({
-    //   title: portfolioItems[0].title,
-    //   modal: portfolioItems[0].modal
-    // });
 
     riot.compile(function() {
       try {

@@ -1,4 +1,4 @@
-<tagged-item class="{ parent.opts.itemsClass }">
+<tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }">
   <!-- <div class="tagged-item"> -->
     <div class="cover" style="{ this.getCoverStyle() }" onclick={ this.hasModal ? this.initModal : null; }>
       <!-- article? -->
@@ -13,7 +13,9 @@
   <!-- </div> -->
 
   <script>
+    console.log("this.opts ::", this.opts);
     this.hasModal = !!this.opts.modal;
+    this.hasUrl   = !!this.opts.url;
 
 
     this.getCoverStyle = function() {
@@ -33,11 +35,5 @@
     this.initModal = function() {
       window.ctc.initModal(this);
     };
-
-    this.on('mount', function() {
-      if (this.hasModal) {
-        this.root.classList.add('w-modal');
-      }
-    })
   </script>
 </tagged-item>

@@ -30,6 +30,9 @@
             >
           </tagged-item>
         </virtual>
+        <div class="no-items" if={ this.getActiveItems().length === 0 }>
+          <em>No results match this combination of tags.</em>
+        </div>
         </div>
       </div>
     </div>
