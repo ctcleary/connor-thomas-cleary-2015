@@ -1,25 +1,26 @@
 var fictionPublicationItems = [
   {
     title: 'Asgard Run',
+    url: 'http://www.amusedsloth.com/games/asgardrun/',
     venue: 'Amused Sloth',
     tags: [
       'scriptwriting',
       'contract',
       'game'
-    ],
-    modal: {
-      title: 'Asgard Run',
-      hero: {
-        height: 320,
-        url: '../local-design/heroes/hero_todo.jpg',
-        position: 'center center'
-      },
-      description: ['.item-desc',
-        [
-          ['p', 'Contract writer for opening cinematic.']
-        ]
-      ]
-    }
+    ]//,
+    // modal: {
+    //   title: 'Asgard Run',
+    //   hero: {
+    //     height: 320,
+    //     url: '../local-design/heroes/hero_todo.jpg',
+    //     position: 'center center'
+    //   },
+    //   description: ['.item-desc',
+    //     [
+    //       ['p', 'Contract writer for opening cinematic.']
+    //     ]
+    //   ]
+    // }
   },
   {
     title: 'Henchman: Origin',
@@ -32,16 +33,17 @@ var fictionPublicationItems = [
     ]
   },
   {
-    title: 'Noise',
-    venue: 'Flatirons Literary Review',
+    title: 'Let\'s Pretend It Never Happened',
+    url: 'http://www.amazon.com/Suddenly-Lost-In-Words-Volume-ebook/dp/B0099MLJBO',
+    venue: 'Suddenly Lost in Words',
     tags: [
       'short fiction',
       'literary'
     ]
   },
   {
-    title: 'Let\'s Pretend It Never Happened',
-    venue: 'Suddenly Lost in Words',
+    title: 'Noise',
+    venue: 'Flatirons Literary Review',
     tags: [
       'short fiction',
       'literary'

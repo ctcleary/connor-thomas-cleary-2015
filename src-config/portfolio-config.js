@@ -98,9 +98,9 @@ var portfolioItems = [
   {
     title: 'Roggy and the Beast',
     venue: 'Solo',
-    url: 'http://fourstair.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html',
+    // url: 'http://fourstair.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html',
     slate: {
-      url: '../local-design/slates/slate_todo.jpg',
+      url: '../local-design/slates/slate-roggy.jpg',
       position: 'center center'
     },
     tags: [
@@ -110,10 +110,8 @@ var portfolioItems = [
       'game'
     ],
     modal: {
-      // title: '',
       hero: {
-        // url: '../some_img.jpg',
-        // position: 'center center'
+        url: '../local-design/heroes/hero-roggy.jpg'
       },
       description: ['.item-desc',
         ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
@@ -130,38 +128,46 @@ var portfolioItems = [
     title: 'Summoner: The Bescarfed (WIP)',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate_todo.jpg',
+      url: '../local-design/slates/slate-summoner.jpg',
       position: 'center center'
     },
     tags: [
-      'actionscript',
       'unity',
       'C#',
       'game design',
-      'game'
+      'game',
+      'actionscript'
     ],
     modal: {
       // title: 'Summoner: The Bescarfed (WIP)',
       hero: {
-        // url: '../some_img.jpg',
-        // position: 'center center'
+        url: '../local-design/heroes/hero-summoner.jpg',
+        height: 320,
+        position: 'center bottom'
       },
       description: ['.item-desc',
-        ['p', 'Description goes here.']
+        ['p', 'The epic tale of a humble youth, Young Hero, who must take up the Scarf of Strategically-Limited Power to protect his village from the oncoming hordes of admittedly absurd abominations.'],
+        ['p', 'Forsooth, this mystical Scarf, bestowed upon our youth by the Village Elder, grants him the power to summon and command powerful demons through magicks ancient, arcane, and spelled with a "k."'],
+        ['p&', 'However... said magicks are also slowly devouring Young Hero\'s pure soul! (Probably.) So there is a <strong>terrible price to pay!</strong> Bearing the weight of all those demons in the form of one fuzzy muffler can really take its toll on a guy. Luckily, our hero is just the right sort of selfless fellow to lay it all on the line for his beloved village.'],
+        ['p', 'Go, now, Young Hero! Battle across the land. Gain priceless skill points. Dominate new demons. And inexplicably start over at Level 1 every time you enter a new region!'],
+        ['p', 'Go, go! The Village Elder believes in you!'],
+        ['p', 'The rest of the village is cautiously optimistic.'],
+        ['hr'],
+        ['h2', 'Project Details'],
+        ['p', 'A solo project originally prototyped in Actionscript 3, using the Flixel library -- partly for fun, partly to solidify some Object Oriented Programming principles.'],
+        ['p', 'Currently rebuilding the game from scratch in Unity using C#. Both enemies and friendly summons use an almost identical set of reusable Unity components, a decoupled MessageBus (Publish/Subscribe pattern), and a finite state machine AI system.'],
+        ['p', 'I created all the sprites and animations as well.']
       ],
-      info: ['ul', [
-        ['li', [
-          ['a', 
-            { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html' },
-            'Play Unity Build'
-          ]
-        ]],
-        ['li', [
-          ['a', 
-            { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
-            'Play Flash Prototype'
-          ]
-        ]]
+      info: ['div', [
+        ['a', 
+          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html' },
+          'Play Unity Build'
+        ],
+        ['br'],
+        ['a', 
+          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
+          'Play Flash Prototype'
+        ]
       ]]
     }
   },
@@ -170,7 +176,7 @@ var portfolioItems = [
     title: 'Skeleton Key',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate_todo.jpg',
+      url: '../local-design/slates/slate-skeletonkey.jpg',
       position: 'center center'
     },
     tags: [
@@ -182,15 +188,16 @@ var portfolioItems = [
     modal: {
       title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
       hero: {
-        url: '../local-design/slates/slate_todo.jpg',
+        url: '../local-design/heroes/hero-skeletonkey.jpg',
+        height: 320,
         position: 'center center'
       },
       description: ['.item-desc',
         ['p', 'Description goes here.']
       ],
       info: ['a', 
-        { href: 'http://google.com' },
-        'Play See Whatever'
+        { href: 'https://vimeo.com/142842311' },
+        'Watch Playthrough Video'
       ]
     }
   }

@@ -74,6 +74,24 @@
   }
 }
 
+@include respond-to(x-large) {
+  .portfolio {
+    .slate-item {
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+  }
+}
+
+@include respond-to(medium) {
+  .portfolio {
+    .slate-item {
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+  }
+}
+
 @include respond-to(small) {
   .portfolio {
     .slate-item {

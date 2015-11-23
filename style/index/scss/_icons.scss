@@ -117,6 +117,22 @@ tagged-item {
       }
     }
   }
+
+  &.w-url.w-modal {
+    .item-icon {
+      &:before, &:after {
+        content: 'err';
+        top: 0;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        background: red;
+        box-shadow: none;
+        transform: none;
+        border: none;
+      }
+    }
+  }
 }
 
 tagged-item {
