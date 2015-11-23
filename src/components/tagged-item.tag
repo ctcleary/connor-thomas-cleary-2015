@@ -14,9 +14,12 @@
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 
+    if (this.hasModal && this.hasUrl) {
+      console.log("WARNING: Bad config. An item should have either modal or url.");
+    }
 
     this.initModal = function() {
-      window.ctc.initModal(this);
+      window.modalControl.initModal(this);
     };
     this.openLink = function() {
       window.open(this.opts.url, '_blank');

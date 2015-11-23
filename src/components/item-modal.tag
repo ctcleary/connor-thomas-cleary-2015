@@ -82,8 +82,8 @@
     };
     this.dismissModal = function(e) {
       // e.stopPropagation();
-      this._dismiss();
-      window.ctc.dismissModal();
+      // this._dismiss();
+      window.modalControl.dismissModal();
     };
     this.dismissOnEsc = function(e) {
       if (e.keyCode === 27) {
@@ -150,31 +150,28 @@
         this.appendSkills();
         this.appendTags();
       } catch(e) {
-        console.log("e ::", e);
+        window.debug.errpr("e ::", e, e.stack);
       }
     }
 
     this.on('mount', function() {
+      document.body.classList.add('modal-open');
+
       this.viewport = this.root.getElementsByClassName('item-modal-viewport')[0];
       this.appendModalContents.call(this);
 
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
-      this.viewport.addEventListener('scroll', function(e) {
-        console.log("viewport scroll e ::", e);
-        e.stopPropagation();
-        e.preventDefault();
-      })
-
       // this.show();
     });
 
     this.on('before-unmount', function() {
+      document.body.classList.remove('modal-open');
       document.removeEventListener('keydown', this.boundKeyHandler);
 
       if (!this.viewport) {
-        console.log("no wrapper ref at unmount danger will robinson");
+        window.debug.warn("No wrapper reference at modal unmount!");
       }
     });
 
