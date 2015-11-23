@@ -286,7 +286,8 @@ var journoPublicationItems = [
     url: 'http://www.bigshinyrobot.com/57630/fable-legends-hands-e3/',
     venue: 'BigShinyRobot',
     tags: [
-      'game preview'
+      'game preview',
+      'event coverage'
     ]
   },
   {
@@ -294,7 +295,8 @@ var journoPublicationItems = [
     url: 'http://www.bigshinyrobot.com/57639/skyforge-hands-e3/',
     venue: 'BigShinyRobot',
     tags: [
-      'game preview'
+      'game preview',
+      'event coverage'
     ]
   },
   {
@@ -302,7 +304,8 @@ var journoPublicationItems = [
     url: 'http://www.bigshinyrobot.com/57640/rise-incarnates-hands-e3/',
     venue: 'BigShinyRobot',
     tags: [
-      'game preview'
+      'game preview',
+      'event coverage'
     ]
   },
   {
@@ -310,7 +313,8 @@ var journoPublicationItems = [
     url: 'http://www.bigshinyrobot.com/57628/lords-fallen-hands-e3/',
     venue: 'BigShinyRobot',
     tags: [
-      'game preview'
+      'game preview',
+      'event coverage'
     ]
   },
   {

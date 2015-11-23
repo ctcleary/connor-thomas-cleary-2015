@@ -1,12 +1,14 @@
 .section {
   border-bottom: 1px solid rgba(255,255,255, 0.1);
 
-  &:last-of-type {
-    border-bottom: none;
+  .section-content {
+    margin: 0 auto;
+    max-width: 1280px;
   }
-}
-.section>h1 {
-  padding-top: 18px;
+
+  .section-content>h1 {
+    padding-top: 18px;
+  }
 }
 .section-wrapper {
   padding-bottom: 24px;

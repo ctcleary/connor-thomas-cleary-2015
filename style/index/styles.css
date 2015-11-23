@@ -178,11 +178,11 @@ h1 {
       padding: 0 1% 0 0; } }
 .section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-  .section:last-of-type {
-    border-bottom: none; }
-
-.section > h1 {
-  padding-top: 18px; }
+  .section .section-content {
+    margin: 0 auto;
+    max-width: 1280px; }
+  .section .section-content > h1 {
+    padding-top: 18px; }
 
 .section-wrapper {
   padding-bottom: 24px; }
@@ -190,7 +190,19 @@ h1 {
 tagged-item .item-icon {
   position: absolute;
   top: 0;
-  right: 0; }
+  right: 0;
+  -webkit-transform-origin: top right;
+      -ms-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.3s ease;
+          transition: transform 0.3s ease; }
+tagged-item:hover .item-icon {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1); }
 tagged-item.w-url, tagged-item.w-modal {
   position: relative;
   cursor: pointer; }
@@ -832,7 +844,7 @@ tagged-item {
             flex: 0 0 auto;
     width: 45%;
     min-width: 210px;
-    max-width: 380px;
+    max-width: 370px;
     height: 210px;
     margin: 0 2% 12px;
     background: #d0d0d0;
