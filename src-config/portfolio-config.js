@@ -108,7 +108,22 @@ var portfolioItems = [
       'javascript',
       'twine',
       'game'
-    ]
+    ],
+    modal: {
+      // title: '',
+      hero: {
+        // url: '../some_img.jpg',
+        // position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
+        ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
+      ],
+      info: ['a', 
+        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html' },
+        'Play Roggy and the Beast'
+      ]
+    }
   },
 
   {
@@ -124,7 +139,31 @@ var portfolioItems = [
       'C#',
       'game design',
       'game'
-    ]
+    ],
+    modal: {
+      // title: 'Summoner: The Bescarfed (WIP)',
+      hero: {
+        // url: '../some_img.jpg',
+        // position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Description goes here.']
+      ],
+      info: ['ul', [
+        ['li', [
+          ['a', 
+            { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html' },
+            'Play Unity Build'
+          ]
+        ]],
+        ['li', [
+          ['a', 
+            { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
+            'Play Flash Prototype'
+          ]
+        ]]
+      ]]
+    }
   },
 
   {
