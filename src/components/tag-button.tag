@@ -4,6 +4,5 @@
   </button>
   
   <script>
-    // console.log("this.opts.config ::", this.opts.config);
   </script>
 </tag-button>

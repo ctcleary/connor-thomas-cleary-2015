@@ -23,6 +23,7 @@ var fictionPublicationItems = [
   },
   {
     title: 'Henchman: Origin',
+    url: 'http://www.amazon.com/Heroics-Strange-Tales-Absurd-Superheroes-ebook/dp/B009GJBEJM',
     venue: 'Boxfire Press Heroics Anthology',
     tags: [
       'short fiction',

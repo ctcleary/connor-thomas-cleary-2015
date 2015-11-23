@@ -13,10 +13,6 @@
     margin-bottom: 12px;
   }
 
-  // .tags button:not(:hover) {
-  //   background: #efe;
-  // }
-
   .slates-wrapper {
     width: 100%;
     padding: 0;
@@ -38,7 +34,7 @@
     flex: 0 0 auto;
     width: 45%;
     min-width: 210px;
-    max-width: 320px;
+    max-width: 380px;
     height: 210px;
     margin: 0 2% 12px;
     
@@ -52,10 +48,22 @@
                  1px -1px 0 black,
                 -1px  1px 0 black;
 
+    &.w-modal {
+      &:before {
+        box-shadow: 1px 4px 2px 0px rgba(0, 0, 0, 0.5);
+      }
+      &:after {
+        box-shadow: -3px 3px 2px 0px rgba(0, 0, 0, 0.5);
+      }
+    }
+    &.w-url {
+      &:before {
+        box-shadow: 1px 3px 2px 0px rgba(0, 0, 0, 0.5);
+      }
+    }
 
     .item {
       background: rgba(0,0,0, 0.25);
-      // background: rgba(255,255,255, 0.25);
       padding: 0 0 3px 3px;
       width: 100%;
     }
@@ -69,8 +77,6 @@
 @include respond-to(small) {
   .portfolio {
     .slate-item {
-      // display: block;
-      // margin: 4% 0;
       width: 100%;
     }
   }

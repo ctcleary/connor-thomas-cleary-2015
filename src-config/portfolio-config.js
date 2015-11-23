@@ -8,7 +8,6 @@ var portfolioItems = [
     },
     tags: [
       'writing',
-      'interactive',
       'javascript',
       'game',
       'twine'
@@ -35,6 +34,7 @@ var portfolioItems = [
       ]
     }
   },
+
   {
     title: 'Mad Max: Fury Road PTP',
     slate: {
@@ -94,19 +94,23 @@ var portfolioItems = [
       ]
     }
   },
+
   {
     title: 'Roggy and the Beast',
     venue: 'Solo',
+    url: 'http://fourstair.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html',
     slate: {
       url: '../local-design/slates/slate_todo.jpg',
       position: 'center center'
     },
     tags: [
       'writing',
-      'interactive',
+      'javascript',
+      'twine',
       'game'
     ]
   },
+
   {
     title: 'Summoner: The Bescarfed (WIP)',
     venue: 'Solo',
@@ -116,11 +120,13 @@ var portfolioItems = [
     },
     tags: [
       'actionscript',
-      'interactive',
-      'flixel',
+      'unity',
+      'C#',
+      'game design',
       'game'
     ]
   },
+
   {
     title: 'Skeleton Key',
     venue: 'Solo',
@@ -129,13 +135,25 @@ var portfolioItems = [
       position: 'center center'
     },
     tags: [
-      'actionscript',
-      'interactive',
-      'flixel',
+      'narrative design',
+      'writing',
+      'game mod',
       'game'
     ],
     modal: {
-      title: 'Skeleton Key - Shadowrun: Returns Quest'
+      title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
+      hero: {
+        url: '../local-design/slates/slate_todo.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Description goes here.']
+      ],
+      info: ['a', 
+        { href: 'http://google.com' },
+        'Play See Whatever'
+      ]
     }
   }
+  
 ];

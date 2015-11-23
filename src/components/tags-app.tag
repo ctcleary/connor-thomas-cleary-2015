@@ -27,6 +27,7 @@
             slate={ slate }
             venue={ venue }
             modal={ modal }
+            url={ url }
             >
           </tagged-item>
         </virtual>
