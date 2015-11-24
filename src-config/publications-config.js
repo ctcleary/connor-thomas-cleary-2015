@@ -7,20 +7,7 @@ var fictionPublicationItems = [
       'scriptwriting',
       'contract',
       'game'
-    ]//,
-    // modal: {
-    //   title: 'Asgard Run',
-    //   hero: {
-    //     height: 320,
-    //     url: '../local-design/heroes/hero_todo.jpg',
-    //     position: 'center center'
-    //   },
-    //   description: ['.item-desc',
-    //     [
-    //       ['p', 'Contract writer for opening cinematic.']
-    //     ]
-    //   ]
-    // }
+    ]
   },
   {
     title: 'Henchman: Origin',
@@ -116,6 +103,57 @@ var journoPublicationItems = [
       'game design'
     ]
   },
+
+
+  {
+    title: 'Tom Abernathy on the Narrative Opportunities and Challenges in League of Legends',
+    url: 'http://www.sevencut.com/ideas/2014/8/6/tom-abernathy-interview-league',
+    venue: 'Sevencut',
+    tags: [
+      'interview',
+      'narrative design'
+    ]
+  },
+  {
+    title: 'Ubisoft\'s Richard Dansky on Writing Soldiers and Player-Shaped Holes',
+    url: 'http://www.gamecareerguide.com/features/1321/ubisofts_richard_dansky_on_writing_soldiers_and_playershaped_holes.php',
+    venue: 'GameCareerGuide',
+    tags: [
+      'interview',
+      'narrative design',
+      'game design'
+    ]
+  },
+  {
+    title: 'Mary DeMarle Speaks On The Writer\'s Role in Game Development',
+    url: 'http://www.gamecareerguide.com/features/984/mary_demarle_speaks_on_the_.php',
+    venue: 'GameCareerGuide',
+    tags: [
+      'interview',
+      'narrative design',
+      'game design'
+    ]
+  },
+  {
+    title: 'Deus Ex Writer On Weaving Stories Around Player Choice',
+    url: 'http://www.gamasutra.com/view/news/126633/Deus_Ex_Writer_On_Weaving_Stories_Around_Player_Choice.php',
+    venue: 'Gamasutra',
+    tags: [
+      'interview',
+      'game design'
+    ]    
+  },
+  {
+    url: 'http://www.gamecareerguide.com/features/1298/interview_full_sails_wendy_despain_on_teaching_interactive_storytellers.php',
+    title: 'Full Sail\'s Wendy Despain on Teaching Interactive Storytellers',
+    tags: [
+      'interview',
+      'narrative design',
+      'game design'
+    ]
+  },
+
+
   {
     title: 'Playing Games With Your Significant Other - A Case Study',
     url: 'http://www.gamasutra.com/view/news/121651/Analysis_Playing_Video_Games_With_Your_Significant_Other__A_Case_Study.php',
@@ -147,15 +185,6 @@ var journoPublicationItems = [
     ]
   },
   {
-    title: 'Deus Ex Writer On Weaving Stories Around Player Choice',
-    url: 'http://www.gamasutra.com/view/news/126633/Deus_Ex_Writer_On_Weaving_Stories_Around_Player_Choice.php',
-    venue: 'Gamasutra',
-    tags: [
-      'interview',
-      'game design'
-    ]    
-  },
-  {
     title: 'How TERA Evolves The MMORPG Formula',
     url: 'http://www.gamasutra.com/view/news/126177/Interview_How_TERA_Evolves_The_MMORPG_Formula.php',
     venue: 'Gamasutra',
@@ -183,37 +212,6 @@ var journoPublicationItems = [
     ]    
   },
 
-  // GameCareerGuide
-  {
-    title: 'Ubisoft\'s Richard Dansky on Writing Soldiers and Player-Shaped Holes',
-    url: 'http://www.gamecareerguide.com/features/1321/ubisofts_richard_dansky_on_writing_soldiers_and_playershaped_holes.php',
-    venue: 'GameCareerGuide',
-    tags: [
-      'interview',
-      'narrative design',
-      'game design'
-    ]
-  },
-  {
-    title: 'Mary DeMarle Speaks On The Writer\'s Role in Game Development',
-    url: 'http://www.gamecareerguide.com/features/984/mary_demarle_speaks_on_the_.php',
-    venue: 'GameCareerGuide',
-    tags: [
-      'interview',
-      'narrative design',
-      'game design'
-    ]
-  },
-  {
-    url: 'http://www.gamecareerguide.com/features/1298/interview_full_sails_wendy_despain_on_teaching_interactive_storytellers.php',
-    title: 'Full Sail\'s Wendy Despain on Teaching Interactive Storytellers',
-    tags: [
-      'interview',
-      'narrative design',
-      'game design'
-    ]
-  },
-
   // GameSetWatch
   {
     title: 'How Homefront Got Its Priorities Backwards',
@@ -226,15 +224,6 @@ var journoPublicationItems = [
   },
 
   // Sevencut
-  {
-    title: 'Tom Abernathy on the Narrative Opportunities and Challenges in League of Legends',
-    url: 'http://www.sevencut.com/ideas/2014/8/6/tom-abernathy-interview-league',
-    venue: 'Sevencut',
-    tags: [
-      'interview',
-      'narrative design'
-    ]
-  },
   {
     title: 'In Alien: Isolation, You Are the One Being Hunted',
     url: 'http://www.sevencut.com/2014-e3-coverage/2014/6/16/in-alien-isolation-youre-the-one-being-hunted',
@@ -352,7 +341,7 @@ var journoPublicationItems = [
     ]
   },
   {
-    venue: 'and many more'
-  },
+    venue: 'among others'
+  }
 
 ];

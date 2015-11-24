@@ -542,7 +542,7 @@ tagged-item {
       display: block;
       height: 200px;
       max-height: 45vw;
-      background: #fafafa; }
+      background: #f9f9f9; }
   .item-modal .item-modal-contents {
     border-top: thin solid #fafafa;
     font-size: 15px;
@@ -567,7 +567,7 @@ tagged-item {
       padding-top: 20px;
       padding-bottom: 20px; }
     .item-modal .item-modal-contents .item-modal-sidebar {
-      background: #fafafa;
+      background: #f9f9f9;
       font-size: 12px;
       text-align: center; }
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-sidebar-section {

@@ -3,8 +3,8 @@ var portfolioItems = [
     title: 'Segfault[0]: Mad Hatter',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate_segfault1.gif',
-      position: 'center bottom'
+      url: '../local-design/slates/slate-segfault.jpg',
+      position: 'center center'
     },
     tags: [
       'writing',
@@ -15,9 +15,9 @@ var portfolioItems = [
     modal: {
       title: 'Segfault[0]: Mad Hatter',
       hero: {
-        height: 300,
-        url: '../local-design/heroes/hero_todo.jpg',
-        position: 'center 90%'
+        height: 200,
+        url: '../local-design/heroes/hero-segfault.jpg',
+        position: '15% center'
       },
       description: ['.item-desc',
         ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
@@ -98,7 +98,6 @@ var portfolioItems = [
   {
     title: 'Roggy and the Beast',
     venue: 'Solo',
-    // url: 'http://fourstair.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html',
     slate: {
       url: '../local-design/slates/slate-roggy.jpg',
       position: 'center center'

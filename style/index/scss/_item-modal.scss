@@ -15,12 +15,10 @@
 }
 
 .item-modal-viewport {
-  // transform: translate3d(0,0,0);
   z-index: 2; // Above menu.
 
   .item-modal-wrapper {
     position: relative;
-    // z-index: 3;
     top: 50%;
     transform: translateY(-50%);
     margin: 0 auto;
@@ -79,7 +77,6 @@
   .item-modal-header {
     flex-shrink: 0;
     flex-grow: 0;
-    // flex-basis: 238px;
     flex-basis: auto; // Allow differently sized heros.
   }
 
@@ -93,7 +90,6 @@
 
     position: relative;
     width: 100%;
-    // max-width: 100%;
     height: 100%;
 
     .item-modal-description {
@@ -116,7 +112,6 @@
 .item-modal {
   background: white;
   border-radius: 0.35%;
-  // cursor: default;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -133,7 +128,7 @@
       display: block;
       height: 200px;
       max-height: 45vw;
-      background: #fafafa;
+      background: #f9f9f9;
     }
   }
 
@@ -174,7 +169,7 @@
       padding-bottom: 20px;
     }
     .item-modal-sidebar {
-      background: #fafafa;
+      background: #f9f9f9;
       font-size: 12px;
       text-align: center;
 
