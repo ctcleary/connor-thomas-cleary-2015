@@ -199,6 +199,33 @@ var portfolioItems = [
         'Watch Playthrough Video'
       ]
     }
+  },
+  {
+    'title': 'Smiley Breaks Out',
+    'venue': 'Solo',
+    slate: {
+      url: '../local-design/slates/slate_todo.jpg',
+      position: 'center center'
+    },
+    'tags': [
+      '3d',
+      'motion'
+    ],
+    modal: {
+      title: 'Smiley the Demon Breaks Out',
+      hero: {
+        url: '../local-design/heroes/hero_todo.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Smiley the Demon breaks out of the classic "T-Pose."'],
+        ['p', 'All content is original and created by hand using Blender 3D, including model, skeleton, rigging, and animation.']
+      ],
+      info: ['a', 
+        { href: 'https://vimeo.com/146804306' },
+        'Watch Video on Vimeo'
+      ]
+    }
   }
   
 ];
