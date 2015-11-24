@@ -1,4 +1,4 @@
-  .publications {
+.publications {
   // background: url('../../img/typewriter.jpg') center 48px no-repeat;
   background: url('../../img/typewriter-mid.jpg') center 48px no-repeat;
   background-size: cover;
@@ -12,7 +12,7 @@
 .pubs-wrapper {
   vertical-align: center;
 
-  tagged-item.pub-item {
+  .pub-item {
     display: block;
     min-height: 36px;
     margin-bottom: 6px;
@@ -73,7 +73,7 @@
 
 @include respond-to(small) {
   .pubs-wrapper {
-    tagged-item.pub-item .item {
+    .pub-item .item {
       padding-left: 2%;
 
       .item-venue,
@@ -101,7 +101,7 @@
 }
 @include respond-to(x-small) {
   .pubs-wrapper {
-    tagged-item.pub-item .item {
+    .pub-item .item {
       font-size: 12px;
 
       .item-tags {

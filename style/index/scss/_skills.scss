@@ -5,9 +5,17 @@
   margin: 0 auto;
   max-width: 980px;
 
+  .skills-segment-header {
+    margin-bottom: 3px;
+  }
+
   .skills-list-container {
     flex: 0 0 auto;
     width: 230px;
+  }
+
+  ul ul {
+    margin-bottom: 0;
   }
 }
 

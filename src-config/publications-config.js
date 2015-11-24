@@ -316,32 +316,32 @@ var journoPublicationItems = [
       'game review'
     ]
   },
-  {
-    title: 'Saga #1 Review',
-    url: 'http://www.bigshinyrobot.com/38043/review-saga-1-by-brian-k-vaughan-fiona-staples/',
-    venue: 'BigShinyRobot',
-    tags: [
-      'graphic novel review'
-    ]
-  },
-  {
-    title: 'Saga #2 Review',
-    url: 'http://www.bigshinyrobot.com/39506/review-saga-2/',
-    venue: 'BigShinyRobot',
-    tags: [
-      'graphic novel review'
-    ]
-  },
-  {
-    title: 'Saga #3 and #4 Review',
-    url: 'http://www.bigshinyrobot.com/41574/review-saga-3-and-saga-4-from-brian-k-vaughan-and-fiona-staples/',
-    venue: 'BigShinyRobot',
-    tags: [
-      'graphic novel review'
-    ]
-  },
-  {
-    venue: 'among others'
-  }
+  // {
+  //   title: 'Saga #1 Review',
+  //   url: 'http://www.bigshinyrobot.com/38043/review-saga-1-by-brian-k-vaughan-fiona-staples/',
+  //   venue: 'BigShinyRobot',
+  //   tags: [
+  //     'graphic novel review'
+  //   ]
+  // },
+  // {
+  //   title: 'Saga #2 Review',
+  //   url: 'http://www.bigshinyrobot.com/39506/review-saga-2/',
+  //   venue: 'BigShinyRobot',
+  //   tags: [
+  //     'graphic novel review'
+  //   ]
+  // },
+  // {
+  //   title: 'Saga #3 and #4 Review',
+  //   url: 'http://www.bigshinyrobot.com/41574/review-saga-3-and-saga-4-from-brian-k-vaughan-and-fiona-staples/',
+  //   venue: 'BigShinyRobot',
+  //   tags: [
+  //     'graphic novel review'
+  //   ]
+  // },
+  // {
+  //   venue: 'among others'
+  // }
 
 ];

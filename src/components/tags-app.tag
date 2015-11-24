@@ -31,15 +31,28 @@
             >
           </tagged-item>
         </virtual>
-        <div class="no-items" if={ this.getActiveItems().length === 0 }>
+
+        <div if={ this.getActiveItems().length === 0 }
+            class="no-items">
           <em>No results match this combination of tags.</em>
         </div>
+
+        <div if={ this.showLimited() } onclick={ this.removeLimit }
+            class="over-limit-wrapper { this.opts.itemsClass }" >
+          <div class="over-limit">
+            Showing { this.itemLimit } items. Click to show all.
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 
-  <script> 
+  <script>
+    this.isLimited = !!this.opts.itemLimit;
+    this.itemLimit = this.opts.itemLimit;
+    this.isOverLimit = undefined;
+
     // Init
     this.getAllTags = function(taggedItems) {
       var allTagNames = [];
@@ -78,23 +91,39 @@
     };
 
 
+    // Limit
+    this.showLimited = function() {
+      return this.isLimited && this.isOverLimit;
+    };
+    this.removeLimit = function() {
+      this.isLimited = false;
+      // this.update();
+    };
+
+
     // Items
     this.getItems = function() {
       return this.opts.tagsItems;
     };
 
     this.getActiveItems = function() {
+      var result = [];
       var activeTags = this.getActiveTags();
       var taggedItems = this.getItems();
       if (activeTags.length === 0) {
-        return taggedItems;
+        result = taggedItems;
+      } else {
+        result = _.filter(taggedItems, function(item) {
+          return this.hasAllActiveTags(item, activeTags);
+        }, this);
       }
 
-      var result = _.filter(taggedItems, function(item) {
-        return this.hasAllActiveTags(item, activeTags);
-      }, this);
-
-      return result;
+      this.isOverLimit = (this.isLimited && result.length > this.itemLimit);
+      if (this.isOverLimit) {
+        return result.slice(0, this.itemLimit);
+      } else {
+        return result;
+      }
     };
 
     this.hasTag = function(item, testTag) {
