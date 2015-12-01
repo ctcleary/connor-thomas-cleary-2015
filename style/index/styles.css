@@ -209,7 +209,7 @@ tagged-item.w-url, tagged-item.w-modal {
   tagged-item.w-url .item-icon:before, tagged-item.w-url .item-icon:after, tagged-item.w-modal .item-icon:before, tagged-item.w-modal .item-icon:after {
     position: absolute;
     z-index: 2;
-    opacity: 0.5;
+    opacity: 0.85;
     -webkit-transition: opacity 0.25s linear;
             transition: opacity 0.25s linear; }
 tagged-item.w-url:hover .item-icon:before, tagged-item.w-url:hover .item-icon:after, tagged-item.w-modal:hover .item-icon:before, tagged-item.w-modal:hover .item-icon:after {

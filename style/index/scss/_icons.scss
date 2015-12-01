@@ -24,7 +24,7 @@ tagged-item {
       &:before, &:after {
         position: absolute;
         z-index: 2;
-        opacity: 0.5;
+        opacity: 0.85;
         transition: opacity 0.25s linear;
       }
     }
