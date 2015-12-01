@@ -1,23 +1,30 @@
 <tags-app>
   <div class="tags-app">
-    <p class="search-by" if={ this.getInactiveTags().length > 0 }>
-      { this.opts.searchPhrase }
-    </p>
-    <div class="{ this.opts.tagsClass } tags">
-      <tag-button each={ this.getInactiveTags(); }
-          config={ this }>
-      </tag-button>
+    <div class="tags-filters-activator tags" if={ this.showFiltersTrigger() }
+        onclick={ this.showFilters }>
+        <button>
+          Click to filter results
+        </button>
     </div>
+    <div class="tags-filters-container" if={ this.shouldShowFilters() }>
+      <p class="search-by" if={ this.getInactiveTags().length > 0 }>
+        { this.opts.searchPhrase }
+      </p>
+      <div class="{ this.opts.tagsClass } tags">
+        <tag-button each={ this.getInactiveTags(); }
+            config={ this }>
+        </tag-button>
+      </div>
 
-    <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
-      Remove active search tags:
-    </p>
-    <div class="{ this.opts.tagsClass } tags tags-active">
-      <tag-button each={ this.getActiveTags() }
-          config={ this }>
-      </tag-button>
+      <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
+        Remove active filter tags:
+      </p>
+      <div class="{ this.opts.tagsClass } tags tags-active">
+        <tag-button each={ this.getActiveTags() }
+            config={ this }>
+        </tag-button>
+      </div>
     </div>
-    <!-- <span> Active tags </span> -->
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="{ this.opts.itemsHoldClass }">
@@ -52,6 +59,31 @@
     this.isLimited = !!this.opts.itemLimit;
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
+
+    var appConfig = this.opts.appConfig;
+    this.disableFilters = appConfig.disableFilters;
+    this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+
+    this.hideFilters = function() {
+      this.filtersHidden = true;
+      this.update();
+    }
+    this.showFilters = function() {
+      this.filtersHidden = false;
+      this.update();
+    }
+    this.shouldShowFilters = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return !this.filtersHidden;
+    }
+    this.showFiltersTrigger = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return this.filtersHidden;
+    }
 
     // Init
     this.getAllTags = function(taggedItems) {
@@ -131,12 +163,12 @@
     };
     // TODO this seems to be broken in some strange way
     this.hasAllActiveTags = function(item, activeTags) {
-      var thisItemTags = item.tags;
+      var thisItemTags = item.primaryTags;
       var activeTagNames = this.getActiveTagNames();
-      return _.intersection(item.tags, activeTagNames).length === activeTags.length;
+      return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
     };
     this.hasAnyActiveTag = function(item, activeTags) {
-      var thisItemTags = item.tags;
+      var thisItemTags = item.primaryTags;
       for (var i = 0; i < activeTags.length; i++) {
         if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
           return true;

@@ -4,6 +4,16 @@
     margin-bottom: 12px;
   }
 
+  .tags-filters-activator {
+    margin-bottom: 18px;
+
+    button {
+      &:after {
+        content: '';
+      }
+    }
+  }
+
   .remove-search-tags {
 
   }

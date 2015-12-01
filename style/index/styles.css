@@ -290,6 +290,10 @@ tagged-item .item-icon {
 .tags-app .search-by,
 .tags-app .remove-search-tags {
   margin-bottom: 12px; }
+.tags-app .tags-filters-activator {
+  margin-bottom: 18px; }
+  .tags-app .tags-filters-activator button:after {
+    content: ''; }
 .tags-app .no-items {
   display: block;
   text-align: center; }
