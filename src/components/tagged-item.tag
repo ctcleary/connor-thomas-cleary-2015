@@ -4,7 +4,7 @@
         <div class="item-title">{ this.opts.title }</div>
         <div class="item-venue">{ this.opts.venue }</div>
         <div class="item-tags">
-          <span class="item-tag" each={ t, i in tags }>{ t }</span>
+          <span class="item-tag" each={ t, i in primaryTags }>{ t }</span>
         </div>
       </div>
     </div>

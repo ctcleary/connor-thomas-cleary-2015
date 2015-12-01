@@ -57,7 +57,7 @@
     this.getAllTags = function(taggedItems) {
       var allTagNames = [];
       _.each(taggedItems, function(tagsItem) {
-        allTagNames = _.union(allTagNames, tagsItem.tags);
+        allTagNames = _.union(allTagNames, tagsItem.primaryTags);
       });
       
       var allTags = _.map(allTagNames, function(tagName) {

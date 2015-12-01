@@ -46,14 +46,13 @@ var portfolioItems = [
     venue: 'IMDb',
     primaryTags: [
       'web',
-      'flash',
-      'actionscript',
-      'javascript',
       'interactive',
       'motion'
     ],
     secondaryTags: [
-
+      'flash',
+      'actionscript',
+      'javascript',
     ],
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
@@ -109,11 +108,11 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'javascript',
-      'twine',
       'game'
     ],
     secondaryTags: [
+      'javascript',
+      'twine'
     ],
     modal: {
       hero: {
@@ -139,13 +138,12 @@ var portfolioItems = [
     },
     primaryTags: [
       'unity',
+      'game'
+    ],
+    secondaryTags: [
       'C#',
       'game design',
-      'game',
       'actionscript'
-    ],
-    
-    secondaryTags: [
     ],
     modal: {
       // title: 'Summoner: The Bescarfed (WIP)',
@@ -189,12 +187,12 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      'narrative design',
       'writing',
-      'game mod',
       'game'
     ],
     secondaryTags: [
+      'narrative design',
+      'game mod'
     ],
     modal: {
       title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
@@ -220,10 +218,10 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      '3d',
-      'motion'
+      '3d'
     ],
     secondaryTags: [
+      'motion'
     ],
     modal: {
       title: 'Smiley the Demon Breaks Out',

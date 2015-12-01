@@ -134,7 +134,7 @@
     }
     this.appendTags = function() {
       if (this.hasTags) {
-        var tags = this.opts.tags;
+        var tags = this.opts.primaryTags.concat(this.opts.secondaryTags);
         var tagsShaven = ['ul', []];
         for (var i = 0; i < tags.length; i++) {
           tagsShaven[1].push(['li', tags[i]]);
