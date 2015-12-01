@@ -6,10 +6,12 @@ var portfolioItems = [
       url: '../local-design/slates/slate-segfault.jpg',
       position: 'center center'
     },
-    tags: [
+    primaryTags: [
       'writing',
+      'game'
+    ],
+    secondaryTags: [
       'javascript',
-      'game',
       'twine'
     ],
     modal: {
@@ -23,7 +25,7 @@ var portfolioItems = [
         ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
         ['p', 'What kind of a test subject will you be?'],
         ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
-        ['p', ['em', 'Written in a month for the ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge) supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
+        ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
       ],
       info: ['a', 
         {
@@ -42,13 +44,16 @@ var portfolioItems = [
       position: 'center 25%'
     },
     venue: 'IMDb',
-    tags: [
+    primaryTags: [
       'web',
       'flash',
       'actionscript',
       'javascript',
       'interactive',
       'motion'
+    ],
+    secondaryTags: [
+
     ],
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
@@ -102,11 +107,13 @@ var portfolioItems = [
       url: '../local-design/slates/slate-roggy.jpg',
       position: 'center center'
     },
-    tags: [
+    primaryTags: [
       'writing',
       'javascript',
       'twine',
       'game'
+    ],
+    secondaryTags: [
     ],
     modal: {
       hero: {
@@ -130,12 +137,15 @@ var portfolioItems = [
       url: '../local-design/slates/slate-summoner.jpg',
       position: 'center center'
     },
-    tags: [
+    primaryTags: [
       'unity',
       'C#',
       'game design',
       'game',
       'actionscript'
+    ],
+    
+    secondaryTags: [
     ],
     modal: {
       // title: 'Summoner: The Bescarfed (WIP)',
@@ -178,11 +188,13 @@ var portfolioItems = [
       url: '../local-design/slates/slate-skeletonkey.jpg',
       position: 'center center'
     },
-    tags: [
+    primaryTags: [
       'narrative design',
       'writing',
       'game mod',
       'game'
+    ],
+    secondaryTags: [
     ],
     modal: {
       title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
@@ -201,15 +213,17 @@ var portfolioItems = [
     }
   },
   {
-    'title': 'Smiley Breaks Out',
-    'venue': 'Solo',
+    title: 'Smiley Breaks Out',
+    venue: 'Solo',
     slate: {
       url: '../local-design/slates/slate_todo.jpg',
       position: 'center center'
     },
-    'tags': [
+    primaryTags: [
       '3d',
       'motion'
+    ],
+    secondaryTags: [
     ],
     modal: {
       title: 'Smiley the Demon Breaks Out',
