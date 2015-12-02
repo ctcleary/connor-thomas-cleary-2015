@@ -119,6 +119,8 @@
   }
 }
 
+// this needs A LOT of work.
+// 3d transforms are weird
 .any-all-toggle {
   .any-all-3d-wrap {
     display: inline-block;
@@ -129,42 +131,77 @@
     .any-all-text {
       position: relative;
       width: 40px;
-      height: 20px;
+      height: 17px;
+      margin: 0 auto;
       transform-style: preserve-3d;
 
-      // transform: rotateX(0deg);
-      // transform: rotateX(-90deg) translateZ(-18px);
-      transition: transform 0.2s linear;
+      transition: transform 1s ease;
+      // animation: spin-vert 2s infinite alternate linear;
+
 
       .matching-text {
         position: absolute;
         left:0;
-        top: 0;
+        top: -2px;
         width: 40px;
         height: 20px;
-        border: thin solid $interactive-hover;
+        padding-bottom: 2px;
+        // border: thin solid $interactive-hover;
+        // border-bottom: 2px solid $interactive-hover;
       }
 
       .any-text {
-        transform: translateZ(20px);
-        background: rgba(0,0,255,0.15);
+        border-bottom: 2px solid $interactive-hover;
       }
       .all-text {
-        background: rgba(0,255,0,0.15);
-        transform: rotateX(90deg) translateY(20px);
-        // transform-origin: bottom center;
+        border-top: 2px solid $interactive-hover;
       }
+
+
+      // temp
+
+      // .cube-front,
+      // .cube-bottom,
+      // .cube-top,
+      // .cube-back {
+      //   width: 40px;
+      //   height: 18px;
+      // }
+      // .cube-left,
+      // .cube-right {
+      //   width: 18px;
+      //   height: 18px;
+      // }
+
+      .cube-front  { transform: translateZ(9px); }
+      
+      .cube-bottom { transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(9px); transform-origin: bottom center; }
+      // .cube-bottom { transform: rotateX( 90deg) translateY(9px); transform-origin: bottom center; }
+      // .cube-top    { transform: rotateX(-90deg) translateY(-9px); transform-origin: top center; }
+      // .cube-back   { transform: translateZ(-9px) rotateY(180deg); }
+      // .cube-right  { transform: rotateY(-270deg) translateX(20px);  transform-origin: top right; }
+      // .cube-left   { transform: rotateY( 270deg) translateX(-20px); transform-origin: center left; }
     }
+
+      // .cube-front  { background: rgba(255,0,0, 1.75); }
+      // .cube-bottom { background: rgba(0,255,0, 1.75); }
+      // .cube-top    { background: rgba(0,0,255, 1.75); }
+      // .cube-back   { background: rgba(0,0,0,   1.75); }
   }
 
   &.selected-all {
     .any-all-text {
-      transform: rotateX(0deg) translateZ(0px);
+      transform: rotateX(0deg);
     }
   }
   &.selected-any {
     .any-all-text {
-      transform: rotateX(-90deg) translateZ(-18px);
+      transform: rotateX(90deg);
     }
   }
+}
+
+@keyframes spin-vert {
+  from { transform: rotateX(0deg); }
+  to   { transform: rotateX(-360deg); }
 }
