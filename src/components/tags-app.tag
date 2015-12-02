@@ -26,7 +26,8 @@
         <div class="matching-toggle-container">
           <p class="tags-section-title"> Match </p>
           <div class="matching-any-all-toggle tags">
-            <button class="any-all-toggle selected-all">
+            <button class={ this.matchAll ? "any-all-toggle selected-all" : "any-all-toggle selected-any" }
+                onclick={ this.toggleMatching }>
               <div class="any-all-3d-wrap">
                 <div class="any-all-text">
                   <span class="matching-text any-text">any</span>
@@ -87,6 +88,9 @@
     var appConfig = this.opts.appConfig;
     this.disableFilters = appConfig.disableFilters;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+
+    this.matchAll = true; // True by default;
+    this.toggleMatching = function() { this.matchAll = !this.matchAll; this.update() };
 
     this.hideFilters = function() {
       this.filtersHidden = true;

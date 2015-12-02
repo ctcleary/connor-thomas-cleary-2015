@@ -119,41 +119,52 @@
   }
 }
 
+.any-all-toggle {
+  .any-all-3d-wrap {
+    display: inline-block;
+    width: 40px;
+    perspective: none;
+    perspective-origin: 0 0;
 
-.any-all-3d-wrap {
-  display: inline-block;
-  width: 35px;
-  perspective: 0px;
-  perspecive-origin: 50% 50%;
+    .any-all-text {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      transform-style: preserve-3d;
 
-  .any-all-text {
-    position: relative;
-    width: 35px;
-    height: 18px;
-    transform-style: preserve-3d;
+      // transform: rotateX(0deg);
+      // transform: rotateX(-90deg) translateZ(-18px);
+      transition: transform 0.2s linear;
 
-    .matching-text {
-      position: absolute;
-      left:0;
-      width: 35px;
-      border: thin solid $interactive-hover;
-    }
+      .matching-text {
+        position: absolute;
+        left:0;
+        top: 0;
+        width: 40px;
+        height: 20px;
+        border: thin solid $interactive-hover;
+      }
 
-    .any-text {
-      transform: translateZ(35px);
-      background: rgba(0,0,255,0.15);
-    }
-    .all-text {
-      background: rgba(0,255,0,0.15);
-      transform: rotateX(45deg) translateY(15px);
-      // transform: rotateX(45deg);
-      transform-origin: bottom center;
+      .any-text {
+        transform: translateZ(20px);
+        background: rgba(0,0,255,0.15);
+      }
+      .all-text {
+        background: rgba(0,255,0,0.15);
+        transform: rotateX(90deg) translateY(20px);
+        // transform-origin: bottom center;
+      }
     }
   }
+
   &.selected-all {
-    
+    .any-all-text {
+      transform: rotateX(0deg) translateZ(0px);
+    }
   }
   &.selected-any {
-
+    .any-all-text {
+      transform: rotateX(-90deg) translateZ(-18px);
+    }
   }
 }
