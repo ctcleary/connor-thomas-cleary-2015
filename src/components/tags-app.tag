@@ -6,6 +6,7 @@
           Click to filter results
         </button>
     </div>
+
     <div class="tags-filters-container" if={ this.shouldShowFilters() }>
       <div class="tags-filters-header">
         <span class="search-by" if={ this.getInactiveTags().length > 0 }>
@@ -21,13 +22,25 @@
         </tag-button>
       </div>
 
-      <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
-        Remove active filter tags:
-      </p>
-      <div class="{ this.opts.tagsClass } tags tags-active">
-        <tag-button each={ this.getActiveTags() }
-            config={ this }>
-        </tag-button>
+      <div class="active-tags-container">
+        <div class="matching-toggle-container">
+          <p> Show results matching </p>
+          <div class="matching-any-all-toggle tag-button">
+            <span class="matching-any">any</span>
+            <span class="matching-all">all</span>
+            <span class="matching-filters">filters</span>
+          </div>
+        </div>
+        <div class="remove-search-tags-container">
+          <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
+            Remove active filter tags:
+          </p>
+          <div class="{ this.opts.tagsClass } tags tags-active">
+            <tag-button each={ this.getActiveTags() }
+                config={ this }>
+            </tag-button>
+          </div>
+        </div>
       </div>
     </div>
 

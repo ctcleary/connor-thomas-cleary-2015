@@ -1,4 +1,8 @@
 .tags-app {
+  .tags-filters-container {
+    margin-bottom: 12px;
+  }
+  
   .tags-filters-header,
   .remove-search-tags {
     position: relative;
@@ -35,8 +39,21 @@
     }
   }
 
-  .remove-search-tags {
+  .active-tags-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
 
+    .matching-toggle-container {
+      flex: none 0 0;
+    }
+    .remove-search-tags-container {
+      flex: none 0 0;
+    }
+
+    .remove-search-tags {
+      margin-top: 0;
+    }
   }
 
   .no-items {

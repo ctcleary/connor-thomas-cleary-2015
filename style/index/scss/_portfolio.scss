@@ -34,7 +34,7 @@
     flex: 0 0 auto;
     width: 45%;
     min-width: 210px;
-    max-width: 370px;
+    max-width: 240px;
     height: 210px;
     margin: 0 2% 12px;
     
@@ -74,6 +74,13 @@
   }
 }
 
+@include respond-to(xx-large) {
+  .portfolio {
+    .slate-item {
+      max-width: 370px;
+    }
+  }
+}
 @include respond-to(x-large) {
   .portfolio {
     .slate-item {
@@ -95,6 +102,7 @@
 @include respond-to(small) {
   .portfolio {
     .slate-item {
+      max-width: 100%;
       width: 100%;
     }
   }

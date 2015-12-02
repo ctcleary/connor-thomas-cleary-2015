@@ -116,7 +116,8 @@ var portfolioItems = [
     ],
     modal: {
       hero: {
-        url: '../local-design/heroes/hero-roggy.jpg'
+        url: '../local-design/heroes/hero-roggy.jpg',
+        position: 'bottom right'
       },
       description: ['.item-desc',
         ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
