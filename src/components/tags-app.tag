@@ -22,7 +22,7 @@
         </tag-button>
       </div>
 
-      <div class="active-tags-container">
+      <div class="active-tags-container" if={ this.getActiveTags().length > 0 }>
         <div class="matching-toggle-container">
           <p class="tags-section-title"> Match </p>
           <div class="matching-any-all-toggle tags">
@@ -32,13 +32,6 @@
                 <div class="any-all-text">
                   <span class="matching-text cube-front all-text">all</span>
                   <span class="matching-text cube-bottom any-text">any</span>
-
-<!--                   <span class="matching-text cube-front" >fr</span>
-                  <span class="matching-text cube-bottom">bot</span>
-                  <span class="matching-text cube-top"   >top</span>
-                  <span class="matching-text cube-right" >rgt</span>
-                  <span class="matching-text cube-left"  >lft</span>
-                  <span class="matching-text cube-back"  >bck</span> -->
                 </div>
               </div>
               <span class="filters-text">filters</span>
@@ -46,7 +39,7 @@
           </div>
         </div>
         <div class="remove-search-tags-container">
-          <p class="tags-section-title remove-search-tags" if={ this.getActiveTags().length > 0 }>
+          <p class="tags-section-title remove-search-tags">
             Remove active filter tags:
           </p>
           <div class="{ this.opts.tagsClass } tags tags-active">
