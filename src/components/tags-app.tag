@@ -30,8 +30,8 @@
                 onclick={ this.toggleMatching }>
               <div class="any-all-3d-wrap">
                 <div class="any-all-text">
-                  <span class="matching-text cube-front any-text">any</span>
-                  <span class="matching-text cube-bottom all-text">all</span>
+                  <span class="matching-text cube-front all-text">all</span>
+                  <span class="matching-text cube-bottom any-text">any</span>
 
 <!--                   <span class="matching-text cube-front" >fr</span>
                   <span class="matching-text cube-bottom">bot</span>
