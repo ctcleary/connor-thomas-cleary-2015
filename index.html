@@ -346,7 +346,12 @@
     var QueryO = QueryO; // from js/queryo.js
     var appsConfig = {
       disableFilters: QueryO.get('disableFilters', {as: 'boolean'}),
-      hideFilters: QueryO.get('hideFilters', {as: 'boolean'}),
+      hideFilters: QueryO.get('hideFilters', {as: 'boolean'})
+    };
+    var presetFilters = {
+      portfolio: QueryO.get('portFilters', {as: 'array', of: 'string'}),
+      publications: QueryO.get('pubFilters', {as: 'array', of: 'string'}),
+      journalism: QueryO.get('journoFilters', {as: 'array', of: 'string'})
     };
 
     riot.compile(function() {
@@ -356,6 +361,7 @@
           'tags-app',
           {
             appConfig: appsConfig,
+            presetFilters: presetFilters.portfolio,
             searchPhrase: 'Filter portfolio by skill:',
             tagsClass: 'skill-tags',
             itemsWrapClass: 'slates-wrapper',
@@ -370,6 +376,7 @@
           'tags-app',
           {
             appConfig: appsConfig,
+            presetFilters: presetFilters.publications,
             searchPhrase: 'Filter publications by type:',
             tagsClass: 'skill-tags',
             itemsWrapClass: 'pubs-wrapper',
@@ -384,6 +391,7 @@
           'tags-app',
           {
             appConfig: appsConfig,
+            presetFilters: presetFilters.journalism,
             searchPhrase: 'Filter articles by tag:',
             itemLimit: 10,
             tagsClass: 'skill-tags',

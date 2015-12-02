@@ -7,9 +7,14 @@
         </button>
     </div>
     <div class="tags-filters-container" if={ this.shouldShowFilters() }>
-      <p class="search-by" if={ this.getInactiveTags().length > 0 }>
-        { this.opts.searchPhrase }
-      </p>
+      <div class="tags-filters-header">
+        <span class="search-by" if={ this.getInactiveTags().length > 0 }>
+          { this.opts.searchPhrase }
+        </span>
+        <div class="hide-filters" onclick={ this.hideFilters }>
+          hide filters [<span class="x">+</span>]
+        </div>
+      </div>
       <div class="{ this.opts.tagsClass } tags">
         <tag-button each={ this.getInactiveTags(); }
             config={ this }>
@@ -102,7 +107,24 @@
       return allTags;
     };
 
+    this.setPresetFilters = function(allTags, presetFilters) {
+      var setTags = allTags;
+      if (presetFilters) {
+        _.each(setTags, function(tagObj, index, i) {
+          if (_.find(presetFilters, function(filterName) {
+                  return filterName === tagObj.name;
+                })) {
+            tagObj.active = true;
+          }
+        })
+      }
+      return setTags;
+    };
+
     this.allTags = this.getAllTags(this.opts.tagsItems);
+    if (this.opts.presetFilters) {
+      this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
+    }
 
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });

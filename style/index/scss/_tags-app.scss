@@ -1,7 +1,28 @@
 .tags-app {
-  .search-by,
+  .tags-filters-header,
   .remove-search-tags {
+    position: relative;
     margin-bottom: 12px;
+  }
+
+  .hide-filters {
+    float: right;
+
+    cursor: pointer;
+    font-size: 12px;
+    transition: color 0.2s linear;
+
+    &:hover {
+      color: $interactive-hover;
+    }
+
+    .x {
+      position: relative;
+      display: inline-block;
+      padding: 0 2px 0 1px;
+
+      transform: translate(0.7px, 1.4px) rotate(45deg);
+    }
   }
 
   .tags-filters-activator {

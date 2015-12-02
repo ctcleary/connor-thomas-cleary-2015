@@ -287,9 +287,25 @@ tagged-item .item-icon {
   top: 7px;
   right: 7px; }
 
-.tags-app .search-by,
+.tags-app .tags-filters-header,
 .tags-app .remove-search-tags {
+  position: relative;
   margin-bottom: 12px; }
+.tags-app .hide-filters {
+  float: right;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-transition: color 0.2s linear;
+          transition: color 0.2s linear; }
+  .tags-app .hide-filters:hover {
+    color: #2BBF44; }
+  .tags-app .hide-filters .x {
+    position: relative;
+    display: inline-block;
+    padding: 0 2px 0 1px;
+    -webkit-transform: translate(0.7px, 1.4px) rotate(45deg);
+        -ms-transform: translate(0.7px, 1.4px) rotate(45deg);
+            transform: translate(0.7px, 1.4px) rotate(45deg); }
 .tags-app .tags-filters-activator {
   margin-bottom: 18px; }
   .tags-app .tags-filters-activator button:after {
