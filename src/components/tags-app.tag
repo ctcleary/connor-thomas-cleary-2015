@@ -9,9 +9,9 @@
 
     <div class="tags-filters-container" if={ this.shouldShowFilters() }>
       <div class="tags-filters-header">
-        <span class="search-by" if={ this.getInactiveTags().length > 0 }>
+        <p class="tags-section-title search-by" if={ this.getInactiveTags().length > 0 }>
           { this.opts.searchPhrase }
-        </span>
+        </p>
         <div class="hide-filters" onclick={ this.hideFilters }>
           hide filters [<span class="x">+</span>]
         </div>
@@ -24,15 +24,21 @@
 
       <div class="active-tags-container">
         <div class="matching-toggle-container">
-          <p> Show results matching </p>
-          <div class="matching-any-all-toggle tag-button">
-            <span class="matching-any">any</span>
-            <span class="matching-all">all</span>
-            <span class="matching-filters">filters</span>
+          <p class="tags-section-title"> Match </p>
+          <div class="matching-any-all-toggle tags">
+            <button class="any-all-toggle selected-all">
+              <div class="any-all-3d-wrap">
+                <div class="any-all-text">
+                  <span class="matching-text any-text">any</span>
+                  <span class="matching-text all-text">all</span>
+                </div>
+              </div>
+              <span class="filters-text">filters</span>
+            </button>
           </div>
         </div>
         <div class="remove-search-tags-container">
-          <p class="remove-search-tags" if={ this.getActiveTags().length > 0 }>
+          <p class="tags-section-title remove-search-tags" if={ this.getActiveTags().length > 0 }>
             Remove active filter tags:
           </p>
           <div class="{ this.opts.tagsClass } tags tags-active">
