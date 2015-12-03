@@ -290,13 +290,15 @@
 
     // Lazy copypasta smooth scroll on anchor clicks.
     $(function() {
+      var navbarSpacing = 48;
+
       $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           if (target.length) {
             $('html,body').animate({
-              scrollTop: target.offset().top - 48
+              scrollTop: target.offset().top - navbarSpacing
             }, 1000);
             return false;
           }
@@ -360,6 +362,7 @@
           '#portfolio-app',
           'tags-app',
           {
+            // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
             appConfig: appsConfig,
             presetFilters: presetFilters.portfolio,
             searchPhrase: 'Filter portfolio by skill:',

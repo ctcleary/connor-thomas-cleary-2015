@@ -149,7 +149,11 @@ var portfolioItems = [
       'game design'
     ],
     skills: [
+      'unity',
       'C#',
+      'pixel art',
+      'pixel animation',
+      'flixel',
       'actionscript'
     ],
     modal: {
@@ -195,11 +199,17 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game'
+      'game design'
     ],
     secondaryTags: [
       'narrative design',
       'game mod'
+    ],
+    skills: [
+      'game editor',
+      'level design',
+      'branching dialogue',
+      'shadowrun returns editor'
     ],
     modal: {
       title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
@@ -209,7 +219,9 @@ var portfolioItems = [
         position: 'center center'
       },
       description: ['.item-desc',
-        ['p', 'Description goes here.']
+        ['p', 'Mission created with the ', ['a', {href:'https://www.youtube.com/watch?v=qyRBqnxKe5M'}, 'Shadowrun Returns Editor'], '. All visual/audio assets copyright Harebrained Schemes, with the exception of the skull portrait shown above.'],
+        ['p', ['a', { href: 'https://vimeo.com/142842311' }, 'Video playthrough'], ' is 9.5 minutes long. Actual playthrough takes 15-25 minutes. Link to playable Content Pack coming soon.'],
+        ['p', 'Represents about 30-35 hours of work after first contact with the editor.']
       ],
       info: ['a', 
         { href: 'https://vimeo.com/142842311' },

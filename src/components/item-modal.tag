@@ -27,7 +27,7 @@
               </div>
 
               <div if={ this.hasTags }
-                  class="item-modal-tags item-modal-sidebar-sections">
+                  class="item-modal-tags item-modal-sidebar-section">
                 <h2> Tagged </h2>
               </div>
 
