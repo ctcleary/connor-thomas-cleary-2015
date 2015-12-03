@@ -40,7 +40,7 @@
         </div>
         <div class="remove-search-tags-container">
           <p class="tags-section-title remove-search-tags">
-            Remove active filter tags:
+            Remove active filters:
           </p>
           <div class="{ this.opts.tagsClass } tags tags-active">
             <tag-button each={ this.getActiveTags() }
@@ -187,11 +187,14 @@
       var result = [];
       var activeTags = this.getActiveTags();
       var taggedItems = this.getItems();
+
+      var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
+
       if (activeTags.length === 0) {
         result = taggedItems;
       } else {
         result = _.filter(taggedItems, function(item) {
-          return this.hasAllActiveTags(item, activeTags);
+          return filterFunc.call(this, item, activeTags);
         }, this);
       }
 
@@ -212,7 +215,7 @@
       var activeTagNames = this.getActiveTagNames();
       return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
     };
-    this.hasAnyActiveTag = function(item, activeTags) {
+    this.hasAnyActiveTags = function(item, activeTags) {
       var thisItemTags = item.primaryTags;
       for (var i = 0; i < activeTags.length; i++) {
         if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {

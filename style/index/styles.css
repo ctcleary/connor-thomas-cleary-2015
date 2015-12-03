@@ -293,7 +293,9 @@ tagged-item .item-icon {
   position: relative; }
 .tags-app .tags-section-title {
   margin-top: 0;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 .tags-app .hide-filters {
   position: absolute;
   top: 0;
@@ -332,7 +334,9 @@ tagged-item .item-icon {
     -webkit-flex: none;
         -ms-flex: none;
             flex: none;
-    margin-right: 5%; }
+    padding-right: 2.5%;
+    margin-right: 2.5%;
+    border-right: thin solid #aaa; }
   .tags-app .active-tags-container .remove-search-tags-container {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1;
@@ -379,14 +383,14 @@ tagged-item .item-icon {
 
 .any-all-toggle .any-all-3d-wrap {
   display: inline-block;
-  width: 35px;
+  width: 32px;
   -webkit-perspective: none;
           perspective: none;
   -webkit-perspective-origin: 0 0;
           perspective-origin: 0 0; }
   .any-all-toggle .any-all-3d-wrap .any-all-text {
     position: relative;
-    width: 35px;
+    width: inherit;
     height: 18px;
     margin: 0 auto;
     -webkit-transform-style: preserve-3d;
@@ -398,7 +402,7 @@ tagged-item .item-icon {
       display: inline-block;
       left: 0;
       top: 0;
-      width: 35px;
+      width: inherit;
       height: 18px; }
     .any-all-toggle .any-all-3d-wrap .any-all-text .all-text {
       top: 1px;

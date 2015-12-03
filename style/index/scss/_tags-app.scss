@@ -10,6 +10,8 @@
   .tags-section-title {
     margin-top: 0;
     margin-bottom: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .hide-filters {
@@ -51,7 +53,9 @@
 
     .matching-toggle-container {
       flex: none;
-      margin-right: 5%;
+      padding-right: 2.5%;
+      margin-right: 2.5%;
+      border-right: thin solid #aaa;
     }
     .remove-search-tags-container {
       flex: 1 1;
@@ -124,13 +128,13 @@
 .any-all-toggle {
   .any-all-3d-wrap {
     display: inline-block;
-    width: 35px;
+    width: 32px;
     perspective: none;
     perspective-origin: 0 0;
 
     .any-all-text {
       position: relative;
-      width: 35px;
+      width: inherit;
       height: 18px;
       margin: 0 auto;
       transform-style: preserve-3d;
@@ -144,7 +148,7 @@
         display: inline-block;
         left: 0;
         top: 0;
-        width: 35px;
+        width: inherit;
         height: 18px;
       }
 
