@@ -13,7 +13,7 @@
 
   <script src="../bower_components/underscore/underscore.js"></script>
   <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/riot/riot+compiler.js"></script>
+  <script src="../bower_components/riot/riot.js"></script>
   <script src="../bower_components/shaven/shaven.js"></script>
 
 
@@ -320,11 +320,7 @@
 
 
   <!-- RIOT APP -->
-  <!-- components -->
-  <script src="../src/components/tag-button.tag"  type="riot/tag"></script>
-  <script src="../src/components/tagged-item.tag" type="riot/tag"></script>
-  <script src="../src/components/tags-app.tag"    type="riot/tag"></script>
-  <script src="../src/components/item-modal.tag"  type="riot/tag"></script>
+  <script src="../dist/ctc-tags.js"></script>
 
   <script type="text/javascript" src="../src-config/portfolio-config.js"></script>
   <script type="text/javascript" src="../src-config/publications-config.js"></script>
@@ -356,59 +352,57 @@
       journalism: QueryO.get('journoFilters', {as: 'array', of: 'string'})
     };
 
-    riot.compile(function() {
-      try {
-        var portfolio = riot.mount(
-          '#portfolio-app',
-          'tags-app',
-          {
-            // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
-            appConfig: appsConfig,
-            presetFilters: presetFilters.portfolio,
-            searchPhrase: 'Filter portfolio by skill:',
-            tagsClass: 'skill-tags',
-            itemsWrapClass: 'slates-wrapper',
-            itemsHoldClass: 'slates-holder',
-            itemsClass: 'slate-item',
-            tagsItems: portfolioItems
-          }
-        );
+    try {
+      var portfolio = riot.mount(
+        '#portfolio-app',
+        'tags-app',
+        {
+          // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+          appConfig: appsConfig,
+          presetFilters: presetFilters.portfolio,
+          searchPhrase: 'Filter portfolio by skill:',
+          tagsClass: 'skill-tags',
+          itemsWrapClass: 'slates-wrapper',
+          itemsHoldClass: 'slates-holder',
+          itemsClass: 'slate-item',
+          tagsItems: portfolioItems
+        }
+      );
 
-        var publications = riot.mount(
-          '#publications-app',
-          'tags-app',
-          {
-            appConfig: appsConfig,
-            presetFilters: presetFilters.publications,
-            searchPhrase: 'Filter publications by type:',
-            tagsClass: 'skill-tags',
-            itemsWrapClass: 'pubs-wrapper',
-            itemsHoldClass: 'pub-item-holder',
-            itemsClass: 'pub-item',
-            tagsItems: fictionPublicationItems
-          }
-        );
+      var publications = riot.mount(
+        '#publications-app',
+        'tags-app',
+        {
+          appConfig: appsConfig,
+          presetFilters: presetFilters.publications,
+          searchPhrase: 'Filter publications by type:',
+          tagsClass: 'skill-tags',
+          itemsWrapClass: 'pubs-wrapper',
+          itemsHoldClass: 'pub-item-holder',
+          itemsClass: 'pub-item',
+          tagsItems: fictionPublicationItems
+        }
+      );
 
-        var journalism = riot.mount(
-          '#journalism-app',
-          'tags-app',
-          {
-            appConfig: appsConfig,
-            presetFilters: presetFilters.journalism,
-            searchPhrase: 'Filter articles by tag:',
-            itemLimit: 10,
-            tagsClass: 'skill-tags',
-            itemsWrapClass: 'pubs-wrapper',
-            itemsHoldClass: 'pub-item-holder',
-            itemsClass: 'pub-item',
-            tagsItems: journoPublicationItems
-          }
-        );
+      var journalism = riot.mount(
+        '#journalism-app',
+        'tags-app',
+        {
+          appConfig: appsConfig,
+          presetFilters: presetFilters.journalism,
+          searchPhrase: 'Filter articles by tag:',
+          itemLimit: 10,
+          tagsClass: 'skill-tags',
+          itemsWrapClass: 'pubs-wrapper',
+          itemsHoldClass: 'pub-item-holder',
+          itemsClass: 'pub-item',
+          tagsItems: journoPublicationItems
+        }
+      );
 
-      } catch (e) {
-        window.debug.error("Error mounting app, e ::", e, e.stack);
-      }
-    });
+    } catch (e) {
+      window.debug.error("Error mounting app, e ::", e, e.stack);
+    }
   </script>
 </body>
 

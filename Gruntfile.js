@@ -10,6 +10,15 @@ module.exports = function(grunt) {
         }
       }
     },
+    riot: {
+      components: {
+        options: {
+          concat: true
+        },
+        src: 'src/components/*.tag',
+        dest: 'dist/ctc-tags.js'
+      }
+    },
     watch: {
       gruntfile: {
         files: ['Gruntfile.js'],
@@ -67,9 +76,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-riot');
 
   // Default task(s).
   grunt.registerTask('default', [
+    'riot',
     'buildcss',
     'connect',
     'watch'
