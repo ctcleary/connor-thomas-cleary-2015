@@ -1,5 +1,5 @@
 <tag-button>
-  <button class="tag-button" onclick="{ parent.toggleTag }">
+  <button class="button tag-button" onclick="{ parent.toggleTag }">
     { this.opts.config.name }
   </button>
   

@@ -17,14 +17,17 @@ $activeBGColor: #ae270c;
 $activeBGColor-light: #e03210;
 
 .tags {
-  button {
+  .button {
     margin-right: 0.5%;
+    height: 24px;
+    // padding: 3px 10px;
+    padding: 1px 6px 2px;
 
     color: #000000;
     background: $almost-white;
     border: none;
     border-radius: 2px;
-    padding: 3px 10px;
+    font-size: 15px;
 
     box-shadow: none;
     transition: background-color 0.7s $easeInOutSine,
@@ -50,7 +53,7 @@ $activeBGColor-light: #e03210;
 }
 
 .tags-active {
-  button {
+  .button {
     &:hover {
       background: $activeBGColor;
       animation: remove-glow-in    0.05s $easeInOutSine,
@@ -73,6 +76,17 @@ $activeBGColor-light: #e03210;
       content: '\2013';    // ndash
       color: red;
     }
+  }
+}
+
+.tags-filters-activator {
+  height: 18px;
+
+  .button {
+    height: 18px;
+    font-size: 13px;
+    padding: 0 5px;
+    vertical-align: top;
   }
 }
 

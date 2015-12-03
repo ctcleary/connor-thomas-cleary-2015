@@ -459,41 +459,51 @@ tagged-item .item-icon {
   cursor: pointer;
   margin: 0 3px 12px 3px; }
 
-.tags button {
+.tags .button {
   margin-right: 0.5%;
+  height: 24px;
+  padding: 1px 6px 2px;
   color: #000000;
   background: #fdfdff;
   border: none;
   border-radius: 2px;
-  padding: 3px 10px;
+  font-size: 15px;
   box-shadow: none;
   -webkit-transition: background-color 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95);
           transition: background-color 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95), box-shadow 0.7s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
-  .tags button:after {
+  .tags .button:after {
     content: '+';
     color: #27ae0c;
     -webkit-transition: color 0.5s ease;
             transition: color 0.5s ease; }
-  .tags button:hover {
+  .tags .button:hover {
     background: #27ae0c;
     -webkit-animation: neon-glow-in 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95), neon-glow 0.75s 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
             animation: neon-glow-in 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95), neon-glow 0.75s 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
-    .tags button:hover:after {
+    .tags .button:hover:after {
       color: white; }
 
-.tags-active button:hover {
+.tags-active .button:hover {
   background: #ae270c;
   -webkit-animation: remove-glow-in 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95), remove-glow 0.75s 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
           animation: remove-glow-in 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95), remove-glow 0.75s 0.05s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
-  .tags-active button:hover:after {
+  .tags-active .button:hover:after {
     color: #fcc; }
-.tags-active button:after {
+.tags-active .button:after {
   position: relative;
   top: -1px;
   font-size: 16px;
   font-weight: bold;
   content: '\2013';
   color: red; }
+
+.tags-filters-activator {
+  height: 18px; }
+  .tags-filters-activator .button {
+    height: 18px;
+    font-size: 13px;
+    padding: 0 5px;
+    vertical-align: top; }
 
 @-webkit-keyframes neon-glow-in {
   0% {

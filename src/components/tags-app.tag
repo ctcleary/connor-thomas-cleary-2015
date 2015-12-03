@@ -1,9 +1,8 @@
 <tags-app>
   <div class="tags-app">
-    <div class="tags-filters-activator tags" if={ this.showFiltersTrigger() }
-        onclick={ this.showFilters }>
-        <button>
-          Click to filter results
+    <div class="tags-filters-activator tags" if={ this.showFiltersTrigger() }>
+        <button class="button" onclick={ this.showFilters }>
+          filter results
         </button>
     </div>
 
@@ -26,7 +25,7 @@
         <div class="matching-toggle-container">
           <p class="tags-section-title"> Match </p>
           <div class="matching-any-all-toggle tags">
-            <button class={ this.matchAll ? "any-all-toggle selected-all" : "any-all-toggle selected-any" }
+            <button class={ this.matchAll ? "button any-all-toggle selected-all" : "button any-all-toggle selected-any" }
                 onclick={ this.toggleMatching }>
               <div class="any-all-3d-wrap">
                 <div class="any-all-text">
@@ -93,8 +92,6 @@
     this.doLimitDisplay = true; // true by default
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
-
-    console.log("this.opts.id ::", this.opts.id);
 
     var appConfig = this.opts.appConfig;
     this.disableFilters = appConfig.disableFilters;
