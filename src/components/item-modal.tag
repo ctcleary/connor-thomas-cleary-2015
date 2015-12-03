@@ -127,18 +127,28 @@
         this.appendShaven(modalConfig.info, 'item-modal-info');
       }
     }
+    this.makeShavenList = function(arr) {
+        var shavenList = ['ul', []];
+        var listItems = [];
+        for (var i = 0; i < arr.length; i++) {
+          listItems.push(['li', arr[i]]);
+        }
+        shavenList.push(listItems);
+        return shavenList;
+    };
     this.appendSkills = function() {
       if (this.hasSkills) {
-        this.appendShaven(modalConfig.skills, 'item-modal-skills');
+        var skillsShaven = this.makeShavenList(modalConfig.skills);
+        console.log("skillsShaven ::", skillsShaven);
+        this.appendShaven(skillsShaven, 'item-modal-skills');
       }
     }
     this.appendTags = function() {
       if (this.hasTags) {
-        var tags = this.opts.primaryTags.concat(this.opts.secondaryTags);
-        var tagsShaven = ['ul', []];
-        for (var i = 0; i < tags.length; i++) {
-          tagsShaven[1].push(['li', tags[i]]);
-        }
+        var tags = this.opts.primaryTags;
+        tags = tags.concat(this.opts.secondaryTags);
+
+        var tagsShaven = this.makeShavenList(tags);
         this.appendShaven(tagsShaven, 'item-modal-tags');
       }
     }

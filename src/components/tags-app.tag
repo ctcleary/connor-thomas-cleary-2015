@@ -92,27 +92,7 @@
     this.matchAll = true; // True by default;
     this.toggleMatching = function() { this.matchAll = !this.matchAll; this.update() };
 
-    this.hideFilters = function() {
-      this.filtersHidden = true;
-      this.update();
-    }
-    this.showFilters = function() {
-      this.filtersHidden = false;
-      this.update();
-    }
-    this.shouldShowFilters = function() {
-      if (this.disableFilters) {
-        return false;
-      }
-      return !this.filtersHidden;
-    }
-    this.showFiltersTrigger = function() {
-      if (this.disableFilters) {
-        return false;
-      }
-      return this.filtersHidden;
-    }
-
+    // ---- ---- ---- ---- ----
     // Init
     this.getAllTags = function(taggedItems) {
       var allTagNames = [];
@@ -166,6 +146,27 @@
       tag.active = !tag.active;
       this.update();
     };
+
+
+    // Filters
+    this.hideFilters = function() {
+      this.filtersHidden = true;
+    }
+    this.showFilters = function() {
+      this.filtersHidden = false;
+    }
+    this.shouldShowFilters = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return !this.filtersHidden;
+    }
+    this.showFiltersTrigger = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return this.filtersHidden;
+    }
 
 
     // Limit

@@ -11,7 +11,9 @@ var portfolioItems = [
       'game'
     ],
     secondaryTags: [
+      'branching narrative',
       'javascript',
+      'css',
       'twine'
     ],
     modal: {
@@ -50,9 +52,20 @@ var portfolioItems = [
       'motion'
     ],
     secondaryTags: [
+      // 'flash',
+      // 'actionscript',
+      // 'javascript',
+      // 'photoshop',
+      // 'illustrator',
+      // 'after effects'
+    ],
+    skills: [
       'flash',
       'actionscript',
       'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects'
     ],
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
