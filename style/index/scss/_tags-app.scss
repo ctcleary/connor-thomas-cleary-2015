@@ -93,31 +93,57 @@
       padding: 0;
     }
 
+
     .over-limit {
       position: relative;
-      display: inline-block;
+      display: block;
+      height: 100%;
       margin: 0 auto;
 
       font-size: 12px;
       font-style: italic;
       text-align: center;
 
-      &:before, &:after {
-        position: absolute;
-        top: 8px;
-        width: 0;
-        height: 0;
+      &:hover {
+        text-decoration: underline;
+      }
 
-        content: '';
-        border-top: 4px solid black;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
+      // Arrows down.
+      &.is-limiting .over-limit-text {
+        &:before, &:after {
+          border-top: 4px solid black;
+        }
       }
-      &:before {
-        left: -15px;
+      // Arrows up.
+      &.not-limiting .over-limit-text {
+        &:before, &:after {
+          border-bottom: 4px solid black;
+        }
       }
-      &:after {
-        right: -15px;
+
+      .over-limit-text {
+        position: relative;
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: bottom;
+        text-decoration: inherit;
+
+        &:before, &:after {
+          position: absolute;
+          top: 5px;
+          width: 0;
+          height: 0;
+
+          content: '';
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+        }
+        &:before {
+          left: -15px;
+        }
+        &:after {
+          right: -15px;
+        }
       }
     }
   }

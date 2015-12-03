@@ -48,6 +48,16 @@
                  1px -1px 0 black,
                 -1px  1px 0 black;
 
+    &.w-modal,
+    &.w-url {
+      box-shadow: 0 0 0 2px transparent;
+      transition: box-shadow 0.15s linear;
+
+      &:hover {
+        box-shadow: 0 0 0 2px #2BBF44;
+      }
+    }
+
     &.w-modal {
       &:before {
         box-shadow: 1px 4px 2px 0px rgba(0, 0, 0, 0.5);

@@ -69,10 +69,18 @@
           <em>No results match this combination of tags.</em>
         </div>
 
-        <div if={ this.showLimited() } onclick={ this.removeLimit }
-            class="over-limit-wrapper { this.opts.itemsClass }" >
-          <div class="over-limit">
-            Showing { this.itemLimit } items. Click to show all.
+        <div if={ this.showLimited() } class="over-limit-wrapper { this.opts.itemsClass }" >
+          <div if={ this.doLimitDisplay } class="over-limit is-limiting"
+              onclick={ this.removeLimit }>
+            <span class="over-limit-text">
+              Showing { this.itemLimit } items. Click to show all.
+            </span>
+          </div>
+          <div if={ !this.doLimitDisplay } class="over-limit not-limiting"
+              onclick={ this.reLimit }>
+            <span class="over-limit-text">
+              Showing all items. Click to show fewer.
+            </span>
           </div>
         </div>
       </div>
@@ -82,8 +90,11 @@
 
   <script>
     this.isLimited = !!this.opts.itemLimit;
+    this.doLimitDisplay = true; // true by default
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
+
+    console.log("this.opts.id ::", this.opts.id);
 
     var appConfig = this.opts.appConfig;
     this.disableFilters = appConfig.disableFilters;
@@ -174,8 +185,17 @@
       return this.isLimited && this.isOverLimit;
     };
     this.removeLimit = function() {
-      this.isLimited = false;
-      // this.update();
+      this.doLimitDisplay = false;
+    };
+    this.reLimit = function() {
+      this.doLimitDisplay = true;
+
+      // Now scroll to the top of this section
+      var navbarSpacing = 118;
+      var target = $('#'+this.opts.id);
+      $('html,body').animate({
+        scrollTop: target.offset().top - navbarSpacing
+      }, 650);
     };
 
 
@@ -200,7 +220,7 @@
       }
 
       this.isOverLimit = (this.isLimited && result.length > this.itemLimit);
-      if (this.isOverLimit) {
+      if (this.isOverLimit && this.doLimitDisplay) {
         return result.slice(0, this.itemLimit);
       } else {
         return result;

@@ -8,7 +8,7 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game'
+      'game design'
     ],
     secondaryTags: [
       'branching narrative',
@@ -52,20 +52,14 @@ var portfolioItems = [
       'motion'
     ],
     secondaryTags: [
-      // 'flash',
-      // 'actionscript',
-      // 'javascript',
-      // 'photoshop',
-      // 'illustrator',
-      // 'after effects'
     ],
     skills: [
-      'flash',
-      'actionscript',
       'javascript',
+      'actionscript',
       'photoshop',
       'illustrator',
-      'after effects'
+      'after effects',
+      'flash'
     ],
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
@@ -121,7 +115,7 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game'
+      'game design'
     ],
     secondaryTags: [
       'javascript',
@@ -152,11 +146,10 @@ var portfolioItems = [
     },
     primaryTags: [
       'unity',
-      'game'
+      'game design'
     ],
-    secondaryTags: [
+    skills: [
       'C#',
-      'game design',
       'actionscript'
     ],
     modal: {

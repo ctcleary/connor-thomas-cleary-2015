@@ -26,14 +26,14 @@
                 <h2> Info </h2>
               </div>
 
-              <div if={ this.hasSkills }
-                  class="item-modal-skills item-modal-sidebar-section">
-                <h2> Skills </h2>
-              </div>
-
               <div if={ this.hasTags }
                   class="item-modal-tags item-modal-sidebar-sections">
                 <h2> Tagged </h2>
+              </div>
+
+              <div if={ this.hasSkills }
+                  class="item-modal-skills item-modal-sidebar-section">
+                <h2> Skills </h2>
               </div>
 
             </div>
@@ -128,7 +128,7 @@
       }
     }
     this.makeShavenList = function(arr) {
-        var shavenList = ['ul', []];
+        var shavenList = ['ul'];
         var listItems = [];
         for (var i = 0; i < arr.length; i++) {
           listItems.push(['li', arr[i]]);
@@ -138,7 +138,7 @@
     };
     this.appendSkills = function() {
       if (this.hasSkills) {
-        var skillsShaven = this.makeShavenList(modalConfig.skills);
+        var skillsShaven = this.makeShavenList(this.opts.skills);
         console.log("skillsShaven ::", skillsShaven);
         this.appendShaven(skillsShaven, 'item-modal-skills');
       }
