@@ -345,6 +345,7 @@ tagged-item .item-icon {
         -ms-flex: 1 1;
             flex: 1 1; }
 .tags-app .matching-any-all-toggle .any-all-toggle {
+  padding-right: 8px;
   white-space: nowrap; }
   .tags-app .matching-any-all-toggle .any-all-toggle:after {
     content: ''; }
@@ -411,28 +412,41 @@ tagged-item .item-icon {
             transform-style: preserve-3d;
     -webkit-transition: -webkit-transform 0.8s ease;
             transition: transform 0.8s ease; }
-    .any-all-toggle .any-all-3d-wrap .any-all-text .matching-text {
-      position: absolute;
-      display: inline-block;
-      left: 0;
-      top: 0;
-      width: inherit;
-      height: 18px; }
-    .any-all-toggle .any-all-3d-wrap .any-all-text .all-text {
-      top: 1px;
-      height: 21px;
-      padding-bottom: 2px;
-      border-bottom: 2px solid #2BBF44;
-      -webkit-transform: translateZ(9px);
-              transform: translateZ(9px); }
-    .any-all-toggle .any-all-3d-wrap .any-all-text .any-text {
-      line-height: 16px;
-      border-top: 2px solid #2BBF44;
-      -webkit-transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px);
-              transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px);
-      -webkit-transform-origin: bottom center;
-          -ms-transform-origin: bottom center;
-              transform-origin: bottom center; }
+  .any-all-toggle .any-all-3d-wrap .all-text {
+    -webkit-transform: translateZ(9px);
+            transform: translateZ(9px); }
+  .any-all-toggle .any-all-3d-wrap .any-text {
+    -webkit-transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px);
+            transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px);
+    -webkit-transform-origin: bottom center;
+        -ms-transform-origin: bottom center;
+            transform-origin: bottom center; }
+.any-all-toggle.selected-all .any-all-text {
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg); }
+.any-all-toggle.selected-any .any-all-text {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg); }
+.any-all-toggle .matching-text {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: 18px;
+  -webkit-transition: border-color 0.8s linear, color        0.5s linear;
+          transition: border-color 0.8s linear, color        0.5s linear; }
+.any-all-toggle:hover .matching-text.all-text, .any-all-toggle:hover .matching-text.any-text {
+  color: white;
+  border-color: white; }
+.any-all-toggle .all-text {
+  top: 1px;
+  height: 21px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #2BBF44; }
+.any-all-toggle .any-text {
+  line-height: 16px;
+  border-top: 2px solid #2BBF44; }
 .any-all-toggle.selected-all .any-all-text {
   -webkit-transform: rotateX(0deg);
           transform: rotateX(0deg); }

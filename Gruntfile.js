@@ -46,6 +46,10 @@ module.exports = function(grunt) {
           livereload: true
         },
       },
+      riot: {
+        files: 'src/components/*.tag',
+        tasks: ['riot']
+      },
       sass: {
         files: 'style/**/*.scss',
         tasks: ['buildcss']

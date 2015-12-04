@@ -25,7 +25,7 @@
         <div class="matching-toggle-container">
           <p class="tags-section-title"> Match </p>
           <div class="matching-any-all-toggle tags">
-            <button class={ this.matchAll ? "button any-all-toggle selected-all" : "button any-all-toggle selected-any" }
+            <button class={ this.getMatchingClasses() }
                 onclick={ this.toggleMatching }>
               <div class="any-all-3d-wrap">
                 <div class="any-all-text">
@@ -99,6 +99,11 @@
 
     this.matchAll = true; // True by default;
     this.toggleMatching = function() { this.matchAll = !this.matchAll; this.update() };
+    this.getMatchingClasses = function() {
+      var classes = 'button any-all-toggle ';
+      classes += this.matchAll ? 'selected-all' : 'selected-any';
+      return classes;
+    };
 
     // ---- ---- ---- ---- ----
     // Init
