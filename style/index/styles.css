@@ -1005,7 +1005,7 @@ tagged-item {
         -ms-transform: translate(-3%, 20%) scale(0.55);
             transform: translate(-3%, 20%) scale(0.55); } }
 .portfolio {
-  background: url("../../img/bg.jpg") repeat black;
+  background: url("/img/bg.jpg") repeat black, url("http://connorthomascleary.com/ctc2015/img/bg.jpg") repeat black;
   border-top: 1px solid rgba(39, 174, 12, 0.05);
   border-bottom: 1px solid rgba(39, 174, 12, 0.15);
   color: #efe; }
@@ -1084,7 +1084,7 @@ tagged-item {
     max-width: 100%;
     width: 100%; } }
 .publications {
-  background: url("../../img/typewriter-mid.jpg") center 48px no-repeat #333;
+  background: #333;
   background-size: cover;
   background-attachment: fixed;
   color: white;
