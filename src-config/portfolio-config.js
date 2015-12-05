@@ -4,7 +4,7 @@ var portfolioItems = [
     venue: 'Solo',
     slate: {
       url: '../local-design/slates/slate-segfault.jpg',
-      position: 'center center'
+      position: 'center top'
     },
     primaryTags: [
       'writing',
@@ -35,6 +35,46 @@ var portfolioItems = [
           target: '_blank'
         },
         'Play Segfault[0]'
+      ]
+    }
+  },
+  {
+    title: 'Tarnhelm',
+    venue: 'IMDb',
+    slate: {
+      url: '../local-design/slates/slate-tarnhelm.jpg',
+      position: 'center center'
+    },
+    tags: [
+      'web',
+      'javascript'
+    ],
+    secondaryTags: [
+      'internal tools',
+      'framework'
+    ],
+    skills: [
+      'advanced javascript',
+      'HTML5',
+      'CSS3',
+      'single page apps',
+      'MVC',
+      'UI',
+      'UX',
+      'riotjs'
+    ],
+    modal: {
+      // title: 'Item Modal Title',
+      hero: {
+        url: '../local-design/heroes/hero-tarnhelm.jpg',
+        position: '20% center'
+      },
+      description: ['.item-desc',
+        ['p', 'Description goes here.']
+      ],
+      info: ['a', 
+        { href: 'http://google.com' },
+        'Play See Whatever'
       ]
     }
   },
@@ -142,7 +182,7 @@ var portfolioItems = [
     venue: 'Solo',
     slate: {
       url: '../local-design/slates/slate-summoner.jpg',
-      position: 'center center'
+      position: 'left center'
     },
     primaryTags: [
       'unity',
@@ -195,7 +235,7 @@ var portfolioItems = [
     venue: 'Solo',
     slate: {
       url: '../local-design/slates/slate-skeletonkey.jpg',
-      position: 'center center'
+      position: 'right center'
     },
     primaryTags: [
       'writing',
@@ -233,8 +273,8 @@ var portfolioItems = [
     title: 'Smiley Breaks Out',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate_todo.jpg',
-      position: 'center center'
+      url: '../local-design/slates/slate-smiley.jpg',
+      position: 'center top'
     },
     primaryTags: [
       '3d'
@@ -245,8 +285,9 @@ var portfolioItems = [
     modal: {
       title: 'Smiley the Demon Breaks Out',
       hero: {
-        url: '../local-design/heroes/hero_todo.jpg',
-        position: 'center center'
+        url: '../local-design/heroes/hero-smiley.jpg',
+        height: 320,
+        position: 'center top'
       },
       description: ['.item-desc',
         ['p', 'Smiley the Demon breaks out of the classic "T-Pose."'],

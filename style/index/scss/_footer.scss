@@ -11,6 +11,22 @@
   color: #eeeefe;
   padding: 12px;
   text-align: right;
+
+  p {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  a {
+    color: white;
+  }
+  .copyrights {
+    float: left;
+    text-align: left;
+    font-size: 12px;
+  }
+  .contact {
+    float: right;
+  }
 }
 
 // Hacky spacing fix for footer.

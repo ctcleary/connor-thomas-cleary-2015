@@ -1191,6 +1191,10 @@ tagged-item {
   color: black; }
   .about h1 {
     color: black; }
+  .about h2 {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 600; }
 
 .footer {
   position: absolute;
@@ -1202,6 +1206,17 @@ tagged-item {
   color: #eeeefe;
   padding: 12px;
   text-align: right; }
+  .footer p {
+    margin-bottom: 0;
+    margin-top: 0; }
+  .footer a {
+    color: white; }
+  .footer .copyrights {
+    float: left;
+    text-align: left;
+    font-size: 12px; }
+  .footer .contact {
+    float: right; }
 
 footer {
   background: transparent;
