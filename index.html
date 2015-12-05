@@ -6,16 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="//localhost:35729/livereload.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../bower_components/normalize.css/normalize.css" />
-
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+  <!-- TODO Better handling of vendor stuff in prod. -->
+  <link rel="stylesheet" type="text/css" href="../src/vendor/s/normalize.css" />
+  <script src="../src/vendor/underscore-min.js"></script>
+  <script src="../src/vendor/jquery.min.js"></script>
+  <script src="../src/vendor/riot.min.js"></script>
+  <script src="../src/vendor/shaven.min.js"></script>
+
+
   <link rel="stylesheet" type="text/css" href="style/index/styles.css" />
-
-  <script src="../bower_components/underscore/underscore.js"></script>
-  <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/riot/riot.js"></script>
-  <script src="../bower_components/shaven/shaven.js"></script>
-
 
   <script src="../js/logger.js"></script>
   <script src="../js/queryo.js"></script>
@@ -44,7 +45,6 @@
               <use xlink:href="#ctc-logo" x="0" y="0"  />
             </svg>
           </a>
-          <!-- <a href="#top" class="nav-item"> Top </a> -->
           <a href="#portfolio" class="nav-item"> Portfolio </a>
           <a href="#publications" class="nav-item"> Publications </a>
           <a href="#skills" class="nav-item"> Skills </a>
@@ -55,8 +55,8 @@
     </nav>
     
     <div class="hero">
-      <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg">
-      <!-- <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg" autoplay> -->
+      <!-- <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg"> -->
+      <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg" autoplay>
         <source src="local-design/vid/Typing-numbers.mp4" />
         <source src="local-design/vid/Typing-numbers.webm" />
       </video>
@@ -257,12 +257,12 @@
     // Quick video loop control with jQ
     (function() {
       var heroVid = $('.hero-vid')[0];
-      var maxLoops = 3;
+      var maxLoops = 1;
       var heroVidPlayed = 0;
 
       function onEnded() {
         heroVidPlayed++;
-        if (heroVidPlayed <= maxLoops) {
+        if (heroVidPlayed < maxLoops) {
           heroVid.play();
         } else {
           heroVid.removeEventListener('ended', onEnded);
