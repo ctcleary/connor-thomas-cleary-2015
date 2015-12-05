@@ -1,9 +1,15 @@
+var imgBaseDir = './';
+if (window.location.hostname === 'localhost') {
+  imgBaseDir = '../local-design/'
+} else {
+  imgBaseDir = 'http://connorthomascleary.com/ctc2015/';
+}
 var portfolioItems = [
   {
     title: 'Segfault[0]: Mad Hatter',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate-segfault.jpg',
+      url: imgBaseDir + 'slates/slate-segfault.jpg',
       position: 'center top'
     },
     primaryTags: [
@@ -20,7 +26,7 @@ var portfolioItems = [
       title: 'Segfault[0]: Mad Hatter',
       hero: {
         height: 200,
-        url: '../local-design/heroes/hero-segfault.jpg',
+        url: imgBaseDir + 'heroes/hero-segfault.jpg',
         position: '15% center'
       },
       description: ['.item-desc',
@@ -42,7 +48,7 @@ var portfolioItems = [
     title: 'Tarnhelm',
     venue: 'IMDb',
     slate: {
-      url: '../local-design/slates/slate-tarnhelm.jpg',
+      url: imgBaseDir + 'slates/slate-tarnhelm.jpg',
       position: 'center center'
     },
     primaryTags: [
@@ -66,7 +72,7 @@ var portfolioItems = [
     modal: {
       // title: 'Item Modal Title',
       hero: {
-        url: '../local-design/heroes/hero-tarnhelm.jpg',
+        url: imgBaseDir + 'heroes/hero-tarnhelm.jpg',
         position: '20% center'
       },
       description: ['.item-desc',
@@ -82,7 +88,7 @@ var portfolioItems = [
   {
     title: 'Mad Max: Fury Road PTP',
     slate: {
-      url: '../local-design/slates/slate_madmax1.jpg',
+      url: imgBaseDir + '/slates/slate_madmax1.jpg',
       position: 'center 25%'
     },
     venue: 'IMDb',
@@ -104,7 +110,7 @@ var portfolioItems = [
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        url: '../local-design/heroes/ptp_madmax_hero.jpg',
+        url: imgBaseDir + '/heroes/ptp_madmax_hero.jpg',
         height: 320,
         position: '55% 30%'
       },
@@ -150,7 +156,7 @@ var portfolioItems = [
     title: 'Roggy and the Beast',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate-roggy.jpg',
+      url: imgBaseDir + 'slates/slate-roggy.jpg',
       position: 'center center'
     },
     primaryTags: [
@@ -163,7 +169,7 @@ var portfolioItems = [
     ],
     modal: {
       hero: {
-        url: '../local-design/heroes/hero-roggy.jpg',
+        url: imgBaseDir + 'heroes/hero-roggy.jpg',
         position: 'bottom right'
       },
       description: ['.item-desc',
@@ -181,7 +187,7 @@ var portfolioItems = [
     title: 'Summoner: The Bescarfed (WIP)',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate-summoner.jpg',
+      url: imgBaseDir + '/slates/slate-summoner.jpg',
       position: 'left center'
     },
     primaryTags: [
@@ -199,7 +205,7 @@ var portfolioItems = [
     modal: {
       // title: 'Summoner: The Bescarfed (WIP)',
       hero: {
-        url: '../local-design/heroes/hero-summoner.jpg',
+        url: imgBaseDir + '/heroes/hero-summoner.jpg',
         height: 320,
         position: 'center bottom'
       },
@@ -234,7 +240,7 @@ var portfolioItems = [
     title: 'Skeleton Key',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate-skeletonkey.jpg',
+      url: imgBaseDir + '/slates/slate-skeletonkey.jpg',
       position: 'right center'
     },
     primaryTags: [
@@ -254,7 +260,7 @@ var portfolioItems = [
     modal: {
       title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
       hero: {
-        url: '../local-design/heroes/hero-skeletonkey.jpg',
+        url: imgBaseDir + '/heroes/hero-skeletonkey.jpg',
         height: 320,
         position: 'center center'
       },
@@ -273,7 +279,7 @@ var portfolioItems = [
     title: 'Smiley Breaks Out',
     venue: 'Solo',
     slate: {
-      url: '../local-design/slates/slate-smiley.jpg',
+      url: imgBaseDir + '/slates/slate-smiley.jpg',
       position: 'center top'
     },
     primaryTags: [
@@ -285,7 +291,7 @@ var portfolioItems = [
     modal: {
       title: 'Smiley the Demon Breaks Out',
       hero: {
-        url: '../local-design/heroes/hero-smiley.jpg',
+        url: imgBaseDir + '/heroes/hero-smiley.jpg',
         height: 320,
         position: 'center top'
       },
