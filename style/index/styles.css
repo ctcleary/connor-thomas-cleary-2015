@@ -224,7 +224,7 @@ tagged-item.w-modal .item-icon:before {
   background: transparent;
   border: 4px solid #fdfdff;
   border-radius: 50%;
-  box-shadow: 0 0px 0px 2px #444; }
+  box-shadow: 0 0px 0px 2px #888; }
 tagged-item.w-modal .item-icon:after {
   top: 17px;
   right: 4px;
@@ -241,7 +241,7 @@ tagged-item.w-modal .item-icon:after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  border: 2px solid #444;
+  border: 2px solid #888;
   border-top: none; }
 tagged-item.w-url .item-icon:before, tagged-item.w-url .item-icon:after {
   box-sizing: content-box; }
@@ -255,7 +255,7 @@ tagged-item.w-url .item-icon:before {
   background: transparent;
   border: 3px solid #fdfdff;
   border-radius: 10%;
-  box-shadow: -1px 1px 0px 1px #444; }
+  box-shadow: -1px 1px 0px 1px #888; }
 tagged-item.w-url .item-icon:after {
   top: -2px;
   right: -5px;
@@ -307,7 +307,7 @@ tagged-item .item-icon {
   -webkit-transition: color 0.2s linear;
           transition: color 0.2s linear; }
   .tags-app .hide-filters:hover {
-    color: #2BBF44; }
+    color: #e03210; }
   .tags-app .hide-filters .x {
     position: relative;
     display: inline-block;

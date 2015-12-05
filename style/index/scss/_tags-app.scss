@@ -24,7 +24,8 @@
     transition: color 0.2s linear;
 
     &:hover {
-      color: $interactive-hover;
+      // color: $interactive-hover;
+      color: #e03210;
     }
 
     .x {

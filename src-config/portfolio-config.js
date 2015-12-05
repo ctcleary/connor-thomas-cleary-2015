@@ -45,7 +45,7 @@ var portfolioItems = [
       url: '../local-design/slates/slate-tarnhelm.jpg',
       position: 'center center'
     },
-    tags: [
+    primaryTags: [
       'web',
       'javascript'
     ],
