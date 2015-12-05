@@ -1,6 +1,6 @@
-var imgBaseDir = './';
+var imgBaseDir = '';
 if (window.location.hostname === 'localhost') {
-  imgBaseDir = '../local-design/'
+  imgBaseDir = './local-design/'
 } else {
   imgBaseDir = 'http://connorthomascleary.com/ctc2015/';
 }
