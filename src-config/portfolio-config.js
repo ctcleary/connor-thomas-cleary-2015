@@ -78,9 +78,13 @@ var portfolioItems = [
       description: ['.item-desc',
         ['p', 'Description goes here.']
       ],
-      info: ['a', 
-        { href: 'http://google.com' },
-        'Play See Whatever'
+      info: ['p', 'Powered by Tarnhelm:',
+        ['ul',
+          ['li',
+            ['a', { href: 'http://www.imdb.com/title/tt2096673/' }, 'Inside Out']],
+          ['li',
+            ['a', { href: 'http://www.imdb.com/title/tt1979388/' }, 'The Good Dinosaur']],
+        ]
       ]
     }
   },

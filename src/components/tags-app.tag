@@ -126,6 +126,10 @@
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
       if (presetFilters) {
+        if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
+          this.matchAll = (presetFilters === 'all');
+          presetFilters.shift();
+        }
         _.each(setTags, function(tagObj, index, i) {
           if (_.find(presetFilters, function(filterName) {
                   return filterName === tagObj.name;
