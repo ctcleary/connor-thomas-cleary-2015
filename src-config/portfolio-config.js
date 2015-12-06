@@ -19,7 +19,7 @@ var portfolioItems = [
     secondaryTags: [
       'branching narrative',
       'javascript',
-      'css',
+      'CSS',
       'twine'
     ],
     modal: {
@@ -70,20 +70,79 @@ var portfolioItems = [
       'riotjs'
     ],
     modal: {
-      // title: 'Item Modal Title',
+      title: 'Tarnhelm Framework',
       hero: {
         url: imgBaseDir + 'heroes/hero-tarnhelm.jpg',
-        position: '20% center'
+        position: '20% 45%'
       },
       description: ['.item-desc',
-        ['p', 'Description goes here.']
+        ['p','Tarnhelm is a Flash replacement Javascript framework currently powering all first-party ads on IMDb, from simple billboards to the immersive "Premium Title Page" (PTP) experiences.'],
+        ['p', 'The success of this project saved over $48 million in at-risk revenue for IMDb. (Over $18.9 million in 2015, and an estimated $29.5 million for 2016.)'],
+        ['p', 'It was an ambitious project under an extraordinary tight deadline,with only three web development engineers, including myself. By September 1st, we had just over a month to develop, test, and deliver a framework robust enough to power the media-rich Mad Max: Fury Road PTP, and scalable enough to also power a simple sidebar rectangle.'],
+        ['p', 'Tarnhelm also makes extensive use of my Alphalfa Player.'],
+
+        ['h2', 'Technical Stuff'],
+        ['p', 'Ads are configured with a JSON object and built on a component-based system (graphics, panels, video players, etc). Eventually, the same technology that powers the executions will help power a robust WYSIWYG-style internal tool for non-technical ad designers.'],
+        ['p', 'Due to the nature of internet advertising, these ads are loaded into an iframe, in which the ads exist as a sort of single-page-app micro-site.'],
+
+        ['h2', 'History'],
+        ['p', 'In July 2015, Google announced a new feature that spelled the death of Flash for internet advertisers. Across Amazon, the action plan aws simply to run simpler ads. At IMDb, our unique rich media executions set us apart, and helped made IMDb a "must-buy" for movies and tv shows.'],
+        ['p', 'I was silly enough to say, "We can build a library to do this. We can replace Flash."'],
       ],
       info: ['p', 'Powered by Tarnhelm:',
         ['ul',
-          ['li',
-            ['a', { href: 'http://www.imdb.com/title/tt2096673/' }, 'Inside Out']],
-          ['li',
-            ['a', { href: 'http://www.imdb.com/title/tt1979388/' }, 'The Good Dinosaur']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2820852/', target:'_blank' }, 'Furious 7']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0478970/', target:'_blank' }, 'Ant Man']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1051904/', target:'_blank' }, 'Goosebumps']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0103639/', target:'_blank' }, 'Aladdin']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2395427/', target:'_blank' }, 'Avengers']],
+          ['li', ['small', 'and many others']]
+        ]
+      ]
+    }
+  },
+  {
+    title: 'Alphalfa Player',
+    venue: 'IMDb',
+    slate: {
+      url: '../local-design/slates/slate-alphalfa.jpg',
+      position: 'center 45%'
+    },
+    primaryTags: [
+      'web',
+      'javascript'
+    ],
+    secondaryTags: [],
+    skills: [
+      'advanced javascript',
+      'WebGL',
+      'HTML5',
+      'CSS3',
+    ],
+    modal: {
+      title: 'Alphalfa Player - HTML5 Transparent Video Player',
+      hero: {
+        height: 200,
+        url: '../local-design/heroes/hero-alphalfa.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'With the death of Flash came the death of video with transparency on the internet. At IMDb, we relied heavily on transparent videos to achieve many of our coolest effects on the Premium Title Pages (PTPs). Seeing the writing on the wall re: Flash\'s imminent deminse, I took it upon myself to create a Javascript module which would make transparent video playback possible.'],
+        ['p', 'There was already ', ['a',{href:'http://www.sciencelifeny.com/transparency/transparency.html',target:'_blank'},'one solution out there'], ' but it was only the kernel of the idea. It was neither robust nor optimized enough for our needs. I ran with the initial concept, and created both a highly optimized 2D Canvas method, as well as a more advanced WebGL renderer which offloads the heavy duty workload to the user\'s graphics processor when supported. There are now four separate Alphalfa render methods with varying features and optimizations to ensure the most performant experience possible for end users, without sacrificing the quality of the rich media ads.'],
+        ['p', 'Alphalfa was, and continues to be, a significant factor in the success of the Tarnhelm Project.'],
+        ['p', 'I cannot go into any other technical specifics, they are protected under NDA.']
+      ],
+      info: ['p', 'Powered by Alphalfa:',
+        ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', ['small', 'and many others']]
         ]
       ]
     }
@@ -287,9 +346,10 @@ var portfolioItems = [
       position: 'center top'
     },
     primaryTags: [
-      '3d'
+      '3D'
     ],
     secondaryTags: [
+      'animation',
       'motion'
     ],
     modal: {

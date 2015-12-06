@@ -730,21 +730,26 @@ tagged-item {
     border-top: thin solid #fafafa;
     font-size: 15px;
     line-height: 18px; }
+    .item-modal .item-modal-contents p {
+      margin: 0 0 18px 0;
+      line-height: 18px; }
     .item-modal .item-modal-contents h2 {
       font-size: 18px;
       font-weight: bold;
       line-height: 18px;
-      margin-bottom: 6px; }
-    .item-modal .item-modal-contents p {
-      margin: 0 0 18px 0;
-      line-height: 18px; }
-    .item-modal .item-modal-contents h2, .item-modal .item-modal-contents p {
-      padding-left: 20px;
-      padding-right: 20px; }
-    .item-modal .item-modal-contents li {
-      padding-right: 20px; }
+      margin-bottom: 12px; }
+    .item-modal .item-modal-contents .item-modal-description {
+      margin-bottom: 24px; }
+      .item-modal .item-modal-contents .item-modal-description h2, .item-modal .item-modal-contents .item-modal-description p {
+        padding-left: 20px;
+        padding-right: 20px; }
+      .item-modal .item-modal-contents .item-modal-description li {
+        padding-right: 20px; }
     .item-modal .item-modal-contents .item-modal-sidebar li {
-      padding-right: 0; }
+      padding-right: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
     .item-modal .item-modal-contents .item-modal-sidebar,
     .item-modal .item-modal-contents .item-modal-description {
       padding-top: 20px;
@@ -782,6 +787,16 @@ tagged-item {
   list-style-type: circle;
   margin-bottom: 0; }
 
+@media (max-width: 515px) {
+  .item-modal .item-modal-contents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .item-modal .item-modal-contents .item-modal-sidebar {
+      text-align: left;
+      padding-left: 20px; } }
 .hero {
   position: relative;
   display: block;
