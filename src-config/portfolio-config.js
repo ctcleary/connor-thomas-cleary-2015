@@ -109,7 +109,7 @@ var portfolioItems = [
     title: 'Alphalfa Player',
     venue: 'IMDb',
     slate: {
-      url: '../local-design/slates/slate-alphalfa.jpg',
+      url: imgBaseDir + 'slates/slate-alphalfa.jpg',
       position: 'center 45%'
     },
     primaryTags: [
@@ -127,7 +127,7 @@ var portfolioItems = [
       title: 'Alphalfa Player - HTML5 Transparent Video Player',
       hero: {
         height: 200,
-        url: '../local-design/heroes/hero-alphalfa.jpg',
+        url: imgBaseDir + 'heroes/hero-alphalfa.jpg',
         position: 'center center'
       },
       description: ['.item-desc',
