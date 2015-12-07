@@ -1133,7 +1133,8 @@ tagged-item {
       display: inline-block; }
     .pubs-wrapper .pub-item .item-venue:before,
     .pubs-wrapper .pub-item .item-tags:before {
-      content: '- '; }
+      content: '- ';
+      padding-left: 4px; }
     .pubs-wrapper .pub-item .item-tags {
       white-space: nowrap; }
       .pubs-wrapper .pub-item .item-tags .item-tag {

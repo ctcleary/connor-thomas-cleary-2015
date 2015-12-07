@@ -140,7 +140,7 @@ riot.tag('tag-button', '<button class="button tag-button" onclick="{parent.toggl
   
 });
 
-riot.tag('tagged-item', '<div class="cover" riot-style="{this.getCoverStyle()}" onclick="{this.getClickAction()}"><div class="item"><div class="item-title">{this.opts.title}</div><div class="item-venue">{this.opts.venue}</div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div><div class="item-icon"></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
+riot.tag('tagged-item', '<div class="cover" riot-style="{this.getCoverStyle()}" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div><div class="item-icon"></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 

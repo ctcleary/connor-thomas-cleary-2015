@@ -50,6 +50,7 @@
     .item-venue:before,
     .item-tags:before {
       content: '- ';
+      padding-left: 4px;
     }
     .item-tags {
       white-space: nowrap;

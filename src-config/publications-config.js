@@ -10,12 +10,24 @@ var fictionPublicationItems = [
     ]
   },
   {
+    title: 'Revolvers',
+    url: 'http://www.amusedsloth.com/games/asgardrun/',
+    venue: 'Robot Cowgirl: Swords and Sorcery Anthology (2016)',
+    primaryTags: [
+      'short fiction',
+      'sf/f'
+    ]
+  },
+  {
     title: 'Henchman: Origin',
     url: 'http://www.amazon.com/Heroics-Strange-Tales-Absurd-Superheroes-ebook/dp/B009GJBEJM',
     venue: 'Boxfire Press Heroics Anthology',
     primaryTags: [
       'short fiction',
       'humor',
+      'sf/f'
+    ],
+    secondaryTags: [
       'superhero'
     ]
   },
@@ -26,7 +38,8 @@ var fictionPublicationItems = [
     primaryTags: [
       'short fiction',
       'literary'
-    ]
+    ],
+    secondaryTags: []
   },
   {
     title: 'Noise',
@@ -34,15 +47,15 @@ var fictionPublicationItems = [
     primaryTags: [
       'short fiction',
       'literary'
-    ]
+    ],
+    secondaryTags: []
   },
   {
     title: 'Heimlich at The Sizzler',
     venue: 'Feathertale',
     primaryTags: [
       'flash fiction',
-      'humor',
-      'absurdist'
+      'humor'
     ]
   }
 ];

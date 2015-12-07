@@ -1,8 +1,8 @@
 <tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }">
     <div class="cover" style="{ this.getCoverStyle() }" onclick={ this.getClickAction() }>
       <div class="item">
-        <div class="item-title">{ this.opts.title }</div>
-        <div class="item-venue">{ this.opts.venue }</div>
+        <div class="item-title"> { this.opts.title } </div>
+        <div class="item-venue"> { this.opts.venue } </div>
         <div class="item-tags">
           <span class="item-tag" each={ t, i in primaryTags }>{ t }</span>
         </div>
