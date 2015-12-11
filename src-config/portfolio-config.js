@@ -5,45 +5,214 @@ if (window.location.hostname === 'localhost') {
   imgBaseDir = 'http://connorthomascleary.com/ctc2015/';
 }
 var portfolioItems = [
+
+  // mad max
   {
-    title: 'Segfault[0]: Mad Hatter',
-    venue: 'Solo',
+    title: 'Mad Max: Fury Road PTP',
     slate: {
-      url: imgBaseDir + 'slates/slate-segfault.jpg',
-      position: 'center top'
+      url: imgBaseDir + '/slates/slate-ptp-madmax.jpg',
+      position: 'center 25%'
     },
+    venue: 'IMDb',
     primaryTags: [
-      'writing',
-      'game design'
+      'web',
+      'motion'
     ],
     secondaryTags: [
-      'branching narrative',
+      'interactive'
+    ],
+    skills: [
       'javascript',
-      'CSS',
-      'twine'
+      'actionscript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
     ],
     modal: {
-      title: 'Segfault[0]: Mad Hatter',
+      title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        height: 200,
-        url: imgBaseDir + 'heroes/hero-segfault.jpg',
-        position: '15% center'
+        url: imgBaseDir + '/heroes/hero-ptp-madmax.jpg',
+        height: 320,
+        position: '55% 30%'
       },
       description: ['.item-desc',
-        ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
-        ['p', 'What kind of a test subject will you be?'],
-        ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
-        ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
+        ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb.'],
+        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Javascript Rebuild'],
+        ['ul', [
+          ['li', 'Utilizes: ', 
+            ['ul', [
+              ['li', 'Tarnhelm Framework'],
+              ['li', 'Alphalfa Player'],
+              ['li', 'Reely Player']
+            ]],
+          ],
+          ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm framework, and was the first PTP rebuilt using Tarnhelm.'],
+        ]],
+
+        ['p.list-header', 'Original Flash Build'],
+        ['ul', [
+          ['li', 'Created in Flash with creative oversight from Mad Max’s Advertising Firm and Marketing Team.'],
+          ['li', 'Implemented pixel-perfect implementation of static design created by UX Designer Billy Thompson.'],
+          ['li', 'Motion design (after initial static implementation) was a combined effort between myself and Billy.'],
+          ['li', 'Billy responsible for all After Effects and Video Composition.'],
+          ['li', 'Large amount of custom AS3 & JS code.'],
+          ['li', 'Contributed to overall UX improvements.'],
+          ['li', 'Significant Photoshop work to clean up certain assets and pull apart layers for better motion design.'],
+          ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
+        ]]
       ],
       info: ['a', 
-        {
-          href: 'http://connorcleary.itch.io/segfault-0-mad-hatter',
+        { 
+          href: 'http://www.imdb.com/title/tt1392190/',
           target: '_blank'
         },
-        'Play Segfault[0]'
+        'See it live'
       ]
     }
   },
+
+  // inside out
+  {
+    title: 'Inside Out PTP',
+    slate: {
+      url: imgBaseDir + '/slates/slate-ptp-insideout.jpg',
+      position: 'center 85%'
+    },
+    venue: 'IMDb',
+    primaryTags: [
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'actionscript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Inside Out - Premium Title Page (Flash & Non-Flash Rebuild)',
+      hero: {
+        url: imgBaseDir + '/heroes/hero-ptp-insideout.jpg',
+        height: 320,
+        position: 'center bottom'
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was extremely difficult to build even when were still using Flash for these experiences at IMDb. The Flash build prompted the creation of my CSS injection module, Zoolander.'],
+        ['p', ['strong', 'Huge kudos:'], ' After seeing this PTP, Disney asked if our team could build all their movies\' official microsites.'],
+        ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Javascript Rebuild'],
+        ['ul', [
+          ['li', 'Utilizes: ', 
+            ['ul', [
+              ['li', 'Tarnhelm Framework'],
+              ['li', 'Alphalfa Player'],
+              ['li', 'Reely Player']
+            ]],
+          ],
+          ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
+        ]],
+
+        ['p.list-header', 'Original Flash Build'],
+        ['ul', [
+          ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
+          ['li', 'Animation, motion design, and interaction designed was a collaboration between myself and Billy, Billy executed all the After Effects video asset design/editing, I handled the rest of the motion design.'],
+          ['li', 'Implemented the CSS and background swapping (performed by a reusable JS utility written by me).'],
+          ['li', 'Required a massive amount of custom AS3 and some custom JS code, which was designed to be re-usable in future projects.'],
+          ['li', 'Required close attention to detail for pixel perfect execution of design.'],
+          ['li', 'Very complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code/graceful degradation in case of hiccups.']
+        ]]
+      ],
+      info: ['a', 
+        { 
+          href: 'http://www.imdb.com/title/tt2096673/',
+          target: '_blank'
+        },
+        'See it live'
+      ]
+    }
+  },
+
+  // jurassic world
+  {
+    title: 'Jurassic World PTP',
+    slate: {
+      url: imgBaseDir + '/slates/slate-ptp-jurassicworld.jpg',
+      position: 'center 85%'
+    },
+    venue: 'IMDb',
+    primaryTags: [
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'actionscript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Jurassic World - Premium Title Page (Flash & Non-Flash Rebuild)',
+      hero: {
+        url: imgBaseDir + '/heroes/hero-ptp-jurassicworld.jpg',
+        height: 320,
+        position: 'center bottom'
+      },
+      description: ['.item-desc',
+        ['p', 'Another PTP with some fun interaction easter eggs.'],
+        ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
+
+        ['p.list-header', 'Javascript Rebuild'],
+        ['ul', [
+          ['li', 'Utilizes: ', 
+            ['ul', [
+              ['li', 'Tarnhelm Framework'],
+              ['li', 'Alphalfa Player'],
+              ['li', 'Reely Player'],
+              ['li', 'Zoolander Style Injector'],
+            ]],
+          ],
+        ]],
+
+        ['p.list-header', 'Original Flash Build'],
+        ['ul', [
+          ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
+          ['li', 'Interaction effects designed by me.'],
+          ['li', 'Motion design of logo interaction collaboration between myself and Billy. Concept and implementation by me.'],
+          ['li', 'Video transition assets created by Billy, implemented (with custom AS3.0 code) by me.'],
+          ['li', 'Wrap and CSS Swapping implemented by me. (Utilizes my Zoolander CSS Injection module.)'],
+
+          ['li', 'Custom AS3.0 code'],
+          ['li', 'Significant Photoshop work to clean up certain assets and pull apart layers for better motion/interaction design.'],
+          ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
+        ]]
+      ],
+      info: ['a', 
+        { 
+          href: 'http://www.imdb.com/title/tt0369610/',
+          target: '_blank'
+        },
+        'See it live'
+      ]
+    }
+  },
+
+
+
+  // tarnhelm
   {
     title: 'Tarnhelm',
     venue: 'IMDb',
@@ -105,12 +274,14 @@ var portfolioItems = [
       ]
     }
   },
+
+  // alphalfa
   {
     title: 'Alphalfa Player',
     venue: 'IMDb',
     slate: {
       url: imgBaseDir + 'slates/slate-alphalfa.jpg',
-      position: 'center 45%'
+      position: 'center 85%'
     },
     primaryTags: [
       'web',
@@ -148,104 +319,49 @@ var portfolioItems = [
     }
   },
 
+  // Zoolander
   {
-    title: 'Mad Max: Fury Road PTP',
-    slate: {
-      url: imgBaseDir + '/slates/slate_madmax1.jpg',
-      position: 'center 25%'
-    },
+    title: 'Zoolander Style Injector',
     venue: 'IMDb',
-    primaryTags: [
-      'web',
-      'interactive',
-      'motion'
-    ],
-    secondaryTags: [
-    ],
-    skills: [
-      'javascript',
-      'actionscript',
-      'photoshop',
-      'illustrator',
-      'after effects',
-      'flash'
-    ],
-    modal: {
-      title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
-      hero: {
-        url: imgBaseDir + '/heroes/ptp_madmax_hero.jpg',
-        height: 320,
-        position: '55% 30%'
-      },
-      description: ['.item-desc',
-        ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb.'],
-        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using Tarnhelm.'],
-        ['hr'],
-        ['p.list-header', 'Javascript Rebuild'],
-        ['ul', [
-          ['li', 'Utilizes: ', 
-            ['ul', [
-              ['li', 'Tarnhelm Framework'],
-              ['li', 'Alphalfa Player'],
-              ['li', 'Reely Player']
-            ]],
-          ],
-          ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm framework, and was the first PTP rebuilt using Tarnhelm.'],
-        ]],
-
-        ['p.list-header', 'Original Flash Build'],
-        ['ul', [
-          ['li', 'Created in Flash with creative oversight from Mad Max’s Advertising Firm and Marketing Team.'],
-          ['li', 'Implemented pixel-perfect implementation of static design created by UX Designer Billy Thompson.'],
-          ['li', 'Motion design (after initial static implementation) was a combined effort between myself and Billy.'],
-          ['li', 'Billy responsible for all After Effects and Video Composition.'],
-          ['li', 'Large amount of custom AS3 & JS code.'],
-          ['li', 'Contributed to overall UX improvements.'],
-          ['li', 'Significant Photoshop work to clean up certain assets and pull apart layers for better motion design.'],
-          ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
-        ]]
-      ],
-      info: ['a', 
-        { 
-          href: 'http://www.imdb.com/title/tt1392190/',
-          target: '_blank'
-        },
-        'See it live'
-      ]
-    }
-  },
-
-  {
-    title: 'Roggy and the Beast',
-    venue: 'Solo',
     slate: {
-      url: imgBaseDir + 'slates/slate-roggy.jpg',
+      url: imgBaseDir + 'slates/slate-zoolander.jpg',
       position: 'center center'
     },
     primaryTags: [
-      'writing',
-      'game design'
+      'web',
+      'javascript'
     ],
-    secondaryTags: [
-      'javascript',
-      'twine'
+    secondaryTags: [],
+    skills: [
+      'advanced javascript',
+      'HTML5',
+      'CSS3'
     ],
     modal: {
+      title: 'Zoolander Style Injector - CSS Injection Module',
       hero: {
-        url: imgBaseDir + 'heroes/hero-roggy.jpg',
-        position: 'bottom right'
+        height: 200,
+        url: imgBaseDir + 'heroes/hero-zoolander.jpg',
+        position: 'center center'
       },
       description: ['.item-desc',
-        ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
-        ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
+        ['p', 'When we built the Inside Out PTP, we had a new requirement: Change the CSS on the page dynamically. But ads render in iframes, which added some complexity to that request. Zoolander gives sourceless iframes the ability to inject stylesheets into the parent document, as well as injecting complex CSS rules at javascript runtime. This creates the opportunity to inject configurable transitions, animations, hover states, pseudo elements, etc, which would not be possible with inline styles.'],
       ],
-      info: ['a', 
-        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html' },
-        'Play Roggy and the Beast'
+      info: ['p', 'Utilizes Zoolander:',
+        ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', 'Tarnhelm Framework'],
+          ['li', 'Reely Player'],
+          ['li', 'Countdowner Module']
+        ]
       ]
     }
   },
 
+
+
+  // summoner
   {
     title: 'Summoner: The Bescarfed (WIP)',
     venue: 'Solo',
@@ -299,6 +415,81 @@ var portfolioItems = [
     }
   },
 
+  // segfault
+  {
+    title: 'Segfault[0]: Mad Hatter',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + 'slates/slate-segfault.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'branching narrative',
+      'javascript',
+      'CSS',
+      'twine'
+    ],
+    modal: {
+      title: 'Segfault[0]: Mad Hatter',
+      hero: {
+        height: 200,
+        url: imgBaseDir + 'heroes/hero-segfault.jpg',
+        position: '15% center'
+      },
+      description: ['.item-desc',
+        ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
+        ['p', 'What kind of a test subject will you be?'],
+        ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
+        ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
+      ],
+      info: ['a', 
+        {
+          href: 'http://connorcleary.itch.io/segfault-0-mad-hatter',
+          target: '_blank'
+        },
+        'Play Segfault[0]'
+      ]
+    }
+  },
+
+  // roggy
+  {
+    title: 'Roggy and the Beast',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + 'slates/slate-roggy.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'javascript',
+      'twine'
+    ],
+    modal: {
+      hero: {
+        url: imgBaseDir + 'heroes/hero-roggy.jpg',
+        position: 'bottom right'
+      },
+      description: ['.item-desc',
+        ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
+        ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
+      ],
+      info: ['a', 
+        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html' },
+        'Play Roggy and the Beast'
+      ]
+    }
+  },
+
+
+  // skeleton key
   {
     title: 'Skeleton Key',
     venue: 'Solo',
@@ -338,6 +529,8 @@ var portfolioItems = [
       ]
     }
   },
+
+  // smiley breaks out
   {
     title: 'Smiley Breaks Out',
     venue: 'Solo',
@@ -346,11 +539,11 @@ var portfolioItems = [
       position: 'center top'
     },
     primaryTags: [
-      '3D'
+      '3D',
+      'motion'
     ],
     secondaryTags: [
-      'animation',
-      'motion'
+      'animation'
     ],
     modal: {
       title: 'Smiley the Demon Breaks Out',
@@ -374,71 +567,6 @@ var portfolioItems = [
 
 
 
-  {
-    title: 'Inside Out PTP',
-    slate: {
-      url: imgBaseDir + '/slates/slate_todo.jpg',
-      position: 'center 25%'
-    },
-    venue: 'IMDb',
-    primaryTags: [
-      'web',
-      'interactive',
-      'motion'
-    ],
-    secondaryTags: [
-    ],
-    skills: [
-      'javascript',
-      'actionscript',
-      'photoshop',
-      'illustrator',
-      'after effects',
-      'flash'
-    ],
-    modal: {
-      title: 'Inside Out - Premium Title Page (Flash & Non-Flash Rebuild)',
-      hero: {
-        url: imgBaseDir + '/heroes/hero_todo.jpg',
-        height: 320,
-        position: '55% 30%'
-      },
-      description: ['.item-desc',
-        ['p', 'This Premium Title Page (PTP) was extremely difficult to build even when were still using Flash for these experiences at IMDb. The Flash build prompted the creation of my CSS injection module, Zoolander.'],
-        ['p', ['strong', 'Huge kudos:'], ' After seeing this PTP, Disney requested that our team to build all their movies\' official microsites.'],
-        ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
-        ['hr'],
-        ['p.list-header', 'Javascript Rebuild'],
-        ['ul', [
-          ['li', 'Utilizes: ', 
-            ['ul', [
-              ['li', 'Tarnhelm Framework'],
-              ['li', 'Alphalfa Player'],
-              ['li', 'Reely Player']
-            ]],
-          ],
-          ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
-        ]],
-
-        ['p.list-header', 'Original Flash Build'],
-        ['ul', [
-          ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
-          ['li', 'Animation, motion design, and interaction designed was a collaboration between myself and Billy, Billy executed all the After Effects video asset design/editing, I handled the rest of the motion design.'],
-          ['li', 'Implemented the CSS and background swapping (performed by a reusable JS utility written by me).'],
-          ['li', 'Required a massive amount of custom AS3 and some custom JS code, which was designed to be re-usable in future projects.'],
-          ['li', 'Required close attention to detail for pixel perfect execution of design.'],
-          ['li', 'Very complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code/graceful degradation in case of hiccups.']
-        ]]
-      ],
-      info: ['a', 
-        { 
-          href: 'http://www.imdb.com/title/tt2096673/',
-          target: '_blank'
-        },
-        'See it live'
-      ]
-    }
-  },
 
   
 ];

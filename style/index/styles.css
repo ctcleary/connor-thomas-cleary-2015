@@ -177,7 +177,8 @@ h1 {
       font-size: 11px;
       padding: 0 1% 0 0; } }
 .section {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 90vh; }
   .section .section-content {
     margin: 0 auto;
     max-width: 1280px; }
@@ -1085,7 +1086,8 @@ tagged-item {
 
 @media (min-width: 1500px) {
   .portfolio .slate-item {
-    max-width: 370px; } }
+    max-width: 370px;
+    margin: 0 1% 12px; } }
 @media (max-width: 1500px) {
   .portfolio .slate-item {
     margin-left: 1%;
@@ -1183,7 +1185,8 @@ tagged-item {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   margin: 0 auto;
-  max-width: 980px; }
+  max-width: 980px;
+  font-size: 15px; }
   .skills-wrapper .skills-segment-header {
     margin-bottom: 3px; }
   .skills-wrapper .skills-list-container {
