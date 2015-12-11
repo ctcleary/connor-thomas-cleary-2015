@@ -368,6 +368,77 @@ var portfolioItems = [
         'Watch Video on Vimeo'
       ]
     }
-  }
+  },
+
+
+
+
+
+  {
+    title: 'Inside Out PTP',
+    slate: {
+      url: imgBaseDir + '/slates/slate_todo.jpg',
+      position: 'center 25%'
+    },
+    venue: 'IMDb',
+    primaryTags: [
+      'web',
+      'interactive',
+      'motion'
+    ],
+    secondaryTags: [
+    ],
+    skills: [
+      'javascript',
+      'actionscript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Inside Out - Premium Title Page (Flash & Non-Flash Rebuild)',
+      hero: {
+        url: imgBaseDir + '/heroes/hero_todo.jpg',
+        height: 320,
+        position: '55% 30%'
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was extremely difficult to build even when were still using Flash for these experiences at IMDb. The Flash build prompted the creation of my CSS injection module, Zoolander.'],
+        ['p', ['strong', 'Huge kudos:'], ' After seeing this PTP, Disney requested that our team to build all their movies\' official microsites.'],
+        ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Javascript Rebuild'],
+        ['ul', [
+          ['li', 'Utilizes: ', 
+            ['ul', [
+              ['li', 'Tarnhelm Framework'],
+              ['li', 'Alphalfa Player'],
+              ['li', 'Reely Player']
+            ]],
+          ],
+          ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
+        ]],
+
+        ['p.list-header', 'Original Flash Build'],
+        ['ul', [
+          ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
+          ['li', 'Animation, motion design, and interaction designed was a collaboration between myself and Billy, Billy executed all the After Effects video asset design/editing, I handled the rest of the motion design.'],
+          ['li', 'Implemented the CSS and background swapping (performed by a reusable JS utility written by me).'],
+          ['li', 'Required a massive amount of custom AS3 and some custom JS code, which was designed to be re-usable in future projects.'],
+          ['li', 'Required close attention to detail for pixel perfect execution of design.'],
+          ['li', 'Very complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code/graceful degradation in case of hiccups.']
+        ]]
+      ],
+      info: ['a', 
+        { 
+          href: 'http://www.imdb.com/title/tt2096673/',
+          target: '_blank'
+        },
+        'See it live'
+      ]
+    }
+  },
+
   
 ];

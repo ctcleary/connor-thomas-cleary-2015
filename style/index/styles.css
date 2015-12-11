@@ -609,8 +609,8 @@ tagged-item {
     max-width: 980px; }
     .item-modal-viewport .item-modal-wrapper .item-modal-close {
       position: absolute;
-      top: -11px;
-      right: -11px;
+      top: -18px;
+      right: -18px;
       display: inline-block;
       width: 23px;
       height: 23px;
