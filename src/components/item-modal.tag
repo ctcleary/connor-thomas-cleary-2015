@@ -139,7 +139,6 @@
     this.appendSkills = function() {
       if (this.hasSkills) {
         var skillsShaven = this.makeShavenList(this.opts.skills);
-        console.log("skillsShaven ::", skillsShaven);
         this.appendShaven(skillsShaven, 'item-modal-skills');
       }
     }

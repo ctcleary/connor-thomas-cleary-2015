@@ -89,7 +89,6 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
     this.appendSkills = function() {
       if (this.hasSkills) {
         var skillsShaven = this.makeShavenList(this.opts.skills);
-        console.log("skillsShaven ::", skillsShaven);
         this.appendShaven(skillsShaven, 'item-modal-skills');
       }
     }
