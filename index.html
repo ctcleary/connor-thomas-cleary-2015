@@ -335,9 +335,18 @@
       var modalEl = document.getElementById('modal-container');
       var modalTag;
 
+      function slugify(str) {
+        return str.toLowerCase().replace(/[\s:_-]/g, '-');
+      }
+
       return {
-        initModal: function(opts) {
-          modalTag = riot.mount(modalEl, 'item-modal', opts)[0];
+        initModal: function(riotTag) {
+          // TODO, add pushState for better back/forward browsing
+
+          // var name = riotTag.opts.title;
+          // history.pushState({stateName: name}, name, '#item:'+ slugify(name));
+          
+          modalTag = riot.mount(modalEl, 'item-modal', riotTag)[0];
         },
         dismissModal: function() {
           modalTag.unmount(true);
@@ -357,8 +366,6 @@
           listenKeys.push(item.key);
         }
       });
-
-      console.log("listenKeys ::", listenKeys);
 
       var keyTest = /^key\:/;
       function isKeyHash(currHash) {
@@ -392,7 +399,7 @@
       window.addEventListener('hashchange', handleHashChange);
       handleHashChange();
 
-    })(window, portfolioItems);
+    }) (window, portfolioItems);
 
     var appsConfig = {
       disableFilters: QueryO.get('disableFilters', {as: 'boolean'}),
