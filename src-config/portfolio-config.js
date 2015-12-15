@@ -38,18 +38,18 @@ var portfolioItems = [
       },
       description: ['.item-desc',
         ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb.'],
-        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using ', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm'], '.'],
+        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using Tarnhelm.'],
         ['hr'],
         ['p.list-header', 'Javascript Rebuild'],
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', 'Tarnhelm Framework'],
-              ['li', 'Alphalfa Player'],
+              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
               ['li', 'Reely Player']
             ]],
           ],
-          ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm framework, and was the first PTP rebuilt using Tarnhelm.'],
+          ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm Framework, and was the first PTP rebuilt using Tarnhelm.'],
         ]],
 
         ['p.list-header', 'Original Flash Build'],
@@ -113,8 +113,8 @@ var portfolioItems = [
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', 'Tarnhelm Framework'],
-              ['li', 'Alphalfa Player'],
+              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
               ['li', 'Reely Player']
             ]],
           ],
@@ -179,10 +179,10 @@ var portfolioItems = [
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', 'Tarnhelm Framework'],
-              ['li', 'Alphalfa Player'],
+              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']],
               ['li', 'Reely Player'],
-              ['li', 'Zoolander Style Injector'],
             ]],
           ],
         ]],
@@ -357,7 +357,7 @@ var portfolioItems = [
         ['ul',
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
-          ['li', 'Tarnhelm Framework'],
+          ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
           ['li', 'Reely Player'],
           ['li', 'Countdowner Module']
         ]
