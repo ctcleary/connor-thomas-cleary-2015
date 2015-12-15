@@ -329,6 +329,8 @@
 
   <item-modal id="modal-container"></item-modal>
   <script type="text/javascript">
+    window.debug.doDebug = true;
+
     window.modalControl = (function() {
       var modalEl = document.getElementById('modal-container');
       var modalTag;
@@ -339,11 +341,59 @@
         },
         dismissModal: function() {
           modalTag.unmount(true);
+          document.location.hash = '';
         }
       };
     })();
 
     var QueryO = QueryO; // from js/queryo.js
+    var hashCatcher = (function(window, portfolioItems) {
+      // Some portfolioItems will have a `key` value
+      // in case they need to be cross-linked. Determine
+      // which keys to listen for here.
+      var listenKeys = [];
+      portfolioItems.forEach(function(item) {
+        if (item.key) {
+          listenKeys.push(item.key);
+        }
+      });
+
+      console.log("listenKeys ::", listenKeys);
+
+      var keyTest = /^key\:/;
+      function isKeyHash(currHash) {
+        return keyTest.test(currHash);
+      }
+      function getKey(currHash) {
+        return currHash.split(':')[1];
+      }
+
+      function handleHashChange(e) {
+        var currHash = document.location.hash.substr(1);
+        if (!isKeyHash(currHash)) {
+          window.debug.log('No item key for this hash :: ', currHash);
+          return;
+        }
+
+        var searchKey = getKey(currHash);
+        var isListenKey = listenKeys.indexOf(searchKey) !== -1;
+
+        if (isListenKey) {
+          var modalItem = _.findWhere(portfolioItems, {key: searchKey});
+          if (!modalItem) {
+            window.debug.warn('Failed to find modalItem for :: ', searchKey);
+            return;
+          }
+          window.modalControl.initModal(modalItem)
+        }
+      }
+
+      // Add to hashchange event, and call on init.
+      window.addEventListener('hashchange', handleHashChange);
+      handleHashChange();
+
+    })(window, portfolioItems);
+
     var appsConfig = {
       disableFilters: QueryO.get('disableFilters', {as: 'boolean'}),
       hideFilters: QueryO.get('hideFilters', {as: 'boolean'})

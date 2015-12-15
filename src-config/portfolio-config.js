@@ -38,7 +38,7 @@ var portfolioItems = [
       },
       description: ['.item-desc',
         ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb.'],
-        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using Tarnhelm.'],
+        ['p', 'As of Sep 1st 2015, we re-launched the PTP in pure JS/HTML/CSS using ', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm'], '.'],
         ['hr'],
         ['p.list-header', 'Javascript Rebuild'],
         ['ul', [
@@ -214,6 +214,8 @@ var portfolioItems = [
 
   // tarnhelm
   {
+    key: 'tarnhelm',
+
     title: 'Tarnhelm',
     venue: 'IMDb',
     slate: {
@@ -277,6 +279,8 @@ var portfolioItems = [
 
   // alphalfa
   {
+    key: 'alphalfa',
+
     title: 'Alphalfa Player',
     venue: 'IMDb',
     slate: {
@@ -321,6 +325,8 @@ var portfolioItems = [
 
   // Zoolander
   {
+    key: 'zoolander',
+
     title: 'Zoolander Style Injector',
     venue: 'IMDb',
     slate: {

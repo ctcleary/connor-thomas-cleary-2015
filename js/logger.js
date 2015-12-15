@@ -1,5 +1,6 @@
 window.debug = {
-  doDebug: true,
+  doDebug: false,
+
   argsToArray: function(argsObj) {
     return Array.prototype.slice.call(argsObj);
   },
