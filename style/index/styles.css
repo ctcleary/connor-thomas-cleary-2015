@@ -179,6 +179,8 @@ h1 {
 .section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 90vh; }
+  .section.skills, .section.about {
+    min-height: 65vh; }
   .section .section-content {
     margin: 0 auto;
     max-width: 1280px; }
@@ -1109,6 +1111,12 @@ tagged-item {
       background: #c7c7c7;
       color: black; }
 
+.skills .section-content > h1,
+.skills .section-content > h3,
+.skills .skills-wrapper {
+  margin: 0 auto;
+  max-width: 980px; }
+
 .skills-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1117,8 +1125,6 @@ tagged-item {
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  margin: 0 auto;
-  max-width: 980px;
   font-size: 15px; }
   .skills-wrapper .skills-segment-header {
     margin-bottom: 3px; }
@@ -1132,7 +1138,7 @@ tagged-item {
     margin-bottom: 0; }
 
 .skills {
-  background: url("../../img/bg.jpg") repeat black;
+  background: url("http://connorthomascleary.com/ctc2015/img/bg.jpg") repeat black;
   color: white; }
 
 .skills small {
@@ -1147,6 +1153,10 @@ tagged-item {
     margin-bottom: 0;
     font-size: 18px;
     font-weight: 600; }
+  .about .section-content > h1,
+  .about .about-wrapper {
+    margin: 0 auto;
+    max-width: 980px; }
 
 .footer {
   position: absolute;

@@ -1,9 +1,15 @@
+.skills {
 
+  .section-content>h1,
+  .section-content>h3,
+  .skills-wrapper {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+}
 .skills-wrapper {
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
-  max-width: 980px;
 
   font-size: 15px;
 
@@ -22,7 +28,7 @@
 }
 
 .skills {
-  background: url('../../img/bg.jpg') repeat black;
+  background: url('http://connorthomascleary.com/ctc2015/img/bg.jpg') repeat black;
   color: white;
 }
 

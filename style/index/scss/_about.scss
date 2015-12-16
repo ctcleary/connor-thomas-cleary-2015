@@ -14,4 +14,10 @@
     font-size: 18px;
     font-weight: 600;
   }
+
+  .section-content>h1,
+  .about-wrapper {
+    margin: 0 auto;
+    max-width: 980px;
+  }
 }

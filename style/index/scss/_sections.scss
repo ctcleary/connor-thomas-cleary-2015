@@ -3,6 +3,11 @@
 
   min-height: 90vh;
 
+  &.skills,
+  &.about {
+    min-height: 65vh;
+  }
+
   .section-content {
     margin: 0 auto;
     max-width: 1280px;
