@@ -323,6 +323,58 @@ var portfolioItems = [
     }
   },
 
+
+  // reely
+  {
+    key: 'reely',
+
+    title: 'Reely Player',
+    venue: 'IMDb',
+    slate: {
+      url: imgBaseDir + 'slates/slate_todo.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'web',
+      'javascript'
+    ],
+    secondaryTags: [
+    ],
+    skills: [
+      'advanced javascript',
+      'web video',
+      'HTML5',
+      'CSS3'
+    ],
+    modal: {
+      title: 'Reely - Customizable HTML5 Video Player',
+      hero: {
+        url: imgBaseDir + 'heroes/hero_todo.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'The Reely Player is used in just about every custom ad execution on IMDb.'],
+        ['p','When building the IMDb Premium Title Page (PTP) experiences, designers love customizing the video player controls to mesh with the surrounding color palette and reinforce the immersive nature of the experience.'],
+        ['p&', 'Since every browser has its own default video controls &mdash; which are not customizable in any way &mdash; creating a cross-browser HTML5 video player with a fully customizable skin is more difficult than it may sound. Using a vector spritesheet for easy designer customization, I created a fully functional HTML5 video player utilizing a decoupled, event-driven architecture (pub/sub pattern).'],
+      ],
+      info: ['p', 'Videos Powered by Reely:',
+        ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2820852/', target:'_blank' }, 'Furious 7']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0478970/', target:'_blank' }, 'Ant Man']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1051904/', target:'_blank' }, 'Goosebumps']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0103639/', target:'_blank' }, 'Aladdin']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2395427/', target:'_blank' }, 'Avengers']],
+          ['li', ['small', 'and many others']]
+        ]
+      ]
+    }
+  },
+
+
   // Zoolander
   {
     key: 'zoolander',
