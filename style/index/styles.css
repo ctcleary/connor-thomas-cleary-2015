@@ -184,6 +184,8 @@ h1 {
   .section .section-content {
     margin: 0 auto;
     max-width: 1280px; }
+  .section.skills .section-content, .section.about .section-content {
+    max-width: 980px; }
   .section .section-content > h1 {
     padding-top: 18px; }
 
@@ -587,7 +589,8 @@ tagged-item {
             flex-grow: 0;
     -webkit-flex-basis: auto;
         -ms-flex-preferred-size: auto;
-            flex-basis: auto; }
+            flex-basis: auto;
+    overflow: hidden; }
   .item-modal .item-modal-contents {
     -webkit-flex-shrink: 1;
         -ms-flex-negative: 1;
@@ -1111,12 +1114,6 @@ tagged-item {
       background: #c7c7c7;
       color: black; }
 
-.skills .section-content > h1,
-.skills .section-content > h3,
-.skills .skills-wrapper {
-  margin: 0 auto;
-  max-width: 980px; }
-
 .skills-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1153,10 +1150,6 @@ tagged-item {
     margin-bottom: 0;
     font-size: 18px;
     font-weight: 600; }
-  .about .section-content > h1,
-  .about .about-wrapper {
-    margin: 0 auto;
-    max-width: 980px; }
 
 .footer {
   position: absolute;

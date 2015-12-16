@@ -12,6 +12,13 @@
     margin: 0 auto;
     max-width: 1280px;
   }
+  // &.portfolio .section-content {
+  // }
+
+  &.skills .section-content,
+  &.about  .section-content {
+    max-width: 980px;
+  }
 
   .section-content>h1 {
     padding-top: 18px;

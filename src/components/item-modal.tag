@@ -10,7 +10,11 @@
           <div class="item-modal-header">
 
             <h1 class="item-modal-headline"> { this.modalTitle } </h1>
-            <div class="item-modal-hero" style={ this.getHeroStyle() }></div>
+            <div class="item-modal-hero" style={ this.getHeroStyle() }>
+              
+              <div class="item-modal-custom-hero" if={ this.isCustomHero }>
+              </div>
+            </div>
 
           </div> <!-- end item-modal-header -->
 
@@ -49,6 +53,8 @@
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
+
+    this.isCustomHero = !!modalConfig.hero.custom;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasInfo   = !!modalConfig.info;
@@ -119,6 +125,10 @@
       el.appendChild(shavenObj[0]);
     }
 
+    this.appendCustomHero = function() {
+      this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
+    }
+
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
     }
@@ -154,6 +164,10 @@
 
     this.appendModalContents = function() {
       try {
+        if (this.isCustomHero) {
+          this.appendCustomHero();
+        }
+
         this.appendDescription();
         this.appendInfo();
         this.appendSkills();

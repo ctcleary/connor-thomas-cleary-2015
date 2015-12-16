@@ -606,8 +606,12 @@ var portfolioItems = [
     modal: {
       title: 'Smiley the Demon Breaks Out',
       hero: {
+        custom: ['div', { style: 'width:100%; background:black; text-align:center;'},
+          ['div&', '<iframe src="https://player.vimeo.com/video/146804306?title=0&byline=0&portrait=0" width="569" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>']
+        ],
+        height: 325,
+
         url: imgBaseDir + '/heroes/hero-smiley.jpg',
-        height: 320,
         position: 'center top'
       },
       description: ['.item-desc',

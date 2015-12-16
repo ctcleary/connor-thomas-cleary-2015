@@ -1,7 +1,9 @@
-riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-modal-hero" riot-style="{this.getHeroStyle()}"></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></article>', function(opts) {
+riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-modal-hero" riot-style="{this.getHeroStyle()}"><div class="item-modal-custom-hero" if="{this.isCustomHero}"></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></article>', function(opts) {
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
+
+    this.isCustomHero = !!modalConfig.hero.custom;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasInfo   = !!modalConfig.info;
@@ -69,6 +71,10 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       el.appendChild(shavenObj[0]);
     }
 
+    this.appendCustomHero = function() {
+      this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
+    }
+
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
     }
@@ -104,6 +110,10 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
 
     this.appendModalContents = function() {
       try {
+        if (this.isCustomHero) {
+          this.appendCustomHero();
+        }
+
         this.appendDescription();
         this.appendInfo();
         this.appendSkills();
