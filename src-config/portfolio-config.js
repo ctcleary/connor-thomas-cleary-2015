@@ -46,7 +46,7 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', 'Reely Player']
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm Framework, and was the first PTP rebuilt using Tarnhelm.'],
@@ -115,7 +115,7 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', 'Reely Player']
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
@@ -181,8 +181,8 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']],
-              ['li', 'Reely Player'],
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
+              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']]
             ]],
           ],
         ]],
@@ -223,8 +223,8 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [
       'internal tools',
@@ -288,8 +288,8 @@ var portfolioItems = [
       position: 'center 85%'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [],
     skills: [
@@ -323,6 +323,58 @@ var portfolioItems = [
     }
   },
 
+
+  // reely
+  {
+    key: 'reely',
+
+    title: 'Reely Player',
+    venue: 'IMDb',
+    slate: {
+      url: imgBaseDir + 'slates/slate-reely.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'javascript',
+      'web'
+    ],
+    secondaryTags: [
+    ],
+    skills: [
+      'advanced javascript',
+      'web video',
+      'HTML5',
+      'CSS3'
+    ],
+    modal: {
+      title: 'Reely - Customizable HTML5 Video Player',
+      hero: {
+        url: imgBaseDir + 'heroes/hero-reely.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'The Reely Player is used in just about every custom ad execution on IMDb.'],
+        ['p','When building the IMDb Premium Title Page (PTP) experiences, designers love customizing the video player controls to mesh with the surrounding color palette and reinforce the immersive nature of the experience.'],
+        ['p&', 'Since every browser has its own default video controls &mdash; which are not customizable in any way &mdash; creating a cross-browser HTML5 video player with a fully customizable skin is more difficult than it may sound. Using a vector spritesheet for easy designer customization, I created a fully functional HTML5 video player utilizing a decoupled, event-driven architecture (pub/sub pattern).'],
+      ],
+      info: ['p', 'Videos Powered by Reely:',
+        ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2820852/', target:'_blank' }, 'Furious 7']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0478970/', target:'_blank' }, 'Ant Man']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt1051904/', target:'_blank' }, 'Goosebumps']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt0103639/', target:'_blank' }, 'Aladdin']],
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2395427/', target:'_blank' }, 'Avengers']],
+          ['li', ['small', 'and many others']]
+        ]
+      ]
+    }
+  },
+
+
   // Zoolander
   {
     key: 'zoolander',
@@ -334,8 +386,8 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [],
     skills: [
@@ -358,7 +410,7 @@ var portfolioItems = [
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
           ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-          ['li', 'Reely Player'],
+          ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
           ['li', 'Countdowner Module']
         ]
       ]

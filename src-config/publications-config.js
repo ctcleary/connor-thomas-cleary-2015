@@ -11,7 +11,7 @@ var fictionPublicationItems = [
   },
   {
     title: 'Revolvers',
-    url: 'http://www.amusedsloth.com/games/asgardrun/',
+    url: 'http://robotcowgirl.com/about/',
     venue: 'Robot Cowgirl: Swords and Sorcery Anthology (2016)',
     primaryTags: [
       'short fiction',
