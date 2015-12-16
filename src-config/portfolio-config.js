@@ -46,7 +46,7 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', 'Reely Player']
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm Framework, and was the first PTP rebuilt using Tarnhelm.'],
@@ -115,7 +115,7 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', 'Reely Player']
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
@@ -181,8 +181,8 @@ var portfolioItems = [
             ['ul', [
               ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']],
-              ['li', 'Reely Player'],
+              ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
+              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']]
             ]],
           ],
         ]],
@@ -223,8 +223,8 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [
       'internal tools',
@@ -288,8 +288,8 @@ var portfolioItems = [
       position: 'center 85%'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [],
     skills: [
@@ -331,12 +331,12 @@ var portfolioItems = [
     title: 'Reely Player',
     venue: 'IMDb',
     slate: {
-      url: imgBaseDir + 'slates/slate_todo.jpg',
+      url: imgBaseDir + 'slates/slate-reely.jpg',
       position: 'center center'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [
     ],
@@ -349,7 +349,7 @@ var portfolioItems = [
     modal: {
       title: 'Reely - Customizable HTML5 Video Player',
       hero: {
-        url: imgBaseDir + 'heroes/hero_todo.jpg',
+        url: imgBaseDir + 'heroes/hero-reely.jpg',
         position: 'center center'
       },
       description: ['.item-desc',
@@ -386,8 +386,8 @@ var portfolioItems = [
       position: 'center center'
     },
     primaryTags: [
-      'web',
-      'javascript'
+      'javascript',
+      'web'
     ],
     secondaryTags: [],
     skills: [
@@ -410,7 +410,7 @@ var portfolioItems = [
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
           ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-          ['li', 'Reely Player'],
+          ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
           ['li', 'Countdowner Module']
         ]
       ]
