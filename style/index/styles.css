@@ -221,14 +221,14 @@ tagged-item.w-modal .item-icon {
   display: block;
   width: 30px;
   height: 30px;
-  background: url("/local-design/icon/mag-glass.png") no-repeat transparent; }
+  background: url("http://connorthomascleary.com/ctc2015/icon/mag-glass.png") no-repeat transparent; }
 tagged-item.w-url .item-icon {
   top: 2px;
   right: 2px;
   display: block;
   width: 30px;
   height: 30px;
-  background: url("/local-design/icon/link.png") no-repeat transparent; }
+  background: url("http://connorthomascleary.com/ctc2015/icon/link.png") no-repeat transparent; }
 
 tagged-item .item-icon {
   top: 3px;
@@ -560,7 +560,7 @@ tagged-item {
       width: 24px;
       height: 24px;
       cursor: pointer;
-      background: url("/local-design/icon/close.png") no-repeat transparent;
+      background: url("http://connorthomascleary.com/ctc2015/icon/icon/close.png") no-repeat transparent;
       background-size: 24px 24px; }
 
 .item-modal {
