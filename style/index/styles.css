@@ -1152,10 +1152,51 @@ tagged-item {
     font-weight: 600; }
 
 .footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%; }
+  .footer .footer-segment {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1;
+        -ms-flex: 1 1;
+            flex: 1 1; }
+
+@media (max-width: 515px) {
+  .contact-text {
+    display: none; }
+
+  .contact {
+    font-size: 14px; } }
+.footer {
   position: absolute;
   bottom: 0;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  max-width: 100%;
   width: 100%;
+  overflow: hidden;
   background: #0B0B0C;
   border-top: 1px solid #19191a;
   color: #eeeefe;
@@ -1167,11 +1208,38 @@ tagged-item {
   .footer a {
     color: white; }
   .footer .copyrights {
-    float: left;
     text-align: left;
     font-size: 12px; }
-  .footer .contact {
-    float: right; }
+  .footer .social {
+    height: 36px;
+    text-align: right; }
+    .footer .social .linkedin,
+    .footer .social .github,
+    .footer .social .mail {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 2px 10px;
+      -webkit-transition: background-image 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+              transition: background-image 0.3s cubic-bezier(0.42, 0, 0.58, 1); }
+      .footer .social .linkedin:last-child,
+      .footer .social .github:last-child,
+      .footer .social .mail:last-child {
+        margin-right: 4px; }
+    .footer .social .linkedin {
+      background: url("/local-design/icon/linkedin-32-white.png") no-repeat transparent center center;
+      background-size: 28px 28px; }
+      .footer .social .linkedin:hover {
+        background-image: url("/local-design/icon/linkedin-32-hover.png"); }
+    .footer .social .github {
+      background: url("/local-design/icon/github-32-white.png") no-repeat transparent center center;
+      background-size: 31px 31px; }
+      .footer .social .github:hover {
+        background-image: url("/local-design/icon/github-32-hover.png"); }
+    .footer .social .mail {
+      background: url("/local-design/icon/mail.png") no-repeat transparent center center; }
+      .footer .social .mail:hover {
+        background-image: url("/local-design/icon/mail-hover.png"); }
 
 footer {
   background: transparent;
