@@ -84,8 +84,27 @@
     }
   }
 
+
+  .item-venue,
   .item-tags {
-    display: none;
+    display: inline-block;
+  }
+
+  .item-tags {
+    &:before {
+      padding-left: 6px;
+      content: '-';
+      padding-right: 6px;
+    }
+
+    span {
+      display: inline-block;
+      font-size: 13px;
+
+      &:not(:first-child):before {
+        content: ', ';
+      }
+    }
   }
 }
 

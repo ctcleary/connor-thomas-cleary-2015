@@ -30,38 +30,39 @@
 
     .item-modal-close {
       position: absolute;
-      top: -18px;
+      top: -20px;
       right: -18px;
 
-      display: inline-block;
-      width: 23px;
-      height: 23px;
+      display: block;
+      width: 24px;
+      height: 24px;
 
       cursor: pointer;
-      background: black;
+      background: url('/local-design/icon/close.png') no-repeat transparent;
+      background-size: 24px 24px;
       
-      border: 2px solid white;
-      border-color: white;
+      // border: 2px solid white;
+      // border-color: white;
 
-      border-radius: 50%;
-      text-align: center;
-      padding-top: 2px;
-      vertical-align: middle;
+      // border-radius: 50%;
+      // text-align: center;
+      // padding-top: 2px;
+      // vertical-align: middle;
 
-      &:after {
-        position: absolute;
-        content: '+';
-        width: 14px;
-        height: 14px;
-        top: 50%;
-        left: 50%;
+      // &:after {
+      //   position: absolute;
+      //   content: '+';
+      //   width: 14px;
+      //   height: 14px;
+      //   top: 50%;
+      //   left: 50%;
 
-        color: white;
-        font-size: 24px;
-        line-height: 24px;
-        transform-origin: center center;
-        transform: rotate(45deg) translate(-72%, -39%);
-      }
+      //   color: white;
+      //   font-size: 24px;
+      //   line-height: 24px;
+      //   transform-origin: center center;
+      //   transform: rotate(45deg) translate(-72%, -39%);
+      // }
     }
   }
 }
