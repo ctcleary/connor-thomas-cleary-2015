@@ -129,7 +129,7 @@
       width: 100%;
       text-align: center;
 
-      animation: spinner-spin 3.5s 1.75s $easeInOutSine;
+      animation: spinner-spin 3.5s 0.5s $easeInOutSine;
 
       .verb {
         top: -60px;

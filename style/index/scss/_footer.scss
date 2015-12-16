@@ -6,17 +6,22 @@
   align-items: center;
   width: 100%;
 
-  .footer-segment {
+  .copyrights {
     flex: 1 1;
+  }
+  .social {
+    flex: 2 2;
+    min-width: 190px;
   }
 }
 
 @include respond-to(small) {
-  // .footer-segment {
-  //   min-width: 100%;
-  // }
-  .contact-text { display: none; }
-  .contact { font-size: 14px; }
+  .footer {
+    padding: 6px;
+  }
+  .copyrights {
+    font-size: 8px;
+  }
 }
 
 .footer {

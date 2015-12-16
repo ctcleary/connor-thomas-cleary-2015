@@ -78,8 +78,8 @@
     .pub-item .item {
       padding-left: 2%;
 
-      .item-venue,
-      .item-tags {
+      .item-title,
+      .item-venue {
         font-size: 14px;
       }
 
@@ -108,7 +108,7 @@
 
       .item-tags {
         .item-tag {
-          font-size: 10px;
+          font-size: 12px;
         }
       }
     }

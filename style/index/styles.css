@@ -175,7 +175,9 @@ h1 {
     padding-right: 0; }
     .main-nav-wrapper .main-nav .nav-item {
       font-size: 11px;
-      padding: 0 1% 0 0; } }
+      padding: 0 0.5% 0 0; }
+      .main-nav-wrapper .main-nav .nav-item.nav-logo #logo-svg {
+        width: 24px; } }
 .section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 90vh; }
@@ -832,8 +834,8 @@ tagged-item {
       height: 100%;
       width: 100%;
       text-align: center;
-      -webkit-animation: spinner-spin 3.5s 1.75s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-              animation: spinner-spin 3.5s 1.75s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
+      -webkit-animation: spinner-spin 3.5s 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+              animation: spinner-spin 3.5s 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
       .spinner-container .spinner .verbs .verb {
         top: -60px;
         display: block;
@@ -1087,8 +1089,8 @@ tagged-item {
 @media (max-width: 515px) {
   .pubs-wrapper .pub-item .item {
     padding-left: 2%; }
-    .pubs-wrapper .pub-item .item .item-venue,
-    .pubs-wrapper .pub-item .item .item-tags {
+    .pubs-wrapper .pub-item .item .item-title,
+    .pubs-wrapper .pub-item .item .item-venue {
       font-size: 14px; }
     .pubs-wrapper .pub-item .item .item-title,
     .pubs-wrapper .pub-item .item .item-venue,
@@ -1103,7 +1105,7 @@ tagged-item {
   .pubs-wrapper .pub-item .item {
     font-size: 12px; }
     .pubs-wrapper .pub-item .item .item-tags .item-tag {
-      font-size: 10px; } }
+      font-size: 12px; } }
 .journalism {
   background: white;
   color: black;
@@ -1168,18 +1170,24 @@ tagged-item {
       -ms-flex-align: center;
           align-items: center;
   width: 100%; }
-  .footer .footer-segment {
+  .footer .copyrights {
     -webkit-box-flex: 1;
     -webkit-flex: 1 1;
         -ms-flex: 1 1;
             flex: 1 1; }
+  .footer .social {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2 2;
+        -ms-flex: 2 2;
+            flex: 2 2;
+    min-width: 190px; }
 
 @media (max-width: 515px) {
-  .contact-text {
-    display: none; }
+  .footer {
+    padding: 6px; }
 
-  .contact {
-    font-size: 14px; } }
+  .copyrights {
+    font-size: 8px; } }
 .footer {
   position: absolute;
   bottom: 0;
