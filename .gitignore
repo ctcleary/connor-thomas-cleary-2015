@@ -1,6 +1,8 @@
 node_modules/
 .sass-cache/
-style/**/*.map
+css/*.map
+css/vendor/*
+js/vendor/*
 local-design/
 bower_components/
 docs/
