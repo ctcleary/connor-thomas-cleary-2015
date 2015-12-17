@@ -51,7 +51,7 @@ module.exports = function(grunt) {
         tasks: ['riot']
       },
       sass: {
-        files: 'style/**/*.scss',
+        files: 'css/**/*.scss',
         tasks: ['buildcss']
       }
     },
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     sass: {
       1: {
         files: {
-          'style/index/styles.css': 'style/index/scss/master.scss'
+          'css/styles.css': 'css/scss/master.scss'
         }
       },
     },
@@ -69,8 +69,18 @@ module.exports = function(grunt) {
           browsers: ['last 4 versions']
         },
         files: {
-          'style/index/styles.css': 'style/index/styles.css',
+          'css/styles.css': 'css/styles.css',
         }
+      }
+    },
+
+    copy: {
+      sitegen: {
+        files: [
+          {expand: true, src: ['js/**/*.js'], dest: 'static-build/js/'},
+          {expand: true, src: ['css/index/styles.css*'], dest: 'static-build/css/'},
+          {expand: true, src: ['src/vendor/*'], dest: 'static-build/css/'},
+        ]
       }
     }
   });
@@ -80,9 +90,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-riot');
 
   // Default task(s).
+  grunt.registerTask('build', [
+    'riot',
+    'buildcss'
+  ]);
+
+  grunt.registerTask('buildcss', [
+    'sass',
+    'autoprefixer'
+  ]);
+  
   grunt.registerTask('default', [
     'riot',
     'buildcss',
@@ -90,9 +111,9 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-  grunt.registerTask('buildcss', [
-    'sass',
-    'autoprefixer'
-  ]);
 
+  grunt.registerTask('sitegen', [
+    'build',
+    'copy'
+  ]);
 };

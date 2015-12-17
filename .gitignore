@@ -1,9 +1,10 @@
 node_modules/
 .sass-cache/
-style/**.map
+style/**/*.map
 local-design/
 bower_components/
 docs/
+static-build/
 
 **/*.jpg
 **/*.png
