@@ -32,9 +32,11 @@
       
   .slate-item {
     display: inline-block;
-    flex: 1 1;
-    height: 210px;
+    flex: 0 0 auto;
+    width: 45%;
     min-width: 210px;
+    max-width: 240px;
+    height: 210px;
     margin: 0 2% 12px;
     
     background: transparent;
