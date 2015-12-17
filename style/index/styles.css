@@ -58,7 +58,7 @@ h1 {
 .section,
 .main-nav-wrapper {
   padding-left: 10%;
-  padding-right: 5%; }
+  padding-right: 10%; }
 
 @media (max-width: 1200px) {
   .section {
@@ -980,14 +980,12 @@ tagged-item {
       width: 100%; }
   .portfolio .slate-item {
     display: inline-block;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
-    width: 45%;
-    min-width: 210px;
-    max-width: 240px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1;
+        -ms-flex: 1 1;
+            flex: 1 1;
     height: 210px;
+    min-width: 210px;
     margin: 0 2% 12px;
     background: transparent;
     border-radius: 1px;
