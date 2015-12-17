@@ -29,16 +29,20 @@ module.exports = function(grunt) {
       all: {
         files: [
           '/*.html',
-          // '**/*.*',
-          'style/**/*.css',
+          'css/**/*.css',
+
+          'config/*.js',
+
           'src/**/*.tag',
           'src/**/*.js',
-          'src-config/*.js',
+          'js/*.js',
           '**/*.html',
+
           'local-design/**/*.jpg',
-          'img/**/*.jpg',
           'local-design/**/*.png',
+          'img/**/*.jpg',
           'img/**/*.png',
+
           'src/**/*.svg',
           'img/**/*.svg'
         ],
@@ -74,12 +78,17 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      'static-build': ['static-build'],
+    },
     copy: {
-      sitegen: {
+      'static-build': {
         files: [
-          {expand: true, src: ['js/**/*.js'], dest: 'static-build/js/'},
-          {expand: true, src: ['css/index/styles.css*'], dest: 'static-build/css/'},
-          {expand: true, src: ['src/vendor/*'], dest: 'static-build/css/'},
+          {expand: true, src: ['js/**/*.js'], dest: 'static-build/'},
+          {expand: true, src: ['css/**/*.css*'], dest: 'static-build/'},
+          {expand: true, src: ['config/**/*.js'], dest: 'static-build/'},
+          {expand: true, src: ['dist/**/*.js'], dest: 'static-build/'},
+          {expand: true, src: ['index.html'], dest: 'static-build/'},
         ]
       }
     }
@@ -90,6 +99,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-riot');
 
@@ -112,8 +122,9 @@ module.exports = function(grunt) {
   ]);
 
 
-  grunt.registerTask('sitegen', [
+  grunt.registerTask('static-build', [
     'build',
-    'copy'
+    'clean:static-build',
+    'copy:static-build'
   ]);
 };

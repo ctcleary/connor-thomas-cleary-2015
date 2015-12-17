@@ -10,7 +10,7 @@ var portfolioItems = [
   {
     title: 'Mad Max: Fury Road PTP',
     slate: {
-      url: imgBaseDir + '/slates/slate-ptp-madmax.jpg',
+      url: imgBaseDir + 'slates/slate-ptp-madmax.jpg',
       position: 'center 25%'
     },
     venue: 'IMDb',
@@ -32,7 +32,7 @@ var portfolioItems = [
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        url: imgBaseDir + '/heroes/hero-ptp-madmax.jpg',
+        url: imgBaseDir + 'heroes/hero-ptp-madmax.jpg',
         height: 320,
         position: '55% 30%'
       },
@@ -78,7 +78,7 @@ var portfolioItems = [
   {
     title: 'Inside Out PTP',
     slate: {
-      url: imgBaseDir + '/slates/slate-ptp-insideout.jpg',
+      url: imgBaseDir + 'slates/slate-ptp-insideout.jpg',
       position: 'center 85%'
     },
     venue: 'IMDb',
@@ -100,7 +100,7 @@ var portfolioItems = [
     modal: {
       title: 'Inside Out - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        url: imgBaseDir + '/heroes/hero-ptp-insideout.jpg',
+        url: imgBaseDir + 'heroes/hero-ptp-insideout.jpg',
         height: 320,
         position: 'center bottom'
       },
@@ -145,7 +145,7 @@ var portfolioItems = [
   {
     title: 'Jurassic World PTP',
     slate: {
-      url: imgBaseDir + '/slates/slate-ptp-jurassicworld.jpg',
+      url: imgBaseDir + 'slates/slate-ptp-jurassicworld.jpg',
       position: 'center 85%'
     },
     venue: 'IMDb',
@@ -167,7 +167,7 @@ var portfolioItems = [
     modal: {
       title: 'Jurassic World - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        url: imgBaseDir + '/heroes/hero-ptp-jurassicworld.jpg',
+        url: imgBaseDir + 'heroes/hero-ptp-jurassicworld.jpg',
         height: 320,
         position: 'center bottom'
       },
