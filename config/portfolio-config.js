@@ -2,7 +2,7 @@ var imgBaseDir = '';
 if (window.location.hostname === 'localhost') {
   imgBaseDir = '/local-design/'
 } else {
-  imgBaseDir = 'http://connorthomascleary.com/ctc2015/';
+  imgBaseDir = 'http://connorthomascleary.com/assets/img/';
 }
 var portfolioItems = [
 
@@ -262,6 +262,7 @@ var portfolioItems = [
       ],
       info: ['p', 'Powered by Tarnhelm:',
         ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
@@ -313,6 +314,7 @@ var portfolioItems = [
       ],
       info: ['p', 'Powered by Alphalfa:',
         ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
@@ -359,6 +361,7 @@ var portfolioItems = [
       ],
       info: ['p', 'Videos Powered by Reely:',
         ['ul',
+          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
