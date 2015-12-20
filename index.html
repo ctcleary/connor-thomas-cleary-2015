@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> CTC2015 Dev </title>
+  <title>
+    Connor Thomas Cleary - Storyteller, Game Designer, Engineer
+  </title>
+  <meta name="description" content="Portfolio and online resume for Connor Thomas Cleary.">
+  <meta name="author" content="Connor Thomas Cleary">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- @exclude -->
+  <script type="text/javascript">
+    document.title = 'LOCAL DEV';
+  </script>
   <script src="//localhost:35729/livereload.js"></script>
+  <!-- @endexclude -->
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
@@ -54,11 +63,13 @@
     </nav>
     
     <div class="hero">
-      <!-- <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg"> -->
-      <!-- <video class="hero-vid" poster="local-design/vid/Typing-numbers.jpg" autoplay> -->
-      <video class="hero-vid" poster="http://connorthomascleary.com/ctc2015/vid/Typing-numbers.jpg">
-        <!-- <source src="local-design/vid/Typing-numbers.mp4" /> -->
-        <!-- <source src="local-design/vid/Typing-numbers.webm" /> -->
+      <video class="hero-vid" poster="http://connorthomascleary.com/assets/vid/typing-numbers.jpg" autoplay>
+        <!-- @exclude -->
+        <source src="local-design/vid/typing-numbers.mp4" />
+        <source src="local-design/vid/typing-numbers.webm" />
+        <!-- @endexclude -->
+        <source src="http://connorthomascleary.com/assets/vid/typing-numbers.mp4" />
+        <source src="http://connorthomascleary.com/assets/vid/typing-numbers.webm" />
       </video>
 
       <div class="hero-labels">
@@ -227,6 +238,8 @@
             <h2>Recent Achievements</h2>
             <ul>
               <li>Saved over $48 million in at-risk revenue, working on a team of three developers at IMDb. We developed and delivered Tarnhelm &mdash; a Flash replacement JS/HTML5 framework &mdash; under a tight deadline.</li>
+              <li>Received multiple awards for performance as a Design Technologist at IMDb. (
+              "Design Technologist" is a Javascript Engineer with strong UX and/or design skills.)</li>
               <li>A new short story publication (Available early 2016).</li>
               <li>Wrote <em><a href="http://connorcleary.itch.io/segfault-0-mad-hatter">Segfault[0]: Mad Hatter</a></em> which placed as a finalist in the <a href="http://itch.io/jam/wag-challenge" target="_blank">Write-A-Game Challenge 2015</a> (#WAGChallenge).</li>
               <li>Rebuilt <em><a href="http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html">Summoner: The Bescarfed</a></em> in Unity 2D (C#) after initial <a href="http://connorthomascleary.com/games/summoner-the-bescarfed/">Actionscript 3/Flixel Prototype</a>.</li>
@@ -338,9 +351,14 @@
   <script type="text/javascript" src="config/publications-config.js"></script>
 
   <item-modal id="modal-container"></item-modal>
+
+  <!-- @exclude -->
   <script type="text/javascript">
     window.debug.doDebug = true;
+  </script>
+  <!-- @endexclude -->
 
+  <script type="text/javascript">
     window.modalControl = (function() {
       var modalEl = document.getElementById('modal-container');
       var modalTag;

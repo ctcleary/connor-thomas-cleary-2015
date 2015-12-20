@@ -91,7 +91,13 @@ module.exports = function(grunt) {
           {expand: true, src: ['index.html'], dest: 'static-build/'},
         ]
       }
-    }
+    },
+    preprocess : {
+      'static-build': {
+        src : 'static-build/index.html',
+        dest: 'static-build/index.html'
+      }
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -101,6 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-preprocess');
   grunt.loadNpmTasks('grunt-riot');
 
   // Default task(s).
@@ -121,10 +128,10 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
-
   grunt.registerTask('static-build', [
     'build',
     'clean:static-build',
-    'copy:static-build'
+    'copy:static-build',
+    'preprocess:static-build',
   ]);
 };
