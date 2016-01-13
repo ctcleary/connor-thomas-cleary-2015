@@ -1,52 +1,5 @@
+
 .tags-app {
-  .tags-filters-container {
-    margin-bottom: 12px;
-  }
-  
-  .tags-filters-header {
-    position: relative;
-  }
-
-  .tags-section-title {
-    margin-top: 0;
-    margin-bottom: 12px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .hide-filters {
-    position: absolute;
-    top:0;
-    right:0;
-
-    cursor: pointer;
-    font-size: 12px;
-    transition: color 0.2s linear;
-
-    &:hover {
-      // color: $interactive-hover;
-      color: #e03210;
-    }
-
-    .x {
-      position: relative;
-      display: inline-block;
-      padding: 0 2px 0 1px;
-
-      transform: translate(0.7px, 1.4px) rotate(45deg);
-    }
-  }
-
-  .tags-filters-activator {
-    margin-bottom: 18px;
-
-    button {
-      &:after {
-        content: '';
-      }
-    }
-  }
-
   .active-tags-container {
     display: flex;
     flex-flow: row nowrap;

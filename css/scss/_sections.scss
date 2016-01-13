@@ -1,29 +1,44 @@
 .section {
-  border-bottom: 1px solid rgba(255,255,255, 0.1);
-
-  min-height: 90vh;
-
-  &.skills,
-  &.about {
-    min-height: 65vh;
-  }
-
   .section-content {
+    min-height: 65vh;
     margin: 0 auto;
-    max-width: 1280px;
-  }
-  // &.portfolio .section-content {
-  // }
+    // max-width: 1280px;
 
-  &.skills .section-content,
-  &.about  .section-content {
-    max-width: 980px;
-  }
-
-  .section-content>h1 {
-    padding-top: 18px;
+    &>h1 {
+      text-align: center;
+    }
   }
 }
 .section-wrapper {
-  padding-bottom: 24px;
+  padding-bottom: 30px;
+}
+
+
+$wht: #ffffff;
+$offwht: #f7f7f7;
+$borderwht: #e7e7e7;
+
+.section-content,
+.tag-button {
+  background: $wht;
+}
+.tags-filters-wrapper,
+.pub-item {
+  background: $offwht;
+}
+
+section:nth-child(2n) {
+  .section-content {
+    border-top: 1px solid $borderwht;
+    border-bottom: 1px solid $borderwht;
+  }
+
+  .section-content,
+  .tag-button {
+    background: $offwht;
+  }
+  .tags-filters-wrapper,
+  .pub-item {
+    background: $wht;
+  }
 }

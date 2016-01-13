@@ -1,148 +1,38 @@
 
 .tag-button {
   cursor: pointer;
-  margin: 0 3px 12px 3px;
+  margin: 0 12px;
 }
 
-// cyan
-// $inactiveBGColor: #69d4fd;
-// $inactiveBGColor-light: #B9EAFE;
-
-// green
-$inactiveBGColor: #27ae0c;
-$inactiveBGColor-light: #32e010;
-
-// red
-$activeBGColor: #ae270c;
-$activeBGColor-light: #e03210;
-
 .tags {
-  .button {
+  .tag-button {
     margin-right: 0.5%;
-    height: 24px;
-    // padding: 3px 10px;
-    padding: 1px 6px 2px;
+    height: 36px;
+    padding: 1px 6px 4px;
 
-    color: #000000;
-    background: $almost-white;
     border: none;
-    border-radius: 2px;
     font-size: 15px;
 
-    box-shadow: none;
-    transition: background-color 0.7s $easeInOutSine,
-          box-shadow 0.7s $easeInOutSine;
-
-    &:after {
-      content: '+';
-      color: #27ae0c;
-      transition: color 0.5s ease;
-    }
+    transition: background-color 0.3s $easeInOutSine,
+                color 0.3s $easeInOutSine;
 
     &:hover {
-      background: $inactiveBGColor;
-      animation: neon-glow-in    0.05s $easeInOutSine,
-                 neon-glow 0.75s 0.05s $easeInOutSine infinite alternate;
-
-
+      background-color: $interactive-hover;
+      color: white;
       &:after {
         color: white;
       }
     }
-  }
-}
 
-.tags-active {
-  .button {
-    &:hover {
-      background: $activeBGColor;
-      animation: remove-glow-in    0.05s $easeInOutSine,
-                 remove-glow 0.75s 0.05s $easeInOutSine infinite alternate;
-
-
-
-      &:after {
-        color: #fcc;
-      }
+    &.tag-button-inactive:after {
+      content: '+';
+      padding-bottom: 6px;
+      transition: color 0.5s ease;
     }
-    &:after {
-      position: relative;
-      top: -1px;
-
-      font-size: 16px;
-      font-weight: bold;
-
-      // content: '\2715'; // x
+    &.tag-button-active:after {
       content: '\2013';    // ndash
-      color: red;
+      padding-bottom: 6px;
+      transition: color 0.5s ease;
     }
   }
 }
-
-.tags-filters-activator {
-  height: 18px;
-
-  .button {
-    height: 18px;
-    font-size: 13px;
-    padding: 0 5px;
-    vertical-align: top;
-  }
-}
-
-@keyframes neon-glow-in {
-  0% {
-    box-shadow:0 0 0 0 $inactiveBGColor-light,
-               0 0 0 0 $inactiveBGColor;
-  }
-  100% {
-    box-shadow:0 0 2px  0.5px  $inactiveBGColor-light,
-               0 0 1px  0px  $inactiveBGColor;
-  }
-}
-@keyframes neon-glow {
-  0% {
-    box-shadow:0 0 2px  0.5px  $inactiveBGColor-light,
-               0 0 1px  0px  $inactiveBGColor;
-  }
-  100% {
-    box-shadow:0 0 1px 0.5px $inactiveBGColor-light,
-               0 0 3px 2px  $inactiveBGColor;
-  }
-}
-
-@keyframes remove-glow-in {
-  0% {
-    box-shadow:0 0 0 0 $activeBGColor-light,
-               0 0 0 0 $activeBGColor;
-  }
-  100% {
-    box-shadow:0 0 2px  0.5px $activeBGColor-light,
-               0 0 1px  0px   $activeBGColor;
-  }
-}
-@keyframes remove-glow {
-  0% {
-    box-shadow:0 0 2px  0.5px $activeBGColor-light,
-               0 0 1px  0px   $activeBGColor;
-  }
-  100% {
-    box-shadow:0 0 1px 0.5px $activeBGColor-light,
-               0 0 3px 2px   $activeBGColor;
-  }
-}
-
-// @keyframes neon4 {
-//   from {
-//     box-shadow:0 0 2px #fff,
-//                0 0 7px  $inactiveBGColor,
-//                0 0 10px  #fff,
-//                0 0 12px  $inactiveBGColor;
-//   }
-//   to {
-//     box-shadow:0 0 10px #fff,
-//                0 0 12px $inactiveBGColor,
-//                0 0 5px #fff,
-//                0 0 7px $inactiveBGColor;
-//   }
-// }

@@ -1,11 +1,4 @@
-.skills {
-  // .section-content>h1,
-  // .section-content>h3,
-  // .skills-wrapper {
-  //   margin: 0 auto;
-  //   max-width: 980px;
-  // }
-}
+
 .skills-wrapper {
   display: flex;
   flex-flow: row wrap;
@@ -13,7 +6,7 @@
   font-size: 15px;
 
   .skills-segment-header {
-    margin-bottom: 3px;
+    margin-bottom: 15px;
   }
 
   .skills-list-container {
@@ -26,23 +19,3 @@
   }
 }
 
-.skills {
-  background: url('http://connorthomascleary.com/assets/img/bg.jpg') repeat black;
-  color: white;
-}
-
-.skills small {
-  color: #bfbfbf;
-}
-
-
-// @include respond-to(x-large) {
-//   .skills-wrapper {
-//     margin: 0;
-//   }
-// }
-// @include respond-to(large) {
-//   .skills-wrapper {
-//     margin: 0 auto;
-//   }
-// }

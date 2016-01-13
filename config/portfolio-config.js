@@ -6,6 +6,133 @@ if (window.location.hostname === 'localhost') {
 }
 var portfolioItems = [
 
+  // segfault
+  {
+    title: 'Segfault[0]: Mad Hatter',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + 'slates/slate-segfault.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'branching narrative',
+      'javascript',
+      'CSS',
+      'twine'
+    ],
+    modal: {
+      title: 'Segfault[0]: Mad Hatter',
+      hero: {
+        height: 200,
+        url: imgBaseDir + 'heroes/hero-segfault.jpg',
+        position: '15% center'
+      },
+      description: ['.item-desc',
+        ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
+        ['p', 'What kind of a test subject will you be?'],
+        ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
+        ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
+      ],
+      info: ['a', 
+        {
+          href: 'http://connorthomascleary.com/games/segfault-0/Segfault-0-Mad-Hatter_v1.1.html',
+          target: '_blank'
+        },
+        'Play Segfault[0]'
+      ]
+    }
+  },
+
+  // roggy
+  {
+    title: 'Roggy and the Beast',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + 'slates/slate-roggy.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'javascript',
+      'twine'
+    ],
+    modal: {
+      hero: {
+        url: imgBaseDir + 'heroes/hero-roggy.jpg',
+        position: 'bottom right'
+      },
+      description: ['.item-desc',
+        ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
+        ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
+      ],
+      info: ['a', 
+        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html' },
+        'Play Roggy and the Beast'
+      ]
+    }
+  },
+  
+  // summoner
+  {
+    title: 'Summoner: The Bescarfed (WIP)',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + '/slates/slate-summoner.jpg',
+      position: 'left center'
+    },
+    primaryTags: [
+      'unity',
+      'game design'
+    ],
+    skills: [
+      'unity',
+      'C#',
+      'pixel art',
+      'pixel animation',
+      'flixel',
+      'actionscript'
+    ],
+    modal: {
+      // title: 'Summoner: The Bescarfed (WIP)',
+      hero: {
+        url: imgBaseDir + '/heroes/hero-summoner.jpg',
+        height: 320,
+        position: 'center bottom'
+      },
+      description: ['.item-desc',
+        ['p', 'The epic tale of a humble youth, Young Hero, who must take up the Scarf of Strategically-Limited Power to protect his village from the oncoming hordes of admittedly absurd abominations.'],
+        ['p', 'Forsooth, this mystical Scarf, bestowed upon our youth by the Village Elder, grants him the power to summon and command powerful demons through magicks ancient, arcane, and spelled with a "k."'],
+        ['p&', 'However... said magicks are also slowly devouring Young Hero\'s pure soul! (Probably.) So there is a <strong>terrible price to pay!</strong> Bearing the weight of all those demons in the form of one fuzzy muffler can really take its toll on a guy. Luckily, our hero is just the right sort of selfless fellow to lay it all on the line for his beloved village.'],
+        ['p', 'Go, now, Young Hero! Battle across the land. Gain priceless skill points. Dominate new demons. And inexplicably start over at Level 1 every time you enter a new region!'],
+        ['p', 'Go, go! The Village Elder believes in you!'],
+        ['p', 'The rest of the village is cautiously optimistic.'],
+        ['hr'],
+        ['h2', 'Project Details'],
+        ['p', 'A solo project originally prototyped in Actionscript 3, using the Flixel library -- partly for fun, partly to solidify some Object Oriented Programming principles.'],
+        ['p', 'Currently rebuilding the game from scratch in Unity using C#. Both enemies and friendly summons use an almost identical set of reusable Unity components, a decoupled MessageBus (Publish/Subscribe pattern), and a finite state machine AI system.'],
+        ['p', 'I created all the sprites and animations as well.']
+      ],
+      info: ['div', [
+        ['a', 
+          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/index.html' },
+          'Play Unity Build'
+        ],
+        ['br'],
+        ['a', 
+          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
+          'Play Flash Prototype'
+        ]
+      ]]
+    }
+  },
+
   // mad max
   {
     title: 'Mad Max: Fury Road PTP',
@@ -416,135 +543,6 @@ var portfolioItems = [
           ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
           ['li', 'Countdowner Module']
         ]
-      ]
-    }
-  },
-
-
-
-  // summoner
-  {
-    title: 'Summoner: The Bescarfed (WIP)',
-    venue: 'Solo',
-    slate: {
-      url: imgBaseDir + '/slates/slate-summoner.jpg',
-      position: 'left center'
-    },
-    primaryTags: [
-      'unity',
-      'game design'
-    ],
-    skills: [
-      'unity',
-      'C#',
-      'pixel art',
-      'pixel animation',
-      'flixel',
-      'actionscript'
-    ],
-    modal: {
-      // title: 'Summoner: The Bescarfed (WIP)',
-      hero: {
-        url: imgBaseDir + '/heroes/hero-summoner.jpg',
-        height: 320,
-        position: 'center bottom'
-      },
-      description: ['.item-desc',
-        ['p', 'The epic tale of a humble youth, Young Hero, who must take up the Scarf of Strategically-Limited Power to protect his village from the oncoming hordes of admittedly absurd abominations.'],
-        ['p', 'Forsooth, this mystical Scarf, bestowed upon our youth by the Village Elder, grants him the power to summon and command powerful demons through magicks ancient, arcane, and spelled with a "k."'],
-        ['p&', 'However... said magicks are also slowly devouring Young Hero\'s pure soul! (Probably.) So there is a <strong>terrible price to pay!</strong> Bearing the weight of all those demons in the form of one fuzzy muffler can really take its toll on a guy. Luckily, our hero is just the right sort of selfless fellow to lay it all on the line for his beloved village.'],
-        ['p', 'Go, now, Young Hero! Battle across the land. Gain priceless skill points. Dominate new demons. And inexplicably start over at Level 1 every time you enter a new region!'],
-        ['p', 'Go, go! The Village Elder believes in you!'],
-        ['p', 'The rest of the village is cautiously optimistic.'],
-        ['hr'],
-        ['h2', 'Project Details'],
-        ['p', 'A solo project originally prototyped in Actionscript 3, using the Flixel library -- partly for fun, partly to solidify some Object Oriented Programming principles.'],
-        ['p', 'Currently rebuilding the game from scratch in Unity using C#. Both enemies and friendly summons use an almost identical set of reusable Unity components, a decoupled MessageBus (Publish/Subscribe pattern), and a finite state machine AI system.'],
-        ['p', 'I created all the sprites and animations as well.']
-      ],
-      info: ['div', [
-        ['a', 
-          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html' },
-          'Play Unity Build'
-        ],
-        ['br'],
-        ['a', 
-          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
-          'Play Flash Prototype'
-        ]
-      ]]
-    }
-  },
-
-  // segfault
-  {
-    title: 'Segfault[0]: Mad Hatter',
-    venue: 'Solo',
-    slate: {
-      url: imgBaseDir + 'slates/slate-segfault.jpg',
-      position: 'center top'
-    },
-    primaryTags: [
-      'writing',
-      'game design'
-    ],
-    secondaryTags: [
-      'branching narrative',
-      'javascript',
-      'CSS',
-      'twine'
-    ],
-    modal: {
-      title: 'Segfault[0]: Mad Hatter',
-      hero: {
-        height: 200,
-        url: imgBaseDir + 'heroes/hero-segfault.jpg',
-        position: '15% center'
-      },
-      description: ['.item-desc',
-        ['p', 'As a hacker-for-hire, you\'ve stumbled into a system unlike any you\'ve ever encountered. Now you\'re a prisoner and a lab rat, but you have someone on the outside.'],
-        ['p', 'What kind of a test subject will you be?'],
-        ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
-        ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
-      ],
-      info: ['a', 
-        {
-          href: 'http://connorcleary.itch.io/segfault-0-mad-hatter',
-          target: '_blank'
-        },
-        'Play Segfault[0]'
-      ]
-    }
-  },
-
-  // roggy
-  {
-    title: 'Roggy and the Beast',
-    venue: 'Solo',
-    slate: {
-      url: imgBaseDir + 'slates/slate-roggy.jpg',
-      position: 'center center'
-    },
-    primaryTags: [
-      'writing',
-      'game design'
-    ],
-    secondaryTags: [
-      'javascript',
-      'twine'
-    ],
-    modal: {
-      hero: {
-        url: imgBaseDir + 'heroes/hero-roggy.jpg',
-        position: 'bottom right'
-      },
-      description: ['.item-desc',
-        ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
-        ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
-      ],
-      info: ['a', 
-        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.2.html' },
-        'Play Roggy and the Beast'
       ]
     }
   },

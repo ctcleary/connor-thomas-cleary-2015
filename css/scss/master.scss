@@ -1,5 +1,6 @@
 @import 'breaks';
 @import 'mixins';
+@import 'fonts';
 
 @import 'colordefs';
 
@@ -10,7 +11,8 @@
 @import 'icons';
 @import 'tags-app';
 @import 'tags';
-@import 'tags-items';
+@import 'tags-filters';
+@import 'tagged-items';
 
 @import 'item-modal';
 

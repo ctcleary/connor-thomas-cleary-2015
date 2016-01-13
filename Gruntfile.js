@@ -88,6 +88,7 @@ module.exports = function(grunt) {
           {expand: true, src: ['css/**/*.css*'], dest: 'static-build/'},
           {expand: true, src: ['config/**/*.js'], dest: 'static-build/'},
           {expand: true, src: ['dist/**/*.js'], dest: 'static-build/'},
+          {expand: true, src: ['fonts/**/*.*'], dest: 'static-build/'},
           {expand: true, src: ['index.html'], dest: 'static-build/'},
         ]
       }

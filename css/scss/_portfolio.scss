@@ -1,13 +1,14 @@
 .portfolio {
   // background: url('/img/bg.jpg') repeat black,
-  background: url('http://connorthomascleary.com/assets/img/bg.jpg') repeat black;
-  border-top: 1px solid rgba(39, 174, 12, 0.05);
-  border-bottom: 1px solid rgba(39, 174, 12, 0.15);
+  // background: url('http://connorthomascleary.com/assets/img/bg.jpg') repeat black;
+  background: white;
+  // border-top: 1px solid rgba(39, 174, 12, 0.05);
+  // border-bottom: 1px solid rgba(39, 174, 12, 0.15);
   
-  color: #efe;
+  color: #333;
   
   h1 {
-    text-align: left;
+    text-align: center;
   }
 
   p {
@@ -42,14 +43,9 @@
     background: transparent;
     border-radius: 1px;
 
-    text-shadow: 0px  2px 0 black,
-                 1px  1px 0 black,
-                -1px -1px 0 black,
-                 1px -1px 0 black,
-                -1px  1px 0 black;
     .cover {
       // faux white border
-      box-shadow: inset 0 0 0 1px $almost-white;
+      // box-shadow: inset 0 0 0 1px $almost-white;
     }
 
     &.w-modal,
@@ -76,15 +72,18 @@
         box-shadow: 1px 3px 2px 0px rgba(0, 0, 0, 0.5);
       }
     }
+  }
 
+  .slate-item {
     .item {
-      background: rgba(0,0,0, 0.25);
-      padding: 0 0 3px 3px;
       width: 100%;
+      height: 100%;
     }
   }
 
-
+  .item-title {
+    display: block;
+  }
   .item-venue,
   .item-tags {
     display: inline-block;
@@ -104,41 +103,6 @@
       &:not(:first-child):before {
         content: ', ';
       }
-    }
-  }
-}
-
-@include respond-to(xx-large) {
-  .portfolio {
-    .slate-item {
-      max-width: 370px;
-      margin: 0 1% 12px;
-    }
-  }
-}
-@include respond-to(x-large) {
-  .portfolio {
-    .slate-item {
-      margin-left: 1%;
-      margin-right: 1%;
-    }
-  }
-}
-
-@include respond-to(medium) {
-  .portfolio {
-    .slate-item {
-      margin-left: 1%;
-      margin-right: 1%;
-    }
-  }
-}
-
-@include respond-to(small) {
-  .portfolio {
-    .slate-item {
-      max-width: 100%;
-      width: 100%;
     }
   }
 }
