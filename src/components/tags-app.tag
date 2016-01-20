@@ -2,7 +2,7 @@
   <div class="tags-app">
     <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
       <button class="button" onclick={ this.showFilters }>
-        filter results
+        add filters
       </button>
     </div>
 

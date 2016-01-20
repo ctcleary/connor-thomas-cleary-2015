@@ -801,8 +801,13 @@ tagged-item {
   background: rgba(255, 255, 255, 0.4);
   background: black;
   overflow: hidden;
-  vertical-align: middle; }
+  vertical-align: middle;
+  -webkit-transition: max-height 0.1s ease-in-out;
+          transition: max-height 0.1s ease-in-out; }
 
+@media (max-width: 720px) {
+  .hero {
+    max-height: 25vh; } }
 .hero-vid {
   position: relative;
   top: 50%;
@@ -822,30 +827,29 @@ tagged-item {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: rgba(120, 160, 220, 0.75);
+  background-color: rgba(167, 193, 219, 0.75);
   text-align: center; }
 
-.hero-type-text {
+.hero-text-wrapper {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-55%);
       -ms-transform: translateY(-55%);
           transform: translateY(-55%);
-  display: inline-block;
-  width: auto;
-  font-size: 28px;
-  color: #000000; }
-
-.terminal-cursor {
-  position: absolute;
-  right: -0.75em;
-  top: 0px; }
-
-.terminal-cursor {
-  -webkit-transition: none;
-          transition: none;
-  -webkit-animation: terminal-cursor-blink 1s 0s linear infinite;
-          animation: terminal-cursor-blink 1s 0s linear infinite; }
+  display: block;
+  width: auto; }
+  .hero-text-wrapper .hero-type-text {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    color: #000000; }
+    .hero-text-wrapper .hero-type-text:after {
+      content: '_';
+      position: absolute;
+      right: -0.6em;
+      top: 0px;
+      -webkit-animation: terminal-cursor-blink 1s 0s linear infinite;
+              animation: terminal-cursor-blink 1s 0s linear infinite; }
 
 @-webkit-keyframes terminal-cursor-blink {
   0% {
