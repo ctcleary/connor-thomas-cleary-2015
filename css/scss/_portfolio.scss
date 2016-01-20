@@ -1,9 +1,5 @@
 .portfolio {
-  // background: url('/img/bg.jpg') repeat black,
-  // background: url('http://connorthomascleary.com/assets/img/bg.jpg') repeat black;
   background: white;
-  // border-top: 1px solid rgba(39, 174, 12, 0.05);
-  // border-bottom: 1px solid rgba(39, 174, 12, 0.15);
   
   color: #333;
   
@@ -30,78 +26,82 @@
       width: 100%;
     }
   }
-      
-  .slate-item {
-    display: inline-block;
-    flex: 0 0 auto;
-    width: 45%;
-    min-width: 210px;
-    max-width: 240px;
-    height: 210px;
-    margin: 0 2% 12px;
-    
-    background: transparent;
-    border-radius: 1px;
+}
 
+.portfolio .slate-item {
+  display: inline-block;
+  flex: 0 0 auto;
+
+  width: 45%;
+  min-width: 210px;
+  max-width: 240px;
+  height: 210px;
+  margin: 0 2% 12px;
+  
+  background: transparent;
+}
+
+
+.portfolio .slate-item {
+  .cover {
+    position: relative;
+
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.08s linear;
+  }
+
+  &:hover {
     .cover {
-      // faux white border
-      // box-shadow: inset 0 0 0 1px $almost-white;
-    }
-
-    &.w-modal,
-    &.w-url {
-      transition: border-color 0.15s linear;
-      border-width: 4px;
-      border-color: transparent;
-
-      &:hover {
-        border-color: $interactive-hover;
-      }
-    }
-
-    &.w-modal {
-      &:before {
-        box-shadow: 1px 4px 2px 0px rgba(0, 0, 0, 0.5);
-      }
-      &:after {
-        box-shadow: -3px 3px 2px 0px rgba(0, 0, 0, 0.5);
-      }
-    }
-    &.w-url {
-      &:before {
-        box-shadow: 1px 3px 2px 0px rgba(0, 0, 0, 0.5);
-      }
+      opacity: 1;
     }
   }
+}
 
-  .slate-item {
-    .item {
-      width: 100%;
-      height: 100%;
+.portfolio .slate-item {
+  .item-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+.portfolio .slate-item .cover {
+  .item {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    .item-title {
+      display: block;
     }
-  }
-
-  .item-title {
-    display: block;
-  }
-  .item-venue,
-  .item-tags {
-    display: inline-block;
-  }
-
-  .item-tags {
-    &:before {
-      padding-left: 6px;
-      content: '-';
-      padding-right: 6px;
-    }
-
-    span {
+    .item-venue,
+    .item-tags {
       display: inline-block;
-      font-size: 13px;
+    }
 
-      &:not(:first-child):before {
-        content: ', ';
+    .item-tags {
+      &:before {
+        padding-left: 6px;
+        content: '-';
+        padding-right: 6px;
+      }
+
+      span {
+        display: inline-block;
+        font-size: 13px;
+
+        &:not(:first-child):before {
+          content: ', ';
+        }
       }
     }
   }

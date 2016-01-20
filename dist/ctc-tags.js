@@ -155,7 +155,7 @@ riot.tag('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTa
   
 });
 
-riot.tag('tagged-item', '<div class="cover" riot-style="{this.getCoverStyle()}" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div><div class="item-icon"></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
+riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}">  <div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div><div class="item-icon"></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 
@@ -180,16 +180,15 @@ riot.tag('tagged-item', '<div class="cover" riot-style="{this.getCoverStyle()}" 
       return null;
     };
 
-    this.getCoverStyle = function() {
-      var styles = '';
-      if (this.opts.slate) {
-        styles += 'background-image: url('+ this.opts.slate.url + '); ';
-        styles += 'background-position: ' + (this.opts.slate.position || 'center center') + '; ';
-      } else {
-        styles += 'background-image: none; ';
-      }
-      return styles;
-    };
+
+
+
+
+
+
+
+
+
 
   
 });

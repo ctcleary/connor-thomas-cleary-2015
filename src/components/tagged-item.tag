@@ -1,5 +1,7 @@
 <tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }">
-    <div class="cover" style="{ this.getCoverStyle() }" onclick={ this.getClickAction() }>
+    <img class="item-image" if={ this.opts.slate.url } src={ this.opts.slate.url } />
+    <!-- <div class="cover" style="{ this.getCoverStyle() }" onclick={ this.getClickAction() }> -->
+    <div class="cover" onclick={ this.getClickAction() }>
       <div class="item">
         <div class="item-title"> { this.opts.title } </div>
         <div class="item-venue"> { this.opts.venue } </div>
@@ -35,16 +37,16 @@
       return null;
     };
 
-    this.getCoverStyle = function() {
-      var styles = '';
-      if (this.opts.slate) {
-        styles += 'background-image: url('+ this.opts.slate.url + '); ';
-        styles += 'background-position: ' + (this.opts.slate.position || 'center center') + '; ';
-      } else {
-        styles += 'background-image: none; ';
-      }
-      return styles;
-    };
+    // this.getCoverStyle = function() {
+    //   var styles = '';
+    //   if (this.opts.slate) {
+    //     styles += 'background-image: url('+ this.opts.slate.url + '); ';
+    //     styles += 'background-position: ' + (this.opts.slate.position || 'center center') + '; ';
+    //   } else {
+    //     styles += 'background-image: none; ';
+    //   }
+    //   return styles;
+    // };
 
   </script>
 </tagged-item>
