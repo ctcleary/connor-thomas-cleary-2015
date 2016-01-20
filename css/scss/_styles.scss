@@ -82,12 +82,20 @@ h1 {
 @include respond-to(medium) {
   h1 {
     font-size: 22px;
-    padding: 12px 0 0 0;
+    // padding: 12px 0 0 0;
+  }
+  h2, h3 {
+    font-size: 18px;
+    // padding: 12px 0 0 0;
   }
 }
 @include respond-to(x-small) {
   h1 {
     font-size: 18px;
-    padding: 12px 0 0 0;
+    // padding: 12px 0 0 0;
+  }
+  h2, h3 {
+    font-size: 16px;
+    // padding: 12px 0 0 0;
   }
 }

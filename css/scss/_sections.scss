@@ -8,7 +8,9 @@
     min-height: 65vh;
     margin: 0 auto;
 
-    &>h1 {
+    &>h1,
+    &>h2, 
+    &>h3 {
       text-align: center;
     }
   }
@@ -52,6 +54,8 @@ section:nth-child(2n) {
   width: 100%;
 }
 
+.skills-container,
+.about-container,
 .tags-filters-container,
 .items-container {
   margin-left: auto;
