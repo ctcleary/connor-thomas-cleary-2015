@@ -1,8 +1,12 @@
+/**
+ * Definintion:
+ * wrapper   : full width wrapper for background coloring
+ * container : max-width container for maxxing out content width
+ */
 .section {
   .section-content {
     min-height: 65vh;
     margin: 0 auto;
-    // max-width: 1280px;
 
     &>h1 {
       text-align: center;
@@ -41,4 +45,16 @@ section:nth-child(2n) {
   .pub-item {
     background: $wht;
   }
+}
+
+.section-wrapper,
+.tags-filters-wrapper {
+  width: 100%;
+}
+
+.tags-filters-container,
+.items-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-content-width;
 }

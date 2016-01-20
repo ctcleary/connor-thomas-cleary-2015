@@ -18,7 +18,7 @@ $sticky-almost-white: #EFF0F3;
     display: block;
     width: 100%;
     height: 100%;
-    max-width: 1280px;
+    max-width: $max-content-width;
     margin: 0 auto;
 
     white-space: nowrap;

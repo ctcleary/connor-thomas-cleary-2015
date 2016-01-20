@@ -1,12 +1,12 @@
 <tags-app>
   <div class="tags-app">
-    <div class="tags-filters-activator tags" if={ this.showFiltersTrigger() }>
-        <button class="button" onclick={ this.showFilters }>
-          filter results
-        </button>
+    <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
+      <button class="button" onclick={ this.showFilters }>
+        filter results
+      </button>
     </div>
 
-    <div class="tags-filters-wrapper" if={ this.shouldShowFilters() }>
+    <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
       <div class="tags-filters-container">
         <div class="tags-filters-header">
           <p class="tags-section-title search-by" if={ this.getInactiveTags().length > 0 }>
@@ -20,8 +20,8 @@
             </tag-button>
           </div>
         </div>
-        <div class="hide-filters" onclick={ this.hideFilters }>
-          <div class="x"></div>
+        <div class="hide-filters">
+          <button class="x" onclick={ this.hideFilters }></button>
         </div>
 
         <div class="active-tags-container" if={ this.getActiveTags().length > 0 }>
@@ -55,37 +55,39 @@
     </div>
 
     <div class="{ this.opts.itemsWrapClass }">
-      <div class="{ this.opts.itemsHoldClass }">
-        <virtual each={ this.getActiveItems() }> 
-          <tagged-item 
-            title={ title }
-            slate={ slate }
-            venue={ venue }
-            modal={ modal }
-            url={ url }
-            >
-          </tagged-item>
-        </virtual>
+      <div class="items-container">
+          <div class="{ this.opts.itemsHoldClass }">
+            <virtual each={ this.getActiveItems() }> 
+              <tagged-item 
+                title={ title }
+                slate={ slate }
+                venue={ venue }
+                modal={ modal }
+                url={ url }
+                >
+              </tagged-item>
+            </virtual>
 
-        <div if={ this.getActiveItems().length === 0 }
-            class="no-items">
-          <em>No results match this combination of tags.</em>
-        </div>
+            <div if={ this.getActiveItems().length === 0 }
+                class="no-items">
+              <em>No results match this combination of tags.</em>
+            </div>
 
-        <div if={ this.showLimited() } class="over-limit-wrapper { this.opts.itemsClass }" >
-          <div if={ this.doLimitDisplay } class="over-limit is-limiting"
-              onclick={ this.removeLimit }>
-            <span class="over-limit-text">
-              Showing { this.itemLimit } items. Click to show all.
-            </span>
+            <div if={ this.showLimited() } class="over-limit-wrapper { this.opts.itemsClass }" >
+              <div if={ this.doLimitDisplay } class="over-limit is-limiting"
+                  onclick={ this.removeLimit }>
+                <span class="over-limit-text">
+                  Showing { this.itemLimit } items. Click to show all.
+                </span>
+              </div>
+              <div if={ !this.doLimitDisplay } class="over-limit not-limiting"
+                  onclick={ this.reLimit }>
+                <span class="over-limit-text">
+                  Showing all items. Click to show fewer.
+                </span>
+              </div>
+            </div>
           </div>
-          <div if={ !this.doLimitDisplay } class="over-limit not-limiting"
-              onclick={ this.reLimit }>
-            <span class="over-limit-text">
-              Showing all items. Click to show fewer.
-            </span>
-          </div>
-        </div>
       </div>
     </div>
 

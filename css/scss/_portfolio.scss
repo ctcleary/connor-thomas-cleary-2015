@@ -1,3 +1,57 @@
+// Layout
+.portfolio {
+  .slates-wrapper {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 4%;
+
+    .slates-holder {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      margin: 0 auto;
+      // max-width: 1480px;
+      width: 100%;
+    }
+  }
+}
+
+.portfolio .slate-item {
+  display: inline-block;
+  flex: 0 0 auto;
+
+  width: 23%;
+  height: 210px;
+  margin: 1%;
+  
+  background: transparent;
+}
+
+@include respond-to(large) {
+  .portfolio .slate-item {
+    width: 31%;
+    height: 210px;
+    margin: 1%;
+  }
+}
+@include respond-to(medium) {
+  .portfolio .slate-item {
+    width: 48%;
+    height: 210px;
+    margin: 1%;
+  }
+}
+@include respond-to(small) {
+  .portfolio .slate-item {
+    width: 98%;
+    height: 210px;
+    margin: 1%;
+  }
+}
+
+
+// Style
 .portfolio {
   background: white;
   
@@ -10,38 +64,7 @@
   p {
     margin-bottom: 12px;
   }
-
-  .slates-wrapper {
-    width: 100%;
-    padding: 0;
-    padding-bottom: 4%;
-
-    .slates-holder {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-
-      margin: 0 auto;
-      max-width: 1480px;
-      width: 100%;
-    }
-  }
-}
-
-.portfolio .slate-item {
-  display: inline-block;
-  flex: 0 0 auto;
-
-  width: 45%;
-  min-width: 210px;
-  max-width: 240px;
-  height: 210px;
-  margin: 0 2% 12px;
-  
-  background: transparent;
-}
-
-
+ }
 .portfolio .slate-item {
   .cover {
     position: relative;
