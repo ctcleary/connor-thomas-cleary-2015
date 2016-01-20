@@ -52,15 +52,25 @@
             <svg id="logo-svg" viewBox="0 0 100 100">
               <use xlink:href="#ctc-logo" x="0" y="0"  />
             </svg>
-            <span class="top-name">
-              Connor Thomas Cleary
+            <span class="nav-item-text top-name">
+              Connor <span class="middle-name">Thomas</span> Cleary
             </span>
           </a>
-          <a href="#portfolio" class="nav-item"> Portfolio </a>
-          <a href="#publications" class="nav-item"> Publications </a>
-          <a href="#skills" class="nav-item"> Skills </a>
-          <a href="#about" class="nav-item"> About </a>
-          <a href="#contact" class="nav-item"> Contact </a>
+          <a href="#portfolio" class="nav-item">
+            <span class="nav-item-text">Portfolio</span>
+          </a>
+          <a href="#publications" class="nav-item">
+            <span class="nav-item-text">Publications</span>
+          </a>
+          <a href="#skills" class="nav-item">
+            <span class="nav-item-text">Skills</span>
+          </a>
+          <a href="#about" class="nav-item">
+            <span class="nav-item-text">About</span>
+          </a>
+          <a href="#contact" class="nav-item">
+            <span class="nav-item-text">Contact</span>
+          </a>
         </div>
       </div>
     </nav>
@@ -299,18 +309,22 @@
 
     // Sticky menu with jQ
     (function() {
-      var mn  = $('.main-nav-wrapper');
-      var mns = 'main-nav-sticky';
-      var stickyThreshold = $(mn).height()*2;
+      var mainNavWrap  = $('.main-nav-wrapper');
+      var mainNav  = mainNavWrap.children('.main-nav');
+      console.log("mainNav ::", mainNav);
+      var isSticky = 'is-sticky';
+      var stickyThreshold = $(mainNav).height()*2;
 
       var heroHeight =  $('.hero').height();
       var heroVid = $('.hero-vid')[0];
 
       $(window).scroll(function() {
         if( $(this).scrollTop() > stickyThreshold ) {
-          mn.addClass(mns);
+          mainNavWrap.addClass(isSticky);
+          mainNav.addClass(isSticky);
         } else {
-          mn.removeClass(mns);
+          mainNavWrap.removeClass(isSticky);
+          mainNav.removeClass(isSticky);
         }
       });
     })();
