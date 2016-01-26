@@ -1,8 +1,11 @@
 var Typist = function(options) {
   this.el = options.el;
+  this.preText = options.preText || '';
+
   this.stages = options.stages;
   this.stageIndex = 0;
-  this.writeSpeed = options.writeSpeed || 80;
+
+  this.defaultWriteSpeed = options.writeSpeed || 60;
   this.clearSpeed = options.clearSpeed || 60;
 
   this.init();
@@ -10,10 +13,11 @@ var Typist = function(options) {
 
 Typist.prototype = {
   init: function() {
-    console.log("init typist");
-    this.el.innerText = '';
+    this.el.innerText = this.preText;
     this.curTextIndex = 0;
-    this.setTypeCharTimeout();
+
+    var stage = this.stages[ this.stageIndex ];
+    this.setTypeCharTimeout(stage.delay || 0);
   },
 
   rand: function(limit) {
@@ -40,7 +44,8 @@ Typist.prototype = {
 
   clearChar: function() {
     var curText = this.stages[ this.stageIndex ].text;
-    this.el.textContent = curText.substr(0, this.curTextIndex);
+    var substringEnd = this.preText.length + this.curTextIndex;
+    this.el.textContent = this.el.textContent.substr(0, substringEnd);
 
     if (this.curTextIndex > 0) {
       this.curTextIndex--;
@@ -56,10 +61,12 @@ Typist.prototype = {
 
   setTypeCharTimeout: function(add) {
     var timeMod = add || 0;
+    var stage = this.stages[ this.stageIndex ];
+    var writeSpeed = stage.writeSpeed || this.defaultWriteSpeed;
     clearTimeout( this.typeCharTimeout );
     this.typeCharTimeout = setTimeout(
       this.typeChar.bind( this ),
-      this.writeSpeed + timeMod );
+      writeSpeed + timeMod );
   },
 
   setClearCharTimeout: function(add) {

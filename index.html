@@ -531,38 +531,37 @@
       window.debug.error("Error mounting app, e ::", e, e.stack);
     }
 
+    // $('.js-hero-type-text')[0].textContent = 'I';
+    // $('.js-hero-type-text')[0].textContent = '';
     (function() {
-      var TYPIST_CLEAR_DELAY = 800;
-      var TYPIST_NEW_STAGE_DELAY = 200;
+      var TYPIST_CLEAR_DELAY = 700;
+      var TYPIST_NEW_STAGE_DELAY = 125;
       var typist = new Typist({
         el: $('.js-hero-type-text')[0],
+        preText: 'I ',
         stages: [
-          // {
-          //   text: 'I create ',
-          //   clearAfterComplete: true,
-          //   clearDelay: TYPIST_CLEAR_DELAY
-          // },
           {
-            // delay: TYPIST_NEW_STAGE_DELAY,
-            text: 'I write ',
+            delay: TYPIST_NEW_STAGE_DELAY,
+            text: 'write ',
             clearAfterComplete: true,
             clearDelay: TYPIST_CLEAR_DELAY
           },
           {
             delay: TYPIST_NEW_STAGE_DELAY,
-            text: 'I code ',
+            text: 'code ',
             clearAfterComplete: true,
             clearDelay: TYPIST_CLEAR_DELAY
           },
           {
             delay: TYPIST_NEW_STAGE_DELAY,
-            text: 'I design ',
+            text: 'design ',
             clearAfterComplete: true,
             clearDelay: TYPIST_CLEAR_DELAY
           },
           {
             delay: TYPIST_NEW_STAGE_DELAY,
-            text: 'I create experiences.'
+            text: 'create experiences.',
+            writeSpeed: 15
           }
         ]
       });

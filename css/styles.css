@@ -850,6 +850,7 @@ tagged-item {
   .hero-text-wrapper .hero-type-text {
     position: relative;
     display: inline-block;
+    height: 1.5em;
     font-size: 40px;
     color: #000000; }
     .hero-text-wrapper .hero-type-text:after {
