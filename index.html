@@ -28,6 +28,7 @@
 
   <script src="js/logger.js"></script>
   <script src="js/queryo.js"></script>
+  <script src="js/typist.js"></script>
 
 </head>
 <body>
@@ -529,6 +530,43 @@
     } catch (e) {
       window.debug.error("Error mounting app, e ::", e, e.stack);
     }
+
+    (function() {
+      var TYPIST_CLEAR_DELAY = 800;
+      var TYPIST_NEW_STAGE_DELAY = 200;
+      var typist = new Typist({
+        el: $('.js-hero-type-text')[0],
+        stages: [
+          // {
+          //   text: 'I create ',
+          //   clearAfterComplete: true,
+          //   clearDelay: TYPIST_CLEAR_DELAY
+          // },
+          {
+            // delay: TYPIST_NEW_STAGE_DELAY,
+            text: 'I write ',
+            clearAfterComplete: true,
+            clearDelay: TYPIST_CLEAR_DELAY
+          },
+          {
+            delay: TYPIST_NEW_STAGE_DELAY,
+            text: 'I code ',
+            clearAfterComplete: true,
+            clearDelay: TYPIST_CLEAR_DELAY
+          },
+          {
+            delay: TYPIST_NEW_STAGE_DELAY,
+            text: 'I design ',
+            clearAfterComplete: true,
+            clearDelay: TYPIST_CLEAR_DELAY
+          },
+          {
+            delay: TYPIST_NEW_STAGE_DELAY,
+            text: 'I create experiences.'
+          }
+        ]
+      });
+    })();
   </script>
 </body>
 
