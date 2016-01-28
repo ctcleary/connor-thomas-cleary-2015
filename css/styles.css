@@ -915,6 +915,8 @@ tagged-item {
 
 .pubs-wrapper {
   vertical-align: center; }
+  .pubs-wrapper .items-container {
+    width: 90%; }
   .pubs-wrapper .pub-item {
     display: block;
     min-height: 36px;
@@ -970,7 +972,7 @@ tagged-item {
     font-size: 12px; }
     .pubs-wrapper .pub-item .item .item-tags .item-tag {
       font-size: 12px; } }
-.skills-items {
+.skills-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -978,34 +980,73 @@ tagged-item {
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   font-size: 15px; }
-  .skills-items .skills-list-container {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
-    width: 230px; }
-  .skills-items .skills-segment {
+  .skills-container .skills-column {
+    width: 30%;
+    margin: 0 1%;
+    text-align: center; }
+  .skills-container .skills-segment {
     background-color: rgba(183, 213, 237, 0.8);
-    margin: 1%;
-    padding: 2%; }
-  .skills-items .skills-segment-header {
+    width: 90%;
+    padding: 30px 15px;
+    margin: 0 auto 30px auto;
+    text-align: left; }
+  .skills-container .skills-segment-header {
     position: relative;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 15px; }
-    .skills-items .skills-segment-header:after {
+    .skills-container .skills-segment-header:after {
       content: ' ';
       width: 25%;
       height: 1px;
       background: red;
       border-bottom: 1px solid black; }
-  .skills-items ul {
+  .skills-container ul {
     list-style-type: none; }
-  .skills-items ul ul {
+    .skills-container ul li {
+      margin-bottom: 7px; }
+  .skills-container ul ul {
+    margin-top: 7px;
     margin-bottom: 0; }
+    .skills-container ul ul li {
+      margin-bottom: 0; }
+  .skills-container ul.skills-sub-list {
+    font-size: 13px;
+    font-style: italic; }
+    .skills-container ul.skills-sub-list.small-sub li {
+      display: inline; }
+      .skills-container ul.skills-sub-list.small-sub li:not(:last-of-type):after {
+        content: ', '; }
+  .skills-container .note {
+    margin-top: 45px;
+    margin-left: 1.25em;
+    font-style: italic; }
 
+@media (max-width: 1200px) {
+  .skills-container .skills-segment {
+    padding: 10px; } }
+@media (max-width: 720px) {
+  .skills-container .skills-column {
+    width: 100%; }
+  .skills-container .skills-segment {
+    padding: 30px;
+    margin-bottom: 15px; }
+    .skills-container .skills-segment h3 {
+      text-align: left;
+      margin-left: 1.15em; }
+    .skills-container .skills-segment h3, .skills-container .skills-segment > ul,
+    .skills-container .skills-segment .note {
+      margin-left: 0; } }
 .about {
   color: black; }
   .about .about-container {
