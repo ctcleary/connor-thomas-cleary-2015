@@ -368,17 +368,17 @@ tagged-item .item-icon {
     background-color: #3E7CF7;
     color: white; }
     .tags .tag-button:hover:after {
-      color: white; }
+      color: white;
+      -webkit-transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+              transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
+  .tags .tag-button.tag-button-inactive:after, .tags .tag-button.tag-button-active:after {
+    padding-bottom: 6px; }
   .tags .tag-button.tag-button-inactive:after {
-    content: '+';
-    padding-bottom: 6px;
-    -webkit-transition: color 0.5s ease;
-            transition: color 0.5s ease; }
-  .tags .tag-button.tag-button-active:after {
-    content: '\2013';
-    padding-bottom: 6px;
-    -webkit-transition: color 0.5s ease;
-            transition: color 0.5s ease; }
+    content: '+'; }
+  .tags .tag-button.tag-button-active {
+    background-color: #d5e1f9; }
+    .tags .tag-button.tag-button-active:after {
+      content: '\2013'; }
 
 .tags-filters-activator {
   position: relative;
@@ -480,7 +480,7 @@ tagged-item .item-icon {
 .tags-section-title,
 .tags .tag-button {
   height: 36px;
-  line-height: 36px;
+  line-height: 30px;
   padding: 1px 6px 4px;
   margin: 0.25em;
   font-size: 15px; }

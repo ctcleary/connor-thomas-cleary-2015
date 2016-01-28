@@ -4,28 +4,37 @@
 }
 
 .tags {
+  $tagsTransitionLength: 0.3s;
+  $activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
+  
   .tag-button {
     border: none;
-    transition: background-color 0.3s $easeInOutSine,
-                color 0.3s $easeInOutSine;
+    transition: background-color $tagsTransitionLength $easeInOutSine,
+                color $tagsTransitionLength $easeInOutSine;
 
     &:hover {
       background-color: $interactive-hover;
       color: white;
       &:after {
         color: white;
+        transition: color $tagsTransitionLength $easeInOutSine;
       }
+    }
+
+    &.tag-button-inactive:after,
+    &.tag-button-active:after {
+      padding-bottom: 6px;
     }
 
     &.tag-button-inactive:after {
       content: '+';
-      padding-bottom: 6px;
-      transition: color 0.5s ease;
     }
-    &.tag-button-active:after {
-      content: '\2013';    // ndash
-      padding-bottom: 6px;
-      transition: color 0.5s ease;
+    &.tag-button-active {
+      background-color: $activeTagBackground;
+
+      &:after {
+        content: '\2013';    // ndash
+      }
     }
   }
 }

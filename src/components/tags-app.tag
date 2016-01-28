@@ -9,22 +9,23 @@
     <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
       <div class="tags-filters-container">
         <div class="tags-filters-header">
-          <p class="tags-section-title search-by" if={ this.getInactiveTags().length > 0 }>
+          <p class="tags-section-title search-by">
             Narrow work by skill:
           </p>
         </div>
         <div class="tags-filters-buttons-wrapper">
           <div class="{ this.opts.tagsClass } tags tags-filters">
-            <tag-button each={ this.getInactiveTags(); }
+            <tag-button each={ this.getAllTags(); }
                 config={ this }>
             </tag-button>
           </div>
         </div>
+
         <div class="hide-filters">
           <button class="x" onclick={ this.hideFilters }></button>
         </div>
 
-        <div class="active-tags-container" if={ this.getActiveTags().length > 0 }>
+<!--         <div class="active-tags-container" if={ this.getActiveTags().length > 0 }>
           <div class="matching-toggle-container">
             <p class="tags-section-title"> Match </p>
             <div class="matching-any-all-toggle tags">
@@ -49,7 +50,7 @@
                   config={ this }>
               </tag-button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -113,7 +114,7 @@
 
     // ---- ---- ---- ---- ----
     // Init
-    this.getAllTags = function(taggedItems) {
+    this.setupInitialTags = function(taggedItems) {
       var allTagNames = [];
       _.each(taggedItems, function(tagsItem) {
         allTagNames = _.union(allTagNames, tagsItem.primaryTags);
@@ -128,6 +129,10 @@
 
       return allTags;
     };
+
+    this.getAllTags = function() {
+      return this.allTags;
+    }
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
@@ -147,7 +152,7 @@
       return setTags;
     };
 
-    this.allTags = this.getAllTags(this.opts.tagsItems);
+    this.allTags = this.setupInitialTags(this.opts.tagsItems);
     if (this.opts.presetFilters) {
       this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
     }
