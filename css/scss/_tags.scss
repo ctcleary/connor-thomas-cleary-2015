@@ -6,13 +6,20 @@
 .tags {
   $tagsTransitionLength: 0.3s;
   $activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
-  
+
   .tag-button {
     border: none;
     transition: background-color $tagsTransitionLength $easeInOutSine,
                 color $tagsTransitionLength $easeInOutSine;
 
-    &:hover {
+
+    &.tag-button-active {
+      background-color: $activeTagBackground;
+    }
+
+    // &:hover {
+    &.tag-button-inactive:hover,
+    &.tag-button-active:hover {
       background-color: $interactive-hover;
       color: white;
       &:after {
@@ -29,12 +36,8 @@
     &.tag-button-inactive:after {
       content: '+';
     }
-    &.tag-button-active {
-      background-color: $activeTagBackground;
-
-      &:after {
-        content: '\2013';    // ndash
-      }
+    &.tag-button-active:after {
+      content: '\2013';    // ndash
     }
   }
 }

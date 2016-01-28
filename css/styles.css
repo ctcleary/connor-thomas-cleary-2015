@@ -364,10 +364,12 @@ tagged-item .item-icon {
   border: none;
   -webkit-transition: background-color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
           transition: background-color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95), color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
-  .tags .tag-button:hover {
+  .tags .tag-button.tag-button-active {
+    background-color: #d5e1f9; }
+  .tags .tag-button.tag-button-inactive:hover, .tags .tag-button.tag-button-active:hover {
     background-color: #3E7CF7;
     color: white; }
-    .tags .tag-button:hover:after {
+    .tags .tag-button.tag-button-inactive:hover:after, .tags .tag-button.tag-button-active:hover:after {
       color: white;
       -webkit-transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
               transition: color 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95); }
@@ -375,10 +377,8 @@ tagged-item .item-icon {
     padding-bottom: 6px; }
   .tags .tag-button.tag-button-inactive:after {
     content: '+'; }
-  .tags .tag-button.tag-button-active {
-    background-color: #d5e1f9; }
-    .tags .tag-button.tag-button-active:after {
-      content: '\2013'; }
+  .tags .tag-button.tag-button-active:after {
+    content: '\2013'; }
 
 .tags-filters-activator {
   position: relative;
