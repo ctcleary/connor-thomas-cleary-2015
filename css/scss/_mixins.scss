@@ -15,3 +15,10 @@
 }
 
 $easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}

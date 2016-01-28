@@ -218,14 +218,14 @@ h2 {
 
 .tags-filters-wrapper,
 .pub-item {
-  background: #f7f7f7; }
+  background: #f4f4f4; }
 
 section:nth-child(2n) .section-content {
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7; }
 section:nth-child(2n) .section-content,
 section:nth-child(2n) .tag-button {
-  background: #f7f7f7; }
+  background: #f4f4f4; }
 section:nth-child(2n) .tags-filters-wrapper,
 section:nth-child(2n) .pub-item {
   background: #ffffff; }
@@ -491,7 +491,9 @@ tagged-item .item-icon {
     font-size: 13px; }
 
 .tags-filters-wrapper {
-  height: 130px;
+  min-height: 130px;
+  padding-top: 1%;
+  padding-bottom: 1%;
   -webkit-transform-origin: center top;
       -ms-transform-origin: center top;
           transform-origin: center top;
@@ -552,10 +554,6 @@ tagged-item .item-icon {
 
 .tags-filters {
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
   width: 100%; }
 
 .tags-filters-container,
@@ -566,28 +564,48 @@ tagged-item .item-icon {
   margin-bottom: 12px; }
 
 .tags-section-title {
-  margin: 0;
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  margin: 0;
   white-space: nowrap; }
 
 .hide-filters {
   right: 0; }
   .hide-filters .x {
     position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
     width: 45px;
     height: 45px;
+    border: none;
     background: red;
     cursor: pointer;
     padding: 0 2px 0 1px; }
 
+@media (max-width: 720px) {
+  .tags-filters-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+
+  .tags-filters-header {
+    height: 20%;
+    width: 100%; }
+
+  .tags-filters-buttons-wrapper {
+    height: 80%; }
+
+  .hide-filters {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px; }
+    .hide-filters .x {
+      width: 30px;
+      height: 30px; } }
 tagged-item {
   overflow: hidden; }
   tagged-item .cover {
