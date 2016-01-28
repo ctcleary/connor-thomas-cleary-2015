@@ -36,14 +36,12 @@
 
 // Layout filters
 .tags-filters-wrapper {
-  // transition: transform 0.3s ease-in-out;
-  // height: 130px;
-  min-height: 130px;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  height: auto;
+  padding-top: 3%;
+  padding-bottom: 3%;
   transform-origin: center top;
-  transition: transform 0.35s ease-in-out,
-    height 0.3s 0s ease-in-out;
+  transition: transform 0.25s ease-in-out;
+    // height 0.3s 0.35s ease-in-out;
 
   &.is-collapsed {
     transform: scaleY(0);
@@ -61,7 +59,6 @@
   flex-flow: space-between;
 
   width: 90%;
-  // height: 130px;
   height: 100%;
   margin: 0 auto;
 }
@@ -77,9 +74,11 @@
   width: 200px;
   vertical-align: middle;
 }
+
 .tags-filters-buttons-wrapper {
   flex: 1 1 auto;
 }
+
 .hide-filters {
   flex: none;
   width: 45px;
@@ -100,21 +99,27 @@
   margin-bottom: 12px;
 }
 
+
+.tags-section-title,
+.tags .tag-button {
+  height: 36px;
+  line-height: 36px;
+  padding: 1px 6px 4px;
+  margin: 0.25em;
+  font-size: 15px;
+}
 .tags-section-title {
   position: relative;
-  // @include vertical-align();
-  margin: 0;
   white-space: nowrap;
 }
 
 
 .hide-filters {
-  // position: absolute;
+  // @include vertical-align();
   right: 0;
 
   .x {
     position: relative;
-    // @include vertical-align();
 
     width: 45px;
     height: 45px;

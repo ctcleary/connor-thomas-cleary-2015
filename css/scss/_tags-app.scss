@@ -16,21 +16,21 @@
     }
   }
 
-  .matching-any-all-toggle {
-    .any-all-toggle {
-      padding-right: 8px;
+  // .matching-any-all-toggle {
+  //   .any-all-toggle {
+  //     padding-right: 8px;
 
-      &:after {
-        content:'';
-      }
-      white-space: nowrap;
+  //     &:after {
+  //       content:'';
+  //     }
+  //     white-space: nowrap;
 
-      .any-all-text,
-      .filters-text {
-        display: inline-block;
-      }
-    }
-  }
+  //     .any-all-text,
+  //     .filters-text {
+  //       display: inline-block;
+  //     }
+  //   }
+  // }
 
   .no-items {
     display: block;
@@ -106,89 +106,89 @@
 }
 
 // 3d transforms are weird
-.any-all-toggle {
+// .any-all-toggle {
 
-  .any-all-3d-wrap {
-    display: inline-block;
-    width: 32px;
-    perspective: none;
-    perspective-origin: 0 0;
+//   .any-all-3d-wrap {
+//     display: inline-block;
+//     width: 32px;
+//     perspective: none;
+//     perspective-origin: 0 0;
 
-    .any-all-text {
-      position: relative;
-      width: inherit;
-      height: 18px;
-      margin: 0 auto;
-      transform-style: preserve-3d;
+//     .any-all-text {
+//       position: relative;
+//       width: inherit;
+//       height: 18px;
+//       margin: 0 auto;
+//       transform-style: preserve-3d;
 
-      transition: transform 0.8s ease;
-      // animation: spin-vert 2s infinite alternate linear;
-    }
+//       transition: transform 0.8s ease;
+//       // animation: spin-vert 2s infinite alternate linear;
+//     }
 
-    .all-text {
-      transform: translateZ(9px);
-    }
-    .any-text {      
-      transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px); transform-origin: bottom center;
-    }
-  }
+//     .all-text {
+//       transform: translateZ(9px);
+//     }
+//     .any-text {      
+//       transform: rotateX(90deg) rotateZ(180deg) rotateY(180deg) translateY(10px); transform-origin: bottom center;
+//     }
+//   }
 
-  &.selected-all {
-    .any-all-text {
-      transform: rotateX(0deg);
-    }
-  }
-  &.selected-any {
-    .any-all-text {
-      transform: rotateX(90deg);
-    }
-  }
+//   &.selected-all {
+//     .any-all-text {
+//       transform: rotateX(0deg);
+//     }
+//   }
+//   &.selected-any {
+//     .any-all-text {
+//       transform: rotateX(90deg);
+//     }
+//   }
 
 
-  .matching-text {
-    position: absolute;
-    display: inline-block;
-    left: 0;
-    top: 0;
-    width: inherit;
-    height: 18px;
+//   .matching-text {
+//     position: absolute;
+//     display: inline-block;
+//     left: 0;
+//     top: 0;
+//     width: inherit;
+//     height: 18px;
 
-    transition: border-color 0.8s linear,
-                color        0.5s linear;
-  }
-  &:hover {
-    .matching-text {
-      &.all-text,
-      &.any-text {
-        color: white;
-        border-color: white;
-      }
-    }
-  }
-  .all-text {
-    top: 1px;
-    height: 21px;
-    padding-bottom: 2px;
-    border-bottom: 2px solid $interactive-hover;
-  }
-  .any-text { // .cube-bottom
-    line-height: 16px;
-    border-top: 2px solid $interactive-hover;
-  }
+//     transition: border-color 0.8s linear,
+//                 color        0.5s linear;
+//   }
+//   &:hover {
+//     .matching-text {
+//       &.all-text,
+//       &.any-text {
+//         color: white;
+//         border-color: white;
+//       }
+//     }
+//   }
+//   .all-text {
+//     top: 1px;
+//     height: 21px;
+//     padding-bottom: 2px;
+//     border-bottom: 2px solid $interactive-hover;
+//   }
+//   .any-text { // .cube-bottom
+//     line-height: 16px;
+//     border-top: 2px solid $interactive-hover;
+//   }
 
-  &.selected-all {
-    .any-all-text {
-      transform: rotateX(0deg);
-    }
-  }
-  &.selected-any {
-    .any-all-text {
-      transform: rotateX(90deg);
-    }
-  }
-}
+//   &.selected-all {
+//     .any-all-text {
+//       transform: rotateX(0deg);
+//     }
+//   }
+//   &.selected-any {
+//     .any-all-text {
+//       transform: rotateX(90deg);
+//     }
+//   }
+// }
 
-@keyframes spin-vert {
-  from { transform: rotateX(0deg); }
-  to   { transform: rotateX(-360deg); }
-}
+// @keyframes spin-vert {
+//   from { transform: rotateX(0deg); }
+//   to   { transform: rotateX(-360deg); }
+// }

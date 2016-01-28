@@ -1,18 +1,11 @@
 
 .tag-button {
   cursor: pointer;
-  margin: 0 12px;
 }
 
 .tags {
   .tag-button {
-    margin-right: 0.5%;
-    height: 36px;
-    padding: 1px 6px 4px;
-
     border: none;
-    font-size: 15px;
-
     transition: background-color 0.3s $easeInOutSine,
                 color 0.3s $easeInOutSine;
 
