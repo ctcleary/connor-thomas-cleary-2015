@@ -474,9 +474,6 @@ tagged-item .item-icon {
 .tags-filters-header {
   position: relative; }
 
-.tags-filters-container {
-  margin-bottom: 12px; }
-
 .tags-section-title,
 .tags .tag-button {
   height: 36px;
@@ -1050,7 +1047,8 @@ tagged-item {
 .about {
   color: black; }
   .about .about-container {
-    margin: 0 auto; }
+    margin: 0 auto;
+    width: 90%; }
   .about .about-segments {
     display: -webkit-box;
     display: -webkit-flex;
