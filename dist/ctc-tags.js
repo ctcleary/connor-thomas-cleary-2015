@@ -193,18 +193,195 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
   
 });
 
-riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
+riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div>  <tags-filters all-tags="{this.allTags}" app-config="{this.appConfig}" preset-filters="{this.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
     this.isLimited = !!this.opts.itemLimit;
     this.doLimitDisplay = true; // true by default
+
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
 
-    var appConfig = this.opts.appConfig;
+    this.appConfig = this.opts.appConfig;
+
+    console.log("this ::", this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.setupInitialTags = function(taggedItems) {
+      var allTagNames = [];
+      _.each(taggedItems, function(tagsItem) {
+        allTagNames = _.union(allTagNames, tagsItem.primaryTags);
+      });
+      
+      var allTags = _.map(allTagNames, function(tagName) {
+        return {
+          name: tagName,
+          active: false
+        };
+      });
+
+      return allTags;
+    };
+
+    this.allTags = this.setupInitialTags(this.opts.tagsItems);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    this.showLimited = function() {
+      return this.isLimited && this.isOverLimit;
+    };
+    this.removeLimit = function() {
+      this.doLimitDisplay = false;
+    };
+    this.reLimit = function() {
+      this.doLimitDisplay = true;
+
+      var navbarSpacing = 118;
+      var target = $('#'+this.opts.id);
+      $('html,body').animate({
+        scrollTop: target.offset().top - navbarSpacing
+      }, 650);
+    };
+
+    this.getItems = function() {
+      return this.opts.tagsItems;
+    };
+
+    this.getActiveItems = function() {
+      var result = [];
+      var activeTags = this.getActiveTags();
+      var taggedItems = this.getItems();
+
+      var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
+
+      if (activeTags.length === 0) {
+        result = taggedItems;
+      } else {
+        result = _.filter(taggedItems, function(item) {
+          return filterFunc.call(this, item, activeTags);
+        }, this);
+      }
+
+      this.isOverLimit = (this.isLimited && result.length > this.itemLimit);
+      if (this.isOverLimit && this.doLimitDisplay) {
+        return result.slice(0, this.itemLimit);
+      } else {
+        return result;
+      }
+    };
+
+    this.hasTag = function(item, testTag) {
+      return (_.indexOf(testTag, item.tags) !== -1);
+    };
+
+    this.hasAllActiveTags = function(item, activeTags) {
+      var thisItemTags = item.primaryTags;
+      var activeTagNames = this.getActiveTagNames();
+      return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
+    };
+    this.hasAnyActiveTags = function(item, activeTags) {
+      var thisItemTags = item.primaryTags;
+      for (var i = 0; i < activeTags.length; i++) {
+        if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    this.getItemsClass = function() {
+      return this.opts.itemsClass;
+    };
+  
+});
+
+riot.tag('tags-filters', '<div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div>', function(opts) {
+    this.allTags = [];
+
+
+    console.log("this.opts ::", this.opts);
+    console.log("this.opts.appConfig ::", this.opts.appConfig);
+
+    var appConfig = this.opts && this.opts.appConfig || {};
     this.disableFilters = appConfig.disableFilters;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
 
     this.matchAll = true; // True by default;
-    this.toggleMatching = function() { this.matchAll = !this.matchAll; this.update() };
+    this.toggleMatching = function() {
+      this.matchAll = !this.matchAll;
+      this.update();
+    };
     this.getMatchingClasses = function() {
       var classes = 'button any-all-toggle ';
       classes += this.matchAll ? 'selected-all' : 'selected-any';
@@ -291,76 +468,6 @@ riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator:
       }
       return this.filtersHidden;
     }
-
-    this.showLimited = function() {
-      return this.isLimited && this.isOverLimit;
-    };
-    this.removeLimit = function() {
-      this.doLimitDisplay = false;
-    };
-    this.reLimit = function() {
-      this.doLimitDisplay = true;
-
-      var navbarSpacing = 118;
-      var target = $('#'+this.opts.id);
-      $('html,body').animate({
-        scrollTop: target.offset().top - navbarSpacing
-      }, 650);
-    };
-
-    this.getItems = function() {
-      return this.opts.tagsItems;
-    };
-
-    this.getActiveItems = function() {
-      var result = [];
-      var activeTags = this.getActiveTags();
-      var taggedItems = this.getItems();
-
-      var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
-
-      if (activeTags.length === 0) {
-        result = taggedItems;
-      } else {
-        result = _.filter(taggedItems, function(item) {
-          return filterFunc.call(this, item, activeTags);
-        }, this);
-      }
-
-      this.isOverLimit = (this.isLimited && result.length > this.itemLimit);
-      if (this.isOverLimit && this.doLimitDisplay) {
-        return result.slice(0, this.itemLimit);
-      } else {
-        return result;
-      }
-    };
-
-    this.hasTag = function(item, testTag) {
-      return (_.indexOf(testTag, item.tags) !== -1);
-    };
-
-    this.hasAllActiveTags = function(item, activeTags) {
-      var thisItemTags = item.primaryTags;
-      var activeTagNames = this.getActiveTagNames();
-      return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
-    };
-    this.hasAnyActiveTags = function(item, activeTags) {
-      var thisItemTags = item.primaryTags;
-      for (var i = 0; i < activeTags.length; i++) {
-        if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
-          return true;
-        }
-      }
-      return false;
-    };
-
-    this.getItemsClass = function() {
-      return this.opts.itemsClass;
-    };
-  
-});
-
-riot.tag('tags-filters', '<div class="tags-filters"><div class="{tags-filters-wrapper: true, is-collapsed: !parent.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by" if="{this.getInactiveTags().length > 0}"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getInactiveTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div><div class="active-tags-container" if="{this.getActiveTags().length > 0}"><div class="matching-toggle-container"><p class="tags-section-title"> Match </p><div class="matching-any-all-toggle tags"><button class="{this.getMatchingClasses()}" onclick="{this.toggleMatching}"><div class="any-all-3d-wrap"><div class="any-all-text"><span class="matching-text cube-front all-text">all</span><span class="matching-text cube-bottom any-text">any</span></div></div><span class="filters-text">filters</span></button></div></div><div class="remove-search-tags-container"><p class="tags-section-title remove-search-tags"> Remove active filters: </p><div class="{this.opts.tagsClass} tags tags-active"><tag-button each="{this.getActiveTags()}" config="{this}"></tag-button></div></div></div></div></div></div>', function(opts) {
 
   
 });

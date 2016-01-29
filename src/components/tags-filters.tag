@@ -1,55 +1,133 @@
 <tags-filters>
-  <div class="tags-filters">
-    <div class="{ tags-filters-wrapper: true, is-collapsed: !parent.shouldShowFilters() }">
-      <div class="tags-filters-container">
-        <div class="tags-filters-header">
-          <p class="tags-section-title search-by" if={ this.getInactiveTags().length > 0 }>
-            Narrow work by skill:
-          </p>
-        </div>
-        <div class="tags-filters-buttons-wrapper">
-          <div class="{ this.opts.tagsClass } tags tags-filters">
-            <tag-button each={ this.getInactiveTags(); }
-                config={ this }>
-            </tag-button>
-          </div>
-        </div>
-        <div class="hide-filters">
-          <button class="x" onclick={ this.hideFilters }></button>
-        </div>
-
-        <div class="active-tags-container" if={ this.getActiveTags().length > 0 }>
-          <div class="matching-toggle-container">
-            <p class="tags-section-title"> Match </p>
-            <div class="matching-any-all-toggle tags">
-              <button class={ this.getMatchingClasses() }
-                  onclick={ this.toggleMatching }>
-                <div class="any-all-3d-wrap">
-                  <div class="any-all-text">
-                    <span class="matching-text cube-front all-text">all</span>
-                    <span class="matching-text cube-bottom any-text">any</span>
-                  </div>
-                </div>
-                <span class="filters-text">filters</span>
-              </button>
-            </div>
-          </div>
-          <div class="remove-search-tags-container">
-            <p class="tags-section-title remove-search-tags">
-              Remove active filters:
-            </p>
-            <div class="{ this.opts.tagsClass } tags tags-active">
-              <tag-button each={ this.getActiveTags() }
-                  config={ this }>
-              </tag-button>
-            </div>
-          </div>
+  <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
+    <div class="tags-filters-container">
+      <div class="tags-filters-header">
+        <p class="tags-section-title search-by">
+          Narrow work by skill:
+        </p>
+      </div>
+      <div class="tags-filters-buttons-wrapper">
+        <div class="{ this.opts.tagsClass } tags tags-filters">
+          <tag-button each={ this.getAllTags(); }
+              config={ this }>
+          </tag-button>
         </div>
       </div>
+
+      <div class="hide-filters">
+        <button class="x" onclick={ this.hideFilters }></button>
+      </div>
+
     </div>
   </div>
 
+
   <script>
+    this.allTags = [];
+    // console.log("this ::", this);
+    // this.filtersComponent = this.
+    console.log("this.opts ::", this.opts);
+    console.log("this.opts.appConfig ::", this.opts.appConfig);
+
+    var appConfig = this.opts && this.opts.appConfig || {};
+    this.disableFilters = appConfig.disableFilters;
+    this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+
+    this.matchAll = true; // True by default;
+    this.toggleMatching = function() {
+      this.matchAll = !this.matchAll;
+      this.update();
+    };
+    this.getMatchingClasses = function() {
+      var classes = 'button any-all-toggle ';
+      classes += this.matchAll ? 'selected-all' : 'selected-any';
+      return classes;
+    };
+
+    // ---- ---- ---- ---- ----
+    // Init
+    this.setupInitialTags = function(taggedItems) {
+      var allTagNames = [];
+      _.each(taggedItems, function(tagsItem) {
+        allTagNames = _.union(allTagNames, tagsItem.primaryTags);
+      });
+      
+      var allTags = _.map(allTagNames, function(tagName) {
+        return {
+          name: tagName,
+          active: false
+        };
+      });
+
+      return allTags;
+    };
+
+    this.getAllTags = function() {
+      return this.allTags;
+    }
+
+    this.setPresetFilters = function(allTags, presetFilters) {
+      var setTags = allTags;
+      if (presetFilters) {
+        if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
+          this.matchAll = (presetFilters === 'all');
+          presetFilters.shift();
+        }
+        _.each(setTags, function(tagObj, index, i) {
+          if (_.find(presetFilters, function(filterName) {
+                  return filterName === tagObj.name;
+                })) {
+            tagObj.active = true;
+          }
+        })
+      }
+      return setTags;
+    };
+
+    this.allTags = this.setupInitialTags(this.opts.tagsItems);
+    if (this.opts.presetFilters) {
+      this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
+    }
+
+    this.getActiveTags = function() {
+      var active = _.where(this.allTags, { active: true });
+      return active;
+    };
+    this.getActiveTagNames = function() {
+      return _.pluck(this.getActiveTags(), 'name');
+    };
+    this.getInactiveTags = function() {
+      var active = _.where(this.allTags, { active: false });
+      return active;
+    };
+    this.toggleTag = function(e) {
+      var tagName = e.item.name;
+      var tag = _.findWhere(this.allTags, {name: tagName});
+      tag.active = !tag.active;
+      this.update();
+    };
+
+
+    // Filters
+    this.hideFilters = function() {
+      this.filtersHidden = true;
+    }
+    this.showFilters = function() {
+      this.filtersHidden = false;
+    }
+    this.shouldShowFilters = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return !this.filtersHidden;
+    }
+    this.showFiltersTrigger = function() {
+      if (this.disableFilters) {
+        return false;
+      }
+      return this.filtersHidden;
+    }
 
   </script>
+
 </tags-filters>

@@ -6,7 +6,7 @@
       </button>
     </div>
 
-    <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
+<!--     <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
       <div class="tags-filters-container">
         <div class="tags-filters-header">
           <p class="tags-section-title search-by">
@@ -26,7 +26,13 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
+    <tags-filters
+      all-tags={  this.allTags }
+      app-config={ this.appConfig }
+      preset-filters={ this.presetFilters }
+      >
+    </tags-filters>
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="items-container">
@@ -70,23 +76,33 @@
   <script>
     this.isLimited = !!this.opts.itemLimit;
     this.doLimitDisplay = true; // true by default
+
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
 
-    var appConfig = this.opts.appConfig;
-    this.disableFilters = appConfig.disableFilters;
-    this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+    this.appConfig = this.opts.appConfig;
 
-    this.matchAll = true; // True by default;
-    this.toggleMatching = function() { this.matchAll = !this.matchAll; this.update() };
-    this.getMatchingClasses = function() {
-      var classes = 'button any-all-toggle ';
-      classes += this.matchAll ? 'selected-all' : 'selected-any';
-      return classes;
-    };
+    console.log("this ::", this);
+    // this.filtersOpts = {
+    //   appConfig: appConfig
+    // }
 
-    // ---- ---- ---- ---- ----
-    // Init
+    // this.disableFilters = appConfig.disableFilters;
+    // this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+
+    // this.matchAll = true; // True by default;
+    // this.toggleMatching = function() {
+    //   this.matchAll = !this.matchAll;
+    //   this.update();
+    // };
+    // this.getMatchingClasses = function() {
+    //   var classes = 'button any-all-toggle ';
+    //   classes += this.matchAll ? 'selected-all' : 'selected-any';
+    //   return classes;
+    // };
+
+    // // ---- ---- ---- ---- ----
+    // // Init
     this.setupInitialTags = function(taggedItems) {
       var allTagNames = [];
       _.each(taggedItems, function(tagsItem) {
@@ -103,71 +119,73 @@
       return allTags;
     };
 
-    this.getAllTags = function() {
-      return this.allTags;
-    }
-
-    this.setPresetFilters = function(allTags, presetFilters) {
-      var setTags = allTags;
-      if (presetFilters) {
-        if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
-          this.matchAll = (presetFilters === 'all');
-          presetFilters.shift();
-        }
-        _.each(setTags, function(tagObj, index, i) {
-          if (_.find(presetFilters, function(filterName) {
-                  return filterName === tagObj.name;
-                })) {
-            tagObj.active = true;
-          }
-        })
-      }
-      return setTags;
-    };
-
     this.allTags = this.setupInitialTags(this.opts.tagsItems);
-    if (this.opts.presetFilters) {
-      this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
-    }
 
-    this.getActiveTags = function() {
-      var active = _.where(this.allTags, { active: true });
-      return active;
-    };
-    this.getActiveTagNames = function() {
-      return _.pluck(this.getActiveTags(), 'name');
-    };
-    this.getInactiveTags = function() {
-      var active = _.where(this.allTags, { active: false });
-      return active;
-    };
-    this.toggleTag = function(e) {
-      var tagName = e.item.name;
-      var tag = _.findWhere(this.allTags, {name: tagName});
-      tag.active = !tag.active;
-      this.update();
-    };
+    // this.getAllTags = function() {
+    //   return this.allTags;
+    // }
+
+    // this.setPresetFilters = function(allTags, presetFilters) {
+    //   var setTags = allTags;
+    //   if (presetFilters) {
+    //     if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
+    //       this.matchAll = (presetFilters === 'all');
+    //       presetFilters.shift();
+    //     }
+    //     _.each(setTags, function(tagObj, index, i) {
+    //       if (_.find(presetFilters, function(filterName) {
+    //               return filterName === tagObj.name;
+    //             })) {
+    //         tagObj.active = true;
+    //       }
+    //     })
+    //   }
+    //   return setTags;
+    // };
+
+    // // this.allTags = this.setupInitialTags(this.opts.tagsItems);
+    // if (this.opts.presetFilters) {
+    //   this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
+    // }
+
+    // this.getActiveTags = function() {
+    //   var active = _.where(this.allTags, { active: true });
+    //   return active;
+    // };
+    // this.getActiveTagNames = function() {
+    //   return _.pluck(this.getActiveTags(), 'name');
+    // };
+    // this.getInactiveTags = function() {
+    //   var active = _.where(this.allTags, { active: false });
+    //   return active;
+    // };
+    // this.toggleTag = function(e) {
+    //   var tagName = e.item.name;
+    //   var tag = _.findWhere(this.allTags, {name: tagName});
+    //   tag.active = !tag.active;
+    //   this.update();
+    // };
 
 
-    // Filters
-    this.hideFilters = function() {
-      this.filtersHidden = true;
-    }
-    this.showFilters = function() {
-      this.filtersHidden = false;
-    }
-    this.shouldShowFilters = function() {
-      if (this.disableFilters) {
-        return false;
-      }
-      return !this.filtersHidden;
-    }
-    this.showFiltersTrigger = function() {
-      if (this.disableFilters) {
-        return false;
-      }
-      return this.filtersHidden;
-    }
+    // // Filters
+    // this.hideFilters = function() {
+    //   this.filtersHidden = true;
+    // }
+    // this.showFilters = function() {
+    //   this.filtersHidden = false;
+    // }
+    // this.shouldShowFilters = function() {
+    //   if (this.disableFilters) {
+    //     return false;
+    //   }
+    //   return !this.filtersHidden;
+    // }
+    // this.showFiltersTrigger = function() {
+    //   if (this.disableFilters) {
+    //     return false;
+    //   }
+    //   return this.filtersHidden;
+    // }
 
 
     // Limit
