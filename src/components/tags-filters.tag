@@ -29,6 +29,9 @@
 
 
   <script>
+    // riot.observable(this);
+    var CHANGE_EVENT = 'filters-change';
+
     this.allTags = this.opts.allTags;
 
     this.getAllTags = function() {
@@ -39,6 +42,8 @@
     this.disableFilters = appConfig.disableFilters;
     this.hideFilters = appConfig.hideFilters;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
+
+    this.actionHandler = this.opts.actionHandler;
 
     this.matchAll = true; // True by default;
     this.toggleMatching = function() {
@@ -51,24 +56,23 @@
       return classes;
     };
 
-    // ---- ---- ---- ---- ----
-    // Init
-    this.setupInitialTags = function(taggedItems) {
-      var allTagNames = [];
-      _.each(taggedItems, function(tagsItem) {
-        allTagNames = _.union(allTagNames, tagsItem.primaryTags);
-      });
+    // // Init
+
+    // this.setupInitialTags = function(taggedItems) {
+    //   var allTagNames = [];
+    //   _.each(taggedItems, function(tagsItem) {
+    //     allTagNames = _.union(allTagNames, tagsItem.primaryTags);
+    //   });
       
-      var allTags = _.map(allTagNames, function(tagName) {
-        return {
-          name: tagName,
-          active: false
-        };
-      });
+    //   var allTags = _.map(allTagNames, function(tagName) {
+    //     return {
+    //       name: tagName,
+    //       active: false
+    //     };
+    //   });
 
-      return allTags;
-    };
-
+    //   return allTags;
+    // };
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
@@ -88,11 +92,8 @@
       return setTags;
     };
 
-    // this.allTags = this.setupInitialTags(this.opts.tagsItems);
-    // if (this.opts.presetFilters) {
-    //   this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
-    // }
 
+    // Active Tags and Toggling
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });
       return active;
@@ -108,7 +109,7 @@
       var tagName = e.item.name;
       var tag = _.findWhere(this.allTags, {name: tagName});
       tag.active = !tag.active;
-      this.update();
+      this.actionHandler.trigger( CHANGE_EVENT );
     };
 
 

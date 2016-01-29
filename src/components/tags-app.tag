@@ -29,6 +29,7 @@
     </div> -->
     <tags-filters
       app-config={ this.appConfig }
+      action-handler={ this.actionHandler }
       all-tags={ this.allTags }
       tags-class={ this.opts.tagsClass }
       preset-filters={ this.presetFilters }
@@ -75,6 +76,15 @@
   </div>
 
   <script>
+
+    this.actionHandler = riot.observable();
+    this.filtersComponent = this.tags['tags-filters'];
+
+    var _this = this;
+    this.actionHandler.on('filters-change', function() {
+      _this.update();
+    });
+
     this.isLimited = !!this.opts.itemLimit;
     this.doLimitDisplay = true; // true by default
 
@@ -83,30 +93,8 @@
 
     this.appConfig = this.opts.appConfig;
 
-    this.filtersComponent = this.tags['tags-filters'];
-    // console.log("this.filtersComponent ::", this.filtersComponent);
 
-    // console.log("this ::", this);
-    // this.filtersOpts = {
-    //   appConfig: appConfig
-    // }
-
-    // this.disableFilters = appConfig.disableFilters;
-    // this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
-
-    // this.matchAll = true; // True by default;
-    // this.toggleMatching = function() {
-    //   this.matchAll = !this.matchAll;
-    //   this.update();
-    // };
-    // this.getMatchingClasses = function() {
-    //   var classes = 'button any-all-toggle ';
-    //   classes += this.matchAll ? 'selected-all' : 'selected-any';
-    //   return classes;
-    // };
-
-    // // ---- ---- ---- ---- ----
-    // // Init
+    // Init
     this.setupInitialTags = function(taggedItems) {
       var allTagNames = [];
       _.each(taggedItems, function(tagsItem) {
@@ -122,74 +110,7 @@
 
       return allTags;
     };
-
     this.allTags = this.setupInitialTags(this.opts.tagsItems);
-
-    // this.getAllTags = function() {
-    //   return this.allTags;
-    // }
-
-    // this.setPresetFilters = function(allTags, presetFilters) {
-    //   var setTags = allTags;
-    //   if (presetFilters) {
-    //     if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
-    //       this.matchAll = (presetFilters === 'all');
-    //       presetFilters.shift();
-    //     }
-    //     _.each(setTags, function(tagObj, index, i) {
-    //       if (_.find(presetFilters, function(filterName) {
-    //               return filterName === tagObj.name;
-    //             })) {
-    //         tagObj.active = true;
-    //       }
-    //     })
-    //   }
-    //   return setTags;
-    // };
-
-    // // this.allTags = this.setupInitialTags(this.opts.tagsItems);
-    // if (this.opts.presetFilters) {
-    //   this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
-    // }
-
-    // this.getActiveTags = function() {
-    //   var active = _.where(this.allTags, { active: true });
-    //   return active;
-    // };
-    // this.getActiveTagNames = function() {
-    //   return _.pluck(this.getActiveTags(), 'name');
-    // };
-    // this.getInactiveTags = function() {
-    //   var active = _.where(this.allTags, { active: false });
-    //   return active;
-    // };
-    // this.toggleTag = function(e) {
-    //   var tagName = e.item.name;
-    //   var tag = _.findWhere(this.allTags, {name: tagName});
-    //   tag.active = !tag.active;
-    //   this.update();
-    // };
-
-
-    // // Filters
-    // this.hideFilters = function() {
-    //   this.filtersHidden = true;
-    // }
-    // this.showFilters = function() {
-    //   this.filtersHidden = false;
-    // }
-    // this.shouldShowFilters = function() {
-    //   if (this.disableFilters) {
-    //     return false;
-    //   }
-    //   return !this.filtersHidden;
-    // }
-    // this.showFiltersTrigger = function() {
-    //   if (this.disableFilters) {
-    //     return false;
-    //   }
-    //   return this.filtersHidden;
-    // }
 
 
     // Limit
@@ -217,17 +138,18 @@
     };
 
     this.getActiveItems = function() {
+      console.log("getActiveItems");
       var result = [];
       var activeTagNames = this.filtersComponent.getActiveTagNames();
       var taggedItems = this.getItems();
 
-      var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
+      var filterFunc = (this.filtersComponent.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
 
-      if (activeTags.length === 0) {
+      if (activeTagNames.length === 0) {
         result = taggedItems;
       } else {
         result = _.filter(taggedItems, function(item) {
-          return filterFunc.call(this, item, activeTags);
+          return filterFunc.call(this, item, activeTagNames);
         }, this);
       }
 
@@ -239,13 +161,15 @@
       }
     };
 
+
     this.hasTag = function(item, testTag) {
       return (_.indexOf(testTag, item.tags) !== -1);
     };
+
     // TODO this seems to be broken in some strange way
     this.hasAllActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
-      return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
+      return _.intersection(item.primaryTags, activeTagNames).length === activeTagNames.length;
     };
     this.hasAnyActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
@@ -260,5 +184,6 @@
     this.getItemsClass = function() {
       return this.opts.itemsClass;
     };
+
   </script>
 </tags-app>
