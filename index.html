@@ -363,7 +363,6 @@
     (function() {
       var mainNavWrap  = $('.main-nav-wrapper');
       var mainNav  = mainNavWrap.children('.main-nav');
-      console.log("mainNav ::", mainNav);
       var isSticky = 'is-sticky';
       var stickyThreshold = $(mainNav).height()*2;
 
@@ -525,6 +524,8 @@
         }
       );
 
+      console.log("temp disable pubs apps");
+      /*
       var publications = riot.mount(
         '#publications-app',
         'tags-app',
@@ -555,6 +556,7 @@
           tagsItems: journoPublicationItems
         }
       );
+      */
 
     } catch (e) {
       window.debug.error("Error mounting app, e ::", e, e.stack);

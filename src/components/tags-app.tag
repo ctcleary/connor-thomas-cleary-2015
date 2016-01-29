@@ -1,10 +1,10 @@
 <tags-app>
   <div class="tags-app">
-    <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
+<!--     <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
       <button class="button" onclick={ this.showFilters }>
         add filters
       </button>
-    </div>
+    </div> -->
 
 <!--     <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
       <div class="tags-filters-container">
@@ -28,8 +28,9 @@
       </div>
     </div> -->
     <tags-filters
-      all-tags={  this.allTags }
       app-config={ this.appConfig }
+      all-tags={ this.allTags }
+      tags-class={ this.opts.tagsClass }
       preset-filters={ this.presetFilters }
       >
     </tags-filters>
@@ -82,7 +83,10 @@
 
     this.appConfig = this.opts.appConfig;
 
-    console.log("this ::", this);
+    this.filtersComponent = this.tags['tags-filters'];
+    // console.log("this.filtersComponent ::", this.filtersComponent);
+
+    // console.log("this ::", this);
     // this.filtersOpts = {
     //   appConfig: appConfig
     // }
@@ -214,7 +218,7 @@
 
     this.getActiveItems = function() {
       var result = [];
-      var activeTags = this.getActiveTags();
+      var activeTagNames = this.filtersComponent.getActiveTagNames();
       var taggedItems = this.getItems();
 
       var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
@@ -239,15 +243,14 @@
       return (_.indexOf(testTag, item.tags) !== -1);
     };
     // TODO this seems to be broken in some strange way
-    this.hasAllActiveTags = function(item, activeTags) {
+    this.hasAllActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
-      var activeTagNames = this.getActiveTagNames();
       return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
     };
-    this.hasAnyActiveTags = function(item, activeTags) {
+    this.hasAnyActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
-      for (var i = 0; i < activeTags.length; i++) {
-        if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
+      for (var i = 0; i < activeTagNames.length; i++) {
+        if (_.indexOf(thisItemTags, activeTagNames[i]) !== -1) {
           return true;
         }
       }

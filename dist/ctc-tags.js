@@ -193,7 +193,7 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
   
 });
 
-riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div>  <tags-filters all-tags="{this.allTags}" app-config="{this.appConfig}" preset-filters="{this.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
+riot.tag('tags-app', '<div class="tags-app">   <tags-filters app-config="{this.appConfig}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
     this.isLimited = !!this.opts.itemLimit;
     this.doLimitDisplay = true; // true by default
 
@@ -202,7 +202,9 @@ riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator:
 
     this.appConfig = this.opts.appConfig;
 
-    console.log("this ::", this);
+    this.filtersComponent = this.tags['tags-filters'];
+
+
 
 
 
@@ -320,7 +322,7 @@ riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator:
 
     this.getActiveItems = function() {
       var result = [];
-      var activeTags = this.getActiveTags();
+      var activeTagNames = this.filtersComponent.getActiveTagNames();
       var taggedItems = this.getItems();
 
       var filterFunc = (this.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
@@ -345,15 +347,14 @@ riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator:
       return (_.indexOf(testTag, item.tags) !== -1);
     };
 
-    this.hasAllActiveTags = function(item, activeTags) {
+    this.hasAllActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
-      var activeTagNames = this.getActiveTagNames();
       return _.intersection(item.primaryTags, activeTagNames).length === activeTags.length;
     };
-    this.hasAnyActiveTags = function(item, activeTags) {
+    this.hasAnyActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
-      for (var i = 0; i < activeTags.length; i++) {
-        if (_.indexOf(thisItemTags, activeTags[i].name) !== -1) {
+      for (var i = 0; i < activeTagNames.length; i++) {
+        if (_.indexOf(thisItemTags, activeTagNames[i]) !== -1) {
           return true;
         }
       }
@@ -366,15 +367,16 @@ riot.tag('tags-app', '<div class="tags-app"><div class="{tags-filters-activator:
   
 });
 
-riot.tag('tags-filters', '<div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div>', function(opts) {
-    this.allTags = [];
+riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div>', function(opts) {
+    this.allTags = this.opts.allTags;
 
-
-    console.log("this.opts ::", this.opts);
-    console.log("this.opts.appConfig ::", this.opts.appConfig);
+    this.getAllTags = function() {
+      return this.allTags;
+    }
 
     var appConfig = this.opts && this.opts.appConfig || {};
     this.disableFilters = appConfig.disableFilters;
+    this.hideFilters = appConfig.hideFilters;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
 
     this.matchAll = true; // True by default;
@@ -405,9 +407,6 @@ riot.tag('tags-filters', '<div class="{tags-filters-wrapper: true, is-collapsed:
       return allTags;
     };
 
-    this.getAllTags = function() {
-      return this.allTags;
-    }
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
@@ -427,10 +426,9 @@ riot.tag('tags-filters', '<div class="{tags-filters-wrapper: true, is-collapsed:
       return setTags;
     };
 
-    this.allTags = this.setupInitialTags(this.opts.tagsItems);
-    if (this.opts.presetFilters) {
-      this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
-    }
+
+
+
 
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });

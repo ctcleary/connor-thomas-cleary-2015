@@ -54,8 +54,6 @@ Typist.prototype = {
       this.stageIndex++;
       var stage = this.stages[ this.stageIndex ];
       this.setTypeCharTimeout(stage.delay || 0);
-    } else {
-      console.log("donezo");
     }
   },
 
@@ -78,7 +76,6 @@ Typist.prototype = {
   },
 
   completeStage: function() {
-      console.log("donesies.");
       var stage = this.stages[this.stageIndex];
       if ( stage.clearAfterComplete ) {
         var clearDelay = stage.clearDelay;

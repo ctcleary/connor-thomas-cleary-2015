@@ -1,4 +1,10 @@
 <tags-filters>
+  <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
+    <button class="button" onclick={ this.showFilters }>
+      add filters
+    </button>
+  </div>
+
   <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
     <div class="tags-filters-container">
       <div class="tags-filters-header">
@@ -8,7 +14,7 @@
       </div>
       <div class="tags-filters-buttons-wrapper">
         <div class="{ this.opts.tagsClass } tags tags-filters">
-          <tag-button each={ this.getAllTags(); }
+          <tag-button each={ this.getAllTags() }
               config={ this }>
           </tag-button>
         </div>
@@ -23,14 +29,15 @@
 
 
   <script>
-    this.allTags = [];
-    // console.log("this ::", this);
-    // this.filtersComponent = this.
-    console.log("this.opts ::", this.opts);
-    console.log("this.opts.appConfig ::", this.opts.appConfig);
+    this.allTags = this.opts.allTags;
+
+    this.getAllTags = function() {
+      return this.allTags;
+    }
 
     var appConfig = this.opts && this.opts.appConfig || {};
     this.disableFilters = appConfig.disableFilters;
+    this.hideFilters = appConfig.hideFilters;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
 
     this.matchAll = true; // True by default;
@@ -62,9 +69,6 @@
       return allTags;
     };
 
-    this.getAllTags = function() {
-      return this.allTags;
-    }
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
@@ -84,10 +88,10 @@
       return setTags;
     };
 
-    this.allTags = this.setupInitialTags(this.opts.tagsItems);
-    if (this.opts.presetFilters) {
-      this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
-    }
+    // this.allTags = this.setupInitialTags(this.opts.tagsItems);
+    // if (this.opts.presetFilters) {
+    //   this.allTags = this.setPresetFilters(this.allTags, this.opts.presetFilters);
+    // }
 
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });
