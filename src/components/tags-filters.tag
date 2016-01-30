@@ -11,14 +11,17 @@
         <p class="tags-section-title search-by">
           Narrow work by skill:
         </p>
-        <div class="filter-type-container">
+        <div
+          class="{ filter-type-container: true, is-hidden: !this.anyTagsActivated() }">
           <button
-            class="{ filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll }">
-            exclusive
+            class="{ filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll }"
+            onclick={ this.toggleMatching }>
+            match-all
           </button>
           <button
-            class="{ filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll }">
-            inclusive
+            class="{ filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll }"
+            onclick={ this.toggleMatching }>
+            match-any
           </button>
         </div>
       </div>
@@ -31,7 +34,9 @@
       </div>
 
       <div class="hide-filters">
-        <button class="x" onclick={ this.hideFilters }></button>
+        <button class="x" onclick={ this.hideFilters }>
+          <img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"/>
+        </button>
       </div>
 
     </div>
@@ -41,6 +46,10 @@
   <script>
     // riot.observable(this);
     var CHANGE_EVENT = 'filters-change';
+
+    this.on('update', function() {
+      this.actionHandler.trigger( CHANGE_EVENT );
+    });
 
     this.allTags = this.opts.allTags;
 
@@ -60,11 +69,14 @@
       this.matchAll = !this.matchAll;
       this.update();
     };
-    this.getMatchingClasses = function() {
-      var classes = 'button any-all-toggle ';
-      classes += this.matchAll ? 'selected-all' : 'selected-any';
-      return classes;
-    };
+    this.getMatchAll = function() {
+      return this.matchAll;
+    }
+    // this.getMatchingClasses = function() {
+    //   var classes = 'button any-all-toggle ';
+    //   classes += this.matchAll ? 'selected-all' : 'selected-any';
+    //   return classes;
+    // };
 
     // Init
     this.setPresetFilters = function(allTags, presetFilters) {
@@ -91,6 +103,9 @@
       var active = _.where(this.allTags, { active: true });
       return active;
     };
+    this.anyTagsActivated = function() {
+      return this.getActiveTags().length > 0;
+    };
     this.getActiveTagNames = function() {
       return _.pluck(this.getActiveTags(), 'name');
     };
@@ -102,7 +117,7 @@
       var tagName = e.item.name;
       var tag = _.findWhere(this.allTags, {name: tagName});
       tag.active = !tag.active;
-      this.actionHandler.trigger( CHANGE_EVENT );
+      this.update();
     };
 
 

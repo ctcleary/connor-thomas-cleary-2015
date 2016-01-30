@@ -52,6 +52,11 @@ ul ul ul {
     margin-bottom: 0;
 }
 
+button:focus {
+    outline: thin solid rgba(0, 0, 128, 0.25);
+    outline-offset: 1px;
+}
+
 .wrapper {
   position: relative;
   min-height: 100%;
@@ -87,7 +92,7 @@ h2 {
     font-size: 22px;
   }
   h2, h3 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 @include respond-to(x-small) {

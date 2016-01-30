@@ -1,32 +1,5 @@
 <tags-app>
   <div class="tags-app">
-<!--     <div class="{ tags-filters-activator: true, is-hidden: this.shouldShowFilters() }">
-      <button class="button" onclick={ this.showFilters }>
-        add filters
-      </button>
-    </div> -->
-
-<!--     <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
-      <div class="tags-filters-container">
-        <div class="tags-filters-header">
-          <p class="tags-section-title search-by">
-            Narrow work by skill:
-          </p>
-        </div>
-        <div class="tags-filters-buttons-wrapper">
-          <div class="{ this.opts.tagsClass } tags tags-filters">
-            <tag-button each={ this.getAllTags(); }
-                config={ this }>
-            </tag-button>
-          </div>
-        </div>
-
-        <div class="hide-filters">
-          <button class="x" onclick={ this.hideFilters }></button>
-        </div>
-
-      </div>
-    </div> -->
     <tags-filters
       app-config={ this.appConfig }
       action-handler={ this.actionHandler }
@@ -138,12 +111,13 @@
     };
 
     this.getActiveItems = function() {
-      console.log("getActiveItems");
       var result = [];
       var activeTagNames = this.filtersComponent.getActiveTagNames();
       var taggedItems = this.getItems();
 
-      var filterFunc = (this.filtersComponent.matchAll) ? this.hasAllActiveTags : this.hasAnyActiveTags;
+      var filterFunc = ( this.filtersComponent.getMatchAll() ) ?
+              this.itemHasAllActiveTags :
+              this.itemHasAnyActiveTags;
 
       if (activeTagNames.length === 0) {
         result = taggedItems;
@@ -167,11 +141,11 @@
     };
 
     // TODO this seems to be broken in some strange way
-    this.hasAllActiveTags = function(item, activeTagNames) {
+    this.itemHasAllActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
       return _.intersection(item.primaryTags, activeTagNames).length === activeTagNames.length;
     };
-    this.hasAnyActiveTags = function(item, activeTagNames) {
+    this.itemHasAnyActiveTags = function(item, activeTagNames) {
       var thisItemTags = item.primaryTags;
       for (var i = 0; i < activeTagNames.length; i++) {
         if (_.indexOf(thisItemTags, activeTagNames[i]) !== -1) {

@@ -3,14 +3,21 @@
   cursor: pointer;
 }
 
+$tagsTransitionLength: 0.3s;
+$activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
+
+.tags .tag-button,
+.filter-type {
+    transition: background-color $tagsTransitionLength $easeInOutSine,
+                color $tagsTransitionLength $easeInOutSine;
+}
+
 .tags {
-  $tagsTransitionLength: 0.3s;
-  $activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
 
   .tag-button {
     border: none;
-    transition: background-color $tagsTransitionLength $easeInOutSine,
-                color $tagsTransitionLength $easeInOutSine;
+    // transition: background-color $tagsTransitionLength $easeInOutSine,
+    //             color $tagsTransitionLength $easeInOutSine;
 
 
     &.tag-button-active {
@@ -39,5 +46,18 @@
     &.tag-button-active:after {
       content: '\2013';    // ndash
     }
+  }
+}
+
+.filter-type {
+  opacity: 0.8;
+
+  &.active-filter-type {
+    opacity: 1;
+    background: $activeTagBackground;
+  }
+  &:hover {
+    background: $interactive-hover;
+    color: white; 
   }
 }

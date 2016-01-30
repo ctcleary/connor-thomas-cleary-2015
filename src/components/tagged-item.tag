@@ -13,7 +13,6 @@
     <div class="item-icon"></div>
 
   <script>
-    console.log("tagged-item mount");
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 
