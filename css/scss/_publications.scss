@@ -40,8 +40,6 @@
     .item-venue,
     .item-tags {
       line-height: 18px;
-      // font-size: 14px;
-      // font-weight: 300;
     }
     .item-title,
     .item-venue,
@@ -49,7 +47,6 @@
       display: inline-block;
     }
     .item-venue:before {
-    // .item-tags:before {
       content: '- ';
       padding-left: 4px;
     }

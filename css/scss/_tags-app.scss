@@ -33,7 +33,6 @@
       padding: 0;
     }
 
-
     .over-limit {
       position: relative;
       display: block;
@@ -45,7 +44,8 @@
       text-align: center;
 
       &:hover {
-        text-decoration: underline;
+        color: $interactive-hover;
+        // text-decoration: underline;
       }
 
       // Arrows down.

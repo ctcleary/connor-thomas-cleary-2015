@@ -352,7 +352,7 @@ tagged-item .item-icon {
     font-style: italic;
     text-align: center; }
     .tags-app .over-limit-wrapper .over-limit:hover {
-      text-decoration: underline; }
+      color: #3E7CF7; }
     .tags-app .over-limit-wrapper .over-limit.is-limiting .over-limit-text:before, .tags-app .over-limit-wrapper .over-limit.is-limiting .over-limit-text:after {
       border-top: 4px solid black; }
     .tags-app .over-limit-wrapper .over-limit.not-limiting .over-limit-text:before, .tags-app .over-limit-wrapper .over-limit.not-limiting .over-limit-text:after {
@@ -1104,9 +1104,10 @@ tagged-item {
   .skills-container ul {
     list-style-type: none; }
     .skills-container ul li {
-      margin-bottom: 7px; }
+      margin-bottom: 15px;
+      line-height: 20px; }
   .skills-container ul ul {
-    margin-top: 7px;
+    margin-top: 15px;
     margin-bottom: 0; }
     .skills-container ul ul li {
       margin-bottom: 0; }
