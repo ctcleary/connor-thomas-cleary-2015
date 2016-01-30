@@ -969,9 +969,9 @@ tagged-item {
     .portfolio .slate-item .cover .item .item-title:after {
       content: '';
       display: block;
-      width: 10%;
+      width: 5%;
       height: 1px;
-      margin: 11px auto 3px auto;
+      margin: 12px auto 3px auto;
       border-bottom: thin solid black;
       opacity: 0.85; }
   .portfolio .slate-item .cover .item .item-venue,
@@ -1001,7 +1001,7 @@ tagged-item {
     margin-bottom: 15px;
     padding: 6px 0 6px 1%; }
     .pubs-wrapper .pub-item .cover {
-      padding: 15px 0; }
+      padding: 15px; }
     .pubs-wrapper .pub-item.w-url, .pubs-wrapper .pub-item.w-modal {
       padding-right: 40px; }
       .pubs-wrapper .pub-item.w-url:hover, .pubs-wrapper .pub-item.w-modal:hover {
@@ -1122,13 +1122,15 @@ tagged-item {
 
 @media (max-width: 1200px) {
   .skills-container .skills-segment {
-    padding: 15px 15px 15px 0; } }
+    padding: 15px 15px 15px 0;
+    width: 95%; } }
 @media (max-width: 820px) {
   .skills-container .skills-column {
     width: 100%; }
   .skills-container .skills-segment {
     padding: 30px;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    width: 100%; }
     .skills-container .skills-segment h3 {
       text-align: left;
       margin-left: 1.15em; }
