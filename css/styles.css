@@ -885,6 +885,8 @@ tagged-item {
   100% {
     opacity: 1; } }
 /* TRANSLATES */
+.portfolio .items-container {
+  width: 90%; }
 .portfolio .slates-wrapper {
   width: 100%;
   padding: 0;
@@ -1141,7 +1143,8 @@ tagged-item {
   color: black; }
   .about .about-container {
     margin: 0 auto;
-    width: 90%; }
+    width: 90%;
+    padding-bottom: 30px; }
   .about .about-segments {
     display: -webkit-box;
     display: -webkit-flex;
