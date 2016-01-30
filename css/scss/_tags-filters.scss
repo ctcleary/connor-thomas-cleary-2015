@@ -110,7 +110,30 @@
 }
 .tags-section-title {
   position: relative;
+  display: inline-block;
   white-space: nowrap;
+}
+
+.filter-type-container {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 13px;
+
+  .filter-type {
+    border: thin solid black;
+    border-radius: 0;
+    background: white;
+
+    &.active-filter-type {
+      color: white;
+      background: $interactive-hover;
+    }
+  }
+  .filter-inclusive {
+  }
+  .filter-exclusive {
+    border-right:0;
+  }
 }
 
 

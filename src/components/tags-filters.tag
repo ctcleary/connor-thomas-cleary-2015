@@ -11,6 +11,16 @@
         <p class="tags-section-title search-by">
           Narrow work by skill:
         </p>
+        <div class="filter-type-container">
+          <button
+            class="{ filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll }">
+            exclusive
+          </button>
+          <button
+            class="{ filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll }">
+            inclusive
+          </button>
+        </div>
       </div>
       <div class="tags-filters-buttons-wrapper">
         <div class="{ this.opts.tagsClass } tags tags-filters">
@@ -56,24 +66,7 @@
       return classes;
     };
 
-    // // Init
-
-    // this.setupInitialTags = function(taggedItems) {
-    //   var allTagNames = [];
-    //   _.each(taggedItems, function(tagsItem) {
-    //     allTagNames = _.union(allTagNames, tagsItem.primaryTags);
-    //   });
-      
-    //   var allTags = _.map(allTagNames, function(tagName) {
-    //     return {
-    //       name: tagName,
-    //       active: false
-    //     };
-    //   });
-
-    //   return allTags;
-    // };
-
+    // Init
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
       if (presetFilters) {

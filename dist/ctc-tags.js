@@ -299,7 +299,7 @@ riot.tag('tags-app', '<div class="tags-app">   <tags-filters app-config="{this.a
   
 });
 
-riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div>', function(opts) {
+riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p><div class="filter-type-container"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}"> exclusive </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}"> inclusive </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"></button></div></div></div>', function(opts) {
     var CHANGE_EVENT = 'filters-change';
 
     this.allTags = this.opts.allTags;
@@ -325,20 +325,6 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
       classes += this.matchAll ? 'selected-all' : 'selected-any';
       return classes;
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
