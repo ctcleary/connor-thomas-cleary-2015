@@ -1086,7 +1086,7 @@ tagged-item {
   .skills-container .skills-segment {
     background-color: rgba(183, 213, 237, 0.8);
     width: 90%;
-    padding: 30px 15px;
+    padding: 30px 30px 30px 15px;
     margin: 0 auto 30px auto;
     text-align: left; }
   .skills-container .skills-segment-header {
