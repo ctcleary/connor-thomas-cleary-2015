@@ -105,6 +105,7 @@
 
 .tags-filters-header {
   text-align: center;
+  padding-right: 10px;
 }
 .tags-section-title {
   position: relative;
@@ -112,15 +113,19 @@
   white-space: nowrap;
 }
 
+
+
 .filter-type-container {
   display: inline-block;
   margin: 0 auto;
   font-size: 14px;
   line-height: 15px;
+  height: 15px;
 
-  transition: opacity 0.3s linear;
+  transition: opacity 0.3s 0 linear;
 
   &.is-hidden {
+    display: none;
     opacity: 0;
     visibility: hidden;
   }
@@ -129,15 +134,16 @@
 .filter-type {
   border: 0;
   border-radius: 0;
-  background: transparent;
   padding-bottom: 3px;
 }
+
+
 
 .hide-filters {
   // @include vertical-align();
   right: 0;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
 
   .x {
     position: relative;
@@ -146,7 +152,6 @@
 
 
     border: none;
-    // background: red; // temp
     background: transparent;
     cursor: pointer;
     padding: 0 2px 0 1px;
@@ -170,6 +175,12 @@
     height: 20%;
     width: 100%;
   }
+
+  .filter-type-container {
+    display: block;
+    margin-bottom: 15px;
+  }
+
   .tags-filters-buttons-wrapper {
     height: 80%;
   }
@@ -188,9 +199,5 @@
   }
 }
 
-@include respond-to(small) {
-  .filter-type-container {
-    display: block;
-    margin-bottom: 15px;
-  }
-}
+// @include respond-to(small) {
+// }

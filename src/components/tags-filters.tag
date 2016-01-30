@@ -9,7 +9,7 @@
     <div class="tags-filters-container">
       <div class="tags-filters-header">
         <p class="tags-section-title search-by">
-          Narrow work by skill:
+          Narrow work by skill
         </p>
         <div
           class="{ filter-type-container: true, is-hidden: !this.anyTagsActivated() }">
@@ -64,7 +64,8 @@
 
     this.actionHandler = this.opts.actionHandler;
 
-    this.matchAll = true; // True by default;
+    // this.matchAll = true;
+    this.matchAll = false;
     this.toggleMatching = function() {
       this.matchAll = !this.matchAll;
       this.update();
@@ -72,11 +73,6 @@
     this.getMatchAll = function() {
       return this.matchAll;
     }
-    // this.getMatchingClasses = function() {
-    //   var classes = 'button any-all-toggle ';
-    //   classes += this.matchAll ? 'selected-all' : 'selected-any';
-    //   return classes;
-    // };
 
     // Init
     this.setPresetFilters = function(allTags, presetFilters) {
@@ -99,6 +95,12 @@
 
 
     // Active Tags and Toggling
+    this.resetAllFilters = function() {
+      _.each(this.allTags, function(tag) {
+        tag.active = false;
+      });
+    }
+
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });
       return active;
@@ -124,6 +126,7 @@
     // Filters
     this.hideFilters = function() {
       this.filtersHidden = true;
+      this.resetAllFilters();
     }
     this.showFilters = function() {
       this.filtersHidden = false;

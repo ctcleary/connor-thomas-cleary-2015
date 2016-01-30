@@ -21,13 +21,15 @@ $activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
 
 
     &.tag-button-active {
-      background-color: $activeTagBackground;
+      // background-color: $activeTagBackground
+      background-color: $interactive-hover;
+      color: white;
     }
 
-    // &:hover {
     &.tag-button-inactive:hover,
     &.tag-button-active:hover {
       background-color: $interactive-hover;
+      // background-color: $activeTagBackground;
       color: white;
       &:after {
         color: white;
@@ -50,11 +52,13 @@ $activeTagBackground: lighten( desaturate($interactive-hover, 15%), 30% );
 }
 
 .filter-type {
-  opacity: 0.8;
+  // opacity: 0.8;
 
   &.active-filter-type {
     opacity: 1;
-    background: $activeTagBackground;
+    // background: $activeTagBackground;
+    background: $interactive-hover;;
+    color: white; 
   }
   &:hover {
     background: $interactive-hover;

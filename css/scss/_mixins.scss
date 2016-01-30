@@ -22,3 +22,13 @@ $easeInOutSine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
   top: 50%;
   transform: translateY(-50%);
 }
+
+
+// @mixin after-divider() {
+//   content: '';
+//   display: block;
+//   width: 10%;
+//   height: 1px;
+//   margin: 12px auto 2px auto;
+//   border-bottom: thin solid black;
+// }

@@ -155,7 +155,7 @@ riot.tag('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTa
   
 });
 
-riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}">  <div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div><div class="item-icon"></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
+riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 
@@ -179,17 +179,6 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
 
       return null;
     };
-
-
-
-
-
-
-
-
-
-
-
   
 });
 
@@ -299,7 +288,7 @@ riot.tag('tags-app', '<div class="tags-app"><tags-filters app-config="{this.appC
   
 });
 
-riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill: </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"><img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"></button></div></div></div>', function(opts) {
+riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}"><img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"></button></div></div></div>', function(opts) {
     var CHANGE_EVENT = 'filters-change';
 
     this.on('update', function() {
@@ -319,7 +308,7 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
 
     this.actionHandler = this.opts.actionHandler;
 
-    this.matchAll = true; // True by default;
+    this.matchAll = false;
     this.toggleMatching = function() {
       this.matchAll = !this.matchAll;
       this.update();
@@ -327,11 +316,6 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
     this.getMatchAll = function() {
       return this.matchAll;
     }
-
-
-
-
-
 
     this.setPresetFilters = function(allTags, presetFilters) {
       var setTags = allTags;
@@ -350,6 +334,12 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
       }
       return setTags;
     };
+
+    this.resetAllFilters = function() {
+      _.each(this.allTags, function(tag) {
+        tag.active = false;
+      });
+    }
 
     this.getActiveTags = function() {
       var active = _.where(this.allTags, { active: true });
@@ -374,6 +364,7 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
 
     this.hideFilters = function() {
       this.filtersHidden = true;
+      this.resetAllFilters();
     }
     this.showFilters = function() {
       this.filtersHidden = false;
