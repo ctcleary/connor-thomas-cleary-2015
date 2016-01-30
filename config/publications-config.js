@@ -250,35 +250,35 @@ var journoPublicationItems = [
   // GameShark
   {
     title: 'Soul Calibur V',
-    venue: 'GameShark (Defunct)',
+    venue: 'GameShark',
     primaryTags: [
       'game review'
     ]
   },
   {
     title: 'Lord of the Rings: War in the North',
-    venue: 'GameShark (Defunct)',
+    venue: 'GameShark',
     primaryTags: [
       'game review'
     ]
   },
   {
     title: 'Nuclear Dawn',
-    venue: 'GameShark (Defunct)',
+    venue: 'GameShark',
     primaryTags: [
       'game review'
     ]
   },
   {
     title: 'MDK2 HD',
-    venue: 'GameShark (Defunct)',
+    venue: 'GameShark',
     primaryTags: [
       'game review'
     ]
   },
   {
     title: 'Orcs Must Die!',
-    venue: 'GameShark (Defunct)',
+    venue: 'GameShark',
     primaryTags: [
       'game review'
     ]

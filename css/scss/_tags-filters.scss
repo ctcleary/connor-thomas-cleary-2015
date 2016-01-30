@@ -179,6 +179,10 @@
   .filter-type-container {
     display: block;
     margin-bottom: 15px;
+
+    &.is-hidden {
+      display: block;
+    }
   }
 
   .tags-filters-buttons-wrapper {

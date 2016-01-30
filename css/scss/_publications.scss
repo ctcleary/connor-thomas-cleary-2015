@@ -7,43 +7,63 @@
   }
 
   .pub-item {
+    position: relative;
     display: block;
     min-height: 36px;
-    margin-bottom: 6px;
+    margin-bottom: 15px;
     padding: 6px 0 6px 1%;
+
+    .cover {
+      padding: 15px 0;
+    }
 
     &.w-url,
     &.w-modal {
       padding-right: 40px;
+
+      &:hover {
+        color: $interactive-hover;
+      }
     }
 
     .item {
       position: relative;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: 500;
       line-height: 18px;
     }
 
     .item-title {
       line-height: 24px;
+      font-weight: 600;
     }
     .item-venue,
     .item-tags {
       line-height: 18px;
-      font-size: 14px;
-      font-weight: 300;
+      // font-size: 14px;
+      // font-weight: 300;
     }
     .item-title,
     .item-venue,
     .item-tags {
       display: inline-block;
     }
-    .item-venue:before,
-    .item-tags:before {
+    .item-venue:before {
+    // .item-tags:before {
       content: '- ';
       padding-left: 4px;
     }
     .item-tags {
       white-space: nowrap;
+      font-weight: 300;
+      margin-left: 8px;
+
+      &:before {
+        content: '(';
+      }
+      &:after {
+        content: ')';
+      }
 
       .item-tag {
         font-size: 14px;
