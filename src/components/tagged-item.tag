@@ -19,7 +19,7 @@
     }
 
     this.initModal = function() {
-      window.modalControl.initModal(this);
+      window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
     this.openLink = function() {
       window.open(this.opts.url, '_blank');

@@ -1,14 +1,14 @@
 var fictionPublicationItems = [
-  {
-    title: 'Asgard Run',
-    url: 'http://www.amusedsloth.com/games/asgardrun/',
-    venue: 'Amused Sloth',
-    primaryTags: [
-      'scriptwriting',
-      'contract',
-      'game'
-    ]
-  },
+  // {
+  //   title: 'Asgard Run',
+  //   url: 'http://www.amusedsloth.com/games/asgardrun/',
+  //   venue: 'Amused Sloth',
+  //   primaryTags: [
+  //     'scriptwriting',
+  //     'contract',
+  //     'game'
+  //   ]
+  // },
   {
     title: 'Revolvers',
     url: 'http://robotcowgirl.com/about/',
@@ -44,6 +44,7 @@ var fictionPublicationItems = [
   {
     title: 'Noise',
     venue: 'Flatirons Literary Review',
+    url: 'http://www.flatironsliteraryreview.com/2014/11/18/noise-by-connor-thomas-cleary/',
     primaryTags: [
       'short fiction',
       'literary'
@@ -52,10 +53,14 @@ var fictionPublicationItems = [
   },
   {
     title: 'Heimlich at The Sizzler',
+    url: 'http://feathertale.com/short-fiction/heimlich-the-sizzler/',
     venue: 'Feathertale',
     primaryTags: [
       'flash fiction',
       'humor'
+    ],
+    secondaryTags: [
+      'nsfw'
     ]
   }
 ];

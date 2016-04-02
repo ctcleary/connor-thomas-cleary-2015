@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>
-    Connor Thomas Cleary - Storyteller, Game Designer, Engineer
+    Connor Thomas Cleary - Storyteller, Game Designer, Programmer
   </title>
   <meta name="description" content="Portfolio and online resume for Connor Thomas Cleary.">
   <meta name="author" content="Connor Thomas Cleary">
@@ -132,7 +132,7 @@
       <div id="skills" class="skills section section-wrapper">
         <div class="section-content">
           <h1 class="section-headline">My Mad Skillz</h1>
-          <h2 class="section-sub-headline">Storyteller. Game Designer. Engineer.</h2>
+          <h2 class="section-sub-headline">Storyteller. Game Designer. Programmer.</h2>
           <div class="skills-container skills-items">
 
             <div class="skills-column">
@@ -227,6 +227,8 @@
                 <ul class="skills-list-container">
                   <li>Unity (C#)</li>
                   <li>Flixel (AS3)</li>
+                  <li>Divinity Engine</li>
+                  <li>Galaxy Editor</li>
                   <li>G.E.C.K. Toolset</li>
                   <li>Shadowrun Returns Toolset</li>
                   <li>Twine</li>
@@ -415,64 +417,100 @@
   <!-- @endexclude -->
 
   <script type="text/javascript">
+
+    var util = window.util || {};
+    var str = window.util.str = {
+      slugify: function(str) {
+        return str.toLowerCase().replace(/[\s:_-]/g, '-');
+      },
+      makeHashKey: function(name) {
+        return 'item:' + str.slugify(name);
+      }
+    };
+    var obj = window.util.obj = {
+      deepClone: function(obj) {
+        return JSON.parse(JSON.stringify(obj));
+      }
+    }
+
     window.modalControl = (function() {
       var modalEl = document.getElementById('modal-container');
       var modalTag;
 
-      function slugify(str) {
-        return str.toLowerCase().replace(/[\s:_-]/g, '-');
+      // HISTORY CONTROL -- hitting "back" should dismiss modal.
+
+      var oldPopStateHandler = window.onpopstate || function(){};
+      window.onpopstate = function(event) {
+        if (event.state == null || event.state.modalState == null) {
+          window.modalControl.dismissModal();
+        }
+        oldPopStateHandler();
       }
 
       return {
-        initModal: function(riotTag) {
-          // TODO, add pushState for better back/forward browsing
-
-          // var name = riotTag.opts.title;
-          // history.pushState({stateName: name}, name, '#item:'+ slugify(name));
-          
-          modalTag = riot.mount(modalEl, 'item-modal', riotTag)[0];
+        initModal: function(modalData, riotTag) {
+          modalTag = riot.mount(modalEl, 'item-modal', modalData)[0];
+          var name = modalData.title;
         },
         dismissModal: function() {
-          modalTag.unmount(true);
-          document.location.hash = '';
+          if (modalTag) {
+            modalTag.unmount(true);
+          }
         }
       };
     })();
 
+
+
+    var portfolioItems = portfolioItems;
+    var fictionPublicationItems = fictionPublicationItems;
+    var journoPublicationItems = journoPublicationItems;
+
     var QueryO = QueryO; // from js/queryo.js
     var hashCatcher = (function(window, portfolioItems) {
-      // Some portfolioItems will have a `key` value
-      // in case they need to be cross-linked. Determine
-      // which keys to listen for here.
       var listenKeys = [];
       portfolioItems.forEach(function(item) {
-        if (item.key) {
-          listenKeys.push(item.key);
-        }
+        // Add a 'hashKey' to each item
+        item.hashKey = str.makeHashKey(item.title);
+        listenKeys.push(item.hashKey);
       });
 
-      var keyTest = /^key\:/;
-      function isKeyHash(currHash) {
-        return keyTest.test(currHash);
+      var itemTest = /^item\:/;
+      function isItemHash(currHash) {
+        return itemTest.test(currHash);
       }
-      function getKey(currHash) {
-        return currHash.split(':')[1];
+      
+      var shortcutTest = /^shortcut\:/;
+      function isShortcutHash(currHash) {
+        return shortcutTest.test(currHash);
+      }
+      function getKeyFromShortcut(currHash) {
+        var shortcut = currHash.split(':')[1];
+        var item = _.findWhere(portfolioItems, {shortcut: shortcut});
+        return item.hashKey;
       }
 
       function handleHashChange(e) {
         var currHash = document.location.hash.substr(1);
-        if (!isKeyHash(currHash)) {
-          window.debug.log('No item key for this hash :: ', currHash);
+        var isItem = isItemHash(currHash);
+        var isShortcut = isShortcutHash(currHash);
+        if (!isItem && !isShortcut) {
+          // No item, no shortcut.
           return;
         }
 
-        var searchKey = getKey(currHash);
-        var isListenKey = listenKeys.indexOf(searchKey) !== -1;
+        var hashKey = '';
+        if (isShortcut) {
+          hashKey = getKeyFromShortcut(currHash);
+        } else  {
+          hashKey = currHash;
+        }
 
+        var isListenKey = listenKeys.indexOf(hashKey) !== -1;
         if (isListenKey) {
-          var modalItem = _.findWhere(portfolioItems, {key: searchKey});
+          var modalItem = _.findWhere(portfolioItems, {hashKey: hashKey});
           if (!modalItem) {
-            window.debug.warn('Failed to find modalItem for :: ', searchKey);
+            window.debug.warn('Failed to find modalItem for :: ', hashKey);
             return;
           }
           window.modalControl.initModal(modalItem)
@@ -484,6 +522,7 @@
       handleHashChange();
 
     }) (window, portfolioItems);
+
 
     var appsConfig = {
       disableFilters: QueryO.get('disableFilters', {as: 'boolean'}),

@@ -6,6 +6,43 @@ if (window.location.hostname === 'localhost') {
 }
 var portfolioItems = [
 
+  // slate-asgardrun.jpg
+  {
+    title: 'Asgard Run',
+    venue: 'Amused Sloth',
+    slate: {
+      url: imgBaseDir + 'slates/slate-asgardrun.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      'writing'
+    ],
+    secondaryTags: [
+      'scriptwriting',
+      'contract'
+    ],
+    modal: {
+      title: 'Asgard Run - Opening Cinematic',
+      hero: {
+        vimeo: '160117609',
+      },
+      description: ['.item-desc',
+        ['p', 'Contracted to write the script for Asgard Run\'s opening cinematic. After some discussion with the client, we decided to go with a style reminiscent of old Scandinavian poetry.']
+      ],
+      info: ['div', [
+        ['a', 
+          { href: 'https://vimeo.com/160117609', target: '_blank'},
+          'Watch it on Vimeo'
+        ],
+        ['br'],
+        ['a', 
+          { href: 'http://www.amusedsloth.com/games/asgardrun/', target: '_blank'},
+          'Asgard Run'
+        ]
+      ]]
+    }
+  },
+
   // segfault
   {
     title: 'Segfault[0]: Mad Hatter',
@@ -133,6 +170,82 @@ var portfolioItems = [
     }
   },
 
+
+  // skeleton key
+  {
+    title: 'Skeleton Key',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + '/slates/slate-skeletonkey.jpg',
+      position: 'right center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'narrative design',
+      'game mod'
+    ],
+    skills: [
+      'game editor',
+      'level design',
+      'branching dialogue',
+      'shadowrun returns editor'
+    ],
+    modal: {
+      title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
+      hero: {
+        url: imgBaseDir + '/heroes/hero-skeletonkey.jpg',
+        height: 320,
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Mission created with the ', ['a', {href:'https://www.youtube.com/watch?v=qyRBqnxKe5M'}, 'Shadowrun Returns Editor'], '. All visual/audio assets copyright Harebrained Schemes, with the exception of the skull portrait shown above.'],
+        ['p', 'Many branching dialogues with NPCs and Player choices for approaching various situations. Several enemy encounters with strategically interesting cover options.'],
+        ['p', ['a', { href: 'https://vimeo.com/142842311' }, 'Video playthrough'], ' is 9.5 minutes long. Actual playthrough takes 15-25 minutes. Link to playable Content Pack coming soon.'],
+        ['p', 'Represents about 30-35 hours of work after first contact with the editor.']
+      ],
+      info: ['a', 
+        { href: 'https://vimeo.com/142842311', target: '_blank' },
+        'Watch Playthrough Video'
+      ]
+    }
+  },
+
+  // smiley breaks out
+  {
+    title: 'Smiley Breaks Out',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + '/slates/slate-smiley.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      '3D',
+      'motion'
+    ],
+    secondaryTags: [
+      'animation'
+    ],
+    modal: {
+      title: 'Smiley the Demon Breaks Out',
+      hero: {
+        vimeo: '146804306',
+        url: imgBaseDir + '/heroes/hero-smiley.jpg',
+        position: 'center top'
+      },
+      description: ['.item-desc',
+        ['p', 'Smiley the Demon breaks out of the classic "T-Pose."'],
+        ['p', 'All content is original and created by hand using Blender 3D, including model, skeleton, rigging, and animation.']
+      ],
+      info: ['a', 
+        { href: 'https://vimeo.com/146804306' },
+        'Watch it on Vimeo'
+      ]
+    }
+  },
+
   // mad max
   {
     title: 'Mad Max: Fury Road PTP',
@@ -159,9 +272,10 @@ var portfolioItems = [
     modal: {
       title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
       hero: {
-        url: imgBaseDir + 'heroes/hero-ptp-madmax.jpg',
-        height: 320,
-        position: '55% 30%'
+        vimeo: 157086532
+        // url: imgBaseDir + 'heroes/hero-ptp-madmax.jpg',
+        // height: 320,
+        // position: '55% 30%'
       },
       description: ['.item-desc',
         ['p', 'This Premium Title Page (PTP) was an ambitious design when we were still using Flash to build these experiences at IMDb.'],
@@ -171,9 +285,9 @@ var portfolioItems = [
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This was considered the minimum bar of feature-parity with previous Flash builds for the Tarnhelm Framework, and was the first PTP rebuilt using Tarnhelm.'],
@@ -240,9 +354,9 @@ var portfolioItems = [
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', ['a', {href:'#key:reely'}, 'Reely Player']]
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
             ]],
           ],
           ['li', 'This PTP was considered the high bar for considering Tarnhelm feature-complete. I had to develop a few new features for Tarnhelm to power the characters\' idle and rollover videos. I also built several new optimizations and performance improvements into the Alphalfa player to prevent memory overuse.'],
@@ -306,10 +420,10 @@ var portfolioItems = [
         ['ul', [
           ['li', 'Utilizes: ', 
             ['ul', [
-              ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-              ['li', ['a', {href:'#key:alphalfa'}, 'Alphalfa Player']],
-              ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
-              ['li', ['a', {href:'#key:zoolander'}, 'Zoolander Style Injector']]
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']],
+              ['li', ['a', {href:'#shortcut:zoolander'}, 'Zoolander Style Injector']]
             ]],
           ],
         ]],
@@ -341,9 +455,9 @@ var portfolioItems = [
 
   // tarnhelm
   {
-    key: 'tarnhelm',
+    shortcut: 'tarnhelm',
 
-    title: 'Tarnhelm',
+    title: 'Tarnhelm Framework',
     venue: 'IMDb',
     slate: {
       url: imgBaseDir + 'slates/slate-tarnhelm.jpg',
@@ -407,7 +521,7 @@ var portfolioItems = [
 
   // alphalfa
   {
-    key: 'alphalfa',
+    shortcut: 'alphalfa',
 
     title: 'Alphalfa Player',
     venue: 'IMDb',
@@ -455,7 +569,7 @@ var portfolioItems = [
 
   // reely
   {
-    key: 'reely',
+    shortcut: 'reely',
 
     title: 'Reely Player',
     venue: 'IMDb',
@@ -507,7 +621,7 @@ var portfolioItems = [
 
   // Zoolander
   {
-    key: 'zoolander',
+    shortcut: 'zoolander',
 
     title: 'Zoolander Style Injector',
     venue: 'IMDb',
@@ -539,92 +653,13 @@ var portfolioItems = [
         ['ul',
           ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
           ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
-          ['li', ['a', {href:'#key:tarnhelm'}, 'Tarnhelm Framework']],
-          ['li', ['a', {href:'#key:reely'}, 'Reely Player']],
+          ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+          ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']],
           ['li', 'Countdowner Module']
         ]
       ]
     }
-  },
-
-
-  // skeleton key
-  {
-    title: 'Skeleton Key',
-    venue: 'Solo',
-    slate: {
-      url: imgBaseDir + '/slates/slate-skeletonkey.jpg',
-      position: 'right center'
-    },
-    primaryTags: [
-      'writing',
-      'game design'
-    ],
-    secondaryTags: [
-      'narrative design',
-      'game mod'
-    ],
-    skills: [
-      'game editor',
-      'level design',
-      'branching dialogue',
-      'shadowrun returns editor'
-    ],
-    modal: {
-      title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
-      hero: {
-        url: imgBaseDir + '/heroes/hero-skeletonkey.jpg',
-        height: 320,
-        position: 'center center'
-      },
-      description: ['.item-desc',
-        ['p', 'Mission created with the ', ['a', {href:'https://www.youtube.com/watch?v=qyRBqnxKe5M'}, 'Shadowrun Returns Editor'], '. All visual/audio assets copyright Harebrained Schemes, with the exception of the skull portrait shown above.'],
-        ['p', ['a', { href: 'https://vimeo.com/142842311' }, 'Video playthrough'], ' is 9.5 minutes long. Actual playthrough takes 15-25 minutes. Link to playable Content Pack coming soon.'],
-        ['p', 'Represents about 30-35 hours of work after first contact with the editor.']
-      ],
-      info: ['a', 
-        { href: 'https://vimeo.com/142842311' },
-        'Watch Playthrough Video'
-      ]
-    }
-  },
-
-  // smiley breaks out
-  {
-    title: 'Smiley Breaks Out',
-    venue: 'Solo',
-    slate: {
-      url: imgBaseDir + '/slates/slate-smiley.jpg',
-      position: 'center top'
-    },
-    primaryTags: [
-      '3D',
-      'motion'
-    ],
-    secondaryTags: [
-      'animation'
-    ],
-    modal: {
-      title: 'Smiley the Demon Breaks Out',
-      hero: {
-        custom: ['div', { style: 'width:100%; background:black; text-align:center;'},
-          ['div&', '<iframe src="https://player.vimeo.com/video/146804306?title=0&byline=0&portrait=0" width="569" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>']
-        ],
-        height: 325,
-
-        url: imgBaseDir + '/heroes/hero-smiley.jpg',
-        position: 'center top'
-      },
-      description: ['.item-desc',
-        ['p', 'Smiley the Demon breaks out of the classic "T-Pose."'],
-        ['p', 'All content is original and created by hand using Blender 3D, including model, skeleton, rigging, and animation.']
-      ],
-      info: ['a', 
-        { href: 'https://vimeo.com/146804306' },
-        'Watch Video on Vimeo'
-      ]
-    }
-  },
+  }
 
 
 

@@ -12,6 +12,9 @@
     min-height: 36px;
     margin-bottom: 15px;
     padding: 6px 0 6px 1%;
+    
+    transition: color 0.15s linear,
+        background-color 0.15s linear;
 
     .cover {
       padding: 15px;

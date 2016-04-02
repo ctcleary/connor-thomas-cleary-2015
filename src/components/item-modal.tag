@@ -10,24 +10,34 @@
           <div class="item-modal-header">
 
             <h1 class="item-modal-headline"> { this.modalTitle } </h1>
-            <div class="item-modal-hero" style={ this.getHeroStyle() }>
-              
-              <div class="item-modal-custom-hero" if={ this.isCustomHero }>
+
+            <div class="item-hero-container">
+              <div class="item-modal-hero"
+                if={ !this.isCustomHero && !this.isVimeoHero }
+                style={ this.getHeroStyle() }
+                >
+              </div>
+              <div class="item-modal-custom-hero"
+                if={ this.isCustomHero }
+                style={ this.getHeroStyle() }
+                >
+              </div>
+              <div class="item-modal-vimeo-hero"
+                if={ this.isVimeoHero }
+                style={ this.getHeroStyle() }
+                >
               </div>
             </div>
 
           </div> <!-- end item-modal-header -->
 
           <div class="item-modal-contents">
-            <div class="item-modal-description">
-              <h2> Description </h2>
-            </div>
 
             <div class="item-modal-sidebar">
 
               <div if={ this.hasInfo }
                   class="item-modal-info item-modal-sidebar-section">
-                <h2> Info </h2>
+                <!-- <h2> Info </h2> -->
               </div>
 
               <div if={ this.hasTags }
@@ -40,6 +50,10 @@
                 <h2> Skills </h2>
               </div>
 
+            </div>
+            
+            <div class="item-modal-description">
+              <h2> Description </h2>
             </div>
 
           </div> <!-- end item-modal-contents -->
@@ -55,79 +69,81 @@
     this.modalTitle = modalConfig.title || this.opts.title;
 
     this.isCustomHero = !!modalConfig.hero.custom;
+    this.isVimeoHero = !!modalConfig.hero.vimeo;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasInfo   = !!modalConfig.info;
     this.hasSkills = !!this.opts.skills;
-    this.hasTags   = !!this.opts.tags;
+    this.hasTags   = !!this.opts.primaryTags;
 
     // STYLES
     this.getTransitionStyle = function() {
-      return 'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950);';
+      return [
+          'opacity: 0;',
+          'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950);'
+        ].join('');
     }
+
     this.getModalStyle = function() {
       return 'background: white;';
-    };
+    }
+
     this.getHeroStyle = function() {
-      var heroStyles = ['background: url(' + modalConfig.hero.url + ');',
-        'background-size: cover;',
-        'background-position: ' + (modalConfig.hero.position || 'center center') + ';',
-        ''];
+      if (!modalConfig.hero.url) {
+        return 'background-color: black';
+      }
+      var heroStyles = []
+      if (modalConfig.hero.url) {
+        heroStyles = ['background: url(' + modalConfig.hero.url + ');',
+          'background-size: cover;',
+          'background-position: ' + (modalConfig.hero.position || 'center center') + ';',
+          ''];
+      } else {
+        heroStyles = ['background-color: black'];
+      }
 
       if (modalConfig.hero.height != null) {
         heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
       }
 
+      console.log("heroStyles ::", heroStyles);
       return heroStyles.join(' ');
     }
 
+
     // UTILITIES
-    this._dismiss = function() {
-      // this.hide();
-      this.root.parentNode.removeChild(this.root);
-    };
     this.dismissModal = function(e) {
-      // e.stopPropagation();
-      // this._dismiss();
-      window.modalControl.dismissModal();
+      window.history.back();
     };
     this.dismissOnEsc = function(e) {
       if (e.keyCode === 27) {
         this.dismissModal();
+        // window.location.hash = '';
       }
     };
-
-    // this.show = function() {
-    //   // TODO, figure out why show opacity transition isn't happening.
-    //   if (!this.viewport) {
-    //     console.log("modal show :: danger, will robinson");
-    //   }
-    //   this.viewport.style.opacity = 1;
-    // }
-    // this.hide = function() {
-    //   if (!this.viewport) {
-    //     console.log("modal hide :: danger, will robinson");
-    //   }
-    //   this.viewport.style.opacity = 0;
-    // }
-
-
-    this.getDeepClone = function (obj) {
-      return JSON.parse(JSON.stringify(obj));
+    this.show = function() {
+      if (!this.viewport) {
+        window.debug.warn('Something went wrong with the Modal Viewport.');
+      }
+     
+      // this.viewport.style.opacity = 1;
+      var v = this.viewport;
+      setTimeout(function() {
+        v.style.opacity = 1;
+      }, 0);
     }
 
+
+    // Appending Shaven Content 
     this.appendShaven = function(shavenConfig, elClass) {
       // shaven alters the object passed to it, so we must clone.
-      var clone = this.getDeepClone(shavenConfig);
+      var clone = window.util.obj.deepClone(shavenConfig);
       var shavenObj = shaven(clone);
 
       var el = this.root.getElementsByClassName(elClass)[0];
       el.appendChild(shavenObj[0]);
     }
 
-    this.appendCustomHero = function() {
-      this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
-    }
 
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
@@ -162,8 +178,33 @@
       }
     }
 
+
+    this.appendCustomHero = function() {
+      this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
+    }
+    this.appendVimeoHero = function() {
+      var vimeoId = modalConfig.hero.vimeo;
+      var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0'
+      this.appendShaven(
+        ['div',
+          ['iframe', {
+              src: src,
+              frameborder: '0',
+              webkitAllowFullScreen: '',
+              mozallowfullscreen: '',
+              allowFullScreen: ''
+          }]
+        ],
+        'item-modal-vimeo-hero');
+   
+    }
+    
+
     this.appendModalContents = function() {
       try {
+        if (this.isVimeoHero) {
+          this.appendVimeoHero();
+        } else 
         if (this.isCustomHero) {
           this.appendCustomHero();
         }
@@ -186,7 +227,7 @@
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
-      // this.show();
+      this.show();
     });
 
     this.on('before-unmount', function() {

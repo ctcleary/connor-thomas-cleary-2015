@@ -779,6 +779,21 @@ tagged-item {
         list-style-type: none;
         margin: 0; }
 
+.item-modal-vimeo-hero {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; }
+  .item-modal-vimeo-hero iframe,
+  .item-modal-vimeo-hero object,
+  .item-modal-vimeo-hero embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
 .item-modal-description p.list-header {
   font-weight: bold;
   margin-bottom: 6px; }
@@ -1007,7 +1022,9 @@ tagged-item {
     display: block;
     min-height: 36px;
     margin-bottom: 15px;
-    padding: 6px 0 6px 1%; }
+    padding: 6px 0 6px 1%;
+    -webkit-transition: color 0.15s linear, background-color 0.15s linear;
+            transition: color 0.15s linear, background-color 0.15s linear; }
     .pubs-wrapper .pub-item .cover {
       padding: 15px; }
     .pubs-wrapper .pub-item.w-url, .pubs-wrapper .pub-item.w-modal {
