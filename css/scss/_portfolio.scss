@@ -30,6 +30,11 @@
   margin: 1%;
   
   background: transparent;
+  // border: 1px solid rgba(100,100,100,0.075);
+
+  &:hover {
+    border: none;
+  }
 }
 
 @include respond-to(large) {
@@ -75,7 +80,7 @@
 
     background-color: white;
     opacity: 0;
-    transition: opacity 0.08s linear;
+    transition: opacity 0.15s linear;
   }
 
   &:hover {

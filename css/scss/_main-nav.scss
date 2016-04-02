@@ -37,6 +37,7 @@ $sticky-almost-white: #EFF0F3;
     }
   }
   .nav-item.nav-logo {
+    padding: 3px 3px 3px 6px;
     #logo-svg {
       fill: $almost-black;
     }
@@ -56,7 +57,7 @@ $sticky-almost-white: #EFF0F3;
       text-decoration: none;
     }
   }
-  .nav-item.nav-logo {
+  .nav-item.nav-logo {    
     #logo-svg {
       fill: $sticky-almost-white;
     }

@@ -103,10 +103,12 @@ h2 {
   .main-nav .nav-item:hover {
     color: #3E7CF7;
     text-decoration: none; }
-.main-nav .nav-item.nav-logo #logo-svg {
-  fill: #333333; }
-.main-nav .nav-item.nav-logo:hover #logo-svg {
-  fill: #3E7CF7; }
+.main-nav .nav-item.nav-logo {
+  padding: 3px 3px 3px 6px; }
+  .main-nav .nav-item.nav-logo #logo-svg {
+    fill: #333333; }
+  .main-nav .nav-item.nav-logo:hover #logo-svg {
+    fill: #3E7CF7; }
 
 .main-nav.is-sticky .nav-item {
   color: #EFF0F3;
@@ -768,6 +770,8 @@ tagged-item {
       text-align: center; }
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-sidebar-section {
         margin-bottom: 12px; }
+      .item-modal .item-modal-contents .item-modal-sidebar .item-modal-info a {
+        font-size: 15px; }
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-tags,
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-skills {
         text-transform: capitalize; }
@@ -916,6 +920,8 @@ tagged-item {
   height: 210px;
   margin: 1%;
   background: transparent; }
+  .portfolio .slate-item:hover {
+    border: none; }
 
 @media (max-width: 1200px) {
   .portfolio .slate-item {
@@ -942,8 +948,8 @@ tagged-item {
   position: relative;
   background-color: white;
   opacity: 0;
-  -webkit-transition: opacity 0.08s linear;
-          transition: opacity 0.08s linear; }
+  -webkit-transition: opacity 0.15s linear;
+          transition: opacity 0.15s linear; }
 .portfolio .slate-item:hover .cover {
   opacity: 1; }
 
