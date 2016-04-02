@@ -98,15 +98,16 @@
           'background-size: cover;',
           'background-position: ' + (modalConfig.hero.position || 'center center') + ';',
           ''];
+
       } else {
         heroStyles = ['background-color: black'];
+        
       }
 
       if (modalConfig.hero.height != null) {
         heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
       }
 
-      console.log("heroStyles ::", heroStyles);
       return heroStyles.join(' ');
     }
 

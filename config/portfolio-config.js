@@ -8,6 +8,8 @@ var portfolioItems = [
 
   // slate-asgardrun.jpg
   {
+    shortcut: 'asgardrun',
+
     title: 'Asgard Run',
     venue: 'Amused Sloth',
     slate: {
@@ -45,6 +47,8 @@ var portfolioItems = [
 
   // segfault
   {
+    shortcut: 'segfault0',
+
     title: 'Segfault[0]: Mad Hatter',
     venue: 'Solo',
     slate: {
@@ -86,6 +90,8 @@ var portfolioItems = [
 
   // roggy
   {
+    shortcut: 'roggy',
+
     title: 'Roggy and the Beast',
     venue: 'Solo',
     slate: {
@@ -118,6 +124,8 @@ var portfolioItems = [
   
   // summoner
   {
+    shortcut: 'summoner',
+
     title: 'Summoner: The Bescarfed (WIP)',
     venue: 'Solo',
     slate: {
@@ -173,6 +181,8 @@ var portfolioItems = [
 
   // skeleton key
   {
+    shortcut: 'skeletonkey',
+
     title: 'Skeleton Key',
     venue: 'Solo',
     slate: {
@@ -215,6 +225,8 @@ var portfolioItems = [
 
   // smiley breaks out
   {
+    shortcut: 'smiley',
+
     title: 'Smiley Breaks Out',
     venue: 'Solo',
     slate: {
@@ -248,6 +260,8 @@ var portfolioItems = [
 
   // mad max
   {
+    shortcut: 'madmaxptp',
+
     title: 'Mad Max: Fury Road PTP',
     slate: {
       url: imgBaseDir + 'slates/slate-ptp-madmax.jpg',

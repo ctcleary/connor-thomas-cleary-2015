@@ -241,8 +241,7 @@ h2 {
   background: #f7f7f7; }
 
 section:nth-child(2n) .section-content {
-  border-top: 1px solid #e2e2e2;
-  border-bottom: 1px solid #e2e2e2; }
+  border-bottom: 1px solid #eaeaea; }
 section:nth-child(2n) .section-content,
 section:nth-child(2n) .tag-button,
 section:nth-child(2n) .pub-item:hover {

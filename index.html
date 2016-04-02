@@ -281,9 +281,13 @@
                 <div class="about-me-contact-list">
                   <ul>
                     <!-- TODO add icons here -->
-                    <li>ConnorThomasCleary@Gmail.com</li>
-                    <li>LinkedIn/ConnorThomasCleary</li>
-                    <li>GitHub/ctcleary</li>
+                    <li>
+                      <a id="contact" class="mail" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#110;&#111;&#114;&#116;&#104;&#111;&#109;&#97;&#115;&#99;&#108;&#101;&#97;&#114;&#121;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">
+                        &#67;&#111;&#110;&#110;&#111;&#114;&#84;&#104;&#111;&#109;&#97;&#115;&#67;&#108;&#101;&#97;&#114;&#121;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+                      </a>
+                    </li>
+                    <li><a href="http://www.linkedin.com/in/ConnorThomasCleary">linkedin/ConnorThomasCleary</li>
+                    <li><a href="https://github.com/ctcleary">GitHub/ctcleary</a></li>
                   </ul>
                 </div>
               </div>
@@ -291,13 +295,13 @@
               <div class="about-segment">
                 <h3 class="segment-headline">Recent Achievements</h3>
                 <ul>
-                  <li>Saved over $48 million in at-risk revenue, working on a team of three developers at IMDb. We developed and delivered Tarnhelm &mdash; a Flash replacement JS/HTML5 framework &mdash; under a tight deadline.</li>
-                  <li>Received multiple awards for performance as a Design Technologist at IMDb. ("Design Technologist" is a Javascript Engineer with strong UX and/or design skills.)</li>
+                  <li>Saved over $48 million in at-risk revenue on a team of three developers at IMDb. (<a href="#shortcut:tarnhelm">Tarnhelm Framework</a>).</li>
+                  <li>Received multiple awards for performance as a Design Technologist at IMDb.</li>
                   <li>A new short story publication (Available early 2016).</li>
-                  <li>Wrote <em><a href="http://connorcleary.itch.io/segfault-0-mad-hatter">Segfault[0]: Mad Hatter</a></em> which placed as a finalist in the <a href="http://itch.io/jam/wag-challenge" target="_blank">Write-A-Game Challenge 2015</a> (#WAGChallenge).</li>
-                  <li>Rebuilt <em><a href="http://connorthomascleary.com/games/summoner-the-bescarfed-unity/BUILD.html">Summoner: The Bescarfed</a></em> in Unity 2D (C#) after initial <a href="http://connorthomascleary.com/games/summoner-the-bescarfed/">Actionscript 3/Flixel Prototype</a>.</li>
-                  <li>Learned the <em>Shadowrun Returns</em> toolset, created <em><a href="https://vimeo.com/142842311">The Skeleton Key</a></em>.</li>
-                  <li>Wrote a short voice over script for <em><a href="http://www.amusedsloth.com/games/asgardrun/" target="_blank">Asgard Run</a></em>.</li>
+                  <li>Wrote <em><a href="#shortcut:segfault0">Segfault[0]: Mad Hatter</a></em> which placed as a finalist in the <a href="http://itch.io/jam/wag-challenge" target="_blank">Write-A-Game Challenge 2015</a> (#WAGChallenge).</li>
+                  <li>Rebuilt <em><a href="#shortcut:summoner">Summoner: The Bescarfed</a></em> in Unity 2D (C#) after initial Actionscript 3/Flixel Prototype.</li>
+                  <li>Learned the <em>Shadowrun Returns</em> toolset, created <em><a href="#shortcut:skeletonkey">The Skeleton Key</a></em>.</li>
+                  <li>Wrote a short voice over script for <em><a href="#shortcut:asgardrun">Asgard Run</a></em>.</li>
                   <li>Created this spiffy website.</li>
                 </ul>
               </div>
@@ -311,7 +315,7 @@
       <div class="footer">
         <div class="footer-segment copyrights">
           <p>
-            &copy; Connor Thomas Cleary. All rights reserved.
+            &copy; Connor Thomas Cleary.
           </p>
           <p>
             Built on <a href="http://riotjs.com/" target="_blank">Riot.js</a>
@@ -375,7 +379,18 @@
     $(function() {
       var navbarSpacing = 48;
 
+      var shortcutTest = /^(#|)shortcut\:/;
+      function isShortcutHash(currHash) {
+        return shortcutTest.test(currHash);
+      }
+
       $('a[href*=#]:not([href=#])').click(function() {
+        if (isShortcutHash(this.hash)) {
+          console.log("shortcut");
+          return;
+        } else {
+          debugger;
+        }
         if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -480,7 +495,7 @@
         return itemTest.test(currHash);
       }
       
-      var shortcutTest = /^shortcut\:/;
+      var shortcutTest = /^(#|)shortcut\:/;
       function isShortcutHash(currHash) {
         return shortcutTest.test(currHash);
       }
