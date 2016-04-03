@@ -15,7 +15,7 @@
     this.hasUrl   = !!this.opts.url;
 
     if (this.hasModal && this.hasUrl) {
-      console.log("WARNING: Bad config. An item should have either modal or url.");
+      window.debug.warn("WARNING: Bad config. An item should have either modal or url.");
     }
 
     this.initModal = function() {
