@@ -3,62 +3,68 @@
     <div class="item-modal-viewport" style={ this.getTransitionStyle() }>
       <div class="item-modal-lightbox" onclick={ this.dismissModal }></div>
       <div class="item-modal-wrapper">
-        <div class="item-modal-close" onclick={ this.dismissModal }> </div>
+        <div class="item-modal-container">
+          <div class="item-modal-close" onclick={ this.dismissModal }> </div>
 
-        <div class="item-modal" style={ this.getModalStyle() }>
+          <div class="item-modal" style={ this.getModalStyle() }>
 
-          <div class="item-modal-header">
+            <div class="item-modal-header">
 
-            <h1 class="item-modal-headline"> { this.modalTitle } </h1>
+              <h1 class="item-modal-headline"> { this.modalTitle } </h1>
 
-            <div class="item-hero-container">
-              <div class="item-modal-hero"
-                if={ !this.isCustomHero && !this.isVimeoHero }
-                style={ this.getHeroStyle() }
-                >
-              </div>
-              <div class="item-modal-custom-hero"
-                if={ this.isCustomHero }
-                style={ this.getHeroStyle() }
-                >
-              </div>
-              <div class="item-modal-vimeo-hero"
-                if={ this.isVimeoHero }
-                style={ this.getHeroStyle() }
-                >
-              </div>
-            </div>
-
-          </div> <!-- end item-modal-header -->
-
-          <div class="item-modal-contents">
-
-            <div class="item-modal-sidebar">
-
-              <div if={ this.hasInfo }
-                  class="item-modal-info item-modal-sidebar-section">
-                <!-- <h2> Info </h2> -->
+              <div class="item-hero-container">
+                <div class="item-modal-hero"
+                  if={ !this.isCustomHero && !this.isVimeoHero }
+                  style={ this.getHeroStyle() }
+                  >
+                </div>
+                <div class="item-modal-custom-hero"
+                  if={ this.isCustomHero }
+                  style={ this.getHeroStyle() }
+                  >
+                </div>
+                <div class="item-modal-vimeo-hero"
+                  if={ this.isVimeoHero }
+                  style={ this.getHeroStyle() }
+                  >
+                </div>
               </div>
 
-              <div if={ this.hasTags }
-                  class="item-modal-tags item-modal-sidebar-section">
-                <h2> Tagged </h2>
+            </div> <!-- end item-modal-header -->
+
+            <div class="item-modal-contents">
+              
+              <div class="item-modal-description">
+                <h2> Description </h2>
               </div>
 
-              <div if={ this.hasSkills }
-                  class="item-modal-skills item-modal-sidebar-section">
-                <h2> Skills </h2>
+              <div class="item-modal-sidebar">
+                
+                <div if={ this.hasCTA }
+                    class="item-modal-cta item-modal-sidebar-section">
+                </div>
+
+                <div if={ this.hasInfo }
+                    class="item-modal-info item-modal-sidebar-section">
+                  <h2> Info </h2>
+                </div>
+
+                <div if={ this.hasTags }
+                    class="item-modal-tags item-modal-sidebar-section">
+                  <h2> Tagged </h2>
+                </div>
+
+                <div if={ this.hasSkills }
+                    class="item-modal-skills item-modal-sidebar-section">
+                  <h2> Skills </h2>
+                </div>
+
               </div>
 
-            </div>
-            
-            <div class="item-modal-description">
-              <h2> Description </h2>
-            </div>
+            </div> <!-- end item-modal-contents -->
+          </div> <!-- end .item-modal -->
 
-          </div> <!-- end item-modal-contents -->
-        </div> <!-- end .item-modal -->
-
+        </div>
       </div>
     </div>
   </article>
@@ -72,6 +78,7 @@
     this.isVimeoHero = !!modalConfig.hero.vimeo;
 
     this.isCustom  = !!modalConfig.custom;
+    this.hasCTA    = !!modalConfig.cta;
     this.hasInfo   = !!modalConfig.info;
     this.hasSkills = !!this.opts.skills;
     this.hasTags   = !!this.opts.primaryTags;
@@ -149,6 +156,19 @@
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
     }
+    this.appendCTA = function() {
+      if (this.hasCTA) {
+        var cta = ['a',
+          {
+            href: modalConfig.cta.href,
+            target: modalConfig.cta.target || ''
+          },
+          modalConfig.cta.text,
+        ];
+
+        this.appendShaven(cta, 'item-modal-cta');
+      }
+    }
     this.appendInfo = function() {
       if (this.hasInfo) {
         this.appendShaven(modalConfig.info, 'item-modal-info');
@@ -211,6 +231,7 @@
         }
 
         this.appendDescription();
+        this.appendCTA();
         this.appendInfo();
         this.appendSkills();
         this.appendTags();
