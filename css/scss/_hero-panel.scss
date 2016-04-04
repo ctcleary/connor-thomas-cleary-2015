@@ -43,13 +43,9 @@
   width: 100%;
   height: 100%;
 
-  // margin: 0 auto 0 0;
-  // max-width: 800px;
   background-color: rgba(183, 213, 237, 0.8);
   text-align: center;
 
-  // transform-origin: 20% center;
-  // transition: left 0.2s linear;
 }
 
 .hero-text-wrapper {
@@ -77,189 +73,17 @@
   }
 }
 
-// .terminal-cursor {
-//   transition: none;
-//   animation: terminal-cursor-blink 1s 0s linear infinite;
-// }
+@include respond-to(small) {
+  .hero-text-wrapper {
+    .hero-type-text {
+      font-size: 24px;
+    }
+  }
+}
+
 @keyframes terminal-cursor-blink {
   0%   { opacity: 0; }
   59%  { opacity: 0; }
   60%  { opacity: 1; }
   100% { opacity: 1; }
 }
-
-
-
-// .title,
-// .tagline {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-
-//   display: inline-block;
-//   margin: 0;
-
-//   font-weight: 200;
-//   white-space: nowrap;
-
-// }
-
-// .title,
-// .tagline,
-// .spinner-container {
-
-//   // -webkit-filter: blur(4px);
-//   // filter: blur(4px);
-//   // opacity: 0;
-//   animation: tagline-intro 1.15s 1 $easeInOutSine;
-//   // animation-delay: 0.2s;
-// }
-
-
-// .highlight-boxed {
-//   background: rgba(255, 255, 255, 0.3);
-//   border-radius: 1px;
-// }
-// .title,
-// .tagline {
-//   padding: 1% 1.2%;
-// }
-
-// @keyframes tagline-intro {
-//   0% {
-//     opacity: 0;
-//     -webkit-filter: blur(3px);
-//     filter: blur(3px);
-//   }
-//   50% {
-//     opacity: 1;
-//     // -webkit-filter: blur(3px);
-//     // filter: blur(3px);
-//   }
-//   100% {
-//     -webkit-filter: blur(0);
-//     filter: blur(0);
-//   }
-// }
-
-
-// .title {
-//   position: relative;
-//   top: 0px;
-//   display: inline-block;
-//   width: auto;
-// }
-// .spinner-container {
-//   position: relative;
-//   top: 2px;
-//   margin-left: 18%;
-//   display: block;
-// }
-
-// .spinner-container {
-//   display: inline-block;
-//   position: relative;
-//   height: 60px;
-//   padding-right: 12px;
-
-  // .spinner {
-  //   background: rgba(255, 255, 255, 0.1);
-  //   position: absolute;
-
-  //   display: inline-block;
-  //   height: 60px;
-  //   width: 148px;
-    
-  //   overflow: hidden;
-
-  //   .verbs {
-  //     position: absolute;
-
-  //     display: block;
-  //     height: 100%;
-  //     width: 100%;
-  //     text-align: center;
-
-  //     animation: spinner-spin 3.5s 0.5s $easeInOutSine;
-
-  //     .verb {
-  //       top: -60px;
-  //       display: block;
-  //       padding: 6px 0;
-  //     }
-  //   }
-  // }
-
-  // .experiences {
-  //   position: relative;
-  //   top: 6px;
-  //   margin-left: 154px;
-  // }
-// }
-
-
-// $verbHeight: 60;
-// @keyframes spinner-spin {
-//   0% { top: 0; }
-//   20% { top: -#{ $verbHeight * 1 }px; }
-//   25% { top: -#{ $verbHeight * 1 }px; }
-//   45% { top: -#{ $verbHeight * 2 }px; }
-//   50% { top: -#{ $verbHeight * 2 }px; }
-//   70% { top: -#{ $verbHeight * 3 }px; }
-//   75% { top: -#{ $verbHeight * 3 }px; }
-//   95% { top: -#{ $verbHeight * 4 }px; }
-//   95.001% { top: 0px; }
-// }
-
-
-// .title {
-//   font-size: 42px;
-// }
-// .spinner-container {
-//   font-size: 38px;
-//   line-height: 48px;
-// }
-
-
-/* TRANSLATES */
-// .hero-labels { 
-//   transition: transform 0.25s $easeInOutSine;
-//   transform-origin: 20% center;
-//   transform: translate(25%, 72%) scale(1);
-//   // animation: hero-labels-intro 1.2s $easeInOutSine;
-// }
-
-// @keyframes hero-labels-intro {
-//   0%   { transform: translate(30%, 72%) scale(1.05); }
-//   100% {}
-// }
-
-// @include respond-to(large) {
-//   @keyframes hero-labels-intro {
-//     0%   { transform: translate(25%, 72%) scale(1.05); }
-//     100% {}
-//   }
-//   .hero-labels {
-//     transform: translate(12%, 60%) scale(0.9);
-//   }
-// }
-// @include respond-to(medium) {
-//   @keyframes hero-labels-intro {
-//     0%   { transform: translate(15%, 72%) scale(1); }
-//     100% {}
-//   }
-//   .hero-labels {
-//     transform: translate(8%, 40%) scale(0.7);
-//   }
-// }
-
-// @include respond-to(x-small) {
-//   @keyframes hero-labels-intro {
-//     0%   { transform: translate(10%, 72%) scale(0.9); }
-//     100% {}
-//   }
-//   .hero-labels {
-//     transform: translate(-3%, 20%) scale(0.55);
-//   }
-// }
-

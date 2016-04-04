@@ -190,8 +190,8 @@ h2 {
       margin-left: 1.5%; }
 
   .nav-item {
-    font-size: 12px;
-    padding: 0 1.5% 0 0; }
+    font-size: 11px;
+    padding: 0 1% 0 0; }
 
   .nav-item.nav-logo .top-name {
     display: none; } }
@@ -643,21 +643,14 @@ tagged-item {
     max-width: 980px; }
     .item-modal-viewport .item-modal-wrapper .item-modal-close {
       display: none;
-      /*
       position: absolute;
-      // top: -20px;
-      // right: -18px;
       top: 3px;
-      right: 22px;
-
-      display: block;
+      right: 3px;
       width: 24px;
       height: 24px;
-
       cursor: pointer;
-      background: url('http://connorthomascleary.com/assets/img/icon/close.png') no-repeat transparent;
-      background-size: 24px 24px;
-      */ }
+      background: url("http://connorthomascleary.com/assets/img/icon/close.png") no-repeat transparent;
+      background-size: 24px 24px; }
 
 .item-modal {
   display: -webkit-box;
@@ -737,7 +730,8 @@ tagged-item {
 
 .item-modal-wrapper {
   background: white;
-  overflow-y: auto; }
+  overflow-y: auto;
+  overflow-x: hidden; }
 
 .item-modal-container {
   position: relative;
@@ -856,6 +850,11 @@ tagged-item {
   margin-bottom: 0; }
 
 @media (max-width: 515px) {
+  .item-modal-viewport .item-modal-wrapper {
+    width: 100%; }
+    .item-modal-viewport .item-modal-wrapper .item-modal-close {
+      display: inline-block; }
+
   .item-modal .item-modal-contents {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -925,6 +924,9 @@ tagged-item {
       -webkit-animation: terminal-cursor-blink 1s 0s linear infinite;
               animation: terminal-cursor-blink 1s 0s linear infinite; }
 
+@media (max-width: 515px) {
+  .hero-text-wrapper .hero-type-text {
+    font-size: 24px; } }
 @-webkit-keyframes terminal-cursor-blink {
   0% {
     opacity: 0; }
@@ -934,7 +936,6 @@ tagged-item {
     opacity: 1; }
   100% {
     opacity: 1; } }
-
 @keyframes terminal-cursor-blink {
   0% {
     opacity: 0; }
@@ -944,7 +945,6 @@ tagged-item {
     opacity: 1; }
   100% {
     opacity: 1; } }
-/* TRANSLATES */
 .portfolio .items-container {
   width: 90%; }
 .portfolio .slates-wrapper {

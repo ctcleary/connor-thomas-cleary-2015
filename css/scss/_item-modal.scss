@@ -32,21 +32,19 @@
 
     .item-modal-close {
       display: none;
-      /*
       position: absolute;
       // top: -20px;
       // right: -18px;
       top: 3px;
-      right: 22px;
+      right: 3px;
 
-      display: block;
+      // display: block;
       width: 24px;
       height: 24px;
 
       cursor: pointer;
       background: url('http://connorthomascleary.com/assets/img/icon/close.png') no-repeat transparent;
       background-size: 24px 24px;
-      */
     }
   }
 }
@@ -103,6 +101,7 @@
 .item-modal-wrapper {
   background: white;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .item-modal-container {
   position: relative;
@@ -284,6 +283,16 @@
 }
 
 @include respond-to(small) {
+  .item-modal-viewport {
+    .item-modal-wrapper {
+      width: 100%;
+
+      .item-modal-close {
+        display: inline-block;
+      }
+    }
+  }
+
   .item-modal {
     .item-modal-contents {
       flex-direction: column;
