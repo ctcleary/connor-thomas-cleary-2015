@@ -115,6 +115,11 @@ var portfolioItems = [
         ['p', 'A Twine game written in screenplay format that takes places in the Borderlands universe.'],
         ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
       ],
+      cta: {
+        href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html',
+        text: 'Play Roggy and the Beast',
+        target: '_blank'
+      },
       info: ['a', 
         { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html' },
         'Play Roggy and the Beast'
@@ -284,7 +289,7 @@ var portfolioItems = [
       'flash'
     ],
     modal: {
-      title: 'Mad Max: Fury Road - Premium Title Page (Flash & Non-Flash Rebuild)',
+      title: 'Mad Max: Fury Road - Premium Title Page',
       hero: {
         vimeo: 157086532
         // url: imgBaseDir + 'heroes/hero-ptp-madmax.jpg',
@@ -353,7 +358,7 @@ var portfolioItems = [
       'flash'
     ],
     modal: {
-      title: 'Inside Out - Premium Title Page (Flash & Non-Flash Rebuild)',
+      title: 'Inside Out - Premium Title Page',
       hero: {
         url: imgBaseDir + 'heroes/hero-ptp-insideout.jpg',
         height: 320,
@@ -420,7 +425,7 @@ var portfolioItems = [
       'flash'
     ],
     modal: {
-      title: 'Jurassic World - Premium Title Page (Flash & Non-Flash Rebuild)',
+      title: 'Jurassic World - Premium Title Page',
       hero: {
         url: imgBaseDir + 'heroes/hero-ptp-jurassicworld.jpg',
         height: 320,
