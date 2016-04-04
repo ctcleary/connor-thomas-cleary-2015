@@ -193,10 +193,21 @@
         width: 90%;
 
         background-color: #3E7CF7;
+        border: thin solid transparent;
         color: white;
         font-size: 15px;
         line-height: auto;
         text-decoration: none;
+
+        transition: background 0.15s linear,
+                    color 0.15s linear,
+                    border 0.15s linear;
+
+        &:hover {
+          background: transparent;
+          border-color: #3E7CF7;
+          color: #3E7CF7;
+        }
       }
 
       .item-modal-info a {

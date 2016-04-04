@@ -33,13 +33,13 @@ var portfolioItems = [
       ],
       info: ['div', [
         ['a', 
-          { href: 'https://vimeo.com/160117609', target: '_blank'},
-          'Watch it on Vimeo'
+          { href: 'http://www.amusedsloth.com/games/asgardrun/', target: '_blank'},
+          'Asgard Run'
         ],
         ['br'],
         ['a', 
-          { href: 'http://www.amusedsloth.com/games/asgardrun/', target: '_blank'},
-          'Asgard Run'
+          { href: 'http://www.amusedsloth.com/', target: '_blank'},
+          'Amused Sloth'
         ]
       ]]
     }
@@ -78,13 +78,11 @@ var portfolioItems = [
         ['p', 'This interactive fiction features branching storylines, stat tracking, and five-ish endings to unlock.'],
         ['p', ['em', 'Finalist entry in the one-month game writing jam, ', ['a', {href:'http://itch.io/jam/wag-challenge', target:'_blank'}, '2015 Write-A-Game Challenge'], ' (#WagChallenge), supported by the IGDA Game Writing SIG. The theme was “Down the Rabbit Hole.”']]
       ],
-      info: ['a', 
-        {
-          href: 'http://connorthomascleary.com/games/segfault-0/Segfault-0-Mad-Hatter_v1.1.html',
-          target: '_blank'
-        },
-        'Play Segfault[0]'
-      ]
+      cta: {
+        href: 'http://connorthomascleary.com/games/segfault-0/Segfault-0-Mad-Hatter_v1.1.html',
+        text: 'Play Segfault[0]',
+        target: '_blank'
+      }
     }
   },
 
@@ -119,11 +117,7 @@ var portfolioItems = [
         href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html',
         text: 'Play Roggy and the Beast',
         target: '_blank'
-      },
-      info: ['a', 
-        { href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html' },
-        'Play Roggy and the Beast'
-      ]
+      }
     }
   },
   
@@ -150,7 +144,6 @@ var portfolioItems = [
       'actionscript'
     ],
     modal: {
-      // title: 'Summoner: The Bescarfed (WIP)',
       hero: {
         url: imgBaseDir + '/heroes/hero-summoner.jpg',
         height: 320,
@@ -169,17 +162,15 @@ var portfolioItems = [
         ['p', 'Currently rebuilding the game from scratch in Unity using C#. Both enemies and friendly summons use an almost identical set of reusable Unity components, a decoupled MessageBus (Publish/Subscribe pattern), and a finite state machine AI system.'],
         ['p', 'I created all the sprites and animations as well.']
       ],
-      info: ['div', [
-        ['a', 
-          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/index.html' },
-          'Play Unity Build'
-        ],
-        ['br'],
-        ['a', 
-          { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
-          'Play Flash Prototype'
-        ]
-      ]]
+      cta: {
+        href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/index.html',
+        text: 'Play Unity Build',
+        target: '_blank'
+      },
+      info: ['a', 
+        { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
+        'Play Flash Prototype'
+      ]
     }
   },
 
@@ -209,21 +200,15 @@ var portfolioItems = [
       'shadowrun returns editor'
     ],
     modal: {
-      title: 'Skeleton Key: Panic Room - Shadowrun: Returns Quest',
+      title: 'Skeleton Key (Shadowrun: Returns Quest)',
       hero: {
-        url: imgBaseDir + '/heroes/hero-skeletonkey.jpg',
-        height: 320,
-        position: 'center center'
+        vimeo: '142842311'
       },
       description: ['.item-desc',
         ['p', 'Mission created with the ', ['a', {href:'https://www.youtube.com/watch?v=qyRBqnxKe5M'}, 'Shadowrun Returns Editor'], '. All visual/audio assets copyright Harebrained Schemes, with the exception of the skull portrait shown above.'],
         ['p', 'Many branching dialogues with NPCs and Player choices for approaching various situations. Several enemy encounters with strategically interesting cover options.'],
         ['p', ['a', { href: 'https://vimeo.com/142842311' }, 'Video playthrough'], ' is 9.5 minutes long. Actual playthrough takes 15-25 minutes. Link to playable Content Pack coming soon.'],
         ['p', 'Represents about 30-35 hours of work after first contact with the editor.']
-      ],
-      info: ['a', 
-        { href: 'https://vimeo.com/142842311', target: '_blank' },
-        'Watch Playthrough Video'
       ]
     }
   },
@@ -249,16 +234,12 @@ var portfolioItems = [
       title: 'Smiley the Demon Breaks Out',
       hero: {
         vimeo: '146804306',
-        url: imgBaseDir + '/heroes/hero-smiley.jpg',
-        position: 'center top'
+        // url: imgBaseDir + '/heroes/hero-smiley.jpg',
+        // position: 'center top'
       },
       description: ['.item-desc',
         ['p', 'Smiley the Demon breaks out of the classic "T-Pose."'],
         ['p', 'All content is original and created by hand using Blender 3D, including model, skeleton, rigging, and animation.']
-      ],
-      info: ['a', 
-        { href: 'https://vimeo.com/146804306' },
-        'Watch it on Vimeo'
       ]
     }
   },
@@ -324,13 +305,11 @@ var portfolioItems = [
           ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
         ]]
       ],
-      info: ['a', 
-        { 
-          href: 'http://www.imdb.com/title/tt1392190/',
-          target: '_blank'
-        },
-        'See it live'
-      ]
+      cta: {
+        href: 'http://www.imdb.com/title/tt1392190/',
+        text: 'See it live',
+        target: '_blank'
+      }
     }
   },
 
@@ -391,13 +370,11 @@ var portfolioItems = [
           ['li', 'Very complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code/graceful degradation in case of hiccups.']
         ]]
       ],
-      info: ['a', 
-        { 
-          href: 'http://www.imdb.com/title/tt2096673/',
-          target: '_blank'
-        },
-        'See it live'
-      ]
+      cta: {
+        href: 'http://www.imdb.com/title/tt2096673/',
+        text: 'See it live',
+        target: '_blank'
+      }
     }
   },
 
@@ -460,12 +437,8 @@ var portfolioItems = [
           ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
         ]]
       ],
-      info: ['a', 
-        { 
-          href: 'http://www.imdb.com/title/tt0369610/',
-          target: '_blank'
-        },
-        'See it live'
+      info: ['span',
+        '(No longer live on site.)'
       ]
     }
   },

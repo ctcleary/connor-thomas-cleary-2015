@@ -12,7 +12,7 @@ var fictionPublicationItems = [
   {
     title: 'Revolvers',
     url: 'http://robotcowgirl.com/about/',
-    venue: 'Robot Cowgirl: Swords and Sorcery Anthology (2016)',
+    venue: 'Robot Cowgirl: Swords and Sorcery Anthology (Coming soon.)',
     primaryTags: [
       'short fiction',
       'sf/f'

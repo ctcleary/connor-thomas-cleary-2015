@@ -797,10 +797,17 @@ tagged-item {
         padding: 12px;
         width: 90%;
         background-color: #3E7CF7;
+        border: thin solid transparent;
         color: white;
         font-size: 15px;
         line-height: auto;
-        text-decoration: none; }
+        text-decoration: none;
+        -webkit-transition: background 0.15s linear, color 0.15s linear, border 0.15s linear;
+                transition: background 0.15s linear, color 0.15s linear, border 0.15s linear; }
+        .item-modal .item-modal-contents .item-modal-sidebar .item-modal-cta a:hover {
+          background: transparent;
+          border-color: #3E7CF7;
+          color: #3E7CF7; }
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-info a {
         font-size: 15px; }
       .item-modal .item-modal-contents .item-modal-sidebar .item-modal-tags,
