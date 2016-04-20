@@ -528,12 +528,28 @@
             window.debug.warn('Failed to find modalItem for :: ', hashKey);
             return;
           }
+
+          if (window.history.length === 1) {
+            handleInitialHash(modalItem);
+          }
           window.modalControl.initModal(modalItem)
         }
       }
 
-      // Add to hashchange event, and call on init.
+      function handleInitialHash(modalItem) {
+        // If visitor came to a direct-to-modal link
+        // modify the browser history so they can go 'back'
+        var hashURL = window.location.href;
+        var noHasHURL = window.location.href.split('#')[0];
+        window.history.replaceState({ modalState: null }, document.title, noHasHURL);
+        var title = modalItem.modal.title || modalItem.title;
+        window.history.pushState({ modalState: title }, document.title, hashURL);
+      }
+
+      // Add to hashchange event
       window.addEventListener('hashchange', handleHashChange);
+
+      // call on init 
       handleHashChange();
 
     }) (window, portfolioItems);

@@ -121,7 +121,7 @@
 
     // UTILITIES
     this.dismissModal = function(e) {
-      window.history.back();
+      window.history.go(-1);
     };
     this.dismissOnEsc = function(e) {
       if (e.keyCode === 27) {
