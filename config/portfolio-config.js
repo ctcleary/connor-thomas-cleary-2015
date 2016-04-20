@@ -6,7 +6,7 @@ if (window.location.hostname === 'localhost') {
 }
 var portfolioItems = [
 
-  // slate-asgardrun.jpg
+  // asgardrun
   {
     shortcut: 'asgardrun',
 
@@ -42,6 +42,58 @@ var portfolioItems = [
           'Amused Sloth'
         ]
       ]]
+    }
+  },
+
+  // loveshorn
+  {
+    shortcut: 'loveshorn',
+
+    title: 'Loveshorn in Glenrock',
+    venue: 'Solo',
+    slate: {
+      url: imgBaseDir + 'slates/slate-loveshorn.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'narrative design',
+      'game mod',
+      'design test'
+    ],
+    modal: {
+      title: 'Loveshorn in Glenrock (Divinity: Original Sin)',
+      hero: {
+        vimeo: '163503889',
+      },
+      description: ['.item-desc',
+        ['p', 'A short narrative-focused level where you are asked to intervene in the social drama of a small town called Glenrock. Will you be vindictive or forgiving? Will you run people out of town for their sins, or help them put their lives back together?'],
+        ['p', 'There are over 13 different end states, and countless paths through the complex social fabric of Glenrock. Resolve the problems however you see fit!'],
+        ['hr'],
+        ['p&', 'Created with Larian Studios\' <em>Divinity Engine</em>. Powered by over 2,800 lines of the proprietary scripting language, Divinity Script. Features hundreds of lines of dialog. Gracefully handles unusual Player sequences and dead NPCs. Also there\s a talking fish.'],
+        ['p', 'Credits:'],
+        ['ul', [
+          ['li', 'All writing, scripting, and level decoration created/implemented by Connor Thomas Cleary.'],
+          ['li', 'Original bare-bones town layout provided by Larian Studios.'],
+          ['li', 'Original quest premise provided by Larian Studios.'],
+          ['li&', 'Intro music: <em>Hammerfall - Templars of Steel</em>.'],
+        ]]
+      ],
+      cta: {
+        href: 'http://steamcommunity.com/sharedfiles/filedetails/?id=654487484',
+        text: 'Play it on Steam!',
+        target: '_blank'
+      },
+      info: [
+        'a', {
+          href: 'http://connorthomascleary.com/assets/docs/LoveshornInGlenrock_QuestDesign.pdf',
+          target: '_blank'
+        },
+        'Quest Design Flow Chart'
+      ]
     }
   },
 
