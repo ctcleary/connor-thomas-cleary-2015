@@ -215,8 +215,9 @@ var portfolioItems = [
         ['p', 'I created all the sprites and animations as well.']
       ],
       cta: {
-        href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/index.html',
-        text: 'Play Unity Build',
+        //href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/index.html',
+        href: 'http://connorthomascleary.com/games/summoner-the-bescarfed-unity/Summoner-the-Bescarfed.zip',
+        text: 'Play Unity Build (Windows Only)',
         target: '_blank'
       },
       info: ['a', 
