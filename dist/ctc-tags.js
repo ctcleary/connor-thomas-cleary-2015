@@ -1,4 +1,4 @@
-riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero}" riot-style="{this.getHeroStyle()}"></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}"></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}"></div></div></div><div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div></div></div></div></div></article>', '', '', function(opts) {
+riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
@@ -36,11 +36,11 @@ riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{
 
       } else {
         heroStyles = ['background-color: black'];
-
+        
       }
 
       if (modalConfig.hero.height != null) {
-        heroStyles.push('height: '+ modalConfig.hero.height +'px;');
+        heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
       }
 
       return heroStyles.join(' ');
@@ -74,6 +74,7 @@ riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{
       var el = this.root.getElementsByClassName(elClass)[0];
       el.appendChild(shavenObj[0]);
     }
+
 
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
@@ -121,6 +122,7 @@ riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{
       }
     }
 
+
     this.appendCustomHero = function() {
       this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
     }
@@ -138,14 +140,15 @@ riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{
           }]
         ],
         'item-modal-vimeo-hero');
-
+   
     }
+    
 
     this.appendModalContents = function() {
       try {
         if (this.isVimeoHero) {
           this.appendVimeoHero();
-        } else
+        } else 
         if (this.isCustomHero) {
           this.appendCustomHero();
         }
@@ -181,17 +184,19 @@ riot.tag2('item-modal', '<article><div class="item-modal-viewport" riot-style="{
       }
     });
 
+  
 });
-riot.tag2('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTag}"> {this.opts.config.name} </button>', '', '', function(opts) {
+riot.tag('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTag}"> {this.opts.config.name} </button>', function(opts) {
     this.getClasses = function() {
       var classes = 'button tag-button';
       var isActive = this.opts.config.active;
       classes += (isActive) ? ' tag-button-active' : ' tag-button-inactive';
       return classes;
     }
+  
 });
 
-riot.tag2('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div>', '', 'class="{parent.opts.itemsClass} {w-modal: this.hasModal} {w-url: this.hasUrl}"', function(opts) {
+riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
     this.hasModal = !!this.opts.modal;
     this.hasUrl   = !!this.opts.url;
 
@@ -215,9 +220,10 @@ riot.tag2('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" rio
 
       return null;
     };
+  
 });
 
-riot.tag2('tags-app', '<div class="tags-app"><tags-filters app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.presetFilters}"></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}"></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}"><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', '', '', function(opts) {
+riot.tag('tags-app', '<div class="tags-app"><tags-filters app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
 
     this.actionHandler = riot.observable();
     this.filtersComponent = this.tags['tags-filters'];
@@ -228,7 +234,7 @@ riot.tag2('tags-app', '<div class="tags-app"><tags-filters app-config="{this.app
     });
 
     this.isLimited = !!this.opts.itemLimit;
-    this.doLimitDisplay = true;
+    this.doLimitDisplay = true; // true by default
 
     this.itemLimit = this.opts.itemLimit;
     this.isOverLimit = undefined;
@@ -240,7 +246,7 @@ riot.tag2('tags-app', '<div class="tags-app"><tags-filters app-config="{this.app
       _.each(taggedItems, function(tagsItem) {
         allTagNames = _.union(allTagNames, tagsItem.primaryTags);
       });
-
+      
       var allTags = _.map(allTagNames, function(tagName) {
         return {
           name: tagName,
@@ -297,6 +303,7 @@ riot.tag2('tags-app', '<div class="tags-app"><tags-filters app-config="{this.app
       }
     };
 
+
     this.hasTag = function(item, testTag) {
       return (_.indexOf(testTag, item.tags) !== -1);
     };
@@ -319,10 +326,10 @@ riot.tag2('tags-app', '<div class="tags-app"><tags-filters app-config="{this.app
       return this.opts.itemsClass;
     };
 
+  
 });
 
-riot.tag2('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}" title="close filters"><img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"></button></div></div></div>', '', '', function(opts) {
-
+riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters()}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}" title="close filters"><img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"></button></div></div></div>', function(opts) {
     var CHANGE_EVENT = 'filters-change';
 
     this.on('update', function() {
@@ -416,4 +423,5 @@ riot.tag2('tags-filters', '<div class="{tags-filters-activator: true, is-hidden:
       return this.filtersHidden;
     }
 
+  
 });

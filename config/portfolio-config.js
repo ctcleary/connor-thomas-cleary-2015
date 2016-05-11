@@ -709,7 +709,51 @@ var portfolioItems = [
         ]
       ]
     }
-  }
+  },
+
+
+
+
+
+  // snapengage homepage
+  /*
+  {
+    title: 'SnapEngage Website',
+    slate: {
+      url: imgBaseDir + 'slates/slate-snapengage.jpg',
+      position: 'center top'
+    },
+    venue: 'SnapEngage',
+    primaryTags: [
+      'web'
+    ],
+    secondaryTags: [
+    ],
+    skills: [
+      'wordpress',
+      'javascript',
+      'html',
+      'css',
+      'localization'
+    ],
+    modal: {
+      title: 'SnapEngage Home Page',
+      hero: {
+        url: imgBaseDir + 'heroes/hero-snapengage.jpg',
+        height: 700,
+        position: 'center top'
+      },
+      description: ['.item-desc',
+        ['p', 'Among several other hats I wore while working at SnapEngage, I built a fully custom Wordpress theme based on a home page design from a contracted designer. We were provided with the home page design, I implemented it to pixel perfection, including javascript animations. The rest of the pages had to be extrapolated from the initial home page design.'],
+      ],
+      cta: {
+        href: 'https://snapengage.com/',
+        text: 'See it live.',
+        target: '_blank'
+      },
+    }
+  },
+  */
 
 
 
