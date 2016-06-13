@@ -99,6 +99,15 @@ module.exports = function(grunt) {
         dest: 'static-build/index.html'
       }
     },
+    uglify: {
+      'static-build': {
+        files: [{
+          cwd: 'static-build/js',
+          src: '*.js',
+          dest: 'static-build/js'
+        }]
+      }
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -134,5 +143,6 @@ module.exports = function(grunt) {
     'clean:static-build',
     'copy:static-build',
     'preprocess:static-build',
+    'uglify:static-build',
   ]);
 };
