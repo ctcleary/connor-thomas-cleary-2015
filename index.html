@@ -24,7 +24,7 @@
   <meta property="og:site_name" content="Connor Thomas Cleary" />
   <meta property="og:title" content="Storyteller. Game Designer. Programmer." />
   <meta property="og:url" content="http://connorthomascleary.com/" />
-  <meta property="og:image" content="http://connorthomascleary.com/assets/img/connorthomascleary-headshot.jpg" />
+  <meta property="og:image" content="http://connorthomascleary.com/assets/img/ctc_site_logo-v1.jpg" />
   <meta property="og:description" content="Connor Thomas Cleary's online portfolio." /> 
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -311,7 +311,7 @@
                 <h3 class="segment-headline">Recent Achievements</h3>
                 <ul>
                   <li>Learned the <em>Divinity Engine</em> toolset and created <em><a href="#shortcut:loveshorn">Loveshorn in Glenrock</a></em>.
-                  <li>Saved over $48 million in at-risk revenue on a team of three developers at IMDb. Plus created the technology to power an ambitious new product, worth (projected) tens of millions a year. (<a href="#shortcut:tarnhelm">Tarnhelm Framework</a>)</li>
+                  <li>Saved over $48 million in at-risk revenue on a team of three developers at IMDb. Plus a projected revenue increase of >$50 million for 2016. (<a href="#shortcut:tarnhelm">Tarnhelm Framework</a>)</li>
                   <li>Received multiple awards for performance as a Design Technologist at IMDb.</li>
                   <li>A new short story publication (Available early 2016).</li>
                   <li>Wrote <em><a href="#shortcut:segfault0">Segfault[0]: Mad Hatter</a></em> which placed as a finalist in the <a href="http://itch.io/jam/wag-challenge" target="_blank">Write-A-Game Challenge 2015</a> (#WAGChallenge).</li>
@@ -633,37 +633,27 @@
       window.debug.error("Error mounting app, e ::", e, e.stack);
     }
 
-    // $('.js-hero-type-text')[0].textContent = 'I';
-    // $('.js-hero-type-text')[0].textContent = '';
     (function() {
-      var TYPIST_CLEAR_DELAY = 700;
-      var TYPIST_NEW_STAGE_DELAY = 125;
       var typist = new Typist({
         el: $('.js-hero-type-text')[0],
         preText: 'I ',
+        clearAfterComplete: false,
+        emptyWait: 145,
+        messageWait: 700,
         stages: [
           {
-            delay: TYPIST_NEW_STAGE_DELAY,
             text: 'write ',
-            clearAfterComplete: true,
-            clearDelay: TYPIST_CLEAR_DELAY
           },
           {
-            delay: TYPIST_NEW_STAGE_DELAY,
             text: 'code ',
-            clearAfterComplete: true,
-            clearDelay: TYPIST_CLEAR_DELAY
           },
           {
-            delay: TYPIST_NEW_STAGE_DELAY,
             text: 'design ',
-            clearAfterComplete: true,
-            clearDelay: TYPIST_CLEAR_DELAY
           },
           {
-            delay: TYPIST_NEW_STAGE_DELAY,
             text: 'create experiences.',
-            writeSpeed: 15
+            writeSpeed: 15,
+            emptyWait: 700
           }
         ]
       });
