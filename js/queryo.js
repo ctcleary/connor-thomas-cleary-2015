@@ -132,7 +132,8 @@ var QueryO = (function() {
         },
         _getCleanString: function() {
             var cleanStr = _queryString;
-            if (cleanStr.indexOf('#') !== -1) { // In case we have a hashpath at the end, slice it off.
+            // In case we have a hashpath at the end, slice it off.
+            if (cleanStr.indexOf('#') !== -1) {
                 cleanStr.substr(0, cleanStr.indexOf('#'));
             }
             return cleanStr;
