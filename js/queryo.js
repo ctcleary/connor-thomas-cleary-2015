@@ -122,7 +122,7 @@ var QueryO = (function() {
             return result;
         },
         _toNum: function(val) {
-            if (val.indexOf(',') !== -1) {
+            if (val.indexOf('.') !== -1) {
                 return parseFloat(val);
             }
             return parseInt(val, 10);
