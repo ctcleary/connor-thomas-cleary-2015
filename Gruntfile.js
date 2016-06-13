@@ -102,9 +102,20 @@ module.exports = function(grunt) {
     uglify: {
       'static-build': {
         files: [{
-          cwd: 'static-build/js',
-          src: '*.js',
-          dest: 'static-build/js'
+          expand: true,
+          cwd: 'static-build/',
+          dest: 'static-build/',
+          src: ['js/*.js', 'config/*.js', 'dist/*.js']
+        }]
+      }
+    },
+    cssmin: {
+      'static-build': {
+        files: [{
+          expand: true,
+          cwd: 'static-build/css',
+          dest: 'static-build/css',
+          src: '*.css'
         }]
       }
     }
@@ -117,6 +128,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-preprocess');
   grunt.loadNpmTasks('grunt-riot');
 
@@ -144,5 +157,6 @@ module.exports = function(grunt) {
     'copy:static-build',
     'preprocess:static-build',
     'uglify:static-build',
+    'cssmin:static-build'
   ]);
 };
