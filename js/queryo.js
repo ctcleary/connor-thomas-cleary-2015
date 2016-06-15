@@ -60,14 +60,6 @@ var QueryO = (function() {
     var _queryString;
     var _obj;
 
-    function _getQueryString() {
-        var raw = window.location.href;
-        if (raw.indexOf('?') === -1) {
-            return '';
-        }
-        return raw.substr(raw.indexOf('?')+1);
-    }
-
     function _getAsType(val, options) {
         var type = options.as.toLowerCase();
         type = _validateType(type);
@@ -114,6 +106,16 @@ var QueryO = (function() {
         }
     };
 
+
+
+    function _getQueryString() {
+        var raw = window.location.href;
+        if (raw.indexOf('?') === -1) {
+            return '';
+        }
+        return raw.substr(raw.indexOf('?')+1);
+    }
+
     function _getCleanString() {
         var cleanStr = _queryString;
         // In case we have a hashpath at the end, slice it off.
@@ -149,8 +151,8 @@ var QueryO = (function() {
         /**
          * Get the full raw object, or get a specific parameter.
          *
-         * @param {String=} opt_paramName -- The name of a specific parameter.
-         * @param {Object<String,String>=} options -- Options object: 
+         * @param {String=} opt_paramName -- Query string parameter key.
+         * @param {Object<String,String>=} options -- Options object, see documentation above.
          */
         get: function(opt_paramName, options /* as, of, splitter */) {
             if (!opt_paramName) {
@@ -162,17 +164,26 @@ var QueryO = (function() {
                 return; // This param doesn't exist.
             }
 
-            if (!options || !options.as) { // i.e. "get('arrayParam', { as: 'array', of: 'number' }"
+            if (!options || !options.as) {
                 return _convert['string'](val); // Return the string value.
             }
 
             return _getAsType(val, options);
         },
 
+        /**
+         * @param {String} paramName -- Query string parameter key.
+         * @param {String} asType -- Type 'array'|'number'|'boolean'|'string'
+         */
         getAs: function(paramName, asType) {
             return this.get(paramName, { as: asType });
         },
 
+        /**
+         * @param {String} paramName -- Query string parameter key.
+         * @param {String=} opt_ofType -- The data type of the array members.
+         * @param {String=} opt_splitter -- Array splitter, default is ','
+         */
         getAsArray: function(paramName, opt_ofType, opt_splitter) {
             var type = opt_ofType || 'string';
             var options = { as: 'array', of: type };
@@ -180,6 +191,9 @@ var QueryO = (function() {
             return this.get(paramName, options);
         },
 
+        /**
+         * @returns {Object} -- Full query string converted to a {'string':'string'} object.
+         */
         obj: function() {
             return JSON.parse(JSON.stringify(_obj)); // Return a clone to protect the source data.
         },
