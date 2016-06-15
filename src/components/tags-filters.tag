@@ -79,7 +79,7 @@
       var setTags = allTags;
       if (presetFilters) {
         if (presetFilters[0] === 'all' || presetFilters[0] === 'any') {
-          this.matchAll = (presetFilters === 'all');
+          this.matchAll = (presetFilters[0] === 'all');
           presetFilters.shift();
         }
         _.each(setTags, function(tagObj, index, i) {
