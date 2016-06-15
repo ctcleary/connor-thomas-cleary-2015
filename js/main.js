@@ -116,7 +116,7 @@ var portfolioItems = portfolioItems;
 var fictionPublicationItems = fictionPublicationItems;
 var journoPublicationItems = journoPublicationItems;
 
-var QueryO = QueryO; // from js/queryo.js
+var QueryO = window.QueryO; // from js/queryo.js
 var hashCatcher = (function(window, portfolioItems) {
   var listenKeys = [];
   portfolioItems.forEach(function(item) {

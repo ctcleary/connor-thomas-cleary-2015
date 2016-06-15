@@ -144,6 +144,8 @@
       return this.filtersHidden;
     }
 
+    this.setPresetFilters(this.allTags, this.opts.presetFilters);
+
   </script>
 
 </tags-filters>

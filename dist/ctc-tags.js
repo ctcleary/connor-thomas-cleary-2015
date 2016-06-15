@@ -223,8 +223,7 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
   
 });
 
-riot.tag('tags-app', '<div class="tags-app"><tags-filters app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
-
+riot.tag('tags-app', '<div class="tags-app"><tags-filters app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.opts.presetFilters}" ></tags-filters><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
     this.actionHandler = riot.observable();
     this.filtersComponent = this.tags['tags-filters'];
 
@@ -422,6 +421,8 @@ riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: 
       }
       return this.filtersHidden;
     }
+
+    this.setPresetFilters(this.allTags, this.opts.presetFilters);
 
   
 });

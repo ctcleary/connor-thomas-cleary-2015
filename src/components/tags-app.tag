@@ -5,7 +5,7 @@
       action-handler={ this.actionHandler }
       all-tags={ this.allTags }
       tags-class={ this.opts.tagsClass }
-      preset-filters={ this.presetFilters }
+      preset-filters={ this.opts.presetFilters }
       >
     </tags-filters>
 
@@ -49,7 +49,6 @@
   </div>
 
   <script>
-
     this.actionHandler = riot.observable();
     this.filtersComponent = this.tags['tags-filters'];
 
