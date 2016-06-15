@@ -63,11 +63,20 @@ var QueryO = (function() {
     var DEFAULT_TYPE = 'string';
     var DEFAULT_SPLITTER = ',';
 
+    // For type safety, avoiding native overwrite, and avoiding restricted names.
+    var CONVERSION_KEY_MAP = {
+        'string': 'toStr',
+        'boolean': 'toBool',
+        'number': 'toNum',
+        'array': 'toArr'
+    };
+
+
     function _getAsType(val, options) {
         var asType = options.as.toLowerCase();
         asType = _validateType(asType);
 
-        var conversionKey = _toConversionKey(asType);
+        var conversionKey = CONVERSION_KEY_MAP[asType];
         return _convert[conversionKey](val, options);
     }
 
@@ -78,35 +87,31 @@ var QueryO = (function() {
         result = (isSupported) ? asType : DEFAULT_TYPE;
         return result;
     }
-    function _toConversionKey(asType) {
-        var capitalized = asType.charAt(0).toUpperCase() + asType.substr(1);
-        return 'to' + capitalized;
-    }
 
     var _convert = {
-        'toString': function(val) {
+        toStr: function(val) {
             return decodeURIComponent(val);
         },
-        'toBoolean': function(val) {
+        toBool: function(val) {
             return (val === 'true' || val === '1');
         },
-        'toNumber': function(val) {
+        toNum: function(val) {
             if (val.indexOf('.') !== -1) {
                 return parseFloat(val);
             }
             return parseInt(val, 10);
         },
-        'toArray': function(val, options) {
+        toArr: function(val, options) {
             var result;
             var subType = DEFAULT_TYPE; // default.
-            var conversionKey = _toConversionKey(subType);
+            var conversionKey = CONVERSION_KEY_MAP[subType];
             var splitter = options.splitter || DEFAULT_SPLITTER;
             result = val.split(splitter);
 
             if (options.of) { // i.e. { as: 'array', of: 'string' }
                 subType = options.of.toLowerCase();
                 subType = _validateType(subType);
-                conversionKey = _toConversionKey(subType);
+                conversionKey = CONVERSION_KEY_MAP[subType];
             }
 
             for (var i = 0; i < result.length; i++) {
@@ -149,7 +154,7 @@ var QueryO = (function() {
         pairs = _getCleanString(_queryString).split('&');
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i].split('=');
-            result[pair[0]] = _convert.toString(pair[1]);
+            result[pair[0]] = _convert.toStr(pair[1]);
         }
 
         _obj = result;
