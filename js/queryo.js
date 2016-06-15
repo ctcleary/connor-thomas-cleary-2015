@@ -146,9 +146,6 @@ var QueryO = (function() {
     _init();
 
     return {
-        obj: function() {
-            return JSON.parse(JSON.stringify(_obj)); // Return a clone to protect 
-        },
         /**
          * Get the full raw object, or get a specific parameter.
          *
@@ -159,11 +156,12 @@ var QueryO = (function() {
             if (!opt_paramName) {
                 return this.obj(); // Return the whole object.
             }
-            var val = this.obj()[opt_paramName];
 
+            var val = this.obj()[opt_paramName];
             if (!val) {
                 return; // This param doesn't exist.
             }
+
             if (!options || !options.as) { // i.e. "get('arrayParam', { as: 'array', of: 'number' }"
                 return _convert['string'](val); // Return the string value.
             }
@@ -176,11 +174,14 @@ var QueryO = (function() {
         },
 
         getAsArray: function(paramName, opt_ofType, opt_splitter) {
-            var options = { as: 'array', of: ofType };
-            if (opt_splitter) {
-                options.splitter = opt_splitter;
-            }
+            var type = opt_ofType || 'string';
+            var options = { as: 'array', of: type };
+            options.splitter = opt_splitter || ',';
             return this.get(paramName, options);
-        }
+        },
+
+        obj: function() {
+            return JSON.parse(JSON.stringify(_obj)); // Return a clone to protect the source data.
+        },
     };
 })();
