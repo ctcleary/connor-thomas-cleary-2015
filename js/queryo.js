@@ -7,8 +7,8 @@
  * # Summary:
  *
  * A singleton utility that automatically parses the query string parameters of the
- * current url into an Object. Also supports getting parameters with type conversion,
- * including nested arrays.
+ * current url into an Object on page load. Also supports getting parameters with 
+ * type conversion, including nested arrays.
  *
  *
  * # Public Methods Supported:
@@ -60,46 +60,57 @@ var QueryO = (function() {
     var _queryString;
     var _obj;
 
+    var DEFAULT_TYPE = 'string';
+    var DEFAULT_SPLITTER = ',';
+
     function _getAsType(val, options) {
-        var type = options.as.toLowerCase();
-        type = _validateType(type);
-        return _convert[type](val, options);
+        var asType = options.as.toLowerCase();
+        asType = _validateType(asType);
+
+        var conversionKey = _toConversionKey(asType);
+        return _convert[conversionKey](val, options);
     }
 
     function _validateType(asType) {
         var result = asType;
         var supportedTypes = /^(array|number|boolean|string)$/;
         var isSupported = supportedTypes.test(result);
-        result = (isSupported) ? asType : null;
+        result = (isSupported) ? asType : DEFAULT_TYPE;
         return result;
+    }
+    function _toConversionKey(asType) {
+        var capitalized = asType.charAt(0).toUpperCase() + asType.substr(1);
+        return 'to' + capitalized;
     }
 
     var _convert = {
-        'string': function(val) {
+        'toString': function(val) {
             return decodeURIComponent(val);
         },
-        'boolean': function(val) {
+        'toBoolean': function(val) {
             return (val === 'true' || val === '1');
         },
-        'number': function(val) {
+        'toNumber': function(val) {
             if (val.indexOf('.') !== -1) {
                 return parseFloat(val);
             }
             return parseInt(val, 10);
         },
-        'array': function(val, options) {
+        'toArray': function(val, options) {
             var result;
-            var subType = 'string'; // default.
-            var splitter = options.splitter || ',';
+            var subType = DEFAULT_TYPE; // default.
+            var conversionKey = _toConversionKey(subType);
+            var splitter = options.splitter || DEFAULT_SPLITTER;
             result = val.split(splitter);
 
             if (options.of) { // i.e. { as: 'array', of: 'string' }
                 subType = options.of.toLowerCase();
                 subType = _validateType(subType);
+                conversionKey = _toConversionKey(subType);
             }
 
             for (var i = 0; i < result.length; i++) {
-                result[i] = _convert[subType](result[i]);
+                result[i] = _convert[conversionKey](result[i]);
             }
 
             return result;
@@ -116,8 +127,8 @@ var QueryO = (function() {
         return raw.substr(raw.indexOf('?')+1);
     }
 
-    function _getCleanString() {
-        var cleanStr = _queryString;
+    function _getCleanString(queryString) {
+        var cleanStr = queryString;
         // In case we have a hashpath at the end, slice it off.
         if (cleanStr.indexOf('#') !== -1) {
             cleanStr.substr(0, cleanStr.indexOf('#'));
@@ -135,10 +146,10 @@ var QueryO = (function() {
         var pairs;
         var result = {};
 
-        pairs = _getCleanString().split('&');
+        pairs = _getCleanString(_queryString).split('&');
         for (var i = 0; i < pairs.length; i++) {
             var pair = pairs[i].split('=');
-            result[pair[0]] = _convert['string'](pair[1]);
+            result[pair[0]] = _convert.toString(pair[1]);
         }
 
         _obj = result;
@@ -164,8 +175,9 @@ var QueryO = (function() {
                 return; // This param doesn't exist.
             }
 
+            var opts = options || {};
             if (!options || !options.as) {
-                return _convert['string'](val); // Return the string value.
+                opts.as = DEFAULT_TYPE;
             }
 
             return _getAsType(val, options);
@@ -185,9 +197,9 @@ var QueryO = (function() {
          * @param {String=} opt_splitter -- Array splitter, default is ','
          */
         getAsArray: function(paramName, opt_ofType, opt_splitter) {
-            var type = opt_ofType || 'string';
+            var type = opt_ofType || DEFAULT_TYPE;
             var options = { as: 'array', of: type };
-            options.splitter = opt_splitter || ',';
+            options.splitter = opt_splitter || DEFAULT_SPLITTER;
             return this.get(paramName, options);
         },
 
