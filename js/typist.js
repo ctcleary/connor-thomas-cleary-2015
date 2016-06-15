@@ -3,11 +3,13 @@
  * Author: Connor Thomas Cleary - github/ctcleary
  * Version: v1.1
  *
- * Summary:
+ * # Summary:
+ *
  * A simple utility for creating animations simulating a human typing text into a DOM Element.
  *
  *
- * Constructor With Options Hash:
+ * # Constructor With Options Hash:
+ *
  * new Typist({
  *   el: (DOM) Element,  // (Required) Text will be typed directly into this el. (Style your text via CSS on this el.)  
  *   preText: String,    // (Optional) Text to show in the el before the animation starts, will not be
@@ -18,14 +20,16 @@
  *   emptyWait:   Number, // (Optional. Default: 125) How long to idle on empty before typing the next stage in ms.
  *   messageWait: Number, // (Optional. Default: 700) How long to idle on full text before deleting current stage in ms.
  *
- *   writeSpeed: Number, // (Optional. Default: 60) How quickly each new character is typed in ms.
- *   clearSpeed: Number, // (Optional. Default: 60) How quickly characters are deleted in ms.
- *                       // Note: both the Speed variables are randomized a bit to feel more organic.
+ *   writeSpeed: Number,  // (Optional. Default: 60) How quickly each new character is typed in ms.
+ *   clearSpeed: Number,  // (Optional. Default: 60) How quickly characters are deleted in ms.
+ *                        // Note: both the Speed variables are randomized a bit to feel more organic.
  *
  *   stages: Array<Object>> // An array of plain objects using the "Stage" schema (below).  
  * })
  *
- * Stage Object Schema:
+ *
+ * # "Stage" Object Schema:
+ *
  * {
  *   text: String, // Text to type during this stage.
  *
@@ -37,7 +41,8 @@
  * }
  *
  *
- * Example Usage:
+ * # Example Usage:
+ *
  * var typist = new Typist({
  *   el: document.getElementById('typistEl'),
  *   stages: [
@@ -55,6 +60,11 @@
  */
 
 var Typist = function(options) {
+  if (options.el == null) {
+    console.warn('Required parameter not found. Aborting Typist initialization.');
+    return;
+  }
+
   this.el = options.el;
   this.preText = options.preText || '';
 
