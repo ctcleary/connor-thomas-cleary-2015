@@ -1,10 +1,122 @@
 var imgBaseDir = '';
 if (window.location.hostname === 'localhost') {
-  imgBaseDir = '/local-design/'
+  imgBaseDir = '/local-design/img/'
 } else {
   imgBaseDir = 'http://connorthomascleary.com/assets/img/';
 }
 var portfolioItems = [
+
+  // ttg-gog
+  {
+    shortcut: 'ttg-gog',
+
+    title: 'Guardians of the Galaxy',
+    venue: 'Telltale Games',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ttg-gog.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'narrative design',
+      'puzzle design',
+      'level design'
+    ],
+    modal: {
+      title: 'Telltale\'s Guardians of the Galaxy',
+      hero: {
+        youtube: 'HlnEKaIkiEg',
+      },
+      description: ['.item-desc',
+        ['p', 'I worked on Telltale\'s Guardians of the Galaxy, Episodes 102 and 104 -- contributing Narrative Design, Story Collaboration, Puzzle Design, and Level Design for Telltale\'s unique brand of narrative-driven games.'],
+        ['p', 'I was honored to collaborate with so many incredibly talented and funny people on this project.']
+      ],
+      info: ['div', [
+        ['a', 
+          { href: 'https://telltale.com/series/guardiansofthegalaxy/', target: '_blank'},
+          'Official Site'
+        ],
+      ]]
+    }
+  },
+
+  // ttg-bat
+  {
+    shortcut: 'ttg-bat',
+
+    title: 'Batman: The Enemy Within',
+    venue: 'Telltale Games',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ttg-bat.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'narrative design',
+      'puzzle design',
+      'level design'
+    ],
+    modal: {
+      title: 'Telltale\'s Batman: The Enemy Within',
+      hero: {
+        youtube: 'cXdUBq30gP4',
+      },
+      description: ['.item-desc',
+        ['p', 'I worked on Batman: The Enemy Within, Episodes 203 and 204 -- contributing Narrative Design, Story Collaboration, Puzzle Design, and Level Design for Telltale\'s unique brand of narrative-driven games.'],
+        ['p', 'I was honored to collaborate with so many incredibly talented and funny people on this project.']
+      ],
+      info: ['div', [
+        ['a', 
+          { href: 'https://telltale.com/series/batman-season-2/', target: '_blank'},
+          'Official Site'
+        ],
+      ]]
+    }
+  },
+
+  // potions
+  {
+    shortcut: 'potions',
+    title: 'Potions: A Curious Tale',
+    venue: 'Stumbling Cat',
+    slate: {
+      url: imgBaseDir + 'slates/slate-potions.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+      'narrative design',
+      'unity'
+    ],
+    modal: {
+      title: 'Potions: A Curious Tale',
+      hero: {
+        height: 288,
+        url: imgBaseDir + 'heroes/hero-potions.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'I\'m honored to be working as the Narrative Lead on this promising indie title developed by Stumbling Cat with Creative Director Renee Gittins at the helm.'],
+        ['p', 'Working in close collaboration with Renee Gittins, I\'ve designed a compelling overarching plot for Potions: A Curious Tale. It\'s designed to be flexible enough to incorporate a number fairy tale, folklore, and mythological characters and storylines from all over the world, while maintaining a focus on the thematic elements and character motivations the team is passionate about exploring.'],
+        ['p', 'I am also very happy to be contributing to the game design side of things, and using my experience as a web developer to help inform our UI design and decisions.'],
+        ['p', 'Finally, I\'ve also taken on programming tasks from time to time, like rebuilding our dialogue system to support imported <pre>.csv</pre> scripts to increase the efficiency of the writing, editing, and iteration process.']
+      ],
+      cta: {
+        href: 'https://stumblingcat.com',
+        text: 'Potions Website',
+        target: '_blank'
+      }
+    }
+  },
 
   // asgardrun
   {
@@ -109,13 +221,13 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'twine'
     ],
     secondaryTags: [
       'branching narrative',
       'javascript',
-      'CSS',
-      'twine'
+      'CSS'
     ],
     modal: {
       title: 'Segfault[0]: Mad Hatter',
@@ -134,7 +246,13 @@ var portfolioItems = [
         href: 'http://connorthomascleary.com/games/segfault-0/Segfault-0-Mad-Hatter_v1.1.html',
         text: 'Play Segfault[0]',
         target: '_blank'
-      }
+      },
+      info: [
+        'a', {
+          href: imgBaseDir + 'twinecomp-segfault.jpg'
+        },
+        'Game Flow Preview'
+      ]
     }
   },
 
@@ -150,11 +268,13 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'twine'
     ],
     secondaryTags: [
+      'branching narrative',
       'javascript',
-      'twine'
+      'CSS'
     ],
     modal: {
       hero: {
@@ -166,10 +286,16 @@ var portfolioItems = [
         ['p', 'You find yourself dragging heavy feet across the Truxican desert. You\'re dying of thirst and there\'s no help to be found. But wait. There\'s a shack in the distance. You pray it\'s not home to some crazy guy. (Spoiler alert: It is.)']
       ],
       cta: {
-        href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.4.html',
+        href: 'http://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.5.html',
         text: 'Play Roggy and the Beast',
         target: '_blank'
-      }
+      },
+      info: [
+        'a', {
+          href: imgBaseDir + 'twinecomp-roggy.jpg'
+        },
+        'Game Flow Preview'
+      ]
     }
   },
   
@@ -258,6 +384,8 @@ var portfolioItems = [
         vimeo: '142842311'
       },
       description: ['.item-desc',
+        ['p', 'Despite being a fairly short mission, and mostly a prologue to a much larger story, this mission module is one of the Top 3 most popular Steam Workshop items for <em>Shadowrun Returns: Dragonfall</em> under the tag <em>Story</em> in the past year.'],
+
         ['p', 'Mission created with the ', ['a', {href:'https://www.youtube.com/watch?v=qyRBqnxKe5M'}, 'Shadowrun Returns Editor'], '. All visual/audio assets copyright Harebrained Schemes, with the exception of the skull portrait shown above.'],
         ['p', 'Many branching dialogues with NPCs and Player choices for approaching various situations. Several enemy encounters with strategically interesting cover options.'],
         ['p', ['a', { href: 'https://vimeo.com/142842311' }, 'Video playthrough'], ' is 9.5 minutes long. Actual playthrough takes 15-25 minutes. Link to playable Content Pack coming soon.'],
@@ -540,7 +668,7 @@ var portfolioItems = [
       description: ['.item-desc',
         ['p','Tarnhelm is a Flash replacement Javascript framework currently powering all first-party ads on IMDb, from simple billboards to the immersive "Premium Title Page" (PTP) experiences.'],
         ['p', 'The success of this project saved over $48 million in at-risk revenue for IMDb. (Over $18.9 million in 2015, and an estimated $29.5 million for 2016.)'],
-        ['p', 'It was an ambitious project under an extraordinary tight deadline,with only three web development engineers, including myself. By September 1st, we had just over a month to develop, test, and deliver a framework robust enough to power the media-rich Mad Max: Fury Road PTP, and scalable enough to also power a simple sidebar rectangle.'],
+        ['p', 'It was an ambitious project under an extraordinary tight deadline, with only three web development engineers, including myself. By September 1st, we had just over a month to develop, test, and deliver a framework robust enough to power the media-rich Mad Max: Fury Road PTP, and scalable enough to also power a simple sidebar rectangle.'],
         ['p', 'Tarnhelm also makes extensive use of my Alphalfa Player.'],
 
         ['h2', 'Technical Stuff'],

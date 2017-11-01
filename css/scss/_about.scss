@@ -16,7 +16,9 @@
 
   .about-segment {
     width: 48%;
-    margin-right: 1%;
+  }
+  .about-segment:first-of-type {
+    margin-right: 4%;
   }
 
 }
@@ -24,6 +26,9 @@
 
 @include respond-to(medium) {
   .about {
+    .about-container {
+      margin: 0 5% 0 auto;
+    }
     .about-segment {
       width: 100%;
       margin: 0;

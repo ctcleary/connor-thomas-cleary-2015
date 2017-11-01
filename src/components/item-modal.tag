@@ -12,9 +12,10 @@
 
               <h1 class="item-modal-headline"> { this.modalTitle } </h1>
 
+              <!-- This stuff should probably be cleaned up at some point. -->
               <div class="item-hero-container">
                 <div class="item-modal-hero"
-                  if={ !this.isCustomHero && !this.isVimeoHero }
+                  if={ !this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
@@ -25,6 +26,11 @@
                 </div>
                 <div class="item-modal-vimeo-hero"
                   if={ this.isVimeoHero }
+                  style={ this.getHeroStyle() }
+                  >
+                </div>
+                <div class="item-modal-youtube-hero"
+                  if={ this.isYoutubeHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
@@ -76,6 +82,7 @@
 
     this.isCustomHero = !!modalConfig.hero.custom;
     this.isVimeoHero = !!modalConfig.hero.vimeo;
+    this.isYoutubeHero = !!modalConfig.hero.youtube;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasCTA    = !!modalConfig.cta;
@@ -205,7 +212,7 @@
     }
     this.appendVimeoHero = function() {
       var vimeoId = modalConfig.hero.vimeo;
-      var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0'
+      var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0';
       this.appendShaven(
         ['div',
           ['iframe', {
@@ -217,14 +224,38 @@
           }]
         ],
         'item-modal-vimeo-hero');
-   
     }
+
+    this.appendYoutubeHero = function() {
+      console.log("appendYoutubeHero");
+      var youtubeId = modalConfig.hero.youtube;
+      var src = 'https://www.youtube.com/embed/' + youtubeId + '?rel=0';
+      this.appendShaven(
+        ['div',
+          ['iframe', {
+              src: src,
+              height: '315',
+              width: '560',
+              frameborder: '0',
+              webkitAllowFullScreen: '',
+              mozallowfullscreen: '',
+              allowFullScreen: ''
+          }]
+        ],
+        'item-modal-youtube-hero');
+        // 'item-modal-vimeo-hero item-modal-youtube-hero');
+    }
+
+    // <iframe width="560" height="315" src="https://www.youtube.com/embed/cXdUBq30gP4?rel=0" frameborder="0" allowfullscreen></iframe>
     
 
     this.appendModalContents = function() {
       try {
         if (this.isVimeoHero) {
           this.appendVimeoHero();
+        } else 
+        if (this.isYoutubeHero) {
+          this.appendYoutubeHero();
         } else 
         if (this.isCustomHero) {
           this.appendCustomHero();

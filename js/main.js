@@ -267,10 +267,10 @@ try {
         text: 'write ',
       },
       {
-        text: 'code ',
+        text: 'design ',
       },
       {
-        text: 'design ',
+        text: 'code ',
       },
       {
         text: 'create experiences.',

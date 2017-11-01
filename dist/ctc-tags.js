@@ -1,10 +1,11 @@
-riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
+riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1>  <div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-youtube-hero" if="{this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
 
     this.isCustomHero = !!modalConfig.hero.custom;
     this.isVimeoHero = !!modalConfig.hero.vimeo;
+    this.isYoutubeHero = !!modalConfig.hero.youtube;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasCTA    = !!modalConfig.cta;
@@ -128,7 +129,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
     }
     this.appendVimeoHero = function() {
       var vimeoId = modalConfig.hero.vimeo;
-      var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0'
+      var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0';
       this.appendShaven(
         ['div',
           ['iframe', {
@@ -140,14 +141,37 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
           }]
         ],
         'item-modal-vimeo-hero');
-   
     }
+
+    this.appendYoutubeHero = function() {
+      console.log("appendYoutubeHero");
+      var youtubeId = modalConfig.hero.youtube;
+      var src = 'https://www.youtube.com/embed/' + youtubeId + '?rel=0';
+      this.appendShaven(
+        ['div',
+          ['iframe', {
+              src: src,
+              height: '315',
+              width: '560',
+              frameborder: '0',
+              webkitAllowFullScreen: '',
+              mozallowfullscreen: '',
+              allowFullScreen: ''
+          }]
+        ],
+        'item-modal-youtube-hero');
+
+    }
+
     
 
     this.appendModalContents = function() {
       try {
         if (this.isVimeoHero) {
           this.appendVimeoHero();
+        } else 
+        if (this.isYoutubeHero) {
+          this.appendYoutubeHero();
         } else 
         if (this.isCustomHero) {
           this.appendCustomHero();

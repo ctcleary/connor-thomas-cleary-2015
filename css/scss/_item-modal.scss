@@ -230,16 +230,17 @@
   }
 }
 
-// For responsive vimeo embed:
+// For responsive video embed:
 // With thanks to: http://embedresponsively.com/
-.item-modal-vimeo-hero {
-   position: relative;
-   padding-bottom: 56.25%; // Aspect ratio hack.
-   height: 0;
-   overflow: hidden;
-   max-width: 100%;
 
-   iframe,
+@mixin item-responsive-video {
+    position: relative;
+    padding-bottom: 56.25%; // Aspect ratio hack.
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+
+    iframe,
     object,
     embed {
       position: absolute;
@@ -250,10 +251,24 @@
     }
 }
 
+.item-modal-vimeo-hero,
+.item-modal-youtube-hero {
+  @include item-responsive-video;
+}
+
 .item-modal-description {
   p.list-header {
     font-weight: bold;
     margin-bottom: 6px;
+  }
+
+  img {
+      margin-left: 20px;
+  }
+
+  img.center {
+    display: block;
+    margin: 0 auto;
   }
 
   hr {
