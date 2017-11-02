@@ -41,7 +41,7 @@
 
 // Lazy copypasta smooth scroll on anchor clicks.
 $(function() {
-  var navbarSpacing = 48;
+  var navbarSpacing = 58;
 
   var shortcutTest = /^(#|)shortcut\:/;
   function isShortcutHash(currHash) {
@@ -56,8 +56,10 @@ $(function() {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
+        var nav = $(".main-nav-wrapper")[0];
+        var navHeight = (nav) ? nav.clientHeight : 0;
         $('html,body').animate({
-          scrollTop: target.offset().top - navbarSpacing
+          scrollTop: target.offset().top - navHeight
         }, 1000);
         return false;
       }
@@ -113,7 +115,7 @@ window.modalControl = (function() {
 // SLATE KIND ITEMS
 var portfolioItems = portfolioItems;
 var webItems = webItems;
-var allSlateItems = [].concat(portfolioItems).concat(webItems);
+var allSlateItems = [].concat(portfolioItems).concat(webItems || []);
 
 // TEXT KIND ITEMS
 var fictionPublicationItems = fictionPublicationItems;
