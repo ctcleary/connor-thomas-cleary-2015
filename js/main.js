@@ -110,16 +110,20 @@ window.modalControl = (function() {
   };
 })();
 
-
-
+// SLATE KIND ITEMS
 var portfolioItems = portfolioItems;
+var webItems = webItems;
+var allSlateItems = [].concat(portfolioItems).concat(webItems);
+
+// TEXT KIND ITEMS
 var fictionPublicationItems = fictionPublicationItems;
 var journoPublicationItems = journoPublicationItems;
 
 var QueryO = window.QueryO; // from js/queryo.js
-var hashCatcher = (function(window, portfolioItems) {
+var hashCatcher = (function(window, allSlateItems) {
   var listenKeys = [];
-  portfolioItems.forEach(function(item) {
+
+  allSlateItems.forEach(function(item) {
     // Add a 'hashKey' to each item
     item.hashKey = str.makeHashKey(item.title);
     listenKeys.push(item.hashKey);
@@ -136,7 +140,7 @@ var hashCatcher = (function(window, portfolioItems) {
   }
   function getKeyFromShortcut(currHash) {
     var shortcut = currHash.split(':')[1];
-    var item = _.findWhere(portfolioItems, {shortcut: shortcut});
+    var item = _.findWhere(allSlateItems, {shortcut: shortcut});
     return item.hashKey;
   }
 
@@ -158,7 +162,7 @@ var hashCatcher = (function(window, portfolioItems) {
 
     var isListenKey = listenKeys.indexOf(hashKey) !== -1;
     if (isListenKey) {
-      var modalItem = _.findWhere(portfolioItems, {hashKey: hashKey});
+      var modalItem = _.findWhere(allSlateItems, {hashKey: hashKey});
       if (!modalItem) {
         window.debug.warn('Failed to find modalItem for :: ', hashKey);
         return;
@@ -187,7 +191,7 @@ var hashCatcher = (function(window, portfolioItems) {
   // call on init 
   handleHashChange();
 
-}) (window, portfolioItems);
+}) (window, allSlateItems); //, portfolioItems, webItems);
 
 
 var appsConfig = {
@@ -196,6 +200,7 @@ var appsConfig = {
 };
 var presetFilters = {
   portfolio: QueryO.get('portFilters', {as: 'array', of: 'string'}),
+  web: QueryO.get('webFilters', {as: 'array', of: 'string'}),
   publications: QueryO.get('pubFilters', {as: 'array', of: 'string'}),
   journalism: QueryO.get('journoFilters', {as: 'array', of: 'string'})
 };
@@ -216,9 +221,26 @@ try {
       tagsItems: portfolioItems
     }
   );
-
-  // Hide by default on publications sections.
+  
+  // Hide by default on web/publications sections.
   appsConfig.hideFilters = true;
+
+  var portfolio = riot.mount(
+    '#web-app',
+    'tags-app',
+    {
+      // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+      appConfig: appsConfig,
+      presetFilters: presetFilters.web,
+      removeFilters: true,
+      searchPhrase: 'Filter web work by skill:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'slates-wrapper',
+      itemsHoldClass: 'slates-holder',
+      itemsClass: 'slate-item',
+      tagsItems: webItems
+    }
+  );
 
   var publications = riot.mount(
     '#publications-app',
@@ -226,6 +248,7 @@ try {
     {
       appConfig: appsConfig,
       presetFilters: presetFilters.publications,
+      removeFilters: true,
       searchPhrase: 'Filter publications by type:',
       tagsClass: 'skill-tags',
       itemsWrapClass: 'pubs-wrapper',

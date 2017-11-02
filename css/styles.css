@@ -412,6 +412,9 @@ tagged-item .item-icon {
   background: #3E7CF7;
   color: white; }
 
+.remove-filters-spacer {
+  padding-bottom: 24px; }
+
 .tags-filters-activator {
   position: relative;
   height: 24px;

@@ -5,7 +5,7 @@
     </button>
   </div>
 
-  <div class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters() }">
+  <div if="{ !this.removeFilters }" class="{ tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters(), is-removed: this.removeFilters }">
     <div class="tags-filters-container">
       <div class="tags-filters-header">
         <p class="tags-section-title search-by">
@@ -60,6 +60,8 @@
     var appConfig = this.opts && this.opts.appConfig || {};
     this.disableFilters = appConfig.disableFilters;
     this.hideFilters = appConfig.hideFilters;
+    this.removeFilters = !!this.removeFilters;
+    // debugger;
     this.filtersHidden = (!this.disableFilters && appConfig.hideFilters);
 
     this.actionHandler = this.opts.actionHandler;

@@ -1,6 +1,7 @@
 <tags-app>
   <div class="tags-app">
     <tags-filters
+      if={ !this.opts.removeFilters }
       app-config={ this.appConfig }
       action-handler={ this.actionHandler }
       all-tags={ this.allTags }
@@ -8,6 +9,10 @@
       preset-filters={ this.opts.presetFilters }
       >
     </tags-filters>
+    <div
+      if={ this.opts.removeFilters }
+      class="remove-filters-spacer">
+    </div>
 
     <div class="{ this.opts.itemsWrapClass }">
       <div class="items-container">
@@ -32,7 +37,7 @@
               <div if={ this.doLimitDisplay } class="over-limit is-limiting"
                   onclick={ this.removeLimit }>
                 <span class="over-limit-text">
-                  Showing { this.itemLimit } items. Click to show all.
+                  Showing { this.itemLimit } items. Click to show all { this.getItems().length }.
                 </span>
               </div>
               <div if={ !this.doLimitDisplay } class="over-limit not-limiting"
