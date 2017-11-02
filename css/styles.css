@@ -1050,18 +1050,19 @@ tagged-item {
       margin: 12px auto 3px auto;
       border-bottom: thin solid black;
       opacity: 0.85; }
-  .portfolio .slate-item .cover .item .item-venue,
+  .portfolio .slate-item .cover .item .item-venue {
+    display: block; }
   .portfolio .slate-item .cover .item .item-tags {
     display: inline-block; }
   .portfolio .slate-item .cover .item .item-tags:before {
     padding-left: 6px;
-    content: '-';
     padding-right: 6px; }
   .portfolio .slate-item .cover .item .item-tags span {
     display: inline-block;
     font-size: 13px; }
-    .portfolio .slate-item .cover .item .item-tags span:not(:first-child):before {
-      content: ', '; }
+    .portfolio .slate-item .cover .item .item-tags span:not(:last-child):after {
+      content: ',';
+      padding-right: 4px; }
 
 @media (max-width: 515px) {
   .portfolio .slate-item {

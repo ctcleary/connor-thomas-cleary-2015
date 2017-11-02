@@ -146,11 +146,11 @@
 
     // TODO this seems to be broken in some strange way
     this.itemHasAllActiveTags = function(item, activeTagNames) {
-      var thisItemTags = item.primaryTags;
+      var thisItemTags = [].concat(item.primaryTags).concat(item.secondaryTags);
       return _.intersection(item.primaryTags, activeTagNames).length === activeTagNames.length;
     };
     this.itemHasAnyActiveTags = function(item, activeTagNames) {
-      var thisItemTags = item.primaryTags;
+      var thisItemTags = [].concat(item.primaryTags).concat(item.secondaryTags);
       for (var i = 0; i < activeTagNames.length; i++) {
         if (_.indexOf(thisItemTags, activeTagNames[i]) !== -1) {
           return true;

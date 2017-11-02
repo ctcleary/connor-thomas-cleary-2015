@@ -18,12 +18,12 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'level design'
     ],
     secondaryTags: [
       'narrative design',
-      'puzzle design',
-      'level design'
+      'puzzle design'
     ],
     modal: {
       title: 'Telltale\'s Guardians of the Galaxy',
@@ -55,12 +55,12 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'level design'
     ],
     secondaryTags: [
       'narrative design',
-      'puzzle design',
-      'level design'
+      'puzzle design'
     ],
     modal: {
       title: 'Telltale\'s Batman: The Enemy Within',
@@ -91,7 +91,8 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'level design'
     ],
     secondaryTags: [
       'narrative design',
@@ -169,7 +170,9 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'mod tools',
+      'level design'
     ],
     secondaryTags: [
       'narrative design',
@@ -366,7 +369,9 @@ var portfolioItems = [
     },
     primaryTags: [
       'writing',
-      'game design'
+      'game design',
+      'mod tools',
+      'level design'
     ],
     secondaryTags: [
       'narrative design',

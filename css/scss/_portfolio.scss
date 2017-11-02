@@ -127,7 +127,9 @@
         opacity: 0.85;
       }
     }
-    .item-venue,
+    .item-venue {
+      display: block;
+    }
     .item-tags {
       display: inline-block;
     }
@@ -135,7 +137,7 @@
     .item-tags {
       &:before {
         padding-left: 6px;
-        content: '-';
+        // content: '-';
         padding-right: 6px;
       }
 
@@ -143,8 +145,12 @@
         display: inline-block;
         font-size: 13px;
 
-        &:not(:first-child):before {
-          content: ', ';
+        // &:not(:first-child):before {
+        //   content: ', ';
+        // }
+        &:not(:last-child):after {
+          content: ',';
+          padding-right: 4px;
         }
       }
     }
