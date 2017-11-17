@@ -112,8 +112,9 @@ window.modalControl = (function() {
   };
 })();
 
-// SLATE KIND ITEMS
+// SLATE KIND ITEMS -- src: config/*-config.js
 var portfolioItems = portfolioItems;
+var writingSampleItems = writingSampleItems;
 var webItems = webItems;
 var allSlateItems = [].concat(portfolioItems).concat(webItems || []);
 
@@ -223,11 +224,28 @@ try {
       tagsItems: portfolioItems
     }
   );
-  
+
   // Hide by default on web/publications sections.
   appsConfig.hideFilters = true;
+  
+  var writingSamples = riot.mount(
+    '#writing-samples-app',
+    'tags-app',
+    {
+      // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+      appConfig: appsConfig,
+      presetFilters: presetFilters.portfolio,
+      removeFilters: true,
+      searchPhrase: 'Filter samples by tag:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'pubs-wrapper',
+      itemsHoldClass: 'pub-item-holder',
+      itemsClass: 'pub-item',
+      tagsItems: writingSampleItems
+    }
+  );
 
-  var portfolio = riot.mount(
+  var web = riot.mount(
     '#web-app',
     'tags-app',
     {

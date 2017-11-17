@@ -22,7 +22,8 @@
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
     this.openLink = function() {
-      window.open(this.opts.url, '_blank');
+      var target = this.opts.target || '_blank';
+      window.open(this.opts.url, target);
     };
 
     this.getClickAction = function() {

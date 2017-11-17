@@ -17,13 +17,16 @@
     <div class="{ this.opts.itemsWrapClass }">
       <div class="items-container">
           <div class="{ this.opts.itemsHoldClass }">
-            <virtual each={ this.getActiveItems() }> 
+            <virtual each={ this.getActiveItems() }>
+              <h2 class="items-headline" if={ headline }>{ headline }</h2>
               <tagged-item 
+                if={ !headline }
                 title={ title }
                 slate={ slate }
                 venue={ venue }
                 modal={ modal }
                 url={ url }
+                target={ target }
                 >
               </tagged-item>
             </virtual>

@@ -9,15 +9,16 @@ var fictionPublicationItems = [
   //     'game'
   //   ]
   // },
-  {
-    title: 'Revolvers',
-    // url: 'http://robotcowgirl.com/about/',
-    venue: 'Robot Cowgirl: Swords and Sorcery Anthology [Mid 2017]',
-    primaryTags: [
-      'short fiction',
-      'sf/f'
-    ]
-  },
+  
+  // {
+  //   title: 'Revolvers',
+  //   // url: 'http://robotcowgirl.com/about/',
+  //   venue: 'Robot Cowgirl: Swords and Sorcery Anthology [Mid 2017]',
+  //   primaryTags: [
+  //     'short fiction',
+  //     'sf/f'
+  //   ]
+  // },
   {
     title: 'Henchman: Origin',
     url: 'http://www.amazon.com/Heroics-Strange-Tales-Absurd-Superheroes-ebook/dp/B009GJBEJM',

@@ -232,7 +232,8 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
     this.openLink = function() {
-      window.open(this.opts.url, '_blank');
+      var target = this.opts.target || '_blank';
+      window.open(this.opts.url, target);
     };
 
     this.getClickAction = function() {
@@ -247,7 +248,7 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
   
 });
 
-riot.tag('tags-app', '<div class="tags-app"><tags-filters if="{!this.opts.removeFilters}" app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.opts.presetFilters}" ></tags-filters><div if="{this.opts.removeFilters}" class="remove-filters-spacer"></div><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><tagged-item title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all {this.getItems().length}. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
+riot.tag('tags-app', '<div class="tags-app"><tags-filters if="{!this.opts.removeFilters}" app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.opts.presetFilters}" ></tags-filters><div if="{this.opts.removeFilters}" class="remove-filters-spacer"></div><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><h2 class="items-headline" if="{headline}">{headline}</h2><tagged-item if="{!headline}" title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" target="{target}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all {this.getItems().length}. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
     this.actionHandler = riot.observable();
     this.filtersComponent = this.tags['tags-filters'];
 
