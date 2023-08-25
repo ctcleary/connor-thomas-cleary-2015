@@ -35,7 +35,7 @@
 
       <div class="hide-filters">
         <button class="x" onclick={ this.hideFilters } title="close filters">
-          <img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"/>
+          <img class="x-img" src="assets/img/lg-x.png"/>
         </button>
       </div>
 

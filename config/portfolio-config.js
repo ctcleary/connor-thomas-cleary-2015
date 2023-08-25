@@ -2,7 +2,7 @@ var imgBaseDir = '';
 if (window.location.hostname === 'localhost') {
   imgBaseDir = '/local-design/img/'
 } else {
-  imgBaseDir = 'http://connorthomascleary.com/assets/img/';
+  imgBaseDir = 'https://connorthomascleary.com/assets/img/';
 }
 
 /* -- Size Reference --

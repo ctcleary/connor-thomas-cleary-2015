@@ -57,7 +57,6 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       }
     };
     this.show = function() {
-    console.log("this.show");
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
       }
@@ -145,7 +144,6 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
     }
 
     this.appendYoutubeHero = function() {
-      console.log("appendYoutubeHero");
       var youtubeId = modalConfig.hero.youtube;
       var src = 'https://www.youtube.com/embed/' + youtubeId + '?rel=0';
       this.appendShaven(
@@ -197,7 +195,6 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
-      console.log("call this.show from on('mount')");
       this.show();
     });
 
@@ -235,7 +232,6 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
     }
 
     this.initModal = function() {
-      console.log("init modal");
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
 
@@ -354,7 +350,7 @@ riot.tag('tags-app', '<div class="tags-app"><tags-filters if="{!this.opts.remove
   
 });
 
-riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div if="{!this.removeFilters}" class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters(), is-removed: this.removeFilters}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}" title="close filters"><img class="x-img" src="http://connorthomascleary.com/assets/img/lg-x.png"></button></div></div></div>', function(opts) {
+riot.tag('tags-filters', '<div class="{tags-filters-activator: true, is-hidden: this.shouldShowFilters()}"><button class="button" onclick="{this.showFilters}"> add filters </button></div><div if="{!this.removeFilters}" class="{tags-filters-wrapper: true, is-collapsed: !this.shouldShowFilters(), is-removed: this.removeFilters}"><div class="tags-filters-container"><div class="tags-filters-header"><p class="tags-section-title search-by"> Narrow work by skill </p><div class="{filter-type-container: true, is-hidden: !this.anyTagsActivated()}"><button class="{filter-type:true, filter-exclusive:true, active-filter-type: this.matchAll}" onclick="{this.toggleMatching}"> match-all </button><button class="{filter-type:true, filter-inclusive:true, active-filter-type: !this.matchAll}" onclick="{this.toggleMatching}"> match-any </button></div></div><div class="tags-filters-buttons-wrapper"><div class="{this.opts.tagsClass} tags tags-filters"><tag-button each="{this.getAllTags()}" config="{this}"></tag-button></div></div><div class="hide-filters"><button class="x" onclick="{this.hideFilters}" title="close filters"><img class="x-img" src="assets/img/lg-x.png"></button></div></div></div>', function(opts) {
     var CHANGE_EVENT = 'filters-change';
 
     this.on('update', function() {

@@ -133,7 +133,6 @@
       }
     };
     this.show = function() {
-    console.log("this.show");
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
       }
@@ -224,7 +223,6 @@
     }
 
     this.appendYoutubeHero = function() {
-      console.log("appendYoutubeHero");
       var youtubeId = modalConfig.hero.youtube;
       var src = 'https://www.youtube.com/embed/' + youtubeId + '?rel=0';
       this.appendShaven(
@@ -277,7 +275,6 @@
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
-      console.log("call this.show from on('mount')");
       this.show();
     });
 

@@ -371,7 +371,7 @@ tagged-item.w-modal .item-icon {
   display: block;
   width: 30px;
   height: 30px;
-  background: url("http://connorthomascleary.com/assets/img/icon/mag-glass.png") no-repeat transparent;
+  background: url("https://connorthomascleary.com/assets/img/icon/mag-glass.png") no-repeat transparent;
 }
 tagged-item.w-url .item-icon {
   top: 2px;
@@ -379,7 +379,7 @@ tagged-item.w-url .item-icon {
   display: block;
   width: 30px;
   height: 30px;
-  background: url("http://connorthomascleary.com/assets/img/icon/link.png") no-repeat transparent;
+  background: url("https://connorthomascleary.com/assets/img/icon/link.png") no-repeat transparent;
 }
 
 tagged-item .item-icon {
@@ -805,7 +805,7 @@ tagged-item.video-item .item-youtube {
   width: 24px;
   height: 24px;
   cursor: pointer;
-  background: url("http://connorthomascleary.com/assets/img/icon/close.png") no-repeat transparent;
+  background: url("https://connorthomascleary.com/assets/img/icon/close.png") no-repeat transparent;
   background-size: 24px 24px;
 }
 
@@ -1713,26 +1713,26 @@ section:nth-child(2n) .portfolio .slate-item:hover {
   opacity: 0;
 }
 .footer .social .linkedin {
-  background: url("http://connorthomascleary.com/assets/img/icon/linkedin-32-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/linkedin-32-hover.png") no-repeat transparent center center;
   background-size: 28px 28px;
 }
 .footer .social .linkedin:after {
-  background: url("http://connorthomascleary.com/assets/img/icon/linkedin-32-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/linkedin-32-hover.png") no-repeat transparent center center;
   background-size: 28px 28px;
 }
 .footer .social .github {
-  background: url("http://connorthomascleary.com/assets/img/icon/github-32-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/github-32-hover.png") no-repeat transparent center center;
   background-size: 31px 31px;
 }
 .footer .social .github:after {
-  background: url("http://connorthomascleary.com/assets/img/icon/github-32-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/github-32-hover.png") no-repeat transparent center center;
   background-size: 31px 31px;
 }
 .footer .social .mail {
-  background: url("http://connorthomascleary.com/assets/img/icon/mail-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/mail-hover.png") no-repeat transparent center center;
 }
 .footer .social .mail:after {
-  background: url("http://connorthomascleary.com/assets/img/icon/mail-hover.png") no-repeat transparent center center;
+  background: url("https://connorthomascleary.com/assets/img/icon/mail-hover.png") no-repeat transparent center center;
 }
 
 footer {

@@ -28,7 +28,6 @@
     }
 
     this.initModal = function() {
-      console.log("init modal");
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
 
