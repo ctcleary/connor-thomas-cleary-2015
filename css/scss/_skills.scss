@@ -1,3 +1,13 @@
+.skills-container,
+.about-segment {
+  .skills-segment {
+    background-color: $colored-section-bg;
+    width: 90%;
+    padding: 30px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+  }
+}
 
 .skills-container {
   display: flex;

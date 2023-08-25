@@ -20,4 +20,15 @@ tagged-item {
     font-size: 16px;
     font-weight: 600;
   }
+
+  .item-youtube {
+    display: none;
+  }
+
+}
+
+tagged-item.video-item {
+  .item-youtube {
+    display: block;
+  }
 }

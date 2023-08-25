@@ -14,23 +14,19 @@
 
               <!-- This stuff should probably be cleaned up at some point. -->
               <div class="item-hero-container">
-                <div class="item-modal-hero"
-                  if={ !this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero }
+                <div class="item-modal-hero" if={ !this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
-                <div class="item-modal-custom-hero"
-                  if={ this.isCustomHero }
+                <div class="item-modal-custom-hero" if={ this.isCustomHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
-                <div class="item-modal-vimeo-hero"
-                  if={ this.isVimeoHero }
+                <div class="item-modal-vimeo-hero" if={ this.isVimeoHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
-                <div class="item-modal-youtube-hero"
-                  if={ this.isYoutubeHero }
+                <div class="item-modal-youtube-hero" if={ this.isYoutubeHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
@@ -137,6 +133,7 @@
       }
     };
     this.show = function() {
+    console.log("this.show");
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
       }
@@ -267,7 +264,7 @@
         this.appendSkills();
         this.appendTags();
       } catch(e) {
-        window.debug.errpr("e ::", e, e.stack);
+        window.debug.error("e ::", e, e.stack);
       }
     }
 
@@ -280,6 +277,7 @@
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
+      console.log("call this.show from on('mount')");
       this.show();
     });
 

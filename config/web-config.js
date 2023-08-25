@@ -6,6 +6,8 @@ if (window.location.hostname === 'localhost') {
 }
 
 var webItems = [
+  // NOTE: Slate type items can't handle headlines.
+  
   // mad max
   {
     shortcut: 'madmaxptp',
@@ -15,7 +17,7 @@ var webItems = [
       url: imgBaseDir + 'slates/slate-ptp-madmax.jpg',
       position: 'center 25%'
     },
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     primaryTags: [
       'front-end',
       // 'web',
@@ -68,11 +70,14 @@ var webItems = [
           ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
         ]]
       ],
-      cta: {
-        href: 'http://www.imdb.com/title/tt1392190/',
-        text: 'See it live',
-        target: '_blank'
-      }
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+      // cta: {
+      //   href: 'http://www.imdb.com/title/tt1392190/',
+      //   text: 'See it live',
+      //   target: '_blank'
+      // }
     }
   },
 
@@ -83,7 +88,7 @@ var webItems = [
       url: imgBaseDir + 'slates/slate-ptp-insideout.jpg',
       position: 'center 85%'
     },
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     primaryTags: [
       'front-end',
       // 'web',
@@ -134,11 +139,14 @@ var webItems = [
           ['li', 'Very complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code/graceful degradation in case of hiccups.']
         ]]
       ],
-      cta: {
-        href: 'http://www.imdb.com/title/tt2096673/',
-        text: 'See it live',
-        target: '_blank'
-      }
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+      // cta: {
+      //   href: 'http://www.imdb.com/title/tt2096673/',
+      //   text: 'See it live',
+      //   target: '_blank'
+      // }
     }
   },
 
@@ -149,7 +157,7 @@ var webItems = [
       url: imgBaseDir + 'slates/slate-ptp-jurassicworld.jpg',
       position: 'center 85%'
     },
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     primaryTags: [
       'front-end',
       // 'web',
@@ -209,14 +217,12 @@ var webItems = [
     }
   },
 
-
-
   // tarnhelm
   {
     shortcut: 'tarnhelm',
 
     title: 'Tarnhelm Framework',
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     slate: {
       url: imgBaseDir + 'slates/slate-tarnhelm.jpg',
       position: 'center center'
@@ -259,18 +265,18 @@ var webItems = [
         ['p', 'In July 2015, Google announced a new feature that spelled the death of Flash for internet advertisers. Across Amazon, the action plan was simply to run simpler ads. At IMDb, our unique rich media executions set us apart, and helped made IMDb a "must-buy" for movies and tv shows.'],
         ['p', 'I was silly enough to say, "We can build a library to do this. We can replace Flash."'],
       ],
-      info: ['p', 'Powered by Tarnhelm:',
+      info: ['p', ['strong', 'PTPs Powered by Tarnhelm:'],
         ['ul',
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2820852/', target:'_blank' }, 'Furious 7']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0478970/', target:'_blank' }, 'Ant Man']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1051904/', target:'_blank' }, 'Goosebumps']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0103639/', target:'_blank' }, 'Aladdin']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2395427/', target:'_blank' }, 'Avengers']],
+          ['li', 'Star Wars: TFA'],
+          ['li', 'Inside Out'],
+          ['li', 'Mad Max: Fury Road'],
+          ['li', 'The Good Dinosaur'],
+          ['li', 'Jurassic World'],
+          ['li', 'Furious 7'],
+          ['li', 'Ant Man'],
+          ['li', 'Goosebumps'],
+          ['li', 'Aladdin'],
+          ['li', 'Avengers'],
           ['li', ['small', 'and many others']]
         ]
       ]
@@ -282,7 +288,7 @@ var webItems = [
     shortcut: 'alphalfa',
 
     title: 'Alphalfa Player',
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     slate: {
       url: imgBaseDir + 'slates/slate-alphalfa.jpg',
       position: 'center 85%'
@@ -311,13 +317,13 @@ var webItems = [
         ['p', 'Alphalfa was, and continues to be, a significant factor in the success of the Tarnhelm Project.'],
         ['p', 'I cannot go into any other technical specifics, they are protected under NDA.']
       ],
-      info: ['p', 'Powered by Alphalfa:',
+      info: ['p', ['strong', 'PTPs Powered by Alphalfa:'],
         ['ul',
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
+          ['li', 'Star Wars: TFA'],
+          ['li', 'Inside Out'],
+          ['li', 'Mad Max: Fury Road'],
+          ['li', 'The Good Dinosaur'],
+          ['li', 'Jurassic World'],
           ['li', ['small', 'and many others']]
         ]
       ]
@@ -330,7 +336,7 @@ var webItems = [
     shortcut: 'reely',
 
     title: 'Reely Player',
-    venue: 'IMDb',
+    venue: 'IMDb/Amazon',
     slate: {
       url: imgBaseDir + 'slates/slate-reely.jpg',
       position: 'center center'
@@ -355,21 +361,21 @@ var webItems = [
       },
       description: ['.item-desc',
         ['p', 'The Reely Player is used in just about every custom ad execution on IMDb.'],
-        ['p','When building the IMDb Premium Title Page (PTP) experiences, designers love customizing the video player controls to mesh with the surrounding color palette and reinforce the immersive nature of the experience.'],
-        ['p&', 'Since every browser has its own default video controls &mdash; which are not customizable in any way &mdash; creating a cross-browser HTML5 video player with a fully customizable skin is more difficult than it may sound. Using a vector spritesheet for easy designer customization, I created a fully functional HTML5 video player utilizing a decoupled, event-driven architecture (pub/sub pattern).'],
+        ['p', 'When building the IMDb Premium Title Page (PTP) experiences, designers love customizing the video player controls to mesh with the surrounding color palette and reinforce the immersive nature of the experience.'],
+        ['p', 'Since every browser has its own default video controls &mdash; which are not customizable in any way &mdash; creating a cross-browser HTML5 video player with a fully customizable skin is more difficult than it may sound. Using a vector spritesheet for easy designer customization, I created a fully functional HTML5 video player utilizing a decoupled, event-driven architecture (pub/sub pattern).'],
       ],
-      info: ['p', 'Videos Powered by Reely:',
+      info: ['p', ['strong', 'PTP Videos Powered by Reely:'],
         ['ul',
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2488496/', target:'_blank' }, 'Star Wars: TFA']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2096673/', target:'_blank' }, 'Inside Out']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1392190/', target:'_blank' }, 'Mad Max: Fury Road']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1979388/', target:'_blank' }, 'The Good Dinosaur']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0369610/', target:'_blank' }, 'Jurassic World']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2820852/', target:'_blank' }, 'Furious 7']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0478970/', target:'_blank' }, 'Ant Man']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt1051904/', target:'_blank' }, 'Goosebumps']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt0103639/', target:'_blank' }, 'Aladdin']],
-          ['li', ['a', { href: 'http://www.imdb.com/title/tt2395427/', target:'_blank' }, 'Avengers']],
+          ['li', 'Star Wars: TFA'],
+          ['li', 'Inside Out'],
+          ['li', 'Mad Max: Fury Road'],
+          ['li', 'The Good Dinosaur'],
+          ['li', 'Jurassic World'],
+          ['li', 'Furious 7'],
+          ['li', 'Ant Man'],
+          ['li', 'Goosebumps'],
+          ['li', 'Aladdin'],
+          ['li', 'Avengers'],
           ['li', ['small', 'and many others']]
         ]
       ]

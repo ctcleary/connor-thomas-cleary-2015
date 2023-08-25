@@ -1,7 +1,7 @@
 // Quick video loop control with jQ
 (function() {
   var heroVid = $('.hero-vid')[0];
-  var maxLoops = 1;
+  var maxLoops = 3;
   var heroVidPlayed = 0;
 
   function onEnded() {
@@ -14,6 +14,10 @@
   }
 
   heroVid.addEventListener('ended', onEnded);
+
+  if (heroVidPlayed == 0) {
+    heroVid.play();
+  }
 })();
 
 
@@ -41,7 +45,7 @@
 
 // Lazy copypasta smooth scroll on anchor clicks.
 $(function() {
-  var navbarSpacing = 58;
+  var navbarSpacing = 62;
 
   var shortcutTest = /^(#|)shortcut\:/;
   function isShortcutHash(currHash) {
@@ -56,10 +60,15 @@ $(function() {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       if (target.length) {
-        var nav = $(".main-nav-wrapper")[0];
-        var navHeight = (nav) ? nav.clientHeight : 0;
+        // Hacky solution. Inconsistent. TODO figure this out.
+        var targetScrollPoint = target.offset().top - navbarSpacing;
+        // var nav = $(".main-nav-wrapper")[0];
+        // var navHeight = (nav) ? nav.clientHeight : 0;
+        // navHeight = navHeight + 20; 
+        //console.log("navHeight ::", navHeight);
+        // console.log("targetScrollPoint ::", targetScrollPoint);
         $('html,body').animate({
-          scrollTop: target.offset().top - navHeight
+          scrollTop: targetScrollPoint
         }, 1000);
         return false;
       }
@@ -101,6 +110,7 @@ window.modalControl = (function() {
 
   return {
     initModal: function(modalData, riotTag) {
+      // console.log("initModal", modalData, riotTag);
       modalTag = riot.mount(modalEl, 'item-modal', modalData)[0];
       var name = modalData.title;
     },
@@ -114,13 +124,19 @@ window.modalControl = (function() {
 
 // SLATE KIND ITEMS -- src: config/*-config.js
 var portfolioItems = portfolioItems;
-var writingSampleItems = writingSampleItems;
-var webItems = webItems;
-var allSlateItems = [].concat(portfolioItems).concat(webItems || []);
+var webItems = webItems || [];
+var videoSamplesItems = videoSamplesItems || [];
+var allSlateItems = [].concat(portfolioItems)
+                      .concat(webItems)
+                      .concat(videoSamplesItems);
 
 // TEXT KIND ITEMS
+var writingSampleItems = writingSampleItems;
+var criticalReceptionItems = criticalReceptionItems;
 var fictionPublicationItems = fictionPublicationItems;
 var journoPublicationItems = journoPublicationItems;
+
+// VIDEO KIND ITEMS
 
 var QueryO = window.QueryO; // from js/queryo.js
 var hashCatcher = (function(window, allSlateItems) {
@@ -148,11 +164,14 @@ var hashCatcher = (function(window, allSlateItems) {
   }
 
   function handleHashChange(e) {
+    // console.log("handleHashChange", e);
     var currHash = document.location.hash.substr(1);
     var isItem = isItemHash(currHash);
     var isShortcut = isShortcutHash(currHash);
     if (!isItem && !isShortcut) {
       // No item, no shortcut.
+      // Likely initial function call for setup purposes.
+      // console.warn('Bad configuration. Modals must have item or shortcut hash.')
       return;
     }
 
@@ -205,8 +224,12 @@ var presetFilters = {
   portfolio: QueryO.get('portFilters', {as: 'array', of: 'string'}),
   web: QueryO.get('webFilters', {as: 'array', of: 'string'}),
   publications: QueryO.get('pubFilters', {as: 'array', of: 'string'}),
-  journalism: QueryO.get('journoFilters', {as: 'array', of: 'string'})
+  journalism: QueryO.get('journoFilters', {as: 'array', of: 'string'}),
+  video: QueryO.get('videoFilters', {as: 'array', of: 'string'})
 };
+
+  // Hide filters by default
+  appsConfig.hideFilters = true;
 
 try {
   var portfolio = riot.mount(
@@ -225,8 +248,21 @@ try {
     }
   );
 
-  // Hide by default on web/publications sections.
-  appsConfig.hideFilters = true;
+  var videoSamples = riot.mount(
+    '#video-samples-app',
+    'tags-app',
+    {
+      appConfig: appsConfig,
+      presetFilters: presetFilters.video,
+      // removeFilters: true,
+      searchPhrase: 'Filter videos by tag:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'slates-wrapper',
+      itemsHoldClass: 'slates-holder',
+      itemsClass: 'slate-item',
+      tagsItems: videoSamplesItems
+    }
+  );
   
   var writingSamples = riot.mount(
     '#writing-samples-app',
@@ -234,7 +270,7 @@ try {
     {
       // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
       appConfig: appsConfig,
-      presetFilters: presetFilters.portfolio,
+      presetFilters: presetFilters.publications,
       removeFilters: true,
       searchPhrase: 'Filter samples by tag:',
       tagsClass: 'skill-tags',
@@ -245,7 +281,24 @@ try {
     }
   );
 
-  var web = riot.mount(
+  var criticalReception = riot.mount(
+    '#critical-reception-app',
+    'tags-app',
+    {
+      // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+      appConfig: appsConfig,
+      // presetFilters: presetFilters.publications,
+      removeFilters: true,
+      searchPhrase: 'Filter samples by tag:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'pubs-wrapper',
+      itemsHoldClass: 'pub-item-holder',
+      itemsClass: 'pub-item',
+      tagsItems: criticalReceptionItems
+    }
+  );
+  
+   var web = riot.mount(
     '#web-app',
     'tags-app',
     {
@@ -294,17 +347,35 @@ try {
     }
   );
 
+  /* var vo = riot.mount(
+    '#vo-app',
+    'tags-app',
+    {
+      appConfig: appsConfig,
+      // presetFilters: presetFilters.journalism,
+      searchPhrase: 'Filter articles by tag:',
+      itemLimit: 10,
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'pubs-wrapper',
+      itemsHoldClass: 'pub-item-holder',
+      itemsClass: 'pub-item',
+      tagsItems: voItems
+    }
+  ); */
+
+
 } catch (e) {
   window.debug.error("Error mounting app, e ::", e, e.stack);
 }
 
+/*
 (function() {
   var typist = new Typist({
     el: $('.js-hero-type-text')[0],
     preText: 'I ',
     clearAfterComplete: false,
     emptyWait: 145,
-    messageWait: 700,
+    messageWait: 1500,
     stages: [
       {
         text: 'write ',
@@ -323,3 +394,4 @@ try {
     ]
   });
 })();
+*/

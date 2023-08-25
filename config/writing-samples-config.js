@@ -1,7 +1,7 @@
 var writingSampleItems = [
 
   {
-    headline: 'Writing'
+    headline: 'Screenplay'
   },
 
   {
@@ -16,6 +16,47 @@ var writingSampleItems = [
   },
 
   {
+    title: 'By Lout and Loot',
+    url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_ByLoutAndLute.pdf',
+    // venue: 'Screenplay',
+    primaryTags: [
+      'screenplay',
+      '5 pages',
+      'comedic fantasy'
+    ]
+  },
+
+  {
+    title: 'Strings',
+    url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_Strings.pdf',
+    primaryTags: [
+      'screenplay',
+      '3 pages',
+      'post-apocalyptic'
+    ]
+  },
+
+  {
+    title: 'The Quarry',
+    url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_TheQuarry.pdf',
+    primaryTags: [
+      'screenplay',
+      '3 pages',
+      'modern supernatural'
+    ]
+  },
+
+  {
+    title: 'Ronin',
+    url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_Ronin.pdf',
+    primaryTags: [
+      'screenplay',
+      '5 pages',
+      'feudal japan'
+    ]
+  },
+
+  /*{
     title: 'Revolvers',
     url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_Revolvers.pdf',
     // venue: 'Prose Fiction',
@@ -25,7 +66,7 @@ var writingSampleItems = [
       'dark',
       'weird western'
     ]
-  },
+  },*/
 
   {
     headline: 'Interactive Fiction'
@@ -59,7 +100,7 @@ var writingSampleItems = [
     ]
   },
 
-  {
+  /*{
     headline: 'Mission Design'
   },
 
@@ -88,6 +129,6 @@ var writingSampleItems = [
       'proprietary engine',
       'playable on steam'
     ]
-  },
+  },*/
 
   ];

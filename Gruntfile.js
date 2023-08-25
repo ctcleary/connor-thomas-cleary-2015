@@ -89,7 +89,7 @@ module.exports = function(grunt) {
           {expand: true, src: ['config/**/*.js'], dest: 'static-build/'},
           {expand: true, src: ['dist/**/*.js'], dest: 'static-build/'},
           {expand: true, src: ['fonts/**/*.*'], dest: 'static-build/'},
-          {expand: true, src: ['index.html'], dest: 'static-build/'},
+          {expand: true, src: ['*.html'], dest: 'static-build/'},
         ]
       }
     },
@@ -97,6 +97,10 @@ module.exports = function(grunt) {
       'static-build': {
         src : 'static-build/index.html',
         dest: 'static-build/index.html'
+      },
+      'web-static-build': {
+        src : 'static-build/web.html',
+        dest: 'static-build/web.html'
       }
     },
     uglify: {
@@ -156,6 +160,7 @@ module.exports = function(grunt) {
     'clean:static-build',
     'copy:static-build',
     'preprocess:static-build',
+    'preprocess:web-static-build',
     'uglify:static-build',
     'cssmin:static-build'
   ]);

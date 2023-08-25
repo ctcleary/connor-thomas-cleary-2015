@@ -57,6 +57,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       }
     };
     this.show = function() {
+    console.log("this.show");
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
       }
@@ -183,7 +184,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
         this.appendSkills();
         this.appendTags();
       } catch(e) {
-        window.debug.errpr("e ::", e, e.stack);
+        window.debug.error("e ::", e, e.stack);
       }
     }
 
@@ -196,6 +197,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       this.boundKeyHandler = this.dismissOnEsc.bind(this);
       document.addEventListener('keydown', this.boundKeyHandler);
 
+      console.log("call this.show from on('mount')");
       this.show();
     });
 
@@ -220,27 +222,26 @@ riot.tag('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTa
   
 });
 
-riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><div class="cover" onclick="{this.getClickAction()}"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div></div>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
-    this.hasModal = !!this.opts.modal;
-    this.hasUrl   = !!this.opts.url;
+riot.tag('tagged-item-content', '<div class="cover"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue" if="{this.opts.venue}"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div><div class="item-pull-quote" if="{this.hasPullQuote}"><p class="pull-quote"> {this.opts.pullquote} </p></div></div>', function(opts) {
+    this.hasPullQuote = !!this.opts.pullquote;
+  
+});
+riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><a if="{this.hasUrl}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a><tagged-item-content if="{!this.hasUrl}" onclick="{this.getClickAction()}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
+    this.hasModal   = !!this.opts.modal;
+    this.hasUrl     = !!this.opts.url;
 
     if (this.hasModal && this.hasUrl) {
       window.debug.warn("WARNING: Bad config. An item should have either modal or url.");
     }
 
     this.initModal = function() {
+      console.log("init modal");
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
-    };
-    this.openLink = function() {
-      var target = this.opts.target || '_blank';
-      window.open(this.opts.url, target);
     };
 
     this.getClickAction = function() {
       if (this.hasModal) {
         return this.initModal;
-      } else if (this.hasUrl) {
-        return this.openLink;
       }
 
       return null;
@@ -248,7 +249,7 @@ riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot
   
 });
 
-riot.tag('tags-app', '<div class="tags-app"><tags-filters if="{!this.opts.removeFilters}" app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.opts.presetFilters}" ></tags-filters><div if="{this.opts.removeFilters}" class="remove-filters-spacer"></div><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><h2 class="items-headline" if="{headline}">{headline}</h2><tagged-item if="{!headline}" title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" target="{target}" ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all {this.getItems().length}. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
+riot.tag('tags-app', '<div class="tags-app"><tags-filters if="{!this.opts.removeFilters}" app-config="{this.appConfig}" action-handler="{this.actionHandler}" all-tags="{this.allTags}" tags-class="{this.opts.tagsClass}" preset-filters="{this.opts.presetFilters}" ></tags-filters><div if="{this.opts.removeFilters}" class="remove-filters-spacer"></div><div class="{this.opts.itemsWrapClass}"><div class="items-container"><div class="{this.opts.itemsHoldClass}"><virtual each="{this.getActiveItems()}"><h2 class="items-headline" if="{headline}">{headline}</h2><tagged-item if="{!headline}" title="{title}" slate="{slate}" venue="{venue}" modal="{modal}" url="{url}" pullQuote ="{pullQuote}" target="{target}" youtubeUrl = {youtubeUrl} ></tagged-item></virtual><div if="{this.getActiveItems().length === 0}" class="no-items"><em>No results match this combination of tags.</em></div><div if="{this.showLimited()}" class="over-limit-wrapper {this.opts.itemsClass}" ><div if="{this.doLimitDisplay}" class="over-limit is-limiting" onclick="{this.removeLimit}"><span class="over-limit-text"> Showing {this.itemLimit} items. Click to show all {this.getItems().length}. </span></div><div if="{!this.doLimitDisplay}" class="over-limit not-limiting" onclick="{this.reLimit}"><span class="over-limit-text"> Showing all items. Click to show fewer. </span></div></div></div></div></div></div>', function(opts) {
     this.actionHandler = riot.observable();
     this.filtersComponent = this.tags['tags-filters'];
 

@@ -21,6 +21,8 @@
   }
 }
 
+
+
 .portfolio .slate-item {
   display: inline-block;
   flex: 0 0 auto;
@@ -31,9 +33,18 @@
   
   background: transparent;
   // border: 1px solid rgba(100,100,100,0.075);
+  border: 1px solid #dcdcdc;
 
   &:hover {
-    border: none;
+    border: 1px solid #f8f8f8;
+  }
+}
+
+section:nth-child(2n) {
+  .portfolio .slate-item {
+    &:hover {
+      border: 1px solid #ededed;
+    }
   }
 }
 
@@ -116,6 +127,9 @@
       display: block;
       font-size: 18px;
 
+      max-width: 80%;
+      margin: auto;
+
       &:after {
         content: '';
         display: block;
@@ -128,9 +142,13 @@
       }
     }
     .item-venue {
+      max-width: 80%;
+      margin: auto;
       display: block;
     }
     .item-tags {
+      max-width: 80%;
+      margin: auto;
       display: inline-block;
     }
 

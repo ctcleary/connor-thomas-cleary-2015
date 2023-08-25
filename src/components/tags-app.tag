@@ -19,14 +19,15 @@
           <div class="{ this.opts.itemsHoldClass }">
             <virtual each={ this.getActiveItems() }>
               <h2 class="items-headline" if={ headline }>{ headline }</h2>
-              <tagged-item 
-                if={ !headline }
+              <tagged-item if={ !headline }
                 title={ title }
                 slate={ slate }
                 venue={ venue }
                 modal={ modal }
                 url={ url }
+                pullQuote ={ pullQuote }
                 target={ target }
+                youtubeUrl = { youtubeUrl }
                 >
               </tagged-item>
             </virtual>
