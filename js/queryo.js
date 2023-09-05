@@ -13,31 +13,33 @@
  *
  * # Public Methods Supported:
  *
- * QueryO.getAs(paramName, asType);
  * QueryO.get();
  * QueryO.get(paramName);
  * QueryO.get(paramName, options);
+ * 
+ * QueryO.getAs(paramName, asType);
+ * 
  * QueryO.getAsArray(paramName);
  * QueryO.getAsArray(paramName, opt_ofType);
  * QueryO.getAsArray(paramName, opt_ofType, opt_splitter);
  *
  *
  * # Public Method Details:
- *
- * QueryO.getAs(paramName, asType) // @returns <asType> -- Attempts to convert the value to <asType>
- *
+ * *
  * QueryO.get()                   // @returns <object> -- full object as { 'string-key': 'string-value' }
  * QueryO.get(paramName)          // @returns <string> -- 'string-value' of the matching parameter key, or `undefined`
  * QueryO.get(paramName, options) // @returns: <T> -- Advanced usage, see options schema for details:
  *     `options` schema: {
  *         as: 'array'|'number'|'boolean'|'string', // Sets the return type / attempts to convert value to this type
  *         of: 'array'|'number'|'boolean'|'string', // Array subtype. For use when (`as` === 'array') Example: { as: 'array', of: 'number' }
- *         splitter: 'string' // (Default: ',') Sets the top-level array splitter. Useful for nested arrays (e.g. "1,2,3|6,5,4")
+ *         splitter: 'string'                       // (Default: ',') Sets the top-level array splitter. Useful for nested arrays (e.g. '|' for '1,2,3|6,5,4')
  *     }
  *
- * QueryO.getAsArray(paramName)                 // @returns <array<string>> -- Returns the value as an array.
- * QueryO.getAsArray(paramName, opt_ofType)     // @returns <array<T>> -- Returns the value as an array of `opt_ofType`.
- * QueryO.getAsArray(paramName, opt_ofType, opt_splitter) // @returns <array<T>> -- Same as above, but using a custom array splitter. (e.g. "a|b|c")
+ * QueryO.getAs(paramName, asType) // @returns <asType> -- Attempts to convert the value to <asType>
+ * 
+ * QueryO.getAsArray(paramName)                           // @returns <array<string>> -- Returns the value as an array.
+ * QueryO.getAsArray(paramName, opt_ofType)               // @returns <array<T>> -- Returns the value as an array of `opt_ofType`.
+ * QueryO.getAsArray(paramName, opt_ofType, opt_splitter) // @returns <array<T>> -- Same as above, but using a custom array splitter. (e.g. '|' for 'a|b|c')
  *
  *
  * # Example Usage:

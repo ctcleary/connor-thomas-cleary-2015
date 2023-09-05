@@ -12,17 +12,17 @@
  *
  * new Typist({
  *   el: (DOM) Element,  // (Required) Text will be typed directly into this el. (Style your text via CSS on this el.)  
- *   preText: String,    // (Optional) Text to show in the el before the animation starts, will not be
- *                                     deleted, and all stage text will appear after preText.
+ *   preText: String,    // (Optional) Text to show in the el before the animation starts, WILL NOT BE DELETED, 
+ *                                     and all stage text will appear after preText.
  *
  *   clearAfterComplete: Boolean, // (Optional. Default: false) Should Typist clear the last stage?
  *
- *   emptyWait:   Number, // (Optional. Default: 125) How long to idle on empty before typing the next stage in ms.
- *   messageWait: Number, // (Optional. Default: 700) How long to idle on full text before deleting current stage in ms.
+ *   emptyWait:   Number, // (Optional. Default: 125) How long to idle on empty before typing the next stage (in ms).
+ *   messageWait: Number, // (Optional. Default: 700) How long to idle on full text before deleting current stage (in ms).
  *
- *   writeSpeed: Number,  // (Optional. Default: 60) How quickly each new character is typed in ms.
- *   clearSpeed: Number,  // (Optional. Default: 60) How quickly characters are deleted in ms.
- *                        // Note: both the Speed variables are randomized a bit to feel more organic.
+ *   writeSpeed: Number,  // (Optional. Default: 60) How quickly each new character is typed (in ms).
+ *   clearSpeed: Number,  // (Optional. Default: 60) How quickly characters are deleted (in ms).
+ *                        // NOTE: both the Speed variables are randomized a bit to feel more organic.
  *
  *   stages: Array<Object>> // An array of plain objects using the "Stage" schema (below).  
  * })
@@ -34,8 +34,8 @@
  *   text: String, // Text to type during this stage.
  *
  *   // All these are customizable on a per-stage basis.
- *   writeSpeed: Number, // (Optional)
- *   clearSpeed: Number, // (Optional)
+ *   writeSpeed: Number,  // (Optional)
+ *   clearSpeed: Number,  // (Optional)
  *   emptyWait: Number,   // (Optional) // Increase the amount of time Typist stays empty BEFORE this stage types.
  *   messageWait: Number, // (Optional)
  * }

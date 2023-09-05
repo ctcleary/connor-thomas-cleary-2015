@@ -18,7 +18,7 @@
       <div class="items-container">
           <div class="{ this.opts.itemsHoldClass }">
             <virtual each={ this.getActiveItems() }>
-              <h2 class="items-headline" if={ headline }>{ headline }</h2>
+              <h2 if={ headline } class="items-headline">{ headline }</h2>
               <tagged-item if={ !headline }
                 title={ title }
                 slate={ slate }
@@ -142,6 +142,7 @@
         return result;
       }
     };
+
 
 
     this.hasTag = function(item, testTag) {

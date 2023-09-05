@@ -109,7 +109,9 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'static-build/',
           dest: 'static-build/',
-          src: ['js/*.js', 'config/*.js', 'dist/*.js']
+          src: ['js/*.js', 
+                'config/*.js', 
+                'dist/*.js']
         }]
       }
     },

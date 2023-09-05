@@ -98,7 +98,7 @@ var writingSampleItems = [
       'ultraviolent',
       'branching'
     ]
-  },
+  }
 
   /*{
     headline: 'Mission Design'
