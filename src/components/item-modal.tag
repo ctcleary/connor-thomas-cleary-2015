@@ -12,21 +12,24 @@
 
               <h1 class="item-modal-headline"> { this.modalTitle } </h1>
 
-              <!-- This stuff should probably be cleaned up at some point. -->
               <div class="item-hero-container">
-                <div class="item-modal-hero" if={ !this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero }
+                <div class="item-modal-hero"         if={ !this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero && !this.isIfrmHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
-                <div class="item-modal-custom-hero" if={ this.isCustomHero }
+                <div class="item-modal-custom-hero"  if={ this.isCustomHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
-                <div class="item-modal-vimeo-hero" if={ this.isVimeoHero }
+                <div class="item-modal-vimeo-hero"   if={ this.isVimeoHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
                 <div class="item-modal-youtube-hero" if={ this.isYoutubeHero }
+                  style={ this.getHeroStyle() }
+                  >
+                </div>
+                <div class="item-modal-ifrm-hero" if={ this.isIfrmHero }
                   style={ this.getHeroStyle() }
                   >
                 </div>
@@ -76,9 +79,10 @@
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
 
-    this.isCustomHero = !!modalConfig.hero.custom;
-    this.isVimeoHero = !!modalConfig.hero.vimeo;
+    this.isCustomHero  = !!modalConfig.hero.custom;
+    this.isVimeoHero   = !!modalConfig.hero.vimeo;
     this.isYoutubeHero = !!modalConfig.hero.youtube;
+    this.isIfrmHero    = !!modalConfig.hero.ifrmUrl;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasCTA    = !!modalConfig.cta;
@@ -92,14 +96,15 @@
           'opacity: 0;',
           'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950);'
         ].join('');
-    }
+    };
 
     this.getModalStyle = function() {
       return 'background: white;';
-    }
+    };
+
 
     this.getHeroStyle = function() {
-      if (!modalConfig.hero.url) {
+      if (!modalConfig.hero.url && !modalConfig.hero.ifrmUrl) {
         return 'background-color: black';
       }
       var heroStyles = []
@@ -110,28 +115,30 @@
           ''];
 
       } else {
-        heroStyles = ['background-color: black'];
+        heroStyles = ['background-color: black;'];
         
       }
-
+      
       if (modalConfig.hero.height != null) {
         heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
       }
 
       return heroStyles.join(' ');
-    }
+    };
 
 
     // UTILITIES
     this.dismissModal = function(e) {
       window.history.go(-1);
     };
+
     this.dismissOnEsc = function(e) {
       if (e.keyCode === 27) {
         this.dismissModal();
         // window.location.hash = '';
       }
     };
+
     this.show = function() {
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
@@ -142,7 +149,7 @@
       setTimeout(function() {
         v.style.opacity = 1;
       }, 0);
-    }
+    };
 
 
     // Appending Shaven Content 
@@ -153,12 +160,13 @@
 
       var el = this.root.getElementsByClassName(elClass)[0];
       el.appendChild(shavenObj[0]);
-    }
+    };
 
 
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
-    }
+    };
+
     this.appendCTA = function() {
       if (this.hasCTA) {
         var cta = ['a',
@@ -171,12 +179,14 @@
 
         this.appendShaven(cta, 'item-modal-cta');
       }
-    }
+    };
+
     this.appendInfo = function() {
       if (this.hasInfo) {
         this.appendShaven(modalConfig.info, 'item-modal-info');
       }
-    }
+    };
+
     this.makeShavenList = function(arr) {
         var shavenList = ['ul'];
         var listItems = [];
@@ -186,12 +196,14 @@
         shavenList.push(listItems);
         return shavenList;
     };
+
     this.appendSkills = function() {
       if (this.hasSkills) {
         var skillsShaven = this.makeShavenList(this.opts.skills);
         this.appendShaven(skillsShaven, 'item-modal-skills');
       }
-    }
+    };
+
     this.appendTags = function() {
       if (this.hasTags) {
         var tags = this.opts.primaryTags;
@@ -200,12 +212,13 @@
         var tagsShaven = this.makeShavenList(tags);
         this.appendShaven(tagsShaven, 'item-modal-tags');
       }
-    }
+    };
 
 
     this.appendCustomHero = function() {
       this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
-    }
+    };
+
     this.appendVimeoHero = function() {
       var vimeoId = modalConfig.hero.vimeo;
       var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0';
@@ -220,7 +233,7 @@
           }]
         ],
         'item-modal-vimeo-hero');
-    }
+    };
 
     this.appendYoutubeHero = function() {
       var youtubeId = modalConfig.hero.youtube;
@@ -238,22 +251,33 @@
           }]
         ],
         'item-modal-youtube-hero');
-        // 'item-modal-vimeo-hero item-modal-youtube-hero');
-    }
+    };
 
-    // <iframe width="560" height="315" src="https://www.youtube.com/embed/cXdUBq30gP4?rel=0" frameborder="0" allowfullscreen></iframe>
+    this.appendIfrmHero = function() {
+      var src = modalConfig.hero.ifrmUrl;
+      this.appendShaven(
+        ['div',
+          ['iframe', {
+              src: src,
+              height: '400',
+              width: '980',
+              frameborder: '0'
+          }]
+        ],
+        'item-modal-ifrm-hero');
+    };
     
 
     this.appendModalContents = function() {
       try {
         if (this.isVimeoHero) {
           this.appendVimeoHero();
-        } else 
-        if (this.isYoutubeHero) {
+        } else if (this.isYoutubeHero) {
           this.appendYoutubeHero();
-        } else 
-        if (this.isCustomHero) {
+        } else if (this.isCustomHero) {
           this.appendCustomHero();
+        } else if (this.isIfrmHero) {
+          this.appendIfrmHero();
         }
 
         this.appendDescription();
@@ -286,6 +310,6 @@
         window.debug.warn("No wrapper reference at modal unmount!");
       }
     });
-
+    
   </script>
 </item-modal>

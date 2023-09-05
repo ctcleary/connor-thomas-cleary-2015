@@ -1,18 +1,224 @@
-var imgBaseDir = '';
-if (window.location.hostname === 'localhost') {
-  imgBaseDir = '/local-design/img/'
-} else {
-  imgBaseDir = 'https://connorthomascleary.com/assets/img/';
-}
+var imgBaseDir  = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
+var ifrmBaseDir = (window.location.hostname === 'localhost') ? '/local-design/ifrm/' : 'https://connorthomascleary.com/ifrm/';
 
 var webItems = [
   // NOTE: Slate type items can't handle headlines.
   
+  // gamepad interface
+  {
+    shortcut: 'gamepadinterface',
+
+    title: 'Gamepad Interface (WIP)',
+    slate: {
+      url: imgBaseDir + 'slates/slate-web-gamepadinterface.jpg'//,
+      // position: 'center 25%'
+    },
+    venue: 'Javascript Utility',
+    primaryTags: [
+      'front-end',
+      'javascript',
+      'web',
+      'utility'
+    ],
+    skills: [
+      'javascript',
+      'html/css'
+    ],
+    modal: {
+      title: 'Configurable Javascript Gamepad Interface (WIP)',
+      hero: {
+        height: 332,
+        url: imgBaseDir + 'heroes/hero-web-gamepadinterface.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'A configurable interface for browser-based javascript applications to hook into the browser\'s gamepad functionality.'],
+        ['p', 'NOTE: In order to fully experience the demo page, you will need to have an Xbox controller connected to your computer.'],
+        ['p', ['a', {href:'https://github.com/ctcleary/gamepad-Interface'}, 'Check out the code on Github!']]
+      ],
+      cta: {
+        href: 'https://www.connorthomascleary.com/websamples/gamepadinterface/index.html',
+        text: 'See it live',
+        target: '_blank'
+      }
+    }
+  },
+
+  // colorejs
+  {
+    shortcut: 'colorejs',
+
+    title: 'Colore.js',
+    slate: {
+      url: imgBaseDir + 'slates/slate-web-colorejs.jpg'//,
+      // position: 'center 25%'
+    },
+    venue: 'Javascript Utility',
+    primaryTags: [
+      'front-end',
+      'javascript',
+      'react',
+      'web'
+    ],
+    secondaryTags: [
+      'single page app'
+    ],
+    skills: [
+      'javascript',
+      'html/css',
+      'illustrator'
+    ],
+    modal: {
+      title: 'Colore.js - Color Adjustment Utility',
+      hero: {
+        height: 420,
+        url: imgBaseDir + 'heroes/hero-web-colorejs.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'A simple color adjustment javascript utility.'],
+        ['p', ['a', {href:'https://github.com/ctcleary/colore-js'}, 'Check out the code on Github!']]
+      ],
+      cta: {
+        href: 'https://www.connorthomascleary.com/websamples/colorejs/index.html',
+        text: 'See it live',
+        target: '_blank'
+      }
+    }
+  },
+
+
+  // animaniac
+  {
+    shortcut: 'animaniac',
+
+    title: 'Anim@niac Player',
+    venue: 'IMDb/Amazon',
+    slate: {
+      ifrmUrl: ifrmBaseDir + 'animaniac/animaniac-slate.html',
+      // url: imgBaseDir + 'slates/slate-alphalfa.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'javascript',
+      'web',
+    ],
+    secondaryTags: [],
+    skills: [
+      'advanced javascript',
+      'HTML5',
+      'CSS3',
+    ],
+    modal: {
+      title: 'Anim@niac - Spritesheet Animation Utility',
+      hero: {
+        ifrmUrl: ifrmBaseDir + 'animaniac/animaniac-hero.html',
+        height: 400,
+        // url: imgBaseDir + 'heroes/hero-alphalfa.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'This is a javascript-driven animation utility for "spritesheet" style images. Spritesheets contain equally-sized animation cells which, when played in sequence, create animated images.'],
+        ['p', 'Importantly, .png type images can support transparency, and are generally higher quality than an animated .gif will be. So this utility allows for higher quality animations.'],
+        ['p', 'Since a .png spritesheet will have a lower k-weight than a video of the same size, this can be a load-time optimizer as well.']
+      ],
+      // info: ['p', 
+      // ]
+    }
+  },
+
+
+  // garden starter
+  {
+    shortcut: 'gardenstarter',
+
+    title: 'Garden Starter',
+    slate: {
+      url: imgBaseDir + 'slates/slate-web-gardenstarter.jpg'//,
+      // position: 'center 25%'
+    },
+    venue: 'React Single Page App',
+    primaryTags: [
+      'front-end',
+      'javascript',
+      'react',
+      'web'
+    ],
+    secondaryTags: [
+      'single page app'
+    ],
+    skills: [
+      'javascript',
+      'html/css',
+      'illustrator'
+    ],
+    modal: {
+      title: 'Garden Starter - React Single Page App',
+      hero: {
+        height: 430,
+        url: imgBaseDir + 'heroes/hero-web-gardenstarter.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Just a simple React Single Page app with PLACEHOLDER data.'],
+        ['p', ['a', {href:'https://github.com/ctcleary/gardenStarter'}, 'Check out the code on Github!']]
+      ],
+      cta: {
+        href: 'https://www.connorthomascleary.com/websamples/gardenstarter/index.html',
+        text: 'See it live',
+        target: '_blank'
+      }
+    }
+  },
+
+
+  // dynamic menu
+  {
+    shortcut: 'dynamicmenu',
+
+    title: 'Dynamic Menu Exercise',
+    slate: {
+      url: imgBaseDir + 'slates/slate-web-dynamicmenu.jpg',
+      position: 'center top'
+    },
+    venue: 'Javascript Utility',
+    primaryTags: [
+      'front-end',
+      'javascript',
+      'web'
+    ],
+    secondaryTags: [
+    ],
+    skills: [
+      'javascript',
+      'html/css',
+      'json'
+    ],
+    modal: {
+      title: 'Dynamic Menu Exercise',
+      hero: {
+        height: 473,
+        url: imgBaseDir + 'heroes/hero-web-dynamicmenu.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'A simple dynamic menu builder, takes a customized JSON object and creates a multi-level html/css menu of links.'],
+        ['p', ['a', {href:'https://github.com/ctcleary/dynamic-menu-exercise'}, 'Check out the code on Github!']]
+      ],
+      cta: {
+        href: 'http://ctcleary.github.io/dynamic-menu-exercise',
+        text: 'See it live',
+        target: '_blank'
+      }
+    }
+  },
+
+
   // mad max
   {
-    shortcut: 'madmaxptp',
+    shortcut: 'ptp-madmax',
 
-    title: 'Mad Max: Fury Road PTP',
+    title: 'Premium Title Page - Mad Max: Fury Road',
     slate: {
       url: imgBaseDir + 'slates/slate-ptp-madmax.jpg',
       position: 'center 25%'
@@ -35,7 +241,7 @@ var webItems = [
       'flash'
     ],
     modal: {
-      title: 'Mad Max: Fury Road - Premium Title Page',
+      title: 'Premium Title Page - Mad Max: Fury Road',
       hero: {
         vimeo: 157086532
         // url: imgBaseDir + 'heroes/hero-ptp-madmax.jpg',
@@ -83,7 +289,9 @@ var webItems = [
 
   // inside out
   {
-    title: 'Inside Out PTP',
+    shortcut: 'ptp-insideout',
+
+    title: 'Premium Title Page - Inside Out',
     slate: {
       url: imgBaseDir + 'slates/slate-ptp-insideout.jpg',
       position: 'center 85%'
@@ -91,7 +299,7 @@ var webItems = [
     venue: 'IMDb/Amazon',
     primaryTags: [
       'front-end',
-      // 'web',
+      'web',
       'motion'
     ],
     secondaryTags: [
@@ -106,11 +314,12 @@ var webItems = [
       'flash'
     ],
     modal: {
-      title: 'Inside Out - Premium Title Page',
+      title: 'Premium Title Page - Inside Out',
       hero: {
-        url: imgBaseDir + 'heroes/hero-ptp-insideout.jpg',
-        height: 320,
-        position: 'center bottom'
+        vimeo: 860468357
+        // url: imgBaseDir + 'heroes/hero-ptp-insideout.jpg',
+        // height: 320,
+        // position: 'center bottom'
       },
       description: ['.item-desc',
         ['p', 'This Premium Title Page (PTP) was extremely difficult to build even when were still using Flash for these experiences at IMDb. The Flash build prompted the creation of my CSS injection module, Zoolander.'],
@@ -150,17 +359,19 @@ var webItems = [
     }
   },
 
-  // jurassic world
+  // star wars tfa
   {
-    title: 'Jurassic World PTP',
+    shortcut: 'ptp-starwarstfa',
+
+    title: 'Premium Title Page - Star Wars: The Force Awakens',
     slate: {
-      url: imgBaseDir + 'slates/slate-ptp-jurassicworld.jpg',
-      position: 'center 85%'
+      url: imgBaseDir + 'slates/slate-ptp-starwarstfa.jpg',
+      position: 'center center'
     },
     venue: 'IMDb/Amazon',
     primaryTags: [
       'front-end',
-      // 'web',
+      'web',
       'motion'
     ],
     secondaryTags: [
@@ -168,47 +379,24 @@ var webItems = [
     ],
     skills: [
       'javascript',
-      'actionscript',
       'photoshop',
       'illustrator',
       'after effects',
       'flash'
     ],
     modal: {
-      title: 'Jurassic World - Premium Title Page',
+      title: 'Premium Title Page - Star Wars: The Force Awakens',
       hero: {
-        url: imgBaseDir + 'heroes/hero-ptp-jurassicworld.jpg',
-        height: 320,
-        position: 'center bottom'
+        vimeo: 860468375
       },
       description: ['.item-desc',
-        ['p', 'Another PTP with some fun interaction easter eggs.'],
-        ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
-
-        ['p.list-header', 'Javascript Rebuild'],
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
         ['ul', [
-          ['li', 'Utilizes: ', 
-            ['ul', [
               ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
               ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
               ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
-              //,
-              // ['li', ['a', {href:'#shortcut:zoolander'}, 'Zoolander Style Injector']]
-            ]],
-          ],
-        ]],
-
-        ['p.list-header', 'Original Flash Build'],
-        ['ul', [
-          ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
-          ['li', 'Interaction effects designed by me.'],
-          ['li', 'Motion design of logo interaction collaboration between myself and Billy. Concept and implementation by me.'],
-          ['li', 'Video transition assets created by Billy, implemented (with custom AS3.0 code) by me.'],
-          ['li', 'Wrap and CSS Swapping implemented by me. (Utilizes my Zoolander CSS Injection module.)'],
-
-          ['li', 'Custom AS3.0 code'],
-          ['li', 'Significant Photoshop work to clean up certain assets and pull apart layers for better motion/interaction design.'],
-          ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
         ]]
       ],
       info: ['span',
@@ -216,6 +404,310 @@ var webItems = [
       ]
     }
   },
+
+
+  // avengers age of ultron
+  {
+    shortcut: 'ptp-avengersaou',
+
+    title: 'Premium Title Page - Avengers: Age of Ultron',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ptp-avengersaou.jpg',
+      position: 'center center'
+    },
+    venue: 'IMDb/Amazon',
+    primaryTags: [
+      'front-end',
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Premium Title Page - Avengers: Age of Ultron',
+      hero: {
+        vimeo: 860468332
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
+        ['ul', [
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+        ]]
+      ],
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+    }
+  },
+
+  // the good dinosaur
+  {
+    shortcut: 'ptp-gooddinosaur',
+
+    title: 'Premium Title Page - The Good Dinosaur',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ptp-gooddinosaur.jpg',
+      position: 'center center'
+    },
+    venue: 'IMDb/Amazon',
+    primaryTags: [
+      'front-end',
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Premium Title Page - The Good Dinosaur',
+      hero: {
+        vimeo: 860468384
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
+        ['ul', [
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+        ]]
+      ],
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+    }
+  },
+
+
+  // san andreas
+  {
+    shortcut: 'ptp-sanandreas',
+
+    title: 'Premium Title Page - San Andreas',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ptp-sanandreas.jpg',
+      position: 'center center'
+    },
+    venue: 'IMDb/Amazon',
+    primaryTags: [
+      'front-end',
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Premium Title Page - San Andreas',
+      hero: {
+        vimeo: 860468362
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
+        ['ul', [
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+        ]]
+      ],
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+    }
+  },
+
+
+  // furious 7
+  {
+    shortcut: 'ptp-furious7',
+
+    title: 'Premium Title Page - Furious 7',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ptp-furious7.jpg',
+      position: 'center center'
+    },
+    venue: 'IMDb/Amazon',
+    primaryTags: [
+      'front-end',
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Premium Title Page - Furious 7',
+      hero: {
+        vimeo: 860468343
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
+        ['ul', [
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+        ]]
+      ],
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+    }
+  },
+
+
+
+  // furious 7
+  {
+    shortcut: 'ptp-aladdin',
+
+    title: 'Premium Title Page - Aladdin Re-release',
+    slate: {
+      url: imgBaseDir + 'slates/slate-ptp-aladdin.jpg',
+      position: 'center center'
+    },
+    venue: 'IMDb/Amazon',
+    primaryTags: [
+      'front-end',
+      'web',
+      'motion'
+    ],
+    secondaryTags: [
+      'interactive'
+    ],
+    skills: [
+      'javascript',
+      'photoshop',
+      'illustrator',
+      'after effects',
+      'flash'
+    ],
+    modal: {
+      title: 'Premium Title Page - Aladdin Re-release',
+      hero: {
+        vimeo: 860468320
+      },
+      description: ['.item-desc',
+        ['p', 'This Premium Title Page (PTP) was built using rich media features included with Tarnhelm.'],
+        ['hr'],
+        ['p.list-header', 'Build utilizes:'],
+        ['ul', [
+              ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+              ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+              ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+        ]]
+      ],
+      info: ['span',
+        '(No longer live on site.)'
+      ]
+    }
+  },
+
+  // jurassic world
+  // {
+  //   shortcut: 'ptp-jurassicworld',
+
+  //   title: 'Jurassic World PTP',
+  //   slate: {
+  //     url: imgBaseDir + 'slates/slate-ptp-jurassicworld.jpg',
+  //     position: 'center 85%'
+  //   },
+  //   venue: 'IMDb/Amazon',
+  //   primaryTags: [
+  //     'front-end',
+  //     // 'web',
+  //     'motion'
+  //   ],
+  //   secondaryTags: [
+  //     'interactive'
+  //   ],
+  //   skills: [
+  //     'javascript',
+  //     'actionscript',
+  //     'photoshop',
+  //     'illustrator',
+  //     'after effects',
+  //     'flash'
+  //   ],
+  //   modal: {
+  //     title: 'Jurassic World - Premium Title Page',
+  //     hero: {
+  //       url: imgBaseDir + 'heroes/hero-ptp-jurassicworld.jpg',
+  //       height: 320,
+  //       position: 'center bottom'
+  //     },
+  //     description: ['.item-desc',
+  //       ['p', 'Another PTP with some fun interaction easter eggs.'],
+  //       ['p', 'As of Sep 1st 2015, we had to rebuild all PTPs using Tarnhelm.'],
+
+  //       ['p.list-header', 'Javascript Rebuild'],
+  //       ['ul', [
+  //         ['li', 'Utilizes: ', 
+  //           ['ul', [
+  //             ['li', ['a', {href:'#shortcut:tarnhelm'}, 'Tarnhelm Framework']],
+  //             ['li', ['a', {href:'#shortcut:alphalfa'}, 'Alphalfa Player']],
+  //             ['li', ['a', {href:'#shortcut:reely'}, 'Reely Player']]
+  //             //,
+  //             // ['li', ['a', {href:'#shortcut:zoolander'}, 'Zoolander Style Injector']]
+  //           ]],
+  //         ],
+  //       ]],
+
+  //       ['p.list-header', 'Original Flash Build'],
+  //       ['ul', [
+  //         ['li', 'Created in Flash by implementeing static design from UX Designer Billy Thompson.'],
+  //         ['li', 'Interaction effects designed by me.'],
+  //         ['li', 'Motion design of logo interaction collaboration between myself and Billy. Concept and implementation by me.'],
+  //         ['li', 'Video transition assets created by Billy, implemented (with custom AS3.0 code) by me.'],
+  //         ['li', 'Wrap and CSS Swapping implemented by me. (Utilizes my Zoolander CSS Injection module.)'],
+
+  //         ['li', 'Custom AS3.0 code'],
+  //         ['li', 'Significant Photoshop work to clean up certain assets and pull apart layers for better motion/interaction design.'],
+  //         ['li', 'Complex optimization requirements for fast initial load, async loading for heavier k-weight assets, and design of failure-proof execution code in case of hiccups.'],
+  //       ]]
+  //     ],
+  //     info: ['span',
+  //       '(No longer live on site.)'
+  //     ]
+  //   }
+  // },
 
   // tarnhelm
   {

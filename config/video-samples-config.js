@@ -1,9 +1,4 @@
-var imgBaseDir = '';
-if (window.location.hostname === 'localhost') {
-  imgBaseDir = '/local-design/img/'
-} else {
-  imgBaseDir = 'https://connorthomascleary.com/assets/img/';
-}
+var imgBaseDir = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
 
 var videoSamplesItems = [
 

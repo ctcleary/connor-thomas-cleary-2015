@@ -1,11 +1,12 @@
-riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1>  <div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-youtube-hero" if="{this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
+riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero && !this.isIfrmHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-youtube-hero" if="{this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-ifrm-hero" if="{this.isIfrmHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
     this.modalTitle = modalConfig.title || this.opts.title;
 
-    this.isCustomHero = !!modalConfig.hero.custom;
-    this.isVimeoHero = !!modalConfig.hero.vimeo;
+    this.isCustomHero  = !!modalConfig.hero.custom;
+    this.isVimeoHero   = !!modalConfig.hero.vimeo;
     this.isYoutubeHero = !!modalConfig.hero.youtube;
+    this.isIfrmHero    = !!modalConfig.hero.ifrmUrl;
 
     this.isCustom  = !!modalConfig.custom;
     this.hasCTA    = !!modalConfig.cta;
@@ -18,14 +19,15 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
           'opacity: 0;',
           'transition: opacity ' + this.transitionLengthS +'s cubic-bezier(0.445, 0.050, 0.550, 0.950);'
         ].join('');
-    }
+    };
 
     this.getModalStyle = function() {
       return 'background: white;';
-    }
+    };
+
 
     this.getHeroStyle = function() {
-      if (!modalConfig.hero.url) {
+      if (!modalConfig.hero.url && !modalConfig.hero.ifrmUrl) {
         return 'background-color: black';
       }
       var heroStyles = []
@@ -36,26 +38,28 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
           ''];
 
       } else {
-        heroStyles = ['background-color: black'];
+        heroStyles = ['background-color: black;'];
         
       }
-
+      
       if (modalConfig.hero.height != null) {
         heroStyles.push('height: '+ modalConfig.hero.height +'px;'); 
       }
 
       return heroStyles.join(' ');
-    }
+    };
 
     this.dismissModal = function(e) {
       window.history.go(-1);
     };
+
     this.dismissOnEsc = function(e) {
       if (e.keyCode === 27) {
         this.dismissModal();
 
       }
     };
+
     this.show = function() {
       if (!this.viewport) {
         window.debug.warn('Something went wrong with the Modal Viewport.');
@@ -65,7 +69,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
       setTimeout(function() {
         v.style.opacity = 1;
       }, 0);
-    }
+    };
 
     this.appendShaven = function(shavenConfig, elClass) {
 
@@ -74,12 +78,13 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
 
       var el = this.root.getElementsByClassName(elClass)[0];
       el.appendChild(shavenObj[0]);
-    }
+    };
 
 
     this.appendDescription = function() {
       this.appendShaven(modalConfig.description, 'item-modal-description');
-    }
+    };
+
     this.appendCTA = function() {
       if (this.hasCTA) {
         var cta = ['a',
@@ -92,12 +97,14 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
 
         this.appendShaven(cta, 'item-modal-cta');
       }
-    }
+    };
+
     this.appendInfo = function() {
       if (this.hasInfo) {
         this.appendShaven(modalConfig.info, 'item-modal-info');
       }
-    }
+    };
+
     this.makeShavenList = function(arr) {
         var shavenList = ['ul'];
         var listItems = [];
@@ -107,12 +114,14 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
         shavenList.push(listItems);
         return shavenList;
     };
+
     this.appendSkills = function() {
       if (this.hasSkills) {
         var skillsShaven = this.makeShavenList(this.opts.skills);
         this.appendShaven(skillsShaven, 'item-modal-skills');
       }
-    }
+    };
+
     this.appendTags = function() {
       if (this.hasTags) {
         var tags = this.opts.primaryTags;
@@ -121,12 +130,13 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
         var tagsShaven = this.makeShavenList(tags);
         this.appendShaven(tagsShaven, 'item-modal-tags');
       }
-    }
+    };
 
 
     this.appendCustomHero = function() {
       this.appendShaven(modalConfig.hero.custom, 'item-modal-custom-hero');
-    }
+    };
+
     this.appendVimeoHero = function() {
       var vimeoId = modalConfig.hero.vimeo;
       var src = 'https://player.vimeo.com/video/' + vimeoId + '?title=0&byline=0&portrait=0';
@@ -141,7 +151,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
           }]
         ],
         'item-modal-vimeo-hero');
-    }
+    };
 
     this.appendYoutubeHero = function() {
       var youtubeId = modalConfig.hero.youtube;
@@ -159,21 +169,33 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
           }]
         ],
         'item-modal-youtube-hero');
+    };
 
-    }
-
+    this.appendIfrmHero = function() {
+      var src = modalConfig.hero.ifrmUrl;
+      this.appendShaven(
+        ['div',
+          ['iframe', {
+              src: src,
+              height: '400',
+              width: '980',
+              frameborder: '0'
+          }]
+        ],
+        'item-modal-ifrm-hero');
+    };
     
 
     this.appendModalContents = function() {
       try {
         if (this.isVimeoHero) {
           this.appendVimeoHero();
-        } else 
-        if (this.isYoutubeHero) {
+        } else if (this.isYoutubeHero) {
           this.appendYoutubeHero();
-        } else 
-        if (this.isCustomHero) {
+        } else if (this.isCustomHero) {
           this.appendCustomHero();
+        } else if (this.isIfrmHero) {
+          this.appendIfrmHero();
         }
 
         this.appendDescription();
@@ -223,9 +245,10 @@ riot.tag('tagged-item-content', '<div class="cover"><div class="item"><div class
     this.hasPullQuote = !!this.opts.pullquote;
   
 });
-riot.tag('tagged-item', '<img class="item-image" if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}"><a if="{this.hasUrl}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a><tagged-item-content if="{!this.hasUrl}" onclick="{this.getClickAction()}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }"', function(opts) {
+riot.tag('tagged-item', '<img if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}" class="item-image"><iframe if="{this.opts.slate.ifrmUrl}" riot-src="{this.opts.slate.ifrmUrl}" class="item-ifrm" scrolling="no"></iframe><a if="{this.hasUrl}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a><tagged-item-content if="{!this.hasUrl}" onclick="{this.getClickAction()}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }"', function(opts) {
     this.hasModal   = !!this.opts.modal;
     this.hasUrl     = !!this.opts.url;
+    this.hasIfrm    = !!this.opts.slate.ifrmUrl;
 
     if (this.hasModal && this.hasUrl) {
       window.debug.warn("WARNING: Bad config. An item should have either modal or url.");

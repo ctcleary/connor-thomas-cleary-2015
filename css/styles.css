@@ -551,7 +551,7 @@ tagged-item .item-icon {
 }
 
 .tags-filters-wrapper {
-  height: auto;
+  display: block;
   padding-top: 3%;
   padding-bottom: 3%;
   -webkit-transform-origin: center top;
@@ -565,6 +565,7 @@ tagged-item .item-icon {
       -ms-transform: scaleY(0);
           transform: scaleY(0);
   height: 0;
+  padding: 0;
 }
 
 .tags-filters-wrapper {
@@ -1211,6 +1212,24 @@ tagged-item.video-item .item-youtube {
 }
 .portfolio .slate-item:hover {
   border: 1px solid #f8f8f8;
+}
+.portfolio .slate-item:hover iframe {
+  display: none;
+}
+.portfolio .slate-item iframe {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 440px;
+  height: 260px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  /* border: none; */
 }
 
 section:nth-child(2n) .portfolio .slate-item:hover {

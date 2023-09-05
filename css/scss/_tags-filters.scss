@@ -40,7 +40,8 @@
 
 // Layout filters
 .tags-filters-wrapper {
-  height: auto;
+  display: block;
+
   padding-top: 3%;
   padding-bottom: 3%;
   transform-origin: center top;
@@ -49,6 +50,7 @@
   &.is-collapsed {
     transform: scaleY(0);
     height: 0;
+    padding: 0;
   }
 }
 

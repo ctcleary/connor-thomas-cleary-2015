@@ -1,5 +1,6 @@
-<tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl }">
-    <img class="item-image" if={ this.opts.slate.url } src={ this.opts.slate.url } />
+<tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }">
+    <img    if={ this.opts.slate.url }     src={ this.opts.slate.url }     class="item-image" />
+    <iframe if={ this.opts.slate.ifrmUrl } src={ this.opts.slate.ifrmUrl } class="item-ifrm" scrolling="no" />
 
     <a if={ this.hasUrl }
       href={ this.opts.url } 
@@ -22,6 +23,7 @@
   <script>
     this.hasModal   = !!this.opts.modal;
     this.hasUrl     = !!this.opts.url;
+    this.hasIfrm    = !!this.opts.slate.ifrmUrl;
 
     if (this.hasModal && this.hasUrl) {
       window.debug.warn("WARNING: Bad config. An item should have either modal or url.");
