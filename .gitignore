@@ -7,6 +7,7 @@ local-design/
 bower_components/
 docs/
 static-build/
+assets/
 
 **/*.jpg
 **/*.png
