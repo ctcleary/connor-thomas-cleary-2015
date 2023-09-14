@@ -1,0 +1,6 @@
+Ignoring image files in the repo.
+
+320x210 - Slate
+
+980x200
+980x320 - Modal Hero

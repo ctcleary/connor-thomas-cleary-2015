@@ -177,7 +177,7 @@ riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{t
         ['div',
           ['iframe', {
               src: src,
-              height: '400',
+              height: modalConfig.hero.height || '400',
               width: '980',
               frameborder: '0'
           }]

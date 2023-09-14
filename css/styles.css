@@ -333,6 +333,31 @@ section:nth-child(2n) .pub-item {
   max-width: 1080px;
 }
 
+#web-portfolio .section-content {
+  background-image: url("../img/bg_faux_code.png");
+  background-repeat: repeat-y;
+  background-position: 5% 0px;
+  -webkit-animation: 45s steps(120, end) 0s infinite running step-through-faux-code;
+          animation: 45s steps(120, end) 0s infinite running step-through-faux-code;
+}
+
+@-webkit-keyframes step-through-faux-code {
+  from {
+    background-position: 5% 0%;
+  }
+  to {
+    background-position: 5% 100%;
+  }
+}
+
+@keyframes step-through-faux-code {
+  from {
+    background-position: 5% 0%;
+  }
+  to {
+    background-position: 5% 100%;
+  }
+}
 tagged-item .item-icon {
   position: absolute;
   top: 0;
@@ -872,9 +897,9 @@ tagged-item.video-item .item-youtube {
   -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
           flex-shrink: 1;
-  -webkit-flex-basis: 730px;
-      -ms-flex-preferred-size: 730px;
-          flex-basis: 730px;
+  -webkit-flex-basis: 450px;
+      -ms-flex-preferred-size: 450px;
+          flex-basis: 450px;
 }
 .item-modal .item-modal-contents .item-modal-sidebar {
   -webkit-box-flex: 1;
@@ -884,9 +909,9 @@ tagged-item.video-item .item-youtube {
   -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
           flex-shrink: 1;
-  -webkit-flex-basis: 250px;
-      -ms-flex-preferred-size: 250px;
-          flex-basis: 250px;
+  -webkit-flex-basis: 200px;
+      -ms-flex-preferred-size: 200px;
+          flex-basis: 200px;
   width: 100%;
   min-width: 125px;
 }
@@ -914,6 +939,7 @@ tagged-item.video-item .item-youtube {
   padding-top: 0;
   margin: 0 12px 24px 12px;
   line-height: 1.25em;
+  text-align: center;
 }
 .item-modal .item-modal-header .item-modal-hero {
   display: block;

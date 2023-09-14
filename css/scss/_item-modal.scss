@@ -81,12 +81,12 @@
     .item-modal-description {
       flex-grow: 1;
       flex-shrink: 1;
-      flex-basis: 730px;
+      flex-basis: 450px;
     }
     .item-modal-sidebar {
       flex-grow: 1;
       flex-shrink: 1;
-      flex-basis: 250px;
+      flex-basis: 200px;
 
       width: 100%;
       min-width: 125px;
@@ -122,6 +122,8 @@
       padding-top: 0;
       margin: 0 12px 24px 12px;
       line-height: 1.25em;
+
+      text-align: center
     }
 
     .item-modal-hero {
