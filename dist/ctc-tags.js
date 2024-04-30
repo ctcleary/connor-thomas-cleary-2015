@@ -241,11 +241,11 @@ riot.tag('tag-button', '<button class="{getClasses()}" onclick="{parent.toggleTa
   
 });
 
-riot.tag('tagged-item-content', '<div class="cover"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue" if="{this.opts.venue}"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div><div class="item-pull-quote" if="{this.hasPullQuote}"><p class="pull-quote"> {this.opts.pullquote} </p></div></div>', function(opts) {
+riot.tag('tagged-item-content', '<div class="info"><div class="item"><div class="item-title"> {this.opts.title} </div><div class="item-venue" if="{this.opts.venue}"> {this.opts.venue} </div><div class="item-tags"><span class="item-tag" each="{t, i in primaryTags}">{t}</span></div></div><div class="item-pull-quote" if="{this.hasPullQuote}"><p class="pull-quote"> {this.opts.pullquote} </p></div></div>', function(opts) {
     this.hasPullQuote = !!this.opts.pullquote;
   
 });
-riot.tag('tagged-item', '<img if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}" class="item-image"><iframe if="{this.opts.slate.ifrmUrl}" riot-src="{this.opts.slate.ifrmUrl}" class="item-ifrm" scrolling="no"></iframe><a if="{this.hasUrl}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a><tagged-item-content if="{!this.hasUrl}" onclick="{this.getClickAction()}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }"', function(opts) {
+riot.tag('tagged-item', '<button if="{this.hasModal}" class="modal-button" onclick="{this.getClickAction()}" ><div class="tagged-item-flavor"><img if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}" class="item-image"><iframe if="{this.opts.slate.ifrmUrl}" riot-src="{this.opts.slate.ifrmUrl}" class="item-ifrm" scrolling="no"></iframe></div><div if="{this.opts.slate.ifrmUrl}" class="ifrm-cover"></div><tagged-item-content if="{!this.hasUrl}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content></button><a if="{!this.hasModal}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }"', function(opts) {
     this.hasModal   = !!this.opts.modal;
     this.hasUrl     = !!this.opts.url;
     this.hasIfrm    = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
@@ -255,6 +255,7 @@ riot.tag('tagged-item', '<img if="{this.opts.slate.url}" riot-src="{this.opts.sl
     }
 
     this.initModal = function() {
+      console.log("initModal");
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
 

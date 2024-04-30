@@ -1,8 +1,22 @@
 <tagged-item class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }">
-    <img    if={ this.opts.slate.url }     src={ this.opts.slate.url }     class="item-image" />
-    <iframe if={ this.opts.slate.ifrmUrl } src={ this.opts.slate.ifrmUrl } class="item-ifrm" scrolling="no" />
+    
+    <button if={ this.hasModal }
+      class="modal-button"
+      onclick={ this.getClickAction() }
+    >
 
-    <a if={ this.hasUrl }
+      <div class="tagged-item-flavor">
+        <img    if={ this.opts.slate.url }     src={ this.opts.slate.url }     class="item-image" />
+        <iframe if={ this.opts.slate.ifrmUrl } src={ this.opts.slate.ifrmUrl } class="item-ifrm" scrolling="no" />
+      </div>
+      <div if={ this.opts.slate.ifrmUrl } class="ifrm-cover"></div>
+      <tagged-item-content if={ !this.hasUrl }
+          title={ this.opts.title }
+          venue={ this.opts.venue }
+      >
+      </tagged-item-content>
+    </button>
+    <a if={ !this.hasModal }
       href={ this.opts.url } 
     >
       <tagged-item-content 
@@ -12,12 +26,6 @@
       >
       </tagged-item-content>
     </a>
-    <tagged-item-content if={ !this.hasUrl }
-        onclick={ this.getClickAction() }
-        title={ this.opts.title }
-        venue={ this.opts.venue }
-    >
-    </tagged-item-content>
 
 
   <script>
@@ -30,6 +38,7 @@
     }
 
     this.initModal = function() {
+      console.log("initModal");
       window.location.hash = window.util.str.makeHashKey(this.opts.title);
     };
 

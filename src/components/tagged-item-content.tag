@@ -1,5 +1,5 @@
 <tagged-item-content>
-  <div class="cover">
+  <div class="info">
     <div class="item">
       <div class="item-title"> { this.opts.title } </div>
       <div class="item-venue" if={ this.opts.venue }> { this.opts.venue } </div>

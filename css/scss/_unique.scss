@@ -1,0 +1,15 @@
+#web-portfolio .section-content {
+  background-image: url('../assets/img/bg_faux_code.png');
+  background-repeat: repeat-y;
+  background-position: 5% 0px;
+  animation: 45s steps(120, end) 0s infinite running step-through-faux-code;
+}
+
+@keyframes step-through-faux-code {
+  from {
+    background-position: 5% 0%;
+  }
+  to {
+    background-position: 5% 100%;
+  }
+}

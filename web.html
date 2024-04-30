@@ -59,7 +59,57 @@
 
 
   <div id="top" class="wrapper">
-    <nav>
+        <section id="newmain-nav-wrapper">
+      <div id="newmain-nav-container">
+        <a href="#top" id="top-logo">
+          <svg id="logo-svg" viewBox="0 0 100 100">
+            <use xlink:href="#ctc-logo" x="0" y="0"  />
+          </svg>
+          <span class="top-name">
+            Connor <span class="middle-name">Thomas</span> Cleary
+          </span>
+        </a>
+        <nav 
+          id="newmain-nav"
+          class="newmain-nav"
+          aria-label="main"
+        >
+          <ul>
+            <li><a href="#web-engineering-portfolio">Engineering</a></li>
+            <li><a href="#web-rich-media-portfolio">Frontend</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div id="mobile-nav-hamburger-container">
+          <button id="mobile-nav-hamburger">
+            <div id="hamburger"></div>
+          </button>
+        </div>
+        <div
+          id="mobile-nav-container"
+          class="mobile-nav hidden"
+        >
+          <div id="mobile-nav-close-container">
+            <button id="mobile-nav-close">
+              &times;
+            </button>
+          </div>
+          <nav
+            id="mobile-nav"
+            aria-label="mobile"
+          >
+            <ul>
+              <li><a href="#web-engineering-portfolio">Engineering</a></li>
+              <li><a href="#web-rich-media-portfolio">Frontend</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+   <!--  <nav>
       <div class="main-nav-wrapper">
         <div class="main-nav">
           <a href="#top" class="nav-item nav-logo">
@@ -81,7 +131,7 @@
           </a>
         </div>
       </div>
-    </nav>
+    </nav> -->
     
     <div class="hero">
       <video class="hero-vid" poster="assets/vid/typing-numbers.jpg" autoplay muted>
@@ -102,13 +152,24 @@
       </div>
 
     </div>
-    
+
     <section>
-      <div id="web-portfolio" class="portfolio section section-wrapper">
+      <div id="web-engineering-portfolio" class="portfolio section section-wrapper">
         <div class="section-content">
-          <h1 class="section-headline">Web Development Work</h1>
+          <h1 class="section-headline">Web Engineering</h1>
           <div class="portfolio-wrapper">
-            <tags-app id="web-app"></tags-app>
+            <tags-app id="web-engineering-app"></tags-app>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="web-rich-media-portfolio" class="portfolio section section-wrapper">
+        <div class="section-content">
+          <h1 class="section-headline">Frontend Rich Media</h1>
+          <div class="portfolio-wrapper">
+            <tags-app id="web-rich-media-app"></tags-app>
           </div>
         </div>
       </div>
@@ -189,13 +250,8 @@
   <!-- RIOT APP -->
   <script src="dist/ctc-tags.js"></script>
 
-  <script type="text/javascript" src="config/portfolio-config.js"></script>
-  <script type="text/javascript" src="config/web-config.js"></script>
-  <script type="text/javascript" src="config/writing-samples-config.js"></script>
-  <script type="text/javascript" src="config/critical-reception-config.js"></script>
-  <script type="text/javascript" src="config/publications-config.js"></script>
-  <script type="text/javascript" src="config/video-samples-config.js"></script>
-  <script type="text/javascript" src="config/vo-config.js"></script>
+  <script type="text/javascript" src="config/web-engineering-config.js"></script>
+  <script type="text/javascript" src="config/web-rich-media-config.js"></script>
 
   <item-modal id="modal-container"></item-modal>
 

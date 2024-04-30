@@ -3,9 +3,9 @@
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
   <title>
-    Connor Thomas Cleary - Professional Nerd
+    Connor Thomas Cleary - Writer & Narrative Designer
   </title>
-  <meta name="description" content="Connor Thomas Cleary's online portfolio.">
+  <meta name="description" content="Connor Thomas Cleary's narrative design and game writing portfolio.">
   <meta name="author" content="Connor Thomas Cleary">
   <!-- @exclude -->
   <script type="text/javascript">
@@ -25,7 +25,7 @@
   <meta property="og:title" content="Professional nerd by day, regular nerd at other times." />
   <meta property="og:url" content="https://connorthomascleary.com/" />
   <meta property="og:image" content="https://connorthomascleary.com/assets/img/ctc_site_logo-v1.jpg" />
-  <meta property="og:description" content="Connor Thomas Cleary's online portfolio." /> 
+  <meta property="og:description" content="Connor Thomas Cleary's narrative design and game writing portfolio." /> 
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
 
@@ -65,47 +65,97 @@
 
 
   <div id="top" class="wrapper">
-    <nav>
-      <div class="main-nav-wrapper">
-        <div class="main-nav">
-          <a href="#top" class="nav-item nav-logo">
-            <svg id="logo-svg" viewBox="0 0 100 100">
-              <use xlink:href="#ctc-logo" x="0" y="0"  />
-            </svg>
-            <span class="nav-item-text top-name">
-              Connor <span class="middle-name">Thomas</span> Cleary
-            </span>
-          </a>
-          <a href="#portfolio" class="nav-item">
-            <span class="nav-item-text">Games</span>
-          </a>
-          <a href="#video-samples" class="nav-item">
-            <span class="nav-item-text">Videos</span>
-          </a>
-          <a href="#writing-samples" class="nav-item">
-            <span class="nav-item-text">Writing</span>
-          </a>
-          <a href="#web-portfolio" class="nav-item">
-            <span class="nav-item-text">Web</span>
-          </a>
-          <!--<a href="#publications" class="nav-item">
-            <span class="nav-item-text">Publications</span>
-          </a>-->
-          <!--<a href="#vo" class="nav-item">
-            <span class="nav-item-text">VO</span>
-          </a>-->
-          <!--<a href="#skills" class="nav-item">
-            <span class="nav-item-text">Skills</span>
-          </a>-->
-          <a href="#about" class="nav-item">
-            <span class="nav-item-text">About</span>
-          </a>
-          <a href="#contact" class="nav-item">
-            <span class="nav-item-text">Contact</span>
-          </a>
+    <section id="newmain-nav-wrapper">
+      <div id="newmain-nav-container">
+        <a href="#top" id="top-logo">
+          <svg id="logo-svg" viewBox="0 0 100 100">
+            <use xlink:href="#ctc-logo" x="0" y="0"  />
+          </svg>
+          <span class="top-name">
+            Connor <span class="middle-name">Thomas</span> Cleary
+          </span>
+        </a>
+        <nav 
+          id="newmain-nav"
+          class="newmain-nav"
+          aria-label="main"
+        >
+          <ul>
+            <li>
+              <a href="#portfolio">Games</a>
+              <ul class="subnav">
+                <li><a href="#game-narrative">Narrative Design</a></li>
+                <li><a href="#game-quest">Game Design</a></li>
+                <li><a href="#video-samples">Video Samples</a></li>
+                <li><a href="#writing-samples">Writing Samples</a></li>
+                <li><a href="#critical-reception">Critical Reception</a></li>
+                <li><a href="#journalism">Game Journalism</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#web-portfolio">Web</a>
+              <ul class="subnav">
+                <li><a href="#web-engineering-portfolio">Coding Projects</a></li>
+                <li><a href="#web-rich-media-portfolio">Rich Media</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <div id="mobile-nav-hamburger-container">
+          <button id="mobile-nav-hamburger">
+            <div id="hamburger"></div>
+          </button>
+        </div>
+        <div
+          id="mobile-nav-container"
+          class="mobile-nav hidden"
+        >
+          <div id="mobile-nav-close-container">
+            <button id="mobile-nav-close">
+              &times;
+            </button>
+          </div>
+          <nav
+            id="mobile-nav"
+            aria-label="mobile"
+          >
+            <ul>
+              <li>
+                <div class="mobile-subnav-header">Games</div>
+                <ul class="mobile-subnav">
+                  <li><a href="#game-narrative">Narrative Design</a></li>
+                  <li><a href="#game-quest">Game Design</a></li>
+                  <li><a href="#video-samples">Video Samples</a></li>
+                  <li><a href="#writing-samples">Writing Samples</a></li>
+                  <li><a href="#critical-reception">Critical Reception</a></li>
+                  <li><a href="#journalism">Game Critique</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="mobile-subnav-header">Web</div>
+                <ul class="mobile-subnav">
+                  <li><a href="#web-engineering-portfolio">Engineering</a></li>
+                  <li><a href="#web-rich-media-portfolio">Rich Media</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="mobile-subnav-header">Misc</div>
+                <ul>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
-    </nav>
+    </section>
     
     <div class="hero">
       <video class="hero-vid" poster="assets/vid/typing-numbers.jpg" autoplay muted>
@@ -124,14 +174,25 @@
           </div>
         </div>
       </div>
-
     </div>
+
     <section>
-      <div id="portfolio" class="portfolio section section-wrapper">
+      <div id="game-narrative" class="portfolio section section-wrapper">
         <div class="section-content">
-          <h1 class="section-headline">Game Writing &amp; Narrative Design Work</h1>
+          <h1 class="section-headline">Narrative Design &amp; Game Writing</h1>
           <div class="portfolio-wrapper">
-            <tags-app id="portfolio-app"></tags-app>
+            <tags-app id="game-narrative-app"></tags-app>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="game-quest" class="portfolio section section-wrapper">
+        <div class="section-content">
+          <h1 class="section-headline">Quest Design &amp; Other Game Stuff</h1>
+          <div class="portfolio-wrapper">
+            <tags-app id="game-quest-app"></tags-app>
           </div>
         </div>
       </div>
@@ -173,11 +234,22 @@
     </section>
 
     <section>
-      <div id="web-portfolio" class="portfolio section section-wrapper">
+      <div id="web-engineering-portfolio" class="portfolio section section-wrapper">
         <div class="section-content">
-          <h1 class="section-headline">Web Development Work</h1>
+          <h1 class="section-headline">Web Engineering</h1>
           <div class="portfolio-wrapper">
-            <tags-app id="web-app"></tags-app>
+            <tags-app id="web-engineering-app"></tags-app>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div id="web-rich-media-portfolio" class="portfolio section section-wrapper">
+        <div class="section-content">
+          <h1 class="section-headline">Frontend Rich Media</h1>
+          <div class="portfolio-wrapper">
+            <tags-app id="web-rich-media-app"></tags-app>
           </div>
         </div>
       </div>
@@ -187,7 +259,7 @@
       <div id="skills" class="skills section section-wrapper">
         <div class="section-content">
           <h1 class="section-headline">Skills</h1>
-          <h2 class="section-sub-headline">Game Writer &amp; Web Developer</h2>
+          <h2 class="section-sub-headline">Narrative Designer &amp; Web Developer</h2>
           <div class="skills-container skills-items">
 
             <div class="skills-column">
@@ -242,32 +314,6 @@
       </div>
     </section>
 
-<!--
-    <section>
-      <div id="writing-samples" class="publications section section-wrapper">
-        <div class="section-content">
-          <h1 class="section-headline">Writing &amp; Design Samples</h1>
-          <div class="publications-wrapper">
-            <tags-app id="writing-samples-app"></tags-app>
-          </div>
-        </div>
-      </div>
-    </section>
- -->
-
-<!--
-    <section>
-      <div id="portfolio" class="portfolio section section-wrapper">
-        <div class="section-content">
-          <h1 class="section-headline">Web Development Work</h1>
-          <div class="portfolio-wrapper">
-            <tags-app id="web-app"></tags-app>
-          </div>
-        </div>
-      </div>
-    </section>
- -->
-
     <section>
       <div id="journalism" class="journalism section section-wrapper">
         <div class="section-content">
@@ -278,20 +324,6 @@
         </div>
       </div>
     </section>
-
-<!--
-    <section>
-      <div id="publications" class="publications section section-wrapper">
-        <div class="section-content">
-          <h1 class="section-headline">Publications &amp; Writing Credits</h1>
-          <div class="publications-wrapper">
-            <tags-app id="publications-app"></tags-app>
-          </div>
-        </div>
-      </div>
-    </section>
--->
-
 
     <!--
     <section>
@@ -321,13 +353,18 @@
             <div class="about-segments">
               <div class="about-segment">
                 <h3 class="segment-headline"> Who is this guy anyway?</h3>
-                <p>I am a creator and craftsman driven by unquenchable curiosity and a desire to create joy. I strive for excellence in every task, knowing there is always more to learn.</p>
+                <p>One could argue that “Narrative Designer” is the most poorly defined title in the game industry, but it’s also probably the most accurate name we have for what I do. If being a Game Writer is like being the lead singer of the band, being a Narrative Designer is being the lead singer who also plays rhythm guitar. I may not be playing the face-melting solos, but I'm strumming.</p>
 
-                <p>As a passionate game writer, published short fiction author, and former game journalist with a background in programming &amp; scripting (seven years as a web developer), as well as art &amp; design (both formal and informal training), I bridge the divide between creative and technical while speaking the language of both.</p>
+                <p>A bit of a renaissance man, I have a broad skill set spanning both creative and technical. From story arcs and game design to branching dialogue and implementation, I’m a highly capable multidisciplinary powerhouse who considers every level of the player experience as I craft content.</p>
 
-                <p>I've worn many hats on AAA, indie, and solo game projects, and I have a variety of writing and publication credits including video games, short stories, scripts, op-eds, reviews, interviews, copywriting, technical writing, and documentation.</p>
+                <p>Whether I’m part of a strike team or leading the charge, I’m a collaborator first and foremost with the utmost respect for the expertise of those in other disciplines. I also believe that narrative has a uniquely high level of responsibility to the rest of the team to produce excellent work, since it has such a huge impact on how the rest of the game is perceived and experienced, and I take that responsibility seriously.</p>
 
-                <!--<p>With a background in theater -- starting from a young age, and performing all the way up through college -- and a versatile voice, I am also a voice actor who has performed a number of varied roles including the growly low-pitched Mouthpiece, the unhinged high-pitched Tink Psycho, the adrenaline junkie surfer bro Chadd, as well as a number of smaller enemy roles and minor characters.</p>-->
+                <p>I’m also an experienced VO Director who knows how to draw the best performance out of an actor by creating an atmosphere of play, creative safety, and respect.</p>
+
+
+                <!-- <p>I am a creator and craftsman driven by unquenchable curiosity and a desire to create joy. I strive for excellence in every task, knowing there is always more to learn.</p>
+
+                <p>As a passionate game writer, published short fiction author, and former game journalist with a background in programming &amp; scripting (seven years as a web developer), as well as art &amp; design (both formal and informal training), I bridge the divide between creative and technical while speaking the language of both.</p>-->
 
                 <h3 class="segment-headline">Contact Me</h3>
                 <div class="about-me-contact-list">
@@ -345,42 +382,30 @@
               </div>
 
               <div class="about-segment">
-                <h3 class="segment-headline">Achievements</h3>
+                <h3 class="segment-headline">Credits include:</h3>
                 <ul>
-                  <li>Credits include:
-                    <ul>
-                      <li>Lead Writer <br/>
-                        <a href="#shortcut:gbx-psycho-krieg">Borderlands 3 DLC: Psycho Krieg and the Fantastic Fustercluck</a></li>
-                      <li>Co-Lead Writer <br/>
-                        <a href="#shortcut:gbx-commander-lilith">Borderlands 2 DLC: Commander Lilith and the Fight for Sanctuary</a></li>
-                      <li>Co-Lead Writer <br/> 
-                        <a href="#shortcut:gbx-bounty-of-blood">Borderlands 3 DLC: Bounty of Blood</a></li>
-                      <li>Side Mission Lead Writer <br/>
-                        <a href="#shortcut:gbx-wonderlands">Tiny Tina's Wonderlands</a></li>
-                      <li>Side Mission Lead Writer <br/>
-                         <a href="#shortcut:gbx-guns-love-tentacles">Borderlands 3 DLC: Guns, Love, and Tentacles</a></li>
-                      <li>Writer <br/>
-                        <a href="#shortcut:gbx-bl3">Borderlands 3</a></li>
-                      <li>Writer <br/>
-                        <a href="#shortcut:gbx-moxxis-heist">Borderlands 3 DLC: Moxxi's Heist of the Handsome Jackpot</a></li>
-                      <li>Narrative Designer <br/>
-                        <a href="#shortcut:ttg-gog">Guardians of the Galaxy</a> <br/>
-                         [Eps S01E02, S01E04]</li>
-                      <li>Narrative Designer <br/>
-                        <a href="#shortcut:ttg-bat">Batman: The Enemy Within</a>  <br/>
-                        [Eps S02E03, S02E04]</li>
-                    </ul>
-                  </li>
-                  <!-- <li><strong>Co-writer</strong> on satirical interactive fiction game, <a href="https://citizenstories.itch.io/donald-trump-saves-the-world" target="_blank">Donald Trump Saves The World</a> with Danny Homan.</li>
-                  <li>Worked as a Game UI &amp; Web Programmer at <a href="http://arena.net">ArenaNet</a>, the studio behind the <em>Guild Wars</em> franchise.</li>
-                  <li>Learned the <em>Divinity Engine</em> toolset and created <em><a href="#shortcut:loveshorn">Loveshorn in Glenrock</a></em>.
-                  <li>Pitched &amp; spearheaded an ambitious project called <a href="#shortcut:tarnhelm">Tarnhelm</a> which retained >$48 million in 2015 revenue which would have been lost; plus increased projected 2016 revenue by >$50 million</li> 
-                  <li>Wrote <em><a href="#shortcut:segfault0">Segfault[0]: Mad Hatter</a></em> which placed as a finalist in the <a href="http://itch.io/jam/wag-challenge" target="_blank">Write-A-Game Challenge 2015</a> (#WAGChallenge).</li>
-                  <li>Received multiple awards for performance as a Design Technologist at IMDb.</li>
-                  <li>Rebuilt <em><a href="#shortcut:summoner">Summoner: The Bescarfed</a></em> in Unity 2D (C#) after initial Actionscript 3/Flixel Prototype.</li>
-                  <li>Learned the <em>Shadowrun Returns</em> toolset, created <em><a href="#shortcut:skeletonkey">The Skeleton Key</a></em>.</li>
-                  <li>Wrote a short voice over script for <em><a href="#shortcut:asgardrun">Asgard Run</a></em>.</li>
-                  <li>Created this spiffy website.</li> -->
+                  <li>Lead Writer <br/>
+                    <a href="#shortcut:gbx-psycho-krieg">Borderlands 3 DLC: Psycho Krieg and the Fantastic Fustercluck</a></li>
+                  <li>Co-Lead Writer <br/>
+                    <a href="#shortcut:gbx-commander-lilith">Borderlands 2 DLC: Commander Lilith and the Fight for Sanctuary</a></li>
+                  <li>Co-Lead Writer <br/> 
+                    <a href="#shortcut:gbx-bounty-of-blood">Borderlands 3 DLC: Bounty of Blood</a></li>
+                  <li>Side Mission Lead Writer <br/>
+                    <a href="#shortcut:gbx-wonderlands">Tiny Tina's Wonderlands</a></li>
+                  <li>Side Mission Lead Writer <br/>
+                     <a href="#shortcut:gbx-guns-love-tentacles">Borderlands 3 DLC: Guns, Love, and Tentacles</a></li>
+                  <li>Senior Narrative Designer <br/>
+                    <a href="#shortcut:clockwork">Clockwork Revolution</a></li>
+                  <li>Writer <br/>
+                    <a href="#shortcut:gbx-bl3">Borderlands 3</a></li>
+                  <li>Writer <br/>
+                    <a href="#shortcut:gbx-moxxis-heist">Borderlands 3 DLC: Moxxi's Heist of the Handsome Jackpot</a></li>
+                  <li>Narrative Designer <br/>
+                    <a href="#shortcut:ttg-gog">Guardians of the Galaxy</a> <br/>
+                     [Eps S01E02, S01E04]</li>
+                  <li>Narrative Designer <br/>
+                    <a href="#shortcut:ttg-bat">Batman: The Enemy Within</a>  <br/>
+                    [Eps S02E03, S02E04]</li>
                 </ul>
               </div>
             </div>
@@ -413,13 +438,16 @@
   <!-- RIOT APP -->
   <script src="dist/ctc-tags.js"></script>
 
-  <script type="text/javascript" src="config/portfolio-config.js"></script>
-  <script type="text/javascript" src="config/web-config.js"></script>
+  <script type="text/javascript" src="config/game-narrative-config.js"></script>
+  <script type="text/javascript" src="config/game-quest-config.js"></script>
+  <script type="text/javascript" src="config/video-samples-config.js"></script>
   <script type="text/javascript" src="config/writing-samples-config.js"></script>
   <script type="text/javascript" src="config/critical-reception-config.js"></script>
+
+  <script type="text/javascript" src="config/web-engineering-config.js"></script>
+  <script type="text/javascript" src="config/web-rich-media-config.js"></script>
   <script type="text/javascript" src="config/publications-config.js"></script>
-  <script type="text/javascript" src="config/video-samples-config.js"></script>
-  <script type="text/javascript" src="config/vo-config.js"></script>
+  <!-- <script type="text/javascript" src="config/vo-config.js"></script> -->
 
   <item-modal id="modal-container"></item-modal>
 

@@ -1,7 +1,18 @@
 var writingSampleItems = [
 
   {
-    headline: 'Screenplay'
+    headline: 'Screenplay & Game'
+  },
+
+  {
+    title: 'Cosmic Heresy',
+    url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_CosmicHeresy.pdf',
+    // venue: 'Screenplay',
+    primaryTags: [
+      'screenplay',
+      '3 pages',
+      'eldritch horror'
+    ]
   },
 
   {
@@ -14,7 +25,7 @@ var writingSampleItems = [
       'comedic fantasy'
     ]
   },
-
+/*
   {
     title: 'By Lout and Loot',
     url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_ByLoutAndLute.pdf',
@@ -25,7 +36,7 @@ var writingSampleItems = [
       'comedic fantasy'
     ]
   },
-
+*/
   {
     title: 'Strings',
     url: 'http://connorthomascleary.com/wrt/ClearyConnor_WritingSample_Strings.pdf',
@@ -74,8 +85,8 @@ var writingSampleItems = [
 
   {
     title: 'Segfault[0]: Mad Hatter',
-    url: 'http://connorthomascleary.com/#item:segfault[0]--mad-hatter',
-    target: '_self',
+    url: 'https://connorthomascleary.com/games/segfault-0/Segfault-0-Mad-Hatter_v1.1.html',
+    // target: '_self',
     // venue: 'Twine',
     primaryTags: [
       'twine',
@@ -87,8 +98,8 @@ var writingSampleItems = [
 
   {
     title: 'Roggy and the Beast',
-    url: 'http://connorthomascleary.com/#item:roggy-and-the-beast',
-    target: '_self',
+    url: 'https://connorthomascleary.com/games/roggy-and-the-beast/Roggy_and_the_Beast_1.5.html',
+    // target: '_self',
     // venue: 'Twine',
     primaryTags: [
       'twine',

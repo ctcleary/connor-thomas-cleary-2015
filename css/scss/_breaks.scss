@@ -1,12 +1,12 @@
 $max-content-width: 1080px;
 
 $breakpoints: (
-  'x-small'  : ( max-width:  330px ),
+  'x-small'  : ( max-width:  430px ),
   // 'small'  : ( max-width:  490px ),
-  'small'  : ( max-width:  515px ),
+  'small'  : ( max-width:  620px ),
   // 'medium' : ( max-width:  720px ),
   'medium' : ( max-width:  820px ),
-  'large'  : ( max-width: 1200px ),
+  'large'  : ( max-width: 1080px ),
   'x-large'  : ( max-width: 1500px ),
   'xx-large'  : ( min-width: 1500px )
 );

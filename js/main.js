@@ -22,59 +22,87 @@
 
 
 // Sticky menu with jQ
-(function() {
-  var mainNavWrap  = $('.main-nav-wrapper');
-  var mainNav  = mainNavWrap.children('.main-nav');
-  var isSticky = 'is-sticky';
-  var stickyThreshold = $(mainNav).height()*2;
+// (function() {
+//   var mainNavWrap  = $('.main-nav-wrapper');
+//   var mainNav  = mainNavWrap.children('.main-nav');
+//   var isSticky = 'is-sticky';
+//   var stickyThreshold = $(mainNav).height()*2;
 
-  var heroHeight =  $('.hero').height();
-  var heroVid = $('.hero-vid')[0];
+//   var heroHeight =  $('.hero').height();
+//   var heroVid = $('.hero-vid')[0];
 
-  $(window).scroll(function() {
-    if( $(this).scrollTop() > stickyThreshold ) {
-      mainNavWrap.addClass(isSticky);
-      mainNav.addClass(isSticky);
-    } else {
-      mainNavWrap.removeClass(isSticky);
-      mainNav.removeClass(isSticky);
-    }
-  });
-})();
+//   $(window).scroll(function() {
+//     if( $(this).scrollTop() > stickyThreshold ) {
+//       mainNavWrap.addClass(isSticky);
+//       mainNav.addClass(isSticky);
+//     } else {
+//       mainNavWrap.removeClass(isSticky);
+//       mainNav.removeClass(isSticky);
+//     }
+//   });
+// })();
 
 
 // Lazy copypasta smooth scroll on anchor clicks.
-$(function() {
-  var navbarSpacing = 62;
+// $(function() {
+//   var navbarSpacing = 62;
 
-  var shortcutTest = /^(#|)shortcut\:/;
-  function isShortcutHash(currHash) {
-    return shortcutTest.test(currHash);
+//   var shortcutTest = /^(#|)shortcut\:/;
+//   function isShortcutHash(currHash) {
+//     return shortcutTest.test(currHash);
+//   }
+
+//   $('a[href*=#]:not([href=#])').click(function() {
+//     if (isShortcutHash(this.hash)) {
+//       return;
+//     }
+//     if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+//       var target = $(this.hash);
+//       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//       if (target.length) {
+//         // Hacky solution. Inconsistent. TODO figure this out.
+//         var targetScrollPoint = target.offset().top - navbarSpacing;
+//         // var nav = $(".main-nav-wrapper")[0];
+//         // var navHeight = (nav) ? nav.clientHeight : 0;
+//         // navHeight = navHeight + 20; 
+//         //console.log("navHeight ::", navHeight);
+//         // console.log("targetScrollPoint ::", targetScrollPoint);
+//         $('html,body').animate({
+//           scrollTop: targetScrollPoint
+//         }, 1000);
+//         return false;
+//       }
+//     }
+//   });
+// });
+
+// Mobile nav menu
+const mobileNav = () => {
+  const hamburgerBtn = document.getElementById('mobile-nav-hamburger-container');
+  const mobileMenu = document.getElementById('mobile-nav-container');
+  const mobileMenuLinks = $('#mobile-nav-container a');
+
+  const mobileCloseBtn = document.getElementById('mobile-nav-close');
+
+  const toggleMenu = () => {
+    hamburgerBtn.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
   }
 
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (isShortcutHash(this.hash)) {
-      return;
-    }
-    if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        // Hacky solution. Inconsistent. TODO figure this out.
-        var targetScrollPoint = target.offset().top - navbarSpacing;
-        // var nav = $(".main-nav-wrapper")[0];
-        // var navHeight = (nav) ? nav.clientHeight : 0;
-        // navHeight = navHeight + 20; 
-        //console.log("navHeight ::", navHeight);
-        // console.log("targetScrollPoint ::", targetScrollPoint);
-        $('html,body').animate({
-          scrollTop: targetScrollPoint
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+  const closeMenu = () => {
+    console.log("closeMenu");
+    hamburgerBtn.classList.remove('hidden');
+    mobileMenu.classList.add('hidden');
+  }
+
+  hamburgerBtn.addEventListener('click', toggleMenu);
+  // mobileMenu.addEventListener('click', toggleMenu);
+  mobileMenuLinks.on('click', toggleMenu);
+
+  mobileCloseBtn.addEventListener('click', closeMenu);
+}
+
+document.addEventListener('DOMContentLoaded', mobileNav);
 
 
 // Riot app, etc.
@@ -123,11 +151,19 @@ window.modalControl = (function() {
 })();
 
 // SLATE KIND ITEMS -- src: config/*-config.js
-var portfolioItems = portfolioItems;
-var webItems = webItems || [];
+
+var gameNarrativeItems = gameNarrativeItems || [];
+var gameQuestItems = gameQuestItems || [];
+
+var webEngineeringItems = webEngineeringItems || [];
+var webRichMediaItems = webRichMediaItems || [];
 var videoSamplesItems = videoSamplesItems || [];
-var allSlateItems = [].concat(portfolioItems)
-                      .concat(webItems)
+var gameOtherItems = gameOtherItems || [];
+var allSlateItems = [].concat(gameNarrativeItems)
+                      .concat(gameQuestItems)
+                      .concat(gameOtherItems)
+                      .concat(webEngineeringItems)
+                      .concat(webRichMediaItems)
                       .concat(videoSamplesItems);
 
 // TEXT KIND ITEMS
@@ -232,19 +268,37 @@ var presetFilters = {
   appsConfig.hideFilters = true;
 
 try {
-  var portfolio = riot.mount(
-    '#portfolio-app',
+  var gameNarrative = riot.mount(
+    '#game-narrative-app',
     'tags-app',
     {
       // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
       appConfig: appsConfig,
-      presetFilters: presetFilters.portfolio,
-      searchPhrase: 'Filter portfolio by skill:',
+      // presetFilters: presetFilters.portfolio,
+      removeFilters: true,
+      searchPhrase: 'Filter narrative work by skill:',
       tagsClass: 'skill-tags',
       itemsWrapClass: 'slates-wrapper',
       itemsHoldClass: 'slates-holder',
       itemsClass: 'slate-item',
-      tagsItems: portfolioItems
+      tagsItems: gameNarrativeItems
+    }
+  );
+
+  var gameQuest = riot.mount(
+    '#game-quest-app',
+    'tags-app',
+    {
+      // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+      appConfig: appsConfig,
+      // presetFilters: presetFilters.portfolio,
+      removeFilters: true,
+      searchPhrase: 'Filter quest and design work by skill:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'slates-wrapper',
+      itemsHoldClass: 'slates-holder',
+      itemsClass: 'slate-item',
+      tagsItems: gameQuestItems
     }
   );
 
@@ -253,8 +307,8 @@ try {
     'tags-app',
     {
       appConfig: appsConfig,
-      presetFilters: presetFilters.video,
-      // removeFilters: true,
+      // presetFilters: presetFilters.video,
+      removeFilters: true,
       searchPhrase: 'Filter videos by tag:',
       tagsClass: 'skill-tags',
       itemsWrapClass: 'slates-wrapper',
@@ -270,7 +324,7 @@ try {
     {
       // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
       appConfig: appsConfig,
-      presetFilters: presetFilters.publications,
+      // presetFilters: presetFilters.publications,
       removeFilters: true,
       searchPhrase: 'Filter samples by tag:',
       tagsClass: 'skill-tags',
@@ -297,21 +351,54 @@ try {
       tagsItems: criticalReceptionItems
     }
   );
+
+  var gameOther = riot.mount(
+    '#game-other-app',
+    'tags-app',
+    {
+      appConfig: appsConfig,
+      // presetFilters: presetFilters.publications,
+      removeFilters: true,
+      searchPhrase: 'Filter samples by tag:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'slates-wrapper',
+      itemsHoldClass: 'slates-holder',
+      itemsClass: 'slate-item',
+      tagsItems: gameOtherItems
+    }
+  );
   
-   var web = riot.mount(
-    '#web-app',
+   var webEngineering = riot.mount(
+    '#web-engineering-app',
     'tags-app',
     {
       // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
       appConfig: appsConfig,
-      presetFilters: presetFilters.web,
+      // presetFilters: presetFilters.web,
       removeFilters: true,
       searchPhrase: 'Filter web work by skill:',
       tagsClass: 'skill-tags',
       itemsWrapClass: 'slates-wrapper',
       itemsHoldClass: 'slates-holder',
       itemsClass: 'slate-item',
-      tagsItems: webItems
+      tagsItems: webEngineeringItems
+    }
+  );
+
+  var webRichMedia = riot.mount(
+    '#web-rich-media-app',
+    'tags-app',
+    {
+      // itemLimit: 3, // TODO this looks ugly as sin for slate type items.
+      appConfig: appsConfig,
+      // presetFilters: presetFilters.web,
+      removeFilters: true,
+      searchPhrase: 'Filter rich media work by skill:',
+      tagsClass: 'skill-tags',
+      itemsWrapClass: 'slates-wrapper',
+      itemsHoldClass: 'slates-holder',
+      itemsClass: 'slate-item',
+      tagsItems: webRichMediaItems
     }
   );
 
@@ -320,7 +407,7 @@ try {
     'tags-app',
     {
       appConfig: appsConfig,
-      presetFilters: presetFilters.publications,
+      // presetFilters: presetFilters.publications,
       removeFilters: true,
       searchPhrase: 'Filter publications by type:',
       tagsClass: 'skill-tags',
@@ -336,7 +423,7 @@ try {
     'tags-app',
     {
       appConfig: appsConfig,
-      presetFilters: presetFilters.journalism,
+      // presetFilters: presetFilters.journalism,
       searchPhrase: 'Filter articles by tag:',
       itemLimit: 10,
       tagsClass: 'skill-tags',
