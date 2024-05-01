@@ -1,5 +1,5 @@
-var imgBaseDir = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
-
+// var imgBaseDir = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
+var imgBaseDir = './assets/img/';
 /* -- Size Reference --
 Slate: 400 x 260
 Hero: width = 980 - 1200

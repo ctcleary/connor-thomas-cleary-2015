@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
+          // base: 'static-build',
           port: 8000
         }
       }
@@ -48,7 +49,7 @@ module.exports = function(grunt) {
         ],
         options: {
           livereload: true
-        },
+        }
       },
       riot: {
         files: 'src/components/*.tag',
@@ -90,6 +91,13 @@ module.exports = function(grunt) {
           {expand: true, src: ['dist/**/*.js'], dest: 'static-build/'},
           {expand: true, src: ['fonts/**/*.*'], dest: 'static-build/'},
           {expand: true, src: ['*.html'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.html'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.js'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.png'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.jpg'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.mp4'], dest: 'static-build/'},
+          {expand: true, src: ['assets/**/*.webm'], dest: 'static-build/'},
+          {expand: true, src: ['favicon.*'], dest: 'static-build/'},
         ]
       }
     },
@@ -153,6 +161,8 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'riot',
     'buildcss',
+    'clean:static-build',
+    'copy:static-build',
     'connect',
     'watch'
   ]);

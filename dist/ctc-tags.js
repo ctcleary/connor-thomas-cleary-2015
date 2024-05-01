@@ -246,12 +246,13 @@ riot.tag('tagged-item-content', '<div class="info"><div class="item"><div class=
   
 });
 riot.tag('tagged-item', '<button if="{this.hasModal}" class="modal-button" onclick="{this.getClickAction()}" ><div class="tagged-item-flavor"><img if="{this.opts.slate.url}" riot-src="{this.opts.slate.url}" class="item-image"><iframe if="{this.opts.slate.ifrmUrl}" riot-src="{this.opts.slate.ifrmUrl}" class="item-ifrm" scrolling="no"></iframe></div><div if="{this.opts.slate.ifrmUrl}" class="ifrm-cover"></div><tagged-item-content if="{!this.hasUrl}" title="{this.opts.title}" venue="{this.opts.venue}" ></tagged-item-content></button><a if="{!this.hasModal}" href="{this.opts.url}" ><tagged-item-content title="{this.opts.title}" venue="{this.opts.venue}" pullquote="{this.opts.pullquote}" ></tagged-item-content></a>', 'class="{ parent.opts.itemsClass } { w-modal: this.hasModal } { w-url: this.hasUrl } { w-ifrm: this.hasIfrm }"', function(opts) {
-    this.hasModal   = !!this.opts.modal;
-    this.hasUrl     = !!this.opts.url;
-    this.hasIfrm    = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
+    this.hasModal    = !!this.opts.modal;
+    this.hasUrl      = !!this.opts.url;
+    this.hasIfrm     = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
+    this.hasHeadline = !!this.opts.headline;
     
-    if (this.hasModal && this.hasUrl || !this.hasModal && !this.hasUrl ) {
-      window.debug.warn("WARNING: Bad config. An item should have either modal or url.");
+    if (this.hasModal && this.hasUrl || !this.hasModal && !this.hasUrl && !this.hasHeadline ) {
+      window.debug.warn("WARNING: Bad config. An item should have either modal or url, unless it is a headline.");
     }
 
     this.initModal = function() {

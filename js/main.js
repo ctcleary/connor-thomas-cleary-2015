@@ -77,19 +77,19 @@
 // });
 
 // Mobile nav menu
-const mobileNav = () => {
+const mobileNav = function() {
   const hamburgerBtn = document.getElementById('mobile-nav-hamburger-container');
   const mobileMenu = document.getElementById('mobile-nav-container');
   const mobileMenuLinks = $('#mobile-nav-container a');
 
   const mobileCloseBtn = document.getElementById('mobile-nav-close');
 
-  const toggleMenu = () => {
+  const toggleMenu = function() {
     hamburgerBtn.classList.toggle('hidden');
     mobileMenu.classList.toggle('hidden');
   }
 
-  const closeMenu = () => {
+  const closeMenu = function() {
     console.log("closeMenu");
     hamburgerBtn.classList.remove('hidden');
     mobileMenu.classList.add('hidden');

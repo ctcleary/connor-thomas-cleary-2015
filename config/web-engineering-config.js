@@ -1,5 +1,8 @@
-var imgBaseDir  = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
-var ifrmBaseDir = (window.location.hostname === 'localhost') ? '/local-design/ifrm/' : 'https://connorthomascleary.com/ifrm/';
+// var imgBaseDir  = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
+// var ifrmBaseDir = (window.location.hostname === 'localhost') ? '/local-design/ifrm/' : 'https://connorthomascleary.com/ifrm/';
+
+var imgBaseDir = './assets/img/';
+var ifrmBaseDir = './assets/ifrm/';
 
 var webEngineeringItems = [
   // NOTE: Slate type items can't handle headlines.
@@ -11,6 +14,7 @@ var webEngineeringItems = [
     title: 'Particle Blastr (WIP)',
     venue: 'Javascript Utility',
     slate: {
+      // url: imgBaseDir + 'slates/slate-web-particleblastr.jpg',
       ifrmUrl: ifrmBaseDir + 'particle-blastr/particle-blastr-slate.html',
       position: 'center center'
     },
@@ -106,6 +110,7 @@ var webEngineeringItems = [
     title: 'Anim@niac Player',
     venue: 'IMDb/Amazon',
     slate: {
+      // url: imgBaseDir + 'slates/slate-web-animaniac.jpg',
       ifrmUrl: ifrmBaseDir + 'animaniac/animaniac-slate.html',
       position: 'center center'
     },
@@ -334,6 +339,7 @@ var webEngineeringItems = [
     title: 'Alphalfa Player',
     venue: 'IMDb/Amazon',
     slate: {
+      // url: imgBaseDir + 'slates/slate-web-alphalfa.jpg',
       // url: imgBaseDir + 'slates/slate-alphalfa.jpg',
       // position: 'center 85%'
       ifrmUrl: ifrmBaseDir + 'alphalfa/alphalfa-slate.html',
@@ -387,6 +393,7 @@ var webEngineeringItems = [
     title: 'Reely Player',
     venue: 'IMDb/Amazon',
     slate: {
+      // url: imgBaseDir + 'slates/slate-web-reely.jpg',
       ifrmUrl: ifrmBaseDir + 'reely/reely-slate.html'
       // url: imgBaseDir + 'slates/slate-reely.jpg',
       // position: 'center center'

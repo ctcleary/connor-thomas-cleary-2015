@@ -101,11 +101,11 @@ h2 {
     font-size: 22px;
   }
 }
-@include respond-to(x-small) {
-  h1 {
-    font-size: 18px;
-  }
-  h2, h3 {
-    font-size: 16px;
-  }
-}
+// @include respond-to(x-small) {
+//   h1 {
+//     font-size: 18px;
+//   }
+//   h2, h3 {
+//     font-size: 16px;
+//   }
+// }

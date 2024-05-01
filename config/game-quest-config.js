@@ -1,4 +1,5 @@
-var imgBaseDir = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
+// var imgBaseDir = (window.location.hostname === 'localhost') ? '/local-design/img/' : 'https://connorthomascleary.com/assets/img/';
+var imgBaseDir = './assets/img/';
 
 var gameQuestItems = [
 
@@ -7,7 +8,7 @@ var gameQuestItems = [
     shortcut: 'loveshorn',
 
     title: 'Loveshorn in Glenrock',
-    venue: 'Solo',
+    venue: 'Mod Tools',
     slate: {
       url: imgBaseDir + 'slates/slate-loveshorn.jpg',
       position: 'center top'
@@ -29,6 +30,9 @@ var gameQuestItems = [
         vimeo: '163503889',
       },
       description: ['.item-desc',
+        ['p',
+          ['a', { href: 'https://connorthomascleary.com/assets/docs/LoveshornInGlenrock_QuestDesign.pdf', target: '_blank'}, 'View the Quest Design Flowchart']
+        ],
         ['p', 'A short narrative-focused level where you are asked to intervene in the social drama of a small town called Glenrock. Will you be vindictive or forgiving? Will you run people out of town for their sins, or help them put their lives back together?'],
         ['p', 'There are over 13 different end states, and countless paths through the complex social fabric of Glenrock. Resolve the problems however you see fit!'],
         ['hr'],
@@ -45,14 +49,7 @@ var gameQuestItems = [
         href: 'http://steamcommunity.com/sharedfiles/filedetails/?id=654487484',
         text: 'Play it on Steam!',
         target: '_blank'
-      },
-      info: [
-        'a', {
-          href: 'http://connorthomascleary.com/assets/docs/LoveshornInGlenrock_QuestDesign.pdf',
-          target: '_blank'
-        },
-        'Quest Design Flow Chart'
-      ]
+      }
     }
   },
 
@@ -61,7 +58,7 @@ var gameQuestItems = [
     shortcut: 'skeletonkey',
 
     title: 'Skeleton Key',
-    venue: 'Solo',
+    venue: 'Mod Tools',
     slate: {
       url: imgBaseDir + '/slates/slate-skeletonkey.jpg',
       position: 'right center'
@@ -242,7 +239,7 @@ var gameQuestItems = [
     shortcut: 'summoner',
 
     title: 'Summoner: The Bescarfed',
-    venue: 'Solo',
+    venue: 'Indie Dev',
     slate: {
       url: imgBaseDir + '/slates/slate-summoner.jpg',
       position: 'left center'
@@ -266,6 +263,9 @@ var gameQuestItems = [
         position: 'center bottom'
       },
       description: ['.item-desc',
+        ['p',
+          ['a', { href: 'https://connorthomascleary.com/wrt/ClearyConnor_DesignDoc_SummonerTheBescarfed.pdf', target: '_blank'}, 'View the Design Doc']
+        ],
         ['p', 'The epic tale of a humble youth, Young Hero, who must take up the Scarf of Strategically-Limited Power to protect his village from the oncoming hordes of admittedly absurd abominations.'],
         ['p', 'Forsooth, this mystical Scarf, bestowed upon our youth by the Village Elder, grants him the power to summon and command powerful demons through magicks ancient, arcane, and spelled with a "k."'],
         ['p&', 'However... said magicks are also slowly devouring Young Hero\'s pure soul! (Probably.) So there is a <strong>terrible price to pay!</strong> Bearing the weight of all those demons in the form of one fuzzy muffler can really take its toll on a guy. Luckily, our hero is just the right sort of selfless fellow to lay it all on the line for his beloved village.'],
@@ -284,10 +284,10 @@ var gameQuestItems = [
         text: 'Play Unity Build (Windows Only)',
         target: '_blank'
       },
-      // info: ['a', 
-      //   { href: 'http://connorthomascleary.com/games/summoner-the-bescarfed/' },
-      //   'Play Flash Prototype'
-      // ]
+      info: ['a', 
+        { href: 'http://connorthomascleary.com/wrt/ClearyConnor_DesignDoc_SummonerTheBescarfed.pdf' },
+        'View Design Doc'
+      ]
     }
   },
 
@@ -296,7 +296,7 @@ var gameQuestItems = [
     shortcut: 'smiley',
 
     title: 'Smiley Breaks Out',
-    venue: 'Solo',
+    venue: 'Hobby',
     slate: {
       url: imgBaseDir + '/slates/slate-smiley.jpg',
       position: 'center top'

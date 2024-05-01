@@ -117,10 +117,16 @@ section:nth-child(2n) {
 @include respond-to(medium) {
   .portfolio .slate-item {
   }
+
+  .portfolio {
+    .item {
+      text-align: left;
+    }
+  }
 }
 @include respond-to(small) {
   .portfolio .slate-item {
-    max-width: 400px;
+    max-width: 360px;
     
   }
 }

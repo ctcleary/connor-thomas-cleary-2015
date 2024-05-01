@@ -29,12 +29,13 @@
 
 
   <script>
-    this.hasModal   = !!this.opts.modal;
-    this.hasUrl     = !!this.opts.url;
-    this.hasIfrm    = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
+    this.hasModal    = !!this.opts.modal;
+    this.hasUrl      = !!this.opts.url;
+    this.hasIfrm     = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
+    this.hasHeadline = !!this.opts.headline;
     
-    if (this.hasModal && this.hasUrl || !this.hasModal && !this.hasUrl ) {
-      window.debug.warn("WARNING: Bad config. An item should have either modal or url.");
+    if (this.hasModal && this.hasUrl || !this.hasModal && !this.hasUrl && !this.hasHeadline ) {
+      window.debug.warn("WARNING: Bad config. An item should have either modal or url, unless it is a headline.");
     }
 
     this.initModal = function() {
