@@ -38,6 +38,7 @@ var webEngineeringItems = [
       description: ['.item-desc',
         ['p', ['em', '(The above sample content is best viewed with a desktop browser.)']],
         ['p', 'A customizable particle effects generator created in pure javascript, utilizing HTML5 canvas drawing.'],
+        ['p', ['strong', 'NOTE: '], 'Please check out the particle-blastr.js Sandbox (built with React) by following the big blue button in the sidebar! '],
         ['p', ['strong', 'Customization options currently include:']],
         ['ul', [
           ['li', 'Shape selection: Circle, Square, Rectangle, and Rounded Rectangle -- or, alternatively, can be drawn based on an Image.'],
@@ -60,6 +61,10 @@ var webEngineeringItems = [
       ],
       // info: ['p', 
       // ]
+      cta: {
+        href: 'https://connorthomascleary.com/examples/particle-blastr/index.html',
+        text: 'Try the particle-blastr.js Sandbox!'
+      }
     }
   },
 

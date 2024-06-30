@@ -901,7 +901,7 @@ tagged-item .modal-button {
 tagged-item .info {
   position: relative;
   width: 100%;
-  padding: 6px 6px 20px 6px;
+  padding: 6px 12px 20px 12px;
 }
 tagged-item .cover {
   position: relative;
