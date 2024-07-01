@@ -1,3 +1,20 @@
+riot.tag('featured-app', '<div id="featured-app"><h1 class="featured-title">{this.opts.appConfig.title}</h1><p class="featured-subtitle" if="{!!this.opts.appConfig.subtitle}">{this.opts.appConfig.subtitle}</p><div class="app-contents"><div class="gallery"><div class="slides-container"><virtual each="{this.getGalleryConfig()}"><div class="slide-container"><div class="slide"><img class="slide-image" riot-src="{url}"><p class="slide-caption"> {caption} </p></div></div></virtual></div><div class="controls"><button class="gallery-nav go-left"><img src="assets/img/gallery-left-1.png"></button><button class="gallery-nav go-right"><img src="assets/img/gallery-right-1.png"></button></div></div><div class="blurb"><p> {this.getBlurb()} </p></div></div></div>', function(opts) { 
+    this.galleryConfig = this.opts.appConfig.gallery;
+    this.blurbConfig = this.opts.appConfig.blurb;
+
+    this.getGalleryConfig = function() {
+      console.log('this.galleryConfig', this.galleryConfig);
+      return this.galleryConfig;
+    }
+
+    this.getBlurb = function() {
+      return this.blurbConfig.blurb;
+    }
+
+
+  
+});
+
 riot.tag('item-modal', '<article><div class="item-modal-viewport" riot-style="{this.getTransitionStyle()}"><div class="item-modal-lightbox" onclick="{this.dismissModal}"></div><div class="item-modal-wrapper"><div class="item-modal-container"><div class="item-modal-close" onclick="{this.dismissModal}"></div><div class="item-modal" riot-style="{this.getModalStyle()}"><div class="item-modal-header"><h1 class="item-modal-headline"> {this.modalTitle} </h1><div class="item-hero-container"><div class="item-modal-hero" if="{!this.isCustomHero && !this.isVimeoHero && !this.isYoutubeHero && !this.isIfrmHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-custom-hero" if="{this.isCustomHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-vimeo-hero" if="{this.isVimeoHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-youtube-hero" if="{this.isYoutubeHero}" riot-style="{this.getHeroStyle()}" ></div><div class="item-modal-ifrm-hero" if="{this.isIfrmHero}" riot-style="{this.getHeroStyle()}" ></div></div></div>  <div class="item-modal-contents"><div class="item-modal-description"><h2> Description </h2></div><div class="item-modal-sidebar"><div if="{this.hasCTA}" class="item-modal-cta item-modal-sidebar-section"></div><div if="{this.hasInfo}" class="item-modal-info item-modal-sidebar-section"><h2> Info </h2></div><div if="{this.hasTags}" class="item-modal-tags item-modal-sidebar-section"><h2> Tagged </h2></div><div if="{this.hasSkills}" class="item-modal-skills item-modal-sidebar-section"><h2> Skills </h2></div></div></div>  </div>  </div></div></div></article>', function(opts) {
     var modalConfig = this.opts.modal;
     this.transitionLengthS = 0.25;
@@ -250,9 +267,12 @@ riot.tag('tagged-item', '<button if="{this.hasModal}" class="modal-button" oncli
     this.hasUrl      = !!this.opts.url;
     this.hasIfrm     = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
     this.hasHeadline = !!this.opts.headline;
-    
-    if (this.hasModal && this.hasUrl || !this.hasModal && !this.hasUrl && !this.hasHeadline ) {
-      window.debug.warn("WARNING: Bad config. An item should have either modal or url, unless it is a headline.");
+
+    if (this.hasModal && this.hasUrl) {
+      window.debug.warn("WARNING: Bad config. This item has both modal and url, it should have one or the other.", this.opts);
+    }
+    if (!this.hasModal && !this.hasUrl && !this.hasHeadline) {
+      window.debug.warn("WARNING: Bad conifg. This item has no modal, no url, and no headline.", this.opts);
     }
 
     this.initModal = function() {

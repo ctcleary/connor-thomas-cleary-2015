@@ -450,6 +450,15 @@ try {
     }
   ); */
 
+  console.log(featuredConfig)
+  var featured = riot.mount(
+    '#featured-project-app',
+    'featured-app',
+    {
+      appConfig: featuredConfig
+    }
+  );
+
 
 } catch (e) {
   window.debug.error("Error mounting app, e ::", e, e.stack);
