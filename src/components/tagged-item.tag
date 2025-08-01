@@ -33,13 +33,16 @@
     this.hasUrl      = !!this.opts.url;
     this.hasIfrm     = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
     this.hasHeadline = !!this.opts.headline;
+
+    console.log('this.opts.headline', this.opts.headline)
     
     // If it has both modal and url, that's a problem, if it has neither AND no headline, that's a problem.
     if (this.hasModal && this.hasUrl) {
       window.debug.warn("WARNING: Bad config. This item has both modal and url, it should have one or the other.", this.opts);
     }
     if (!this.hasModal && !this.hasUrl && !this.hasHeadline) {
-      window.debug.warn("WARNING: Bad conifg. This item has no modal, no url, and no headline.", this.opts);
+      // This seems to be giving a false warning about all 'headline' items?
+      window.debug.warn("WARNING: Bad config. This item has no modal, no url, and no headline.", this.opts);
     }
 
     this.initModal = function() {

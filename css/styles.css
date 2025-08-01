@@ -94,7 +94,6 @@ h2 {
   h1 {
     font-size: 28px;
   }
-
   h2, h3 {
     font-size: 22px;
   }
@@ -381,11 +380,9 @@ body div.section {
   #newmain-nav {
     display: none;
   }
-
   #mobile-nav-hamburger-container {
     display: block;
   }
-
   #mobile-nav-container {
     display: block;
   }
@@ -848,12 +845,10 @@ tagged-item .item-icon {
         -ms-flex-flow: space-between;
             flex-flow: space-between;
   }
-
   .tags-filters-header {
     height: 20%;
     width: 100%;
   }
-
   .filter-type-container {
     display: block;
     margin-bottom: 15px;
@@ -861,11 +856,9 @@ tagged-item .item-icon {
   .filter-type-container.is-hidden {
     display: block;
   }
-
   .tags-filters-buttons-wrapper {
     height: 80%;
   }
-
   .hide-filters {
     position: absolute;
     top: 0;
@@ -1222,7 +1215,6 @@ tagged-item.video-item .item-youtube {
   .item-modal-viewport .item-modal-wrapper .item-modal-close {
     display: inline-block;
   }
-
   .item-modal .item-modal-contents {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1605,16 +1597,16 @@ section:nth-child(2n) .portfolio .slate-item .info {
     padding-left: 2%;
   }
   .pubs-wrapper .pub-item .item .item-title,
-.pubs-wrapper .pub-item .item .item-venue {
+  .pubs-wrapper .pub-item .item .item-venue {
     font-size: 14px;
   }
   .pubs-wrapper .pub-item .item .item-title,
-.pubs-wrapper .pub-item .item .item-venue,
-.pubs-wrapper .pub-item .item .item-tags {
+  .pubs-wrapper .pub-item .item .item-venue,
+  .pubs-wrapper .pub-item .item .item-tags {
     display: block;
   }
   .pubs-wrapper .pub-item .item .item-venue:before,
-.pubs-wrapper .pub-item .item .item-tags:before {
+  .pubs-wrapper .pub-item .item .item-tags:before {
     display: none;
   }
   .pubs-wrapper .pub-item .item .item-tags:before {
@@ -1741,7 +1733,7 @@ section:nth-child(2n) .portfolio .slate-item .info {
     margin-left: 1.15em;
   }
   .skills-container .skills-segment h3, .skills-container .skills-segment > ul,
-.skills-container .skills-segment .note {
+  .skills-container .skills-segment .note {
     margin-left: 0;
   }
 }
@@ -1816,7 +1808,6 @@ section:nth-child(2n) .portfolio .slate-item .info {
   .footer {
     padding: 6px;
   }
-
   .copyrights {
     font-size: 8px;
   }
@@ -1940,6 +1931,24 @@ footer {
 }
 #featured-app .app-contents {
   position: relative;
+}
+#featured-app .app-contents #featured-trailer {
+  max-width: 100%;
+}
+#featured-app .app-contents .featured-blurb {
+  max-width: 60%;
+  min-width: 430px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+#featured-app .app-contents .featured-cta {
+  color: #f7f7f7;
+  font-size: 18px;
+  background-color: #3E7CF7;
+  border: thin solid #3E7CF7;
+  padding: 8px 20px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 #featured-app .app-contents .gallery {
   position: relative;

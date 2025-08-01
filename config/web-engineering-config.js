@@ -7,11 +7,57 @@ var ifrmBaseDir = './assets/ifrm/';
 var webEngineeringItems = [
   // NOTE: Slate type items can't handle headlines.
   
+  // Summmoner
+  {
+    shortcut: 'summoner',
+
+    title: 'Summoner: The Bescarfed (2024)',
+    venue: 'Indie Dev',
+    slate: {
+      url: imgBaseDir + 'slates/slate-summonerjs.jpg',
+      position: 'center top'
+    },
+    primaryTags: [
+      'writing',
+      'game design',
+      'coding',
+      'pixel art',
+      'animation',
+    ],
+    secondaryTags: [
+      'javascript',
+    ],
+    modal: {
+      title: 'Summoner: The Bescarfed (2024)',
+      hero: {
+        vimeo: 981816079,
+        // url: imgBaseDir + '/heroes/hero-summonerjs.jpg',
+        // height: 567,
+        // position: 'center center'
+      },
+      description: ['.item-desc', 
+        [
+          ['p', 'The epic tale of a young hero named Yung Hyro who ventures forth from the humble village of Hombel with a fire in his heart, a wand in each hand, and a magickal Scarf of Strategically-Limited Power around his neck. For the forces of Evil are roiling down from the Blackfire Steelmountain of Shadowdarkness, threatening all good things in their path - especially the good lives of the good villagers of Hombel! - and it\'s up to the youth in green and his muffler of blue to stand against the senseless tide of destruction…'],
+          ['p', 'In this pixel-style, side-scrolling 2D action-adventure game, summon monsters and wield magicks mighty, mysterious, and spelled with a k. Master these powerks and save the village! The Village Elder believes in you and the rest of the village is cautiously optimistic!'],
+          ['p', ['strong', '*** Requires a device with a physical keyboard at present. ***']],
+          ['p', 'The project:'],
+          ['p', 'This game is 100% programmed in Javascript using VS Code and Chrome Dev Tools; everything here was created by me with the big exception of the (excellent) free-to-use PhaserJS game framework; placeholder sound effects created with the free-to-use Bfxr; and all art/animation assets created with the (also excellent) pixel art software Aseprite.'],
+          ['p', 'This game is in EARLY PRE-ALPHA and is NOT-A-REAL-BOY, and RIDDLED WITH BUGS probably, but I\'ll try to keep a stable build on the main page. This is only intended as a demo and a proof-of-concept, feel free to send any thoughts or feedback to dev@bescarfed.com or DM me here!'],  
+        ],
+      ],
+      cta: {
+        href: 'https://bescarfed.com',
+        text: 'Play it now!',
+        target: '_blank'
+      }
+    }
+  },
+
   // particle-blastr
   {
     shortcut: 'particle-blastr',
 
-    title: 'Particle Blastr (WIP)',
+    title: 'Particle Blastr',
     venue: 'Javascript Utility',
     slate: {
       // url: imgBaseDir + 'slates/slate-web-particleblastr.jpg',
@@ -61,6 +107,48 @@ var webEngineeringItems = [
       ],
       // info: ['p', 
       // ]
+      cta: {
+        href: 'https://connorthomascleary.com/examples/particle-blastr/index.html',
+        text: 'Try the particle-blastr.js Sandbox!'
+      }
+    }
+  },
+
+  // particle-blastr sandbox
+  {
+    shortcut: 'particle-blastr-sandbox',
+
+    title: 'Particle Blastr Sandbox',
+    venue: 'Javascript Utility',
+    slate: {
+      url: imgBaseDir + 'slates/slate-particle-blastr-sandbox.jpg',
+      position: 'left top'
+    },
+    primaryTags: [
+      'react',
+      'javascript',
+      'web',
+    ],
+    secondaryTags: [],
+    skills: [
+      'javascript',
+      'react',
+      'HTML5',
+      'CSS3',
+    ],
+    // Can't do just a url for slate items.
+    // url: 'https://connorthomascleary.com/examples/particle-blastr/index.html'
+    modal: {
+      title: 'Particle Blastr Sandbox',
+      hero: {
+        // ifrmUrl: ifrmBaseDir + 'particle-blastr/particle-blastr-hero.html',
+        url: imgBaseDir + 'heroes/hero-particle-blastr-sandbox.jpg',
+        height: 565,
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['p', 'Made with React.']
+      ],
       cta: {
         href: 'https://connorthomascleary.com/examples/particle-blastr/index.html',
         text: 'Try the particle-blastr.js Sandbox!'

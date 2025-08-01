@@ -106,9 +106,9 @@ module.exports = function(grunt) {
         src : 'static-build/index.html',
         dest: 'static-build/index.html'
       },
-      'web-static-build': {
-        src : 'static-build/web.html',
-        dest: 'static-build/web.html'
+      'gamedev-static-build': {
+        src : 'static-build/gamedev.html',
+        dest: 'static-build/gamedev.html'
       }
     },
     uglify: {
@@ -172,7 +172,7 @@ module.exports = function(grunt) {
     'clean:static-build',
     'copy:static-build',
     'preprocess:static-build',
-    'preprocess:web-static-build',
+    'preprocess:gamedev-static-build',
     'uglify:static-build',
     'cssmin:static-build'
   ]);

@@ -18,6 +18,29 @@
     .app-contents {
         position: relative;
 
+        #featured-trailer {
+            max-width: 100%;
+        }
+
+        .featured-blurb {
+            max-width: 60%;
+            min-width: 430px;
+            margin: 0 auto;
+
+            margin-bottom: 32px;
+        }
+
+        .featured-cta {
+            color: $almost-white;
+            font-size: 18px;
+            background-color: #3E7CF7;
+            border: thin solid #3E7CF7;
+            padding: 8px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+
         .gallery {
             position: relative;
             display: block;

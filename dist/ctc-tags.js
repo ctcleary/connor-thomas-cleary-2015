@@ -268,11 +268,14 @@ riot.tag('tagged-item', '<button if="{this.hasModal}" class="modal-button" oncli
     this.hasIfrm     = !!this.opts.slate && !!this.opts.slate.ifrmUrl;
     this.hasHeadline = !!this.opts.headline;
 
+    console.log('this.opts.headline', this.opts.headline)
+
     if (this.hasModal && this.hasUrl) {
       window.debug.warn("WARNING: Bad config. This item has both modal and url, it should have one or the other.", this.opts);
     }
     if (!this.hasModal && !this.hasUrl && !this.hasHeadline) {
-      window.debug.warn("WARNING: Bad conifg. This item has no modal, no url, and no headline.", this.opts);
+
+      window.debug.warn("WARNING: Bad config. This item has no modal, no url, and no headline.", this.opts);
     }
 
     this.initModal = function() {

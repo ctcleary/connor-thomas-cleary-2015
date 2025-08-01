@@ -16,6 +16,47 @@ Hero: width = 980 - 1200
 */
 var gameNarrativeItems = [
 
+    // cod-bo7
+  {
+    shortcut: 'cod-bo7',
+
+    title: 'Call of Duty: Black Ops 7',
+    venue: 'Raven Software',
+    slate: {
+      url: imgBaseDir + 'slates/slate-cod-bo7.jpg',
+      position: 'center center'
+    },
+    primaryTags: [
+      'writing',
+      'game design'
+    ],
+    secondaryTags: [
+    ],
+    modal: {
+      title: 'Call of Duty: Black Ops 7',
+      hero: {
+        height: 700,
+        url: imgBaseDir + 'heroes/hero-cod-bo7.jpg',
+        position: 'center center'
+      },
+      description: ['.item-desc',
+        ['ul',
+          ['li', 'Contract writer & narrative designer working closely with game designers on an upcoming Call of Duty game'],
+          ['li', 'Writing compelling mission dialogue to keep players engaged and informed'],
+          ['li', 'Working on complex cinematics writing tasks at every phase in the pipeline'],
+          ['li', 'Editing, revising, and providing actionable feedback/critique on peers\' writing'],
+          ['li', 'Learning proprietary tools and scripting, implementation details, and asset management'],
+        ]
+      ],
+      info: ['div', [
+        ['a', 
+          { href: 'https://www.callofduty.com/', target: '_blank'},
+          'Official Site'
+        ],
+      ]]
+    }
+  },
+
   // clockwork-revolution
   {
     shortcut: 'clockwork',

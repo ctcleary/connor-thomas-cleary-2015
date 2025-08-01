@@ -26,9 +26,10 @@ var gameQuestItems = [
     modal: {
       title: 'Summoner: The Bescarfed (2024)',
       hero: {
-        url: imgBaseDir + '/heroes/hero-summonerjs.jpg',
-        height: 567,
-        position: 'center center'
+        vimeo: 981816079,
+        // url: imgBaseDir + '/heroes/hero-summonerjs.jpg',
+        // height: 567,
+        // position: 'center center'
       },
       description: ['.item-desc', 
         [
